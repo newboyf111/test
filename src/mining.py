@@ -398,13 +398,6 @@ class SingleWindowMiner:
             self.stop_timer()
             # 停止自动挖矿并记录持续时间
             self.stop_auto_mining()
-            # 只有当挖矿线程不是当前线程时，才加入线程
-            if self.mining_thread and self.mining_thread.is_alive():
-                try:
-                    self.mining_thread.join(timeout=2)
-                except RuntimeError:
-                    # 当前线程不能加入自己，忽略错误
-                    pass
             self.logger.info("挖矿结束")
             return True
         return False
