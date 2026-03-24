@@ -401,12 +401,12 @@ class SingleWindowMiner:
     def get_mining_status(self) -> bool:
         return self.is_mining
     
-    def set_timer(self, minutes: int):
-        """设置倒计时（分钟）"""
+    def set_timer(self, seconds: int):
+        """设置倒计时（秒）"""
         self.stop_timer()
-        self.timer_minutes = minutes
-        self.timer_remaining = minutes * 60
-        self.logger.info(f"设置倒计时: {minutes} 分钟")
+        self.timer_minutes = seconds // 60
+        self.timer_remaining = seconds
+        self.logger.info(f"设置倒计时: {seconds} 秒")
     
     def start_timer(self):
         """启动倒计时"""
@@ -867,13 +867,13 @@ class MultiWindowMiningManager:
                             self.logger.info(f"启动窗口 {miner.window_name} 的倒计时")
                         break
     
-    def set_window_timer(self, hwnd: int, minutes: int) -> bool:
-        """设置指定窗口的倒计时"""
+    def set_window_timer(self, hwnd: int, seconds: int) -> bool:
+        """设置指定窗口的倒计时（秒）"""
         with self._lock:
             if hwnd not in self.miners:
                 self.logger.error(f"窗口 {hwnd} 不存在")
                 return False
-            self.miners[hwnd].set_timer(minutes)
+            self.miners[hwnd].set_timer(seconds)
             return True
     
     def start_window_timer(self, hwnd: int) -> bool:
