@@ -596,7 +596,7 @@ class WujindongriGUI:
                 self.log(f"滑动条值: {timer_minutes} 分钟")
                 if timer_minutes > 0:
                     self._start_countdown(timer_minutes)
-        self.root.after(500, self._check_mining_status)
+        self.root.after(1000, self._check_mining_status)
     
     def _start_countdown(self, minutes):
         """启动倒计时"""
