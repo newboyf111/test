@@ -28,7 +28,7 @@ import win32gui
 import win32con
 from pathlib import Path
 from typing import Optional, Tuple, Dict, List
-from collections import defaultdict
+from collections import defaultdict, deque
 
 
 # ─────────────────────────────────────────────
@@ -363,8 +363,6 @@ class SingleWindowMiner:
         if not self.is_mining:
             self.is_mining = True
             self.completed_cycles = 0
-            # 重置窗口激活状态，确保新窗口能够正确激活
-            self._window_activated = False
             size = self._get_window_size()
             if size:
                 self.last_window_size = size
@@ -721,12 +719,10 @@ class SingleWindowMiner:
 
         self._invalidate_screenshot()
         
-        # 只在当前挖矿窗口激活一次，避免来回切换
-        if not hasattr(self, '_window_activated') or not self._window_activated:
-            win32gui.SetForegroundWindow(self.hwnd)
-            time.sleep(0.2)
-            self._window_activated = True
-            self.logger.info(f"激活窗口: {self.window_name}")
+        # 通过 mining_manager 统一管理窗口激活，避免来回切换
+        # 只在窗口切换时激活，不在每次点击时激活
+        # if self.mining_manager:
+        #     self.mining_manager._ensure_window_active(self.hwnd, self.window_name)
         
         # 使用 pyautogui 进行点击（确保点击有效）
         pyautogui.click(screen_x, screen_y)
@@ -748,12 +744,10 @@ class SingleWindowMiner:
                 dy_scaled = dy
                 self.logger.debug("无法获取窗口尺寸，使用原始拖动距离")
             
-            # 只在当前挖矿窗口激活一次，避免来回切换
-            if not hasattr(self, '_window_activated') or not self._window_activated:
-                win32gui.SetForegroundWindow(self.hwnd)
-                time.sleep(0.2)
-                self._window_activated = True
-                self.logger.info(f"激活窗口: {self.window_name}")
+            # 通过 mining_manager 统一管理窗口激活，避免来回切换
+            # 只在窗口切换时激活，不在每次拖动时激活
+            # if self.mining_manager:
+            #     self.mining_manager._ensure_window_active(self.hwnd, self.window_name)
             
             x, y = pyautogui.position()
             pyautogui.mouseDown()
@@ -783,7 +777,14 @@ class MultiWindowMiningManager:
         self.miners: Dict[int, SingleWindowMiner] = {}
         self.logger = logging.getLogger("MultiWindowManager")
         self._lock = threading.Lock()
-        self.window_order: List[int] = []  # 窗口顺序
+        self.window_order: List[int] = []  # 窗口顺序（原始顺序）
+        self._current_active_hwnd: int = None  # 当前激活的窗口句柄
+        
+        # 队列管理窗口挖矿
+        self._mining_queue: deque = deque()  # 待挖矿窗口队列
+        self._mining_scheduler_thread: threading.Thread = None  # 挖矿调度线程
+        self._scheduler_running: bool = False  # 调度器是否运行中
+        self._scheduler_lock = threading.Lock()  # 调度器锁
 
     def add_window(self, hwnd: int, window_name: str = "") -> bool:
         """添加窗口"""
@@ -818,6 +819,24 @@ class MultiWindowMiningManager:
             self.logger.info(f"移除窗口: hwnd={hwnd}")
             return True
 
+    def _ensure_window_active(self, hwnd: int, window_name: str):
+        """
+        确保指定窗口处于激活状态
+        统一管理窗口激活，避免多个窗口来回切换
+        注意：此方法不获取锁，调用者需要确保线程安全
+        """
+        if self._current_active_hwnd != hwnd:
+            # 需要切换窗口
+            if self._current_active_hwnd is not None:
+                self.logger.info(f"切换窗口: 从 {self._current_active_hwnd} 到 {hwnd} ({window_name})")
+            else:
+                self.logger.info(f"激活窗口: {hwnd} ({window_name})")
+            
+            win32gui.SetForegroundWindow(hwnd)
+            time.sleep(0.1)  # 减少等待时间
+            self._current_active_hwnd = hwnd
+        # 如果窗口已经是激活状态，不做任何操作
+
     def start_mining(self, hwnd: int) -> bool:
         """开始指定窗口的挖矿"""
         with self._lock:
@@ -850,6 +869,9 @@ class MultiWindowMiningManager:
 
     def start_first_window(self) -> bool:
         """开始第一个窗口的挖矿"""
+        first_hwnd = None
+        first_window_name = None
+        
         with self._lock:
             if not self.window_order:
                 self.logger.warning("没有窗口")
@@ -861,9 +883,18 @@ class MultiWindowMiningManager:
                     miner = self.miners[hwnd]
                     if miner.start_mining():
                         self.logger.info(f"启动第一个窗口 {miner.window_name} 挖矿")
-                        return True
-            self.logger.info("所有窗口都已挖矿")
-            return False
+                        # 保存窗口信息用于锁外激活
+                        first_hwnd = hwnd
+                        first_window_name = miner.window_name
+                        break
+        
+        # 在锁外激活窗口
+        if first_hwnd is not None:
+            self._ensure_window_active(first_hwnd, first_window_name)
+            return True
+        
+        self.logger.info("所有窗口都已挖矿")
+        return False
 
     def stop_all_mining(self) -> int:
         """停止所有窗口的挖矿"""
@@ -881,6 +912,16 @@ class MultiWindowMiningManager:
             for miner in self.miners.values():
                 miner.mined = False
             self.logger.info("已重置所有窗口的挖矿标记")
+        
+        # 停止调度器（如果正在运行）
+        with self._scheduler_lock:
+            if self._scheduler_running:
+                self._scheduler_running = False
+                self.logger.info("已停止调度器")
+            
+            # 清空队列
+            self._mining_queue.clear()
+            self.logger.info("已清空挖矿队列")
 
     def _on_window_mining_stopped(self, hwnd: int):
         """
@@ -888,22 +929,27 @@ class MultiWindowMiningManager:
         由 SingleWindowMiner 在挖矿停止时调用
         """
         self.logger.info(f"窗口 {hwnd} 挖矿停止")
-        # 确保所有窗口都已停止挖矿
-        self._stop_all_mining_threads()
-        # 尝试启动下一个未标记的窗口
-        self._try_start_next_window()
+        
+        # 如果调度器正在运行，不自动启动下一个窗口（由调度器处理）
+        with self._scheduler_lock:
+            if not self._scheduler_running:
+                # 尝试启动下一个未标记的窗口（非队列模式）
+                self._try_start_next_window()
 
-    def _stop_all_mining_threads(self):
+    def _stop_all_mining_threads(self, except_hwnd: int = None):
         """
         停止所有窗口的挖矿线程
         确保在任何时候只有一个窗口在挖矿
+        
+        Args:
+            except_hwnd: 不停止此窗口的挖矿线程（当前正在挖矿的窗口）
         """
         with self._lock:
-            for miner in self.miners.values():
-                if miner.is_mining:
+            for hwnd, miner in self.miners.items():
+                if hwnd != except_hwnd and miner.is_mining:
                     self.logger.info(f"停止窗口 {miner.window_name} 的挖矿线程")
                     miner.is_mining = False
-                    miner.mined = True
+                    # 不要在这里设置 mined=True，让正常流程来设置
 
     def _try_start_next_window(self):
         """
@@ -912,26 +958,167 @@ class MultiWindowMiningManager:
         从 window_order 中按顺序查找第一个未挖矿的窗口并启动
         确保只有一个窗口在挖矿
         """
-        self.logger.info(f"查找下一个未标记窗口，当前窗口数: {len(self.window_order)}")
+        # 检查是否使用队列模式
+        with self._scheduler_lock:
+            if self._scheduler_running:
+                self.logger.info("队列模式运行中，跳过 _try_start_next_window")
+                return
         
-        # 首先确保所有窗口都已停止挖矿
-        self._stop_all_mining_threads()
+        # 使用锁防止多个线程同时启动新窗口
+        with self._lock:
+            self.logger.info(f"查找下一个未标记窗口，当前窗口数: {len(self.window_order)}")
+            
+            # 查找第一个未标记且未在挖矿的窗口
+            for hwnd in self.window_order:
+                if hwnd in self.miners:
+                    miner = self.miners[hwnd]
+                    self.logger.info(f"检查窗口 {miner.window_name}: mined={miner.mined}, is_mining={miner.is_mining}")
+                    
+                    if not miner.mined and not miner.is_mining:
+                        if miner.start_mining():
+                            self.logger.info(f"自动启动下一个窗口 {miner.window_name} 挖矿")
+                            # 保存窗口信息用于锁外激活
+                            next_hwnd = hwnd
+                            next_window_name = miner.window_name
+                            break
+            else:
+                # 所有窗口都已挖矿
+                all_mined = all(self.miners[h].mined for h in self.window_order if h in self.miners)
+                if all_mined:
+                    self.logger.info("所有窗口都已挖矿完成")
+                return
         
-        # 查找第一个未标记的窗口
-        for hwnd in self.window_order:
-            if hwnd in self.miners:
-                miner = self.miners[hwnd]
-                self.logger.info(f"检查窗口 {miner.window_name}: mined={miner.mined}, is_mining={miner.is_mining}")
+        # 在锁外激活新窗口
+        self._ensure_window_active(next_hwnd, next_window_name)
+    
+    def _mining_scheduler(self):
+        """
+        挖矿调度器 - 单线程顺序执行窗口挖矿
+        
+        从队列中依次取出窗口进行挖矿，一个窗口完成后才启动下一个
+        避免多窗口同时挖矿导致的鼠标来回切换问题
+        """
+        self.logger.info("挖矿调度器启动")
+        
+        while self._scheduler_running:
+            try:
+                # 从队列中取出一个窗口
+                hwnd = None
+                with self._scheduler_lock:
+                    if self._mining_queue:
+                        hwnd = self._mining_queue.popleft()
                 
-                if not miner.mined and not miner.is_mining:
-                    if miner.start_mining():
-                        self.logger.info(f"自动启动下一个窗口 {miner.window_name} 挖矿")
-                        return
+                if hwnd is None:
+                    # 队列为空，等待一段时间再检查
+                    time.sleep(0.5)
+                    continue
+                
+                # 检查窗口是否有效
+                with self._lock:
+                    if hwnd not in self.miners:
+                        self.logger.warning(f"窗口 {hwnd} 不存在，跳过")
+                        continue
+                    miner = self.miners[hwnd]
+                    
+                    # 检查窗口是否已经完成挖矿
+                    if miner.mined:
+                        self.logger.info(f"窗口 {miner.window_name} 已完成挖矿，跳过")
+                        continue
+                    
+                    # 检查窗口是否已经在挖矿（不应该发生）
+                    if miner.is_mining:
+                        self.logger.warning(f"窗口 {miner.window_name} 已经在挖矿，跳过")
+                        continue
+                
+                # 激活窗口并启动挖矿
+                self.logger.info(f"调度器启动窗口 {miner.window_name} 挖矿")
+                self._ensure_window_active(hwnd, miner.window_name)
+                
+                # 启动挖矿（这会创建挖矿线程）
+                if not miner.start_mining():
+                    self.logger.error(f"启动窗口 {miner.window_name} 挖矿失败")
+                    continue
+                
+                # 等待挖矿完成
+                self.logger.info(f"等待窗口 {miner.window_name} 挖矿完成...")
+                while miner.is_mining and self._scheduler_running:
+                    time.sleep(0.5)
+                
+                self.logger.info(f"窗口 {miner.window_name} 挖矿完成或停止")
+                
+                # 检查是否所有窗口都已完成
+                with self._lock:
+                    all_mined = all(m.mined for m in self.miners.values())
+                    if all_mined and not self._mining_queue:
+                        self.logger.info("所有窗口挖矿完成，调度器结束")
+                        break
+                
+            except Exception as e:
+                self.logger.error(f"调度器异常: {e}", exc_info=True)
+                time.sleep(1)
         
-        # 所有窗口都已挖矿
-        all_mined = all(self.miners[h].mined for h in self.window_order if h in self.miners)
-        if all_mined:
-            self.logger.info("所有窗口都已挖矿完成")
+        self.logger.info("挖矿调度器停止")
+        self._scheduler_running = False
+    
+    def start_mining_queue(self) -> bool:
+        """
+        启动队列挖矿 - 使用调度器单线程顺序执行
+        
+        将所有未挖矿的窗口加入队列，然后启动调度器
+        """
+        with self._scheduler_lock:
+            # 停止当前运行的调度器（如果有）
+            if self._scheduler_running:
+                self.logger.info("停止当前运行的调度器")
+                self._scheduler_running = False
+                # 等待调度器线程结束（最多等待2秒）
+                if hasattr(self, '_mining_scheduler_thread') and self._mining_scheduler_thread.is_alive():
+                    self.logger.info("等待调度器线程结束...")
+                    self._mining_scheduler_thread.join(timeout=2.0)
+                    if self._mining_scheduler_thread.is_alive():
+                        self.logger.warning("调度器线程未能在2秒内结束")
+            
+            # 清空队列并重新填充
+            self._mining_queue.clear()
+            
+            with self._lock:
+                for hwnd in self.window_order:
+                    if hwnd in self.miners:
+                        miner = self.miners[hwnd]
+                        if not miner.mined:
+                            self._mining_queue.append(hwnd)
+                            self.logger.info(f"加入挖矿队列: {miner.window_name}")
+            
+            if not self._mining_queue:
+                self.logger.info("没有需要挖矿的窗口")
+                return False
+            
+            # 启动调度器线程
+            self._scheduler_running = True
+            self._mining_scheduler_thread = threading.Thread(
+                target=self._mining_scheduler,
+                daemon=True
+            )
+            self._mining_scheduler_thread.start()
+            self.logger.info(f"启动挖矿队列，共 {len(self._mining_queue)} 个窗口")
+            return True
+    
+    def stop_mining_queue(self) -> bool:
+        """停止队列挖矿"""
+        with self._scheduler_lock:
+            if not self._scheduler_running:
+                return False
+            
+            self._scheduler_running = False
+            
+            # 停止当前挖矿的窗口
+            with self._lock:
+                for miner in self.miners.values():
+                    if miner.is_mining:
+                        miner.stop_mining()
+            
+            self.logger.info("停止挖矿队列")
+            return True
     
     def set_window_timer(self, hwnd: int, seconds: int) -> bool:
         """设置指定窗口的倒计时（秒）"""

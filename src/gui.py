@@ -507,28 +507,36 @@ class WujindongriGUI:
                 self._update_active_windows_label([])
             
     def start_mining(self):
-        """开始挖矿（支持多窗口）"""
+        """开始挖矿（支持多窗口队列模式）"""
         selected_indices = self.window_listbox.curselection()
-        if not selected_indices:
-            messagebox.showinfo("提示", "请先选择至少一个游戏窗口")
-            return
-        
         window_list = self.window_manager.get_window_list()
         selected_hwnds = []
         selected_titles = []
         
-        for index in selected_indices:
-            if index < len(window_list):
-                hwnd, title = window_list[index]
+        if not selected_indices:
+            # 自动挖矿时，使用所有可用窗口
+            self.log("未选择窗口，使用所有可用窗口")
+            for hwnd, title in window_list:
                 selected_hwnds.append(hwnd)
                 selected_titles.append(title)
+        else:
+            # 使用用户选择的窗口
+            for index in selected_indices:
+                if index < len(window_list):
+                    hwnd, title = window_list[index]
+                    selected_hwnds.append(hwnd)
+                    selected_titles.append(title)
+        
+        # 检查是否有窗口
+        if not selected_hwnds:
+            messagebox.showinfo("提示", "没有可用的游戏窗口")
+            return
         
         # 重置所有窗口的挖矿标记
         self.mining_manager.reset_all_mined_flags()
         self.log("已重置所有窗口的挖矿标记")
         
-        # 为每个选中的窗口启动挖矿
-        success_count = 0
+        # 添加所有选中的窗口到管理器
         for i, hwnd in enumerate(selected_hwnds):
             try:
                 process_id = self.window_manager.get_process_id(hwnd)
@@ -542,44 +550,30 @@ class WujindongriGUI:
             # 添加窗口到管理器
             self.mining_manager.add_window(hwnd, full_title)
             self.log(f"添加挖矿窗口: {full_title}")
-            
-            # 启动倒计时（默认5秒）
-            self.mining_manager.set_window_timer(hwnd, 5)
-            self.mining_manager.start_window_timer(hwnd)
-            
-            # 只启动第一个窗口的挖矿，其他窗口等待轮流挖矿
-            if i == 0:
-                if self.mining_manager.start_mining(hwnd):
-                    self.log(f"✓ 窗口 {full_title} 开始挖矿")
-                    success_count += 1
-                else:
-                    self.log(f"✗ 窗口 {full_title} 启动挖矿失败")
-            else:
-                self.log(f"○ 窗口 {full_title} 等待轮流挖矿")
         
-        if success_count > 0:
+        # 使用队列模式启动挖矿（单线程顺序执行）
+        if self.mining_manager.start_mining_queue():
+            self.log(f"✓ 启动挖矿队列，共 {len(selected_hwnds)} 个窗口")
             self.mine_button.config(text="停止挖矿")
             self.mining_status.config(text="挖矿中")
             self.timer_status.config(text="")
             self.mining_countdown.config(text="")
-            self.log(f"挖矿开始... (共 {success_count}/{len(selected_hwnds)} 个窗口成功)")
-            # 更新绿色标签显示当前被激活的窗口
-            if self.active_windows_label:
-                current_activated = self.window_manager.get_activated_windows()
-                self._update_active_windows_label(current_activated)
+        
+        # 更新绿色标签显示当前被激活的窗口
+        if self.active_windows_label:
+            current_activated = self.window_manager.get_activated_windows()
+            self._update_active_windows_label(current_activated)
         
     def stop_mining(self):
-        """停止挖矿（支持多窗口）"""
-        if self.mining_manager.stop_all_mining() > 0:
-            self.mine_button.config(text="开始挖矿")
-            self.mining_status.config(text="未开始")
-            self.log("挖矿结束")
-            # 停止所有窗口的倒计时
-            for hwnd in self.mining_manager.miners.keys():
-                self.mining_manager.stop_window_timer(hwnd)
-            # 挖矿结束后重置绿色标签
-            if self.active_windows_label:
-                self._update_active_windows_label([])
+        """停止挖矿（支持多窗口队列模式）"""
+        # 停止挖矿队列
+        self.mining_manager.stop_mining_queue()
+        self.mine_button.config(text="开始挖矿")
+        self.mining_status.config(text="未开始")
+        self.log("挖矿结束")
+        # 挖矿结束后重置绿色标签
+        if self.active_windows_label:
+            self._update_active_windows_label([])
     
     def stop_auto_mining(self):
         """停止自动挖矿"""
@@ -671,7 +665,7 @@ class WujindongriGUI:
         
         if self.mining_manager.get_mining_status():
             if messagebox.askokcancel("退出", "挖矿正在进行中，确定要退出吗？"):
-                self.mining_manager.stop_all_mining()
+                self.mining_manager.stop_mining_queue()
                 # 关闭前重置绿色标签
                 if self.active_windows_label:
                     self._update_active_windows_label([])
