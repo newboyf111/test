@@ -27471,3 +27471,5 @@ RuntimeError: cannot join current thread
 2026-03-24 16:14:32,686 - mining_460548 - INFO - 点击 close 成功
 2026-03-24 16:14:32,686 - mining_460548 - INFO - 挖矿结束
 2026-03-24 16:14:41,316 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-24 16:18:37,733 - src.main - INFO - 无尽冬日程序启动
+2026-03-24 16:18:37,734 - src.main - INFO - 版本: 1.0.0

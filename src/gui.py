@@ -581,12 +581,12 @@ class WujindongriGUI:
         
     def _check_mining_status(self):
         """定时检查挖矿状态，更新按钮"""
-        if self.mining_manager.are_all_windows_stopped():
+        if self.mining_manager.are_all_windows_mined():
             if self.mine_button.cget("text") == "停止挖矿":
                 self.mine_button.config(text="开始挖矿")
                 self.mining_status.config(text="未开始")
                 self.mining_countdown.config(text="")
-                self.log("挖矿已自动停止")
+                self.log("所有窗口都已挖矿")
                 
                 # 停止倒计时
                 self.countdown_running = False
