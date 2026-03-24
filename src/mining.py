@@ -738,8 +738,16 @@ class SingleWindowMiner:
 
         self._invalidate_screenshot()
         
-        # 移除窗口激活逻辑，避免多窗口环境下鼠标频繁切换窗口
-        pyautogui.click(screen_x, screen_y)
+        # 使用 Windows API 发送点击消息，避免控制全局鼠标
+        # WM_LBUTTONDOWN = 0x0201, WM_LBUTTONUP = 0x0202
+        WM_LBUTTONDOWN = 0x0201
+        WM_LBUTTONUP = 0x0202
+        # 将坐标转换为窗口客户区坐标
+        client_x = center[0]
+        client_y = center[1]
+        # 发送点击消息
+        win32gui.SendMessage(self.hwnd, WM_LBUTTONDOWN, 0, (client_y << 16) | client_x)
+        win32gui.SendMessage(self.hwnd, WM_LBUTTONUP, 0, (client_y << 16) | client_x)
         self.logger.info(f"点击 {image_key}: ({screen_x}, {screen_y}) [scale={result.get('scale', 1):.3f}]")
         return True
 
