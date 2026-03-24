@@ -383,6 +383,55 @@ class SingleWindowMiner:
 
     def get_mining_status(self) -> bool:
         return self.is_mining
+    
+    def set_timer(self, seconds: int):
+        """设置倒计时（秒）"""
+        if hasattr(self, 'timer_running') and self.timer_running:
+            self.timer_running = False
+        self.timer_minutes = seconds // 60 if seconds >= 60 else 1
+        self.timer_remaining = seconds
+        self.logger.info(f"设置倒计时: {seconds} 秒")
+    
+    def start_timer(self):
+        """启动倒计时"""
+        if not hasattr(self, 'timer_running'):
+            self.timer_running = False
+        if not hasattr(self, 'timer_minutes'):
+            self.timer_minutes = 0
+        if not hasattr(self, 'timer_remaining'):
+            self.timer_remaining = 0
+        
+        if self.timer_minutes > 0 and not self.timer_running:
+            self.timer_running = True
+            self.timer_thread = threading.Thread(target=self._timer_loop, daemon=True)
+            self.timer_thread.start()
+            self.logger.info("倒计时启动")
+    
+    def stop_timer(self):
+        """停止倒计时"""
+        if hasattr(self, 'timer_running') and self.timer_running:
+            self.timer_running = False
+            self.logger.info("倒计时停止")
+    
+    def get_timer_remaining(self) -> int:
+        """获取倒计时剩余时间（秒）"""
+        if hasattr(self, 'timer_remaining'):
+            return self.timer_remaining
+        return 0
+    
+    def _timer_loop(self):
+        """倒计时主循环"""
+        self.logger.info(f"倒计时循环开始: timer_remaining={self.timer_remaining}, timer_running={self.timer_running}")
+        while self.timer_running and self.timer_remaining > 0:
+            time.sleep(1)
+            self.timer_remaining -= 1
+            if self.timer_remaining % 10 == 0:
+                self.logger.info(f"倒计时进度: {self.timer_remaining}秒")
+        if self.timer_remaining <= 0:
+            self.logger.info("倒计时归零，自动开始挖矿")
+            if not self.is_mining:
+                self.start_mining()
+        self.logger.info("倒计时循环结束")
 
     def _mining_loop(self):
         """挖矿主循环"""
