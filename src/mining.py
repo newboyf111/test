@@ -622,12 +622,12 @@ class SingleWindowMiner:
                 self.logger.info("点击 close 成功")
             else:
                 self.logger.warning("未找到 close")
-            self.is_mining = False
+            self.stop_mining()
             return
         elif not team_found and not town_found:
             # 未找到 team 和 town，停止挖矿
             self.logger.info("未找到 team 和 town，停止挖矿")
-            self.is_mining = False
+            self.stop_mining()
             return
         else:
             # 未找到 team，继续下一轮挖矿
@@ -639,7 +639,7 @@ class SingleWindowMiner:
             self.logger.info(f"已完成 {self.completed_cycles}/{self.max_cycles} 轮")
             if self.completed_cycles >= self.max_cycles:
                 self.logger.info("已完成指定轮数，停止挖矿")
-                self.is_mining = False
+                self.stop_mining()
             else:
                 # 只有在未达到最大轮数时，才递增资源索引
                 self.resource_index = (self.resource_index + 1) % len(self.resource_order)
@@ -652,9 +652,9 @@ class SingleWindowMiner:
                 time.sleep(random.uniform(1, 2))
                 if self._click("close"):
                     self.logger.info("点击 close 成功")
-                    self.is_mining = False
                 else:
                     self.logger.warning("未找到 close")
+                self.stop_mining()
             else:
                 self.logger.info("未找到 team，继续下一轮挖矿")
 
