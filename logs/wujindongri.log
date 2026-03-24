@@ -25635,3 +25635,6 @@ ValueError: too many values to unpack (expected 2)
 2026-03-24 14:47:11,050 - mining_2492818 - INFO - 拖动: dx=240, dy=0
 2026-03-24 14:47:11,214 - MultiWindowManager - INFO - 已停止 0 个倒计时归零窗口的挖矿
 2026-03-24 14:47:11,244 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-24 14:49:27,174 - src.main - INFO - 无尽冬日程序启动
+2026-03-24 14:49:27,174 - src.main - INFO - 版本: 1.0.0
+2026-03-24 14:49:54,737 - src.main - INFO - 无尽冬日程序正常退出
