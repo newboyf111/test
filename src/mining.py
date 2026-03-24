@@ -25,6 +25,7 @@ import pyautogui
 import os
 import ctypes
 import win32gui
+import win32con
 from pathlib import Path
 from typing import Optional, Tuple, Dict, List
 from collections import defaultdict
@@ -648,7 +649,7 @@ class SingleWindowMiner:
         return False
 
     def _click(self, image_key: str) -> bool:
-        """查找并点击图片"""
+        """查找并点击图片（使用 win32gui.PostMessage 发送鼠标点击消息）"""
         image_path = self.image_paths.get(image_key)
         if not image_path:
             self.logger.error(f"未知图片key: {image_key}")
@@ -673,11 +674,19 @@ class SingleWindowMiner:
             return False
 
         left, top, _, _ = win32gui.GetWindowRect(self.hwnd)
-        screen_x = left + center[0]
-        screen_y = top + center[1]
+        client_x = center[0]
+        client_y = center[1]
+        screen_x = left + client_x
+        screen_y = top + client_y
 
         self._invalidate_screenshot()
-        pyautogui.click(screen_x, screen_y)
+        
+        # 使用 PostMessage 发送鼠标点击消息
+        win32gui.PostMessage(self.hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, 
+                            win32gui.MAKELONG(client_x, client_y))
+        win32gui.PostMessage(self.hwnd, win32con.WM_LBUTTONUP, 0, 
+                            win32gui.MAKELONG(client_x, client_y))
+        
         self.logger.info(f"点击 {image_key}: ({screen_x}, {screen_y}) [scale={result.get('scale', 1):.3f}]")
         return True
 
