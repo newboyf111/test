@@ -611,12 +611,14 @@ class SingleWindowMiner:
 
         if self._click("battle"):
             self.logger.info("点击 battle 成功，完成一轮")
-            self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             self.completed_cycles += 1
             self.logger.info(f"已完成 {self.completed_cycles}/{self.max_cycles} 轮")
             if self.completed_cycles >= self.max_cycles:
                 self.logger.info("已完成指定轮数，停止挖矿")
                 self.is_mining = False
+            else:
+                # 只有在未达到最大轮数时，才递增资源索引
+                self.resource_index = (self.resource_index + 1) % len(self.resource_order)
         else:
             self.logger.warning("未找到 battle，查找 team")
             if self._find("team"):
