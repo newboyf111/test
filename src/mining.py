@@ -369,6 +369,8 @@ class SingleWindowMiner:
         """开始挖矿"""
         if not self.is_mining:
             self.is_mining = True
+            # 重置挖矿标记
+            self.mined = False
             self.completed_cycles = 0
             size = self._get_window_size()
             if size:
@@ -773,6 +775,8 @@ class MultiWindowMiningManager:
         with self._lock:
             if hwnd in self.miners:
                 self.logger.warning(f"窗口 {hwnd} 已存在")
+                # 重置挖矿标记
+                self.miners[hwnd].mined = False
                 return False
 
             if not win32gui.IsWindow(hwnd):
