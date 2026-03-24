@@ -609,6 +609,29 @@ class SingleWindowMiner:
 
         time.sleep(random.uniform(1, 2))
 
+        # 点击 gather 后，检查 team、close 和 town
+        team_found = self._find("team")
+        close_found = self._find("close")
+        town_found = self._find("town")
+        
+        if team_found:
+            self.logger.info("找到 team")
+            time.sleep(random.uniform(1, 2))
+            if self._click("close"):
+                self.logger.info("点击 close 成功")
+                self.is_mining = False
+                return
+            else:
+                self.logger.warning("未找到 close")
+        elif not team_found and not close_found and not town_found:
+            # 未找到 team、close 和 town，停止挖矿
+            self.logger.info("未找到 team、close 和 town，停止挖矿")
+            self.is_mining = False
+            return
+        else:
+            # 未找到 team，继续下一轮挖矿
+            self.logger.info("未找到 team，继续下一轮挖矿")
+        
         if self._click("battle"):
             self.logger.info("点击 battle 成功，完成一轮")
             self.completed_cycles += 1
