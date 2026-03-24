@@ -626,12 +626,15 @@ class SingleWindowMiner:
                     self.mining_manager._on_window_mining_stopped(self.hwnd)
 
     def _find(self, image_key: str) -> bool:
-        """只查找图片"""
+        """只查找图片（每次查找前清除缓存，确保使用最新截图）"""
         image_path = self.image_paths.get(image_key)
         if not image_path:
             self.logger.error(f"未知图片key: {image_key}")
             return False
 
+        # 清除截图缓存，确保使用最新截图
+        self._invalidate_screenshot()
+        
         screenshot, win_w, win_h = self._get_screenshot()
         if screenshot is None:
             return False
@@ -655,6 +658,9 @@ class SingleWindowMiner:
             self.logger.error(f"未知图片key: {image_key}")
             return False
 
+        # 清除截图缓存，确保使用最新截图
+        self._invalidate_screenshot()
+        
         screenshot, win_w, win_h = self._get_screenshot()
         if screenshot is None:
             return False

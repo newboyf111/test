@@ -29593,3 +29593,176 @@ AttributeError: module 'win32gui' has no attribute 'MAKELONG'
 2026-03-24 18:11:35,367 - MultiWindowManager - INFO - 检查窗口 MuMu安卓设备 (3712): mined=True, is_mining=False
 2026-03-24 18:11:35,367 - MultiWindowManager - INFO - 所有窗口都已挖矿完成
 2026-03-24 18:11:51,820 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-24 18:15:33,364 - src.main - INFO - 无尽冬日程序启动
+2026-03-24 18:15:33,365 - src.main - INFO - 版本: 1.0.0
+2026-03-24 18:15:43,648 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-03-24 18:15:43,650 - MultiWindowManager - INFO - 添加窗口: MuMuNxDevice (23824) (hwnd=2492818)
+2026-03-24 18:15:43,652 - mining_2492818 - INFO - 设置倒计时: 5 秒
+2026-03-24 18:15:43,653 - mining_2492818 - INFO - 倒计时循环开始: timer_remaining=5, timer_running=True
+2026-03-24 18:15:43,653 - mining_2492818 - INFO - 倒计时启动
+2026-03-24 18:15:43,653 - mining_2492818 - INFO - ==================================================
+2026-03-24 18:15:43,653 - mining_2492818 - INFO - 挖矿开始
+2026-03-24 18:15:43,654 - mining_2492818 - INFO - 基准尺寸: 558x1021
+2026-03-24 18:15:43,654 - mining_2492818 - INFO - ==================================================
+2026-03-24 18:15:43,654 - MultiWindowManager - INFO - 启动窗口 MuMuNxDevice (23824) 挖矿
+2026-03-24 18:15:43,689 - MultiWindowManager - INFO - 添加窗口: MuMuNxDevice (3712) (hwnd=460548)
+2026-03-24 18:15:43,691 - mining_460548 - INFO - 设置倒计时: 5 秒
+2026-03-24 18:15:43,691 - mining_460548 - INFO - 倒计时循环开始: timer_remaining=5, timer_running=True
+2026-03-24 18:15:43,691 - mining_460548 - INFO - 倒计时启动
+2026-03-24 18:15:43,702 - mining_2492818 - DEBUG - 加载模板: town.png 60x56
+2026-03-24 18:15:43,714 - mining_2492818 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-03-24 18:15:43,866 - mining_2492818 - DEBUG - 未找到: town.png
+2026-03-24 18:15:43,867 - mining_2492818 - DEBUG - 加载模板: wild.png 60x52
+2026-03-24 18:15:43,878 - mining_2492818 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-24 18:15:44,029 - mining_2492818 - DEBUG - 未找到: wild.png
+2026-03-24 18:15:44,030 - mining_2492818 - INFO - 未找到 town 和 wild，执行初始化流程
+2026-03-24 18:15:44,031 - mining_2492818 - DEBUG - 加载模板: back.png 29x23
+2026-03-24 18:15:44,040 - mining_2492818 - DEBUG - [比例匹配] back.png scale=0.835 conf=0.969
+2026-03-24 18:15:44,041 - mining_2492818 - DEBUG - 找到 back [scale=0.835]
+2026-03-24 18:15:44,041 - mining_2492818 - INFO - 找到 back
+2026-03-24 18:15:45,154 - mining_2492818 - DEBUG - [比例匹配] back.png scale=0.835 conf=0.970
+2026-03-24 18:15:45,361 - mining_2492818 - INFO - 点击 back: (749, 169) [scale=0.835]
+2026-03-24 18:15:45,361 - mining_2492818 - INFO - 点击 back 成功
+2026-03-24 18:15:46,918 - mining_2492818 - DEBUG - 加载模板: back1.png 57x48
+2026-03-24 18:15:46,927 - mining_2492818 - DEBUG - [比例匹配] back1.png scale=0.835 conf=0.985
+2026-03-24 18:15:46,927 - mining_2492818 - DEBUG - 找到 back1 [scale=0.835]
+2026-03-24 18:15:46,928 - mining_2492818 - INFO - 找到 back1
+2026-03-24 18:15:48,008 - mining_2492818 - DEBUG - [比例匹配] back1.png scale=0.835 conf=0.985
+2026-03-24 18:15:48,211 - mining_2492818 - INFO - 点击 back1: (753, 116) [scale=0.835]
+2026-03-24 18:15:48,211 - mining_2492818 - INFO - 点击 back1 成功
+2026-03-24 18:15:48,656 - mining_2492818 - INFO - 倒计时进度: 0秒
+2026-03-24 18:15:48,656 - mining_2492818 - INFO - 倒计时归零，自动开始挖矿
+2026-03-24 18:15:48,656 - mining_2492818 - INFO - 倒计时循环结束
+2026-03-24 18:15:48,693 - mining_460548 - INFO - 倒计时进度: 0秒
+2026-03-24 18:15:48,693 - mining_460548 - INFO - 倒计时归零，自动开始挖矿
+2026-03-24 18:15:48,694 - mining_460548 - INFO - ==================================================
+2026-03-24 18:15:48,694 - mining_460548 - INFO - 挖矿开始
+2026-03-24 18:15:48,694 - mining_460548 - INFO - 基准尺寸: 558x1021
+2026-03-24 18:15:48,695 - mining_460548 - INFO - ==================================================
+2026-03-24 18:15:48,695 - mining_460548 - INFO - 倒计时循环结束
+2026-03-24 18:15:48,738 - mining_460548 - DEBUG - 加载模板: town.png 60x56
+2026-03-24 18:15:48,750 - mining_460548 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-03-24 18:15:49,010 - mining_460548 - DEBUG - 未找到: town.png
+2026-03-24 18:15:49,011 - mining_460548 - DEBUG - 加载模板: wild.png 60x52
+2026-03-24 18:15:49,023 - mining_460548 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-24 18:15:49,273 - mining_460548 - DEBUG - 未找到: wild.png
+2026-03-24 18:15:49,273 - mining_460548 - INFO - 未找到 town 和 wild，执行初始化流程
+2026-03-24 18:15:49,313 - mining_460548 - DEBUG - 加载模板: back.png 29x23
+2026-03-24 18:15:49,323 - mining_460548 - DEBUG - [比例匹配] back.png scale=0.986 conf=0.974
+2026-03-24 18:15:49,324 - mining_460548 - DEBUG - 找到 back [scale=0.986]
+2026-03-24 18:15:49,324 - mining_460548 - INFO - 找到 back
+2026-03-24 18:15:49,927 - mining_2492818 - DEBUG - [比例匹配] town.png scale=0.835 conf=0.912
+2026-03-24 18:15:49,927 - mining_2492818 - DEBUG - 找到 town [scale=0.835]
+2026-03-24 18:15:49,927 - mining_2492818 - INFO - 找到 town
+2026-03-24 18:15:51,214 - mining_2492818 - DEBUG - 加载模板: search.png 40x37
+2026-03-24 18:15:51,222 - mining_2492818 - DEBUG - [比例匹配] search.png scale=0.835 conf=0.976
+2026-03-24 18:15:51,353 - mining_460548 - DEBUG - [比例匹配] back.png scale=0.986 conf=0.974
+2026-03-24 18:15:51,436 - mining_2492818 - INFO - 点击 search: (755, 660) [scale=0.835]
+2026-03-24 18:15:51,436 - mining_2492818 - INFO - 点击 search 成功
+2026-03-24 18:15:51,557 - mining_460548 - INFO - 点击 back: (192, 182) [scale=0.986]
+2026-03-24 18:15:51,557 - mining_460548 - INFO - 点击 back 成功
+2026-03-24 18:15:52,872 - mining_460548 - DEBUG - 加载模板: back1.png 57x48
+2026-03-24 18:15:52,884 - mining_460548 - DEBUG - [比例匹配] back1.png scale=0.986 conf=0.984
+2026-03-24 18:15:52,884 - mining_460548 - DEBUG - 找到 back1 [scale=0.986]
+2026-03-24 18:15:52,884 - mining_460548 - INFO - 找到 back1
+2026-03-24 18:15:53,427 - mining_2492818 - DEBUG - 加载模板: meat.png 106x81
+2026-03-24 18:15:53,436 - mining_2492818 - DEBUG - [比例匹配] meat.png scale=0.835 conf=0.917
+2026-03-24 18:15:53,643 - mining_2492818 - INFO - 点击 meat: (960, 682) [scale=0.835]
+2026-03-24 18:15:53,644 - mining_2492818 - INFO - 点击资源成功: meat
+2026-03-24 18:15:54,372 - mining_460548 - DEBUG - [比例匹配] back1.png scale=0.986 conf=0.984
+2026-03-24 18:15:54,576 - mining_460548 - INFO - 点击 back1: (197, 118) [scale=0.986]
+2026-03-24 18:15:54,577 - mining_460548 - INFO - 点击 back1 成功
+2026-03-24 18:15:55,163 - mining_2492818 - DEBUG - 加载模板: add.png 20x31
+2026-03-24 18:15:55,171 - mining_2492818 - DEBUG - [比例匹配] add.png scale=0.835 conf=0.945
+2026-03-24 18:15:55,376 - mining_2492818 - INFO - 点击 add: (1011, 772) [scale=0.835]
+2026-03-24 18:15:55,376 - mining_2492818 - INFO - 点击 add 成功
+2026-03-24 18:15:56,049 - mining_460548 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.947
+2026-03-24 18:15:56,049 - mining_460548 - DEBUG - 找到 town [scale=0.986]
+2026-03-24 18:15:56,049 - mining_460548 - INFO - 找到 town
+2026-03-24 18:15:56,133 - mining_2492818 - INFO - 拖动: dx=240, dy=0
+2026-03-24 18:15:57,587 - mining_2492818 - DEBUG - 加载模板: search_meat.png 78x34
+2026-03-24 18:15:57,594 - mining_2492818 - DEBUG - [比例匹配] search_meat.png scale=0.835 conf=0.704
+2026-03-24 18:15:57,680 - mining_460548 - DEBUG - 加载模板: search.png 40x37
+2026-03-24 18:15:57,691 - mining_460548 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.978
+2026-03-24 18:15:57,804 - mining_2492818 - INFO - 点击 search_meat: (964, 881) [scale=0.835]
+2026-03-24 18:15:57,805 - mining_2492818 - INFO - 点击 search_meat 成功
+2026-03-24 18:15:57,899 - mining_460548 - INFO - 点击 search: (198, 762) [scale=0.986]
+2026-03-24 18:15:57,899 - mining_460548 - INFO - 点击 search 成功
+2026-03-24 18:15:59,103 - mining_2492818 - DEBUG - 加载模板: gather.png 63x36
+2026-03-24 18:15:59,113 - mining_2492818 - DEBUG - [比例匹配] gather.png scale=0.835 conf=0.804
+2026-03-24 18:15:59,278 - mining_460548 - DEBUG - 加载模板: meat.png 106x81
+2026-03-24 18:15:59,296 - mining_460548 - DEBUG - [比例匹配] meat.png scale=0.986 conf=0.932
+2026-03-24 18:15:59,317 - mining_2492818 - INFO - 点击 gather: (960, 497) [scale=0.835]
+2026-03-24 18:15:59,318 - mining_2492818 - INFO - 点击 gather 成功
+2026-03-24 18:15:59,505 - mining_460548 - INFO - 点击 meat: (440, 788) [scale=0.986]
+2026-03-24 18:15:59,505 - mining_460548 - INFO - 点击资源成功: meat
+2026-03-24 18:16:00,686 - mining_2492818 - DEBUG - 加载模板: team.png 139x43
+2026-03-24 18:16:00,695 - mining_2492818 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-24 18:16:00,843 - mining_2492818 - DEBUG - 未找到: team.png
+2026-03-24 18:16:00,844 - mining_2492818 - DEBUG - 加载模板: battle.png 81x37
+2026-03-24 18:16:00,852 - mining_2492818 - DEBUG - [比例匹配] battle.png scale=0.835 conf=0.679
+2026-03-24 18:16:00,926 - mining_460548 - DEBUG - 加载模板: add.png 20x31
+2026-03-24 18:16:00,937 - mining_460548 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.970
+2026-03-24 18:16:01,058 - mining_2492818 - INFO - 点击 battle: (1090, 878) [scale=0.835]
+2026-03-24 18:16:01,058 - mining_2492818 - INFO - 点击 battle 成功，完成一轮
+2026-03-24 18:16:01,059 - mining_2492818 - INFO - 已完成 1/6 轮
+2026-03-24 18:16:01,143 - mining_460548 - INFO - 点击 add: (499, 895) [scale=0.986]
+2026-03-24 18:16:01,143 - mining_460548 - INFO - 点击 add 成功
+2026-03-24 18:16:01,904 - mining_460548 - INFO - 拖动: dx=240, dy=0
+2026-03-24 18:16:02,306 - mining_2492818 - DEBUG - [比例匹配] town.png scale=0.835 conf=0.912
+2026-03-24 18:16:02,307 - mining_2492818 - DEBUG - 找到 town [scale=0.835]
+2026-03-24 18:16:02,316 - mining_2492818 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-24 18:16:02,473 - mining_2492818 - DEBUG - 未找到: wild.png
+2026-03-24 18:16:02,483 - mining_2492818 - DEBUG - [比例匹配] town.png scale=0.835 conf=0.912
+2026-03-24 18:16:02,483 - mining_2492818 - DEBUG - 找到 town [scale=0.835]
+2026-03-24 18:16:02,484 - mining_2492818 - INFO - 找到 town
+2026-03-24 18:16:03,147 - mining_460548 - DEBUG - 加载模板: search_meat.png 78x34
+2026-03-24 18:16:03,160 - mining_460548 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.918
+2026-03-24 18:16:03,367 - mining_460548 - INFO - 点击 search_meat: (445, 1023) [scale=0.986]
+2026-03-24 18:16:03,367 - mining_460548 - INFO - 点击 search_meat 成功
+2026-03-24 18:16:04,233 - mining_2492818 - DEBUG - [比例匹配] search.png scale=0.835 conf=0.981
+2026-03-24 18:16:04,440 - mining_2492818 - INFO - 点击 search: (755, 660) [scale=0.835]
+2026-03-24 18:16:04,441 - mining_2492818 - INFO - 点击 search 成功
+2026-03-24 18:16:04,608 - mining_460548 - DEBUG - 加载模板: gather.png 63x36
+2026-03-24 18:16:04,621 - mining_460548 - DEBUG - [比例匹配] gather.png scale=0.986 conf=0.961
+2026-03-24 18:16:04,828 - mining_460548 - INFO - 点击 gather: (440, 570) [scale=0.986]
+2026-03-24 18:16:04,828 - mining_460548 - INFO - 点击 gather 成功
+2026-03-24 18:16:05,850 - mining_2492818 - DEBUG - 加载模板: wood.png 96x57
+2026-03-24 18:16:05,859 - mining_2492818 - DEBUG - [比例匹配] wood.png scale=0.835 conf=0.961
+2026-03-24 18:16:06,065 - mining_2492818 - INFO - 点击 wood: (1064, 697) [scale=0.835]
+2026-03-24 18:16:06,065 - mining_2492818 - INFO - 点击资源成功: wood
+2026-03-24 18:16:06,532 - mining_460548 - DEBUG - 加载模板: team.png 139x43
+2026-03-24 18:16:06,545 - mining_460548 - DEBUG - [比例匹配] team.png scale=0.986 conf=0.706
+2026-03-24 18:16:06,545 - mining_460548 - DEBUG - 找到 team [scale=0.986]
+2026-03-24 18:16:06,546 - mining_460548 - INFO - 找到 team，队列已满，停止挖矿
+2026-03-24 18:16:07,650 - mining_2492818 - DEBUG - [比例匹配] add.png scale=0.835 conf=0.949
+2026-03-24 18:16:07,859 - mining_2492818 - INFO - 点击 add: (810, 772) [scale=0.835]
+2026-03-24 18:16:07,860 - mining_2492818 - INFO - 点击 add 成功
+2026-03-24 18:16:08,481 - mining_460548 - DEBUG - 加载模板: close.png 43x33
+2026-03-24 18:16:08,492 - mining_460548 - DEBUG - [比例匹配] close.png scale=0.986 conf=0.967
+2026-03-24 18:16:08,618 - mining_2492818 - INFO - 拖动: dx=240, dy=0
+2026-03-24 18:16:08,696 - mining_460548 - INFO - 点击 close: (653, 349) [scale=0.986]
+2026-03-24 18:16:08,696 - mining_460548 - INFO - 点击 close 成功
+2026-03-24 18:16:08,696 - MultiWindowManager - INFO - 窗口 460548 挖矿停止
+2026-03-24 18:16:08,697 - MultiWindowManager - INFO - 查找下一个未标记窗口，当前窗口数: 2
+2026-03-24 18:16:08,697 - MultiWindowManager - INFO - 检查窗口 MuMuNxDevice (23824): mined=False, is_mining=True
+2026-03-24 18:16:08,697 - MultiWindowManager - INFO - 检查窗口 MuMuNxDevice (3712): mined=True, is_mining=False
+2026-03-24 18:16:09,689 - mining_2492818 - DEBUG - [比例匹配] search_meat.png scale=0.835 conf=0.704
+2026-03-24 18:16:09,896 - mining_2492818 - INFO - 点击 search_meat: (964, 881) [scale=0.835]
+2026-03-24 18:16:09,896 - mining_2492818 - INFO - 点击 search_meat 成功
+2026-03-24 18:16:11,169 - mining_2492818 - DEBUG - [比例匹配] gather.png scale=0.835 conf=0.803
+2026-03-24 18:16:11,375 - mining_2492818 - INFO - 点击 gather: (960, 497) [scale=0.835]
+2026-03-24 18:16:11,375 - mining_2492818 - INFO - 点击 gather 成功
+2026-03-24 18:16:13,161 - mining_2492818 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-24 18:16:13,299 - mining_2492818 - INFO - [备选-全范围] team.png scale=0.816 conf=0.748
+2026-03-24 18:16:13,299 - mining_2492818 - DEBUG - 找到 team [scale=0.816]
+2026-03-24 18:16:13,300 - mining_2492818 - INFO - 找到 team，队列已满，停止挖矿
+2026-03-24 18:16:15,290 - mining_2492818 - DEBUG - 加载模板: close.png 43x33
+2026-03-24 18:16:15,298 - mining_2492818 - DEBUG - [比例匹配] close.png scale=0.835 conf=0.958
+2026-03-24 18:16:15,504 - mining_2492818 - INFO - 点击 close: (1140, 310) [scale=0.835]
+2026-03-24 18:16:15,504 - mining_2492818 - INFO - 点击 close 成功
+2026-03-24 18:16:15,504 - MultiWindowManager - INFO - 窗口 2492818 挖矿停止
+2026-03-24 18:16:15,504 - MultiWindowManager - INFO - 查找下一个未标记窗口，当前窗口数: 2
+2026-03-24 18:16:15,505 - MultiWindowManager - INFO - 检查窗口 MuMuNxDevice (23824): mined=True, is_mining=False
+2026-03-24 18:16:15,505 - MultiWindowManager - INFO - 检查窗口 MuMuNxDevice (3712): mined=True, is_mining=False
+2026-03-24 18:16:15,505 - MultiWindowManager - INFO - 所有窗口都已挖矿完成
