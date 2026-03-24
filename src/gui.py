@@ -517,8 +517,8 @@ class WujindongriGUI:
             self.mining_manager.add_window(hwnd, full_title)
             self.log(f"添加挖矿窗口: {full_title}")
             
-            # 启动倒计时（默认1分钟）
-            self.mining_manager.set_window_timer(hwnd, 1)
+            # 启动倒计时（默认5秒）
+            self.mining_manager.set_window_timer(hwnd, 5)
             self.mining_manager.start_window_timer(hwnd)
             
             # 只启动第一个窗口的挖矿，其他窗口等待轮流挖矿
