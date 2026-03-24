@@ -863,6 +863,9 @@ class MultiWindowMiningManager:
                                 self.logger.info(f"启动窗口挖矿（倒计时运行中）: {miner.window_name}")
                         # 如果倒计时未运行且未归零，启动倒计时
                         else:
+                            if miner.timer_minutes <= 0:
+                                miner.set_timer(5)
+                                self.logger.info(f"设置窗口 {miner.window_name} 的倒计时为5秒")
                             miner.start_timer()
                             self.logger.info(f"启动窗口 {miner.window_name} 的倒计时")
                         break
