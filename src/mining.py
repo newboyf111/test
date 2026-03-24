@@ -645,8 +645,6 @@ class SingleWindowMiner:
         else:
             self.logger.warning("未找到 battle，查找 team")
             team_found = self._find("team")
-            close_found = self._find("close")
-            town_found = self._find("town")
             
             if team_found:
                 self.logger.info("找到 team")
@@ -656,9 +654,6 @@ class SingleWindowMiner:
                     self.is_mining = False
                 else:
                     self.logger.warning("未找到 close")
-            elif not team_found and not close_found and not town_found:
-                self.logger.info("未找到 team、close 和 town，停止挖矿")
-                self.is_mining = False
             else:
                 self.logger.info("未找到 team，继续下一轮挖矿")
 
@@ -716,13 +711,7 @@ class SingleWindowMiner:
 
         self._invalidate_screenshot()
         
-        # 在点击前激活窗口，确保点击操作在正确的窗口中进行
-        try:
-            win32gui.SetForegroundWindow(self.hwnd)
-            time.sleep(0.1)  # 等待窗口激活
-        except Exception as e:
-            self.logger.warning(f"激活窗口失败: {e}")
-        
+        # 移除窗口激活逻辑，避免多窗口环境下鼠标频繁切换窗口
         pyautogui.click(screen_x, screen_y)
         self.logger.info(f"点击 {image_key}: ({screen_x}, {screen_y}) [scale={result.get('scale', 1):.3f}]")
         return True
@@ -730,12 +719,7 @@ class SingleWindowMiner:
     def _drag(self, dx: int, dy: int, duration: float = 0.4):
         """拖动鼠标"""
         try:
-            # 在拖动前激活窗口，确保拖动操作在正确的窗口中进行
-            try:
-                win32gui.SetForegroundWindow(self.hwnd)
-                time.sleep(0.1)  # 等待窗口激活
-            except Exception as e:
-                self.logger.warning(f"激活窗口失败: {e}")
+            # 移除窗口激活逻辑，避免多窗口环境下鼠标频繁切换窗口
             
             x, y = pyautogui.position()
             pyautogui.mouseDown()
@@ -800,6 +784,10 @@ class MultiWindowMiningManager:
         with self._lock:
             if hwnd not in self.miners:
                 self.logger.error(f"窗口 {hwnd} 不存在")
+                return False
+            # 检查是否有其他窗口正在挖矿
+            if self.current_mining_hwnd is not None and self.current_mining_hwnd != hwnd:
+                self.logger.info(f"窗口 {self.miners[self.current_mining_hwnd].window_name} 正在挖矿，等待中")
                 return False
             if self.miners[hwnd].start_mining():
                 self.current_mining_hwnd = hwnd
