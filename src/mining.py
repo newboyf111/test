@@ -883,9 +883,8 @@ class MultiWindowMiningManager:
                         self.logger.info(f"窗口 {miner.window_name} 的倒计时正在运行，等待倒计时归零")
                     # 如果倒计时未运行且未归零，启动倒计时
                     else:
-                        if miner.timer_minutes <= 0:
-                            miner.set_timer(5)
-                            self.logger.info(f"设置窗口 {miner.window_name} 的倒计时为5秒")
+                        miner.set_timer(5)
+                        self.logger.info(f"设置窗口 {miner.window_name} 的倒计时为5秒")
                         miner.start_timer()
                         self.logger.info(f"启动窗口 {miner.window_name} 的倒计时")
                     break
@@ -969,15 +968,8 @@ class MultiWindowMiningManager:
             if self.current_mining_hwnd is not None:
                 return None
             
-            # 从当前挖矿窗口的下一个开始遍历（实现轮流挖矿）
-            if self.current_mining_hwnd is None and len(self.window_order) > 0:
-                start_index = 0
-            else:
-                try:
-                    current_index = self.window_order.index(self.current_mining_hwnd) if self.current_mining_hwnd else -1
-                    start_index = (current_index + 1) % len(self.window_order)
-                except ValueError:
-                    start_index = 0
+            # 从第一个窗口开始遍历（实现轮流挖矿）
+            start_index = 0
             
             # 遍历所有窗口，找到倒计时归零且未在挖矿的窗口
             for i in range(len(self.window_order)):
