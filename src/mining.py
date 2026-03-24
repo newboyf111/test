@@ -614,6 +614,8 @@ class SingleWindowMiner:
         close_found = self._find("close")
         town_found = self._find("town")
         
+        self.logger.info(f"gather 后检查: team={team_found}, close={close_found}, town={town_found}")
+        
         if team_found:
             self.logger.info("找到 team")
             time.sleep(random.uniform(1, 2))

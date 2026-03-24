@@ -26079,3 +26079,6 @@ ValueError: too many values to unpack (expected 2)
 2026-03-24 15:11:07,668 - src.main - INFO - 无尽冬日程序启动
 2026-03-24 15:11:07,668 - src.main - INFO - 版本: 1.0.0
 2026-03-24 15:11:16,878 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-24 15:13:28,730 - src.main - INFO - 无尽冬日程序启动
+2026-03-24 15:13:28,730 - src.main - INFO - 版本: 1.0.0
+2026-03-24 15:13:31,855 - src.main - INFO - 无尽冬日程序正常退出
