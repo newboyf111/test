@@ -442,14 +442,8 @@ class SingleWindowMiner:
             self.logger.info("倒计时归零，自动开始挖矿")
             # 检查是否已在挖矿，避免重复启动
             if not self.is_mining:
-                # 检查是否还有其他窗口正在挖矿
-                if self.mining_manager is not None:
-                    if self.mining_manager.is_any_other_window_mining(self.hwnd):
-                        self.logger.info(f"其他窗口正在挖矿，等待中")
-                    else:
-                        self.start_mining()
-                else:
-                    self.start_mining()
+                # 直接启动挖矿，不检查其他窗口状态（避免死锁）
+                self.start_mining()
         self.logger.info("倒计时循环结束")
     
     def start_auto_mining(self):
