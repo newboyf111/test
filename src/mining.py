@@ -795,9 +795,13 @@ class MultiWindowMiningManager:
             if self.current_mining_hwnd is not None and self.current_mining_hwnd != hwnd:
                 self.logger.info(f"窗口 {self.miners[self.current_mining_hwnd].window_name} 正在挖矿，等待中")
                 return False
-            if self.miners[hwnd].start_mining():
+            miner = self.miners[hwnd]
+            self.logger.info(f"准备启动窗口 {miner.window_name} 的挖矿，is_mining={miner.is_mining}")
+            if miner.start_mining():
                 self.current_mining_hwnd = hwnd
+                self.logger.info(f"成功启动窗口 {miner.window_name} 的挖矿")
                 return True
+            self.logger.warning(f"启动窗口 {miner.window_name} 的挖矿失败，is_mining={miner.is_mining}")
             return False
 
     def stop_mining(self, hwnd: int) -> bool:
