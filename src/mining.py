@@ -832,31 +832,35 @@ class MultiWindowMiningManager:
     
     def _try_start_next_window_mining(self):
         """尝试启动下一个窗口的挖矿（支持立即切换，无需等待倒计时归零）"""
+        self.logger.info(f"_try_start_next_window_mining: current_mining_hwnd={self.current_mining_hwnd}, window_order={self.window_order}")
         next_hwnd = self.get_next_window_to_mine()
         if next_hwnd is not None:
             if self.miners[next_hwnd].start_mining():
                 self.current_mining_hwnd = next_hwnd
                 self.logger.info(f"启动窗口挖矿: {self.miners[next_hwnd].window_name}")
         else:
+            self.logger.info("没有窗口倒计时归零，检查是否有窗口可以立即启动挖矿")
             # 如果没有窗口的倒计时归零，检查是否有窗口的倒计时正在运行
             if self.current_mining_hwnd is None and len(self.window_order) > 0:
                 # 找到第一个未在挖矿的窗口（允许在倒计时运行中立即开始挖矿）
                 for hwnd in self.window_order:
                     if hwnd in self.miners and not self.miners[hwnd].is_mining:
+                        miner = self.miners[hwnd]
+                        self.logger.info(f"检查窗口 {miner.window_name}: is_mining={miner.is_mining}, timer_running={miner.timer_running}, timer_remaining={miner.get_timer_remaining()}")
                         # 如果倒计时已经归零，启动挖矿
-                        if self.miners[hwnd].get_timer_remaining() <= 0:
-                            if self.miners[hwnd].start_mining():
+                        if miner.get_timer_remaining() <= 0:
+                            if miner.start_mining():
                                 self.current_mining_hwnd = hwnd
-                                self.logger.info(f"启动窗口挖矿（倒计时归零）: {self.miners[hwnd].window_name}")
+                                self.logger.info(f"启动窗口挖矿（倒计时归零）: {miner.window_name}")
                         # 如果倒计时正在运行，立即启动挖矿（无需等待归零）
-                        elif self.miners[hwnd].timer_running:
-                            if self.miners[hwnd].start_mining():
+                        elif miner.timer_running:
+                            if miner.start_mining():
                                 self.current_mining_hwnd = hwnd
-                                self.logger.info(f"启动窗口挖矿（倒计时运行中）: {self.miners[hwnd].window_name}")
+                                self.logger.info(f"启动窗口挖矿（倒计时运行中）: {miner.window_name}")
                         # 如果倒计时未运行且未归零，启动倒计时
                         else:
-                            self.miners[hwnd].start_timer()
-                            self.logger.info(f"启动窗口 {self.miners[hwnd].window_name} 的倒计时")
+                            miner.start_timer()
+                            self.logger.info(f"启动窗口 {miner.window_name} 的倒计时")
                         break
     
     def set_window_timer(self, hwnd: int, minutes: int) -> bool:
