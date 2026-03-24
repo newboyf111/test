@@ -415,7 +415,7 @@ class SingleWindowMiner:
     def set_timer(self, seconds: int):
         """设置倒计时（秒）"""
         self.stop_timer()
-        self.timer_minutes = seconds // 60
+        self.timer_minutes = seconds // 60 if seconds >= 60 else 1
         self.timer_remaining = seconds
         self.logger.info(f"设置倒计时: {seconds} 秒")
     
