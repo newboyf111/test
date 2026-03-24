@@ -521,12 +521,15 @@ class WujindongriGUI:
             self.mining_manager.set_window_timer(hwnd, 1)
             self.mining_manager.start_window_timer(hwnd)
             
-            # 启动挖矿（只启动倒计时归零的窗口）
-            if self.mining_manager.start_mining(hwnd):
-                self.log(f"✓ 窗口 {full_title} 开始挖矿")
-                success_count += 1
+            # 只启动第一个窗口的挖矿，其他窗口等待轮流挖矿
+            if i == 0:
+                if self.mining_manager.start_mining(hwnd):
+                    self.log(f"✓ 窗口 {full_title} 开始挖矿")
+                    success_count += 1
+                else:
+                    self.log(f"✗ 窗口 {full_title} 启动挖矿失败")
             else:
-                self.log(f"✗ 窗口 {full_title} 启动挖矿失败")
+                self.log(f"○ 窗口 {full_title} 等待轮流挖矿")
         
         if success_count > 0:
             self.mine_button.config(text="停止挖矿")
