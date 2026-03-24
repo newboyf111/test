@@ -552,12 +552,14 @@ class SingleWindowMiner:
 
         if not resource_found:
             self.logger.warning(f"资源 {resource_key} 多次未找到")
+            self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
 
         time.sleep(random.uniform(1, 2))
 
         if not self._click("add"):
             self.logger.warning("未找到 add")
+            self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
         self.logger.info("点击 add 成功")
         self._drag(240, 0)
@@ -565,6 +567,7 @@ class SingleWindowMiner:
 
         if not self._click("search_meat"):
             self.logger.warning("未找到 search_meat")
+            self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
         self.logger.info("点击 search_meat 成功")
         time.sleep(random.uniform(1, 2))
@@ -582,18 +585,21 @@ class SingleWindowMiner:
 
             if not minus_found:
                 self.logger.warning("多次未找到 minus")
+                self.resource_index = (self.resource_index + 1) % len(self.resource_order)
                 return
 
             time.sleep(random.uniform(1, 2))
 
             if not self._click("search_meat"):
                 self.logger.warning("重新查找 search_meat 失败")
+                self.resource_index = (self.resource_index + 1) % len(self.resource_order)
                 return
             self.logger.info("重新点击 search_meat 成功")
             time.sleep(random.uniform(1, 2))
 
             if not self._click("gather"):
                 self.logger.warning("再次未找到 gather")
+                self.resource_index = (self.resource_index + 1) % len(self.resource_order)
                 return
             self.logger.info("点击 gather 成功")
         else:
