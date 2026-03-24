@@ -681,11 +681,12 @@ class SingleWindowMiner:
 
         self._invalidate_screenshot()
         
-        # 使用 SendMessage 发送鼠标点击消息（同步，确保消息被处理）
-        lparam = client_x | (client_y << 16)
-        win32gui.SendMessage(self.hwnd, win32con.WM_MOUSEMOVE, 0, lparam)
-        win32gui.SendMessage(self.hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, lparam)
-        win32gui.SendMessage(self.hwnd, win32con.WM_LBUTTONUP, 0, lparam)
+        # 激活窗口
+        win32gui.SetForegroundWindow(self.hwnd)
+        time.sleep(0.1)
+        
+        # 使用 pyautogui 进行点击（确保点击有效）
+        pyautogui.click(screen_x, screen_y)
         
         self.logger.info(f"点击 {image_key}: ({screen_x}, {screen_y}) [scale={result.get('scale', 1):.3f}]")
         return True
