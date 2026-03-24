@@ -683,6 +683,7 @@ class SingleWindowMiner:
         
         # 使用 SendMessage 发送鼠标点击消息（同步，确保消息被处理）
         lparam = client_x | (client_y << 16)
+        win32gui.SendMessage(self.hwnd, win32con.WM_MOUSEMOVE, 0, lparam)
         win32gui.SendMessage(self.hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, lparam)
         win32gui.SendMessage(self.hwnd, win32con.WM_LBUTTONUP, 0, lparam)
         
