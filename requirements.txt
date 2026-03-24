@@ -1,0 +1,12 @@
+# 无尽冬日 (Wujindongri) - 依赖列表
+
+# 基础依赖
+pywin32
+
+# 图像处理依赖
+opencv-python
+Pillow
+numpy
+
+# GUI自动化依赖
+pyautogui
