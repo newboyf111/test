@@ -783,6 +783,8 @@ class MultiWindowMiningManager:
             if self.miners[hwnd].stop_mining():
                 if self.current_mining_hwnd == hwnd:
                     self.current_mining_hwnd = None
+                    # 检查是否有其他窗口的倒计时已经归零，如果有，则启动这些窗口的挖矿
+                    self._try_start_next_window_mining()
                 return True
             return False
 
@@ -797,6 +799,14 @@ class MultiWindowMiningManager:
                         count += 1
             self.logger.info(f"已停止 {count} 个倒计时归零窗口的挖矿")
             return count
+    
+    def _try_start_next_window_mining(self):
+        """尝试启动下一个窗口的挖矿"""
+        next_hwnd = self.get_next_window_to_mine()
+        if next_hwnd is not None:
+            if self.miners[next_hwnd].start_mining():
+                self.current_mining_hwnd = next_hwnd
+                self.logger.info(f"启动窗口挖矿: {self.miners[next_hwnd].window_name}")
     
     def set_window_timer(self, hwnd: int, minutes: int) -> bool:
         """设置指定窗口的倒计时"""
