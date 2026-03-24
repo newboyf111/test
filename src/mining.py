@@ -793,6 +793,41 @@ class MultiWindowMiningManager:
         all_mined = all(self.miners[h].mined for h in self.window_order if h in self.miners)
         if all_mined:
             self.logger.info("所有窗口都已挖矿完成")
+    
+    def set_window_timer(self, hwnd: int, seconds: int) -> bool:
+        """设置指定窗口的倒计时（秒）"""
+        with self._lock:
+            if hwnd not in self.miners:
+                self.logger.error(f"窗口 {hwnd} 不存在")
+                return False
+            self.miners[hwnd].set_timer(seconds)
+            return True
+    
+    def start_window_timer(self, hwnd: int) -> bool:
+        """启动指定窗口的倒计时"""
+        with self._lock:
+            if hwnd not in self.miners:
+                self.logger.error(f"窗口 {hwnd} 不存在")
+                return False
+            self.miners[hwnd].start_timer()
+            return True
+    
+    def stop_window_timer(self, hwnd: int) -> bool:
+        """停止指定窗口的倒计时"""
+        with self._lock:
+            if hwnd not in self.miners:
+                self.logger.error(f"窗口 {hwnd} 不存在")
+                return False
+            self.miners[hwnd].stop_timer()
+            return True
+    
+    def get_window_timer_remaining(self, hwnd: int) -> int:
+        """获取指定窗口的倒计时剩余时间"""
+        with self._lock:
+            if hwnd not in self.miners:
+                self.logger.error(f"窗口 {hwnd} 不存在")
+                return -1
+            return self.miners[hwnd].get_timer_remaining()
 
     def get_status(self) -> Dict[int, dict]:
         """获取所有窗口的状态"""
