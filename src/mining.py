@@ -392,7 +392,7 @@ class SingleWindowMiner:
             self.logger.info("挖矿结束")
             return True
         return False
-
+    
     def get_mining_status(self) -> bool:
         return self.is_mining
     
@@ -429,7 +429,8 @@ class SingleWindowMiner:
             time.sleep(1)
             self.timer_remaining -= 1
         if self.timer_remaining <= 0:
-            self.logger.info("倒计时归零")
+            self.logger.info("倒计时归零，自动开始挖矿")
+            self.start_mining()
     
     def start_auto_mining(self):
         """开始自动挖矿"""
@@ -919,6 +920,14 @@ class MultiWindowMiningManager:
                     return True
             return False
 
+    def is_any_other_window_mining(self, current_hwnd: int) -> bool:
+        """检查是否有其他窗口正在挖矿"""
+        with self._lock:
+            for hwnd, miner in self.miners.items():
+                if hwnd != current_hwnd and miner.is_mining:
+                    return True
+            return False
+    
     def get_status(self) -> Dict[int, dict]:
         """获取所有窗口的状态"""
         with self._lock:
