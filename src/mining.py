@@ -764,18 +764,6 @@ class MultiWindowMiningManager:
                 return False
             return self.miners[hwnd].stop_mining()
 
-    def start_all_mining(self) -> int:
-        """开始所有倒计时归零的窗口的挖矿"""
-        with self._lock:
-            count = 0
-            for miner in self.miners.values():
-                # 只启动倒计时归零且未在挖矿的窗口
-                if miner.get_timer_remaining() <= 0 and not miner.is_mining:
-                    if miner.start_mining():
-                        count += 1
-            self.logger.info(f"已启动 {count} 个倒计时归零窗口的挖矿")
-            return count
-
     def stop_all_mining(self) -> int:
         """停止所有倒计时归零的窗口的挖矿"""
         with self._lock:
@@ -860,71 +848,26 @@ class MultiWindowMiningManager:
     def get_next_window_to_mine(self) -> Optional[int]:
         """获取下一个应该挖矿的窗口（倒计时归零且未在挖矿的窗口）"""
         with self._lock:
-            current_mining_hwnd = None
-            zero_timer_hwnds = []
-            
             for hwnd, miner in self.miners.items():
                 # 检查是否有窗口正在挖矿
                 if miner.is_mining:
-                    current_mining_hwnd = hwnd
-                    continue
+                    # 有窗口正在挖矿，其他窗口等待
+                    return None
                 
                 # 检查倒计时
                 timer_remaining = miner.get_timer_remaining()
                 if timer_remaining <= 0:
                     # 倒计时归零，可以开始挖矿
-                    zero_timer_hwnds.append(hwnd)
+                    return hwnd
             
-            # 如果有倒计时归零的窗口，返回第一个
-            if zero_timer_hwnds:
-                return zero_timer_hwnds[0]
-            
-            # 如果有窗口正在挖矿，返回 None
+            # 没有倒计时归零的窗口
             return None
-    
-    def start_next_window_mining(self) -> bool:
-        """启动下一个倒计时归零的窗口的挖矿"""
-        with self._lock:
-            next_hwnd = self.get_next_window_to_mine()
-            if next_hwnd is not None:
-                self.miners[next_hwnd].start_mining()
-                self.logger.info(f"启动窗口挖矿: {self.miners[next_hwnd].window_name}")
-                return True
-            return False
-    
-    def stop_current_mining_windows(self) -> int:
-        """停止所有正在挖矿的倒计时归零的窗口"""
-        with self._lock:
-            count = 0
-            for miner in self.miners.values():
-                if miner.get_timer_remaining() <= 0 and miner.is_mining:
-                    if miner.stop_mining():
-                        count += 1
-            self.logger.info(f"停止了 {count} 个正在挖矿的窗口")
-            return count
-    
-    def has_windows_with_zero_timer(self) -> List[int]:
-        """获取所有倒计时归零的窗口列表"""
-        with self._lock:
-            zero_timer_hwnds = []
-            for hwnd, miner in self.miners.items():
-                if miner.get_timer_remaining() <= 0:
-                    zero_timer_hwnds.append(hwnd)
-            return zero_timer_hwnds
     
     def get_mining_status(self) -> bool:
         """检查是否有窗口正在挖矿"""
         with self._lock:
             for miner in self.miners.values():
                 if miner.is_mining:
-                    return True
-            return False
-
-    def is_any_other_window_mining(self, current_hwnd: int) -> bool:
-        """检查是否有其他窗口正在挖矿"""
-        with self._lock:
-            for hwnd, miner in self.miners.items():
-                if hwnd != current_hwnd and miner.is_mining:
                     return True
             return False
     
