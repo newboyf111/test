@@ -424,8 +424,6 @@ class SingleWindowMiner:
         """停止倒计时"""
         if self.timer_running:
             self.timer_running = False
-            if self.timer_thread and self.timer_thread.is_alive():
-                self.timer_thread.join(timeout=1)
             self.logger.info("倒计时停止")
     
     def get_timer_remaining(self) -> int:
