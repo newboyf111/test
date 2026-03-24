@@ -501,6 +501,10 @@ class WujindongriGUI:
                 selected_hwnds.append(hwnd)
                 selected_titles.append(title)
         
+        # 重置所有窗口的挖矿标记
+        self.mining_manager.reset_all_mined_flags()
+        self.log("已重置所有窗口的挖矿标记")
+        
         # 为每个选中的窗口启动挖矿
         success_count = 0
         for i, hwnd in enumerate(selected_hwnds):
