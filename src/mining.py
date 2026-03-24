@@ -616,7 +616,12 @@ class SingleWindowMiner:
         self.logger.info(f"gather 后检查: team={team_found}, town={town_found}")
         
         if team_found:
-            self.logger.info("找到 team，停止挖矿")
+            self.logger.info("找到 team")
+            time.sleep(random.uniform(1, 2))
+            if self._click("close"):
+                self.logger.info("点击 close 成功")
+            else:
+                self.logger.warning("未找到 close")
             self.is_mining = False
             return
         elif not team_found and not town_found:
