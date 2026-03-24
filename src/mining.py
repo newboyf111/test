@@ -1027,6 +1027,14 @@ class MultiWindowMiningManager:
                     return False
             return True
     
+    def is_any_other_window_mining(self, current_hwnd: int) -> bool:
+        """检查是否有其他窗口正在挖矿"""
+        with self._lock:
+            for hwnd, miner in self.miners.items():
+                if hwnd != current_hwnd and miner.is_mining:
+                    return True
+            return False
+    
     def get_status(self) -> Dict[int, dict]:
         """获取所有窗口的状态"""
         with self._lock:
