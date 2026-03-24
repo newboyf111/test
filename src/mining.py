@@ -621,7 +621,11 @@ class SingleWindowMiner:
                 self.resource_index = (self.resource_index + 1) % len(self.resource_order)
         else:
             self.logger.warning("未找到 battle，查找 team")
-            if self._find("team"):
+            team_found = self._find("team")
+            close_found = self._find("close")
+            town_found = self._find("town")
+            
+            if team_found:
                 self.logger.info("找到 team")
                 time.sleep(random.uniform(1, 2))
                 if self._click("close"):
@@ -629,8 +633,13 @@ class SingleWindowMiner:
                     self.is_mining = False
                 else:
                     self.logger.warning("未找到 close")
+            elif not team_found and not close_found and not town_found:
+                # 未找到 team、close 和 town，停止挖矿
+                self.logger.info("未找到 team、close 和 town，停止挖矿")
+                self.is_mining = False
             else:
-                self.logger.debug("未找到 team")
+                # 未找到 team，继续下一轮挖矿
+                self.logger.info("未找到 team，继续下一轮挖矿")
 
     def _find(self, image_key: str) -> bool:
         """只查找图片"""
