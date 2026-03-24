@@ -430,14 +430,18 @@ class SingleWindowMiner:
     
     def _timer_loop(self):
         """倒计时主循环"""
+        self.logger.info(f"倒计时循环开始: timer_remaining={self.timer_remaining}, timer_running={self.timer_running}")
         while self.timer_running and self.timer_remaining > 0:
             time.sleep(1)
             self.timer_remaining -= 1
+            if self.timer_remaining % 10 == 0:
+                self.logger.info(f"倒计时进度: {self.timer_remaining}秒")
         if self.timer_remaining <= 0:
             self.logger.info("倒计时归零，自动开始挖矿")
             # 检查是否已在挖矿，避免重复启动
             if not self.is_mining:
                 self.start_mining()
+        self.logger.info("倒计时循环结束")
     
     def start_auto_mining(self):
         """开始自动挖矿"""
