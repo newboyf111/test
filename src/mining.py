@@ -979,6 +979,14 @@ class MultiWindowMiningManager:
                     return True
             return False
     
+    def are_all_windows_stopped(self) -> bool:
+        """检查所有被激活的窗口是否都停止了挖矿"""
+        with self._lock:
+            for miner in self.miners.values():
+                if miner.is_mining:
+                    return False
+            return True
+    
     def get_status(self) -> Dict[int, dict]:
         """获取所有窗口的状态"""
         with self._lock:
