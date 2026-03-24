@@ -28723,3 +28723,140 @@ RuntimeError: cannot join current thread
 2026-03-24 17:51:21,054 - mining_2492818 - INFO - 挖矿结束，标记窗口为已挖矿
 2026-03-24 17:51:21,054 - MultiWindowManager - INFO - 已停止 1 个窗口的挖矿
 2026-03-24 17:51:21,080 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-24 18:02:35,458 - src.main - INFO - 无尽冬日程序启动
+2026-03-24 18:02:35,459 - src.main - INFO - 版本: 1.0.0
+2026-03-24 18:02:40,633 - MultiWindowManager - INFO - 添加窗口: MuMuNxDevice (3712) (hwnd=460548)
+2026-03-24 18:02:40,635 - mining_460548 - INFO - 设置倒计时: 5 秒
+2026-03-24 18:02:40,636 - mining_460548 - INFO - 倒计时循环开始: timer_remaining=5, timer_running=True
+2026-03-24 18:02:40,636 - mining_460548 - INFO - 倒计时启动
+2026-03-24 18:02:40,637 - mining_460548 - INFO - ==================================================
+2026-03-24 18:02:40,638 - mining_460548 - INFO - 挖矿开始
+2026-03-24 18:02:40,638 - mining_460548 - INFO - 基准尺寸: 558x1021
+2026-03-24 18:02:40,638 - mining_460548 - INFO - ==================================================
+2026-03-24 18:02:40,639 - MultiWindowManager - INFO - 启动窗口 MuMuNxDevice (3712) 挖矿
+2026-03-24 18:02:40,700 - MultiWindowManager - INFO - 添加窗口: MuMuNxDevice (23824) (hwnd=2492818)
+2026-03-24 18:02:40,703 - mining_2492818 - INFO - 设置倒计时: 5 秒
+2026-03-24 18:02:40,704 - mining_2492818 - INFO - 倒计时循环开始: timer_remaining=5, timer_running=True
+2026-03-24 18:02:40,704 - mining_2492818 - INFO - 倒计时启动
+2026-03-24 18:02:40,718 - mining_460548 - DEBUG - 加载模板: town.png 60x56
+2026-03-24 18:02:40,743 - mining_460548 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.947
+2026-03-24 18:02:40,743 - mining_460548 - DEBUG - 找到 town [scale=0.986]
+2026-03-24 18:02:40,743 - mining_460548 - DEBUG - 加载模板: wild.png 60x52
+2026-03-24 18:02:40,756 - mining_460548 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-24 18:02:41,025 - mining_460548 - DEBUG - 未找到: wild.png
+2026-03-24 18:02:41,038 - mining_460548 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.947
+2026-03-24 18:02:41,038 - mining_460548 - DEBUG - 找到 town [scale=0.986]
+2026-03-24 18:02:41,038 - mining_460548 - INFO - 找到 town
+2026-03-24 18:02:42,825 - mining_460548 - DEBUG - 加载模板: search.png 40x37
+2026-03-24 18:02:42,836 - mining_460548 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.962
+2026-03-24 18:02:42,838 - mining_460548 - ERROR - 循环异常: module 'win32gui' has no attribute 'MAKELONG'
+Traceback (most recent call last):
+  File "g:\yang\fish\wujindongri\src\mining.py", line 444, in _mining_loop
+    self._run_cycle()
+  File "g:\yang\fish\wujindongri\src\mining.py", line 505, in _run_cycle
+    if not self._click("search"):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "g:\yang\fish\wujindongri\src\mining.py", line 686, in _click
+    win32gui.MAKELONG(client_x, client_y))
+    ^^^^^^^^^^^^^^^^^
+AttributeError: module 'win32gui' has no attribute 'MAKELONG'
+2026-03-24 18:02:44,063 - mining_460548 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.947
+2026-03-24 18:02:44,064 - mining_460548 - DEBUG - 找到 town [scale=0.986]
+2026-03-24 18:02:44,075 - mining_460548 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-24 18:02:44,336 - mining_460548 - DEBUG - 未找到: wild.png
+2026-03-24 18:02:44,348 - mining_460548 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.947
+2026-03-24 18:02:44,349 - mining_460548 - DEBUG - 找到 town [scale=0.986]
+2026-03-24 18:02:44,350 - mining_460548 - INFO - 找到 town
+2026-03-24 18:02:45,558 - mining_460548 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.962
+2026-03-24 18:02:45,558 - mining_460548 - ERROR - 循环异常: module 'win32gui' has no attribute 'MAKELONG'
+Traceback (most recent call last):
+  File "g:\yang\fish\wujindongri\src\mining.py", line 444, in _mining_loop
+    self._run_cycle()
+  File "g:\yang\fish\wujindongri\src\mining.py", line 505, in _run_cycle
+    if not self._click("search"):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "g:\yang\fish\wujindongri\src\mining.py", line 686, in _click
+    win32gui.MAKELONG(client_x, client_y))
+    ^^^^^^^^^^^^^^^^^
+AttributeError: module 'win32gui' has no attribute 'MAKELONG'
+2026-03-24 18:02:45,639 - mining_460548 - INFO - 倒计时进度: 0秒
+2026-03-24 18:02:45,639 - mining_460548 - INFO - 倒计时归零，自动开始挖矿
+2026-03-24 18:02:45,640 - mining_460548 - INFO - 倒计时循环结束
+2026-03-24 18:02:45,708 - mining_2492818 - INFO - 倒计时进度: 0秒
+2026-03-24 18:02:45,708 - mining_2492818 - INFO - 倒计时归零，自动开始挖矿
+2026-03-24 18:02:45,709 - mining_2492818 - INFO - ==================================================
+2026-03-24 18:02:45,710 - mining_2492818 - INFO - 挖矿开始
+2026-03-24 18:02:45,710 - mining_2492818 - INFO - 基准尺寸: 558x1021
+2026-03-24 18:02:45,710 - mining_2492818 - INFO - ==================================================
+2026-03-24 18:02:45,710 - mining_2492818 - INFO - 倒计时循环结束
+2026-03-24 18:02:45,753 - mining_2492818 - DEBUG - 加载模板: town.png 60x56
+2026-03-24 18:02:45,761 - mining_2492818 - DEBUG - [比例匹配] town.png scale=0.835 conf=0.912
+2026-03-24 18:02:45,762 - mining_2492818 - DEBUG - 找到 town [scale=0.835]
+2026-03-24 18:02:45,763 - mining_2492818 - DEBUG - 加载模板: wild.png 60x52
+2026-03-24 18:02:45,775 - mining_2492818 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-24 18:02:45,930 - mining_2492818 - DEBUG - 未找到: wild.png
+2026-03-24 18:02:45,939 - mining_2492818 - DEBUG - [比例匹配] town.png scale=0.835 conf=0.912
+2026-03-24 18:02:45,939 - mining_2492818 - DEBUG - 找到 town [scale=0.835]
+2026-03-24 18:02:45,939 - mining_2492818 - INFO - 找到 town
+2026-03-24 18:02:46,702 - mining_460548 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.947
+2026-03-24 18:02:46,702 - mining_460548 - DEBUG - 找到 town [scale=0.986]
+2026-03-24 18:02:46,714 - mining_460548 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-24 18:02:47,001 - mining_460548 - DEBUG - 未找到: wild.png
+2026-03-24 18:02:47,015 - mining_460548 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.947
+2026-03-24 18:02:47,015 - mining_460548 - DEBUG - 找到 town [scale=0.986]
+2026-03-24 18:02:47,016 - mining_460548 - INFO - 找到 town
+2026-03-24 18:02:47,704 - mining_2492818 - DEBUG - 加载模板: search.png 40x37
+2026-03-24 18:02:47,714 - mining_2492818 - DEBUG - [比例匹配] search.png scale=0.835 conf=0.984
+2026-03-24 18:02:47,715 - mining_2492818 - ERROR - 循环异常: module 'win32gui' has no attribute 'MAKELONG'
+Traceback (most recent call last):
+  File "g:\yang\fish\wujindongri\src\mining.py", line 444, in _mining_loop
+    self._run_cycle()
+  File "g:\yang\fish\wujindongri\src\mining.py", line 505, in _run_cycle
+    if not self._click("search"):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "g:\yang\fish\wujindongri\src\mining.py", line 686, in _click
+    win32gui.MAKELONG(client_x, client_y))
+    ^^^^^^^^^^^^^^^^^
+AttributeError: module 'win32gui' has no attribute 'MAKELONG'
+2026-03-24 18:02:48,867 - mining_460548 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.962
+2026-03-24 18:02:48,867 - mining_460548 - ERROR - 循环异常: module 'win32gui' has no attribute 'MAKELONG'
+Traceback (most recent call last):
+  File "g:\yang\fish\wujindongri\src\mining.py", line 444, in _mining_loop
+    self._run_cycle()
+  File "g:\yang\fish\wujindongri\src\mining.py", line 505, in _run_cycle
+    if not self._click("search"):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "g:\yang\fish\wujindongri\src\mining.py", line 686, in _click
+    win32gui.MAKELONG(client_x, client_y))
+    ^^^^^^^^^^^^^^^^^
+AttributeError: module 'win32gui' has no attribute 'MAKELONG'
+2026-03-24 18:02:49,056 - mining_2492818 - DEBUG - [比例匹配] town.png scale=0.835 conf=0.912
+2026-03-24 18:02:49,057 - mining_2492818 - DEBUG - 找到 town [scale=0.835]
+2026-03-24 18:02:49,066 - mining_2492818 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-24 18:02:49,229 - mining_2492818 - DEBUG - 未找到: wild.png
+2026-03-24 18:02:49,239 - mining_2492818 - DEBUG - [比例匹配] town.png scale=0.835 conf=0.912
+2026-03-24 18:02:49,240 - mining_2492818 - DEBUG - 找到 town [scale=0.835]
+2026-03-24 18:02:49,240 - mining_2492818 - INFO - 找到 town
+2026-03-24 18:02:50,830 - mining_460548 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.947
+2026-03-24 18:02:50,831 - mining_460548 - DEBUG - 找到 town [scale=0.986]
+2026-03-24 18:02:50,842 - mining_460548 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-24 18:02:51,109 - mining_460548 - DEBUG - 未找到: wild.png
+2026-03-24 18:02:51,123 - mining_460548 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.947
+2026-03-24 18:02:51,124 - mining_460548 - DEBUG - 找到 town [scale=0.986]
+2026-03-24 18:02:51,124 - mining_460548 - INFO - 找到 town
+2026-03-24 18:02:51,191 - mining_2492818 - DEBUG - [比例匹配] search.png scale=0.835 conf=0.984
+2026-03-24 18:02:51,192 - mining_2492818 - ERROR - 循环异常: module 'win32gui' has no attribute 'MAKELONG'
+Traceback (most recent call last):
+  File "g:\yang\fish\wujindongri\src\mining.py", line 444, in _mining_loop
+    self._run_cycle()
+  File "g:\yang\fish\wujindongri\src\mining.py", line 505, in _run_cycle
+    if not self._click("search"):
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "g:\yang\fish\wujindongri\src\mining.py", line 686, in _click
+    win32gui.MAKELONG(client_x, client_y))
+    ^^^^^^^^^^^^^^^^^
+AttributeError: module 'win32gui' has no attribute 'MAKELONG'
+2026-03-24 18:02:51,760 - mining_460548 - INFO - 挖矿结束，标记窗口为已挖矿
+2026-03-24 18:02:51,760 - mining_2492818 - INFO - 挖矿结束，标记窗口为已挖矿
+2026-03-24 18:02:51,760 - MultiWindowManager - INFO - 已停止 2 个窗口的挖矿
+2026-03-24 18:02:51,791 - src.main - INFO - 无尽冬日程序正常退出

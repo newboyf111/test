@@ -682,10 +682,9 @@ class SingleWindowMiner:
         self._invalidate_screenshot()
         
         # 使用 PostMessage 发送鼠标点击消息
-        win32gui.PostMessage(self.hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, 
-                            win32gui.MAKELONG(client_x, client_y))
-        win32gui.PostMessage(self.hwnd, win32con.WM_LBUTTONUP, 0, 
-                            win32gui.MAKELONG(client_x, client_y))
+        lparam = client_x | (client_y << 16)
+        win32gui.PostMessage(self.hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, lparam)
+        win32gui.PostMessage(self.hwnd, win32con.WM_LBUTTONUP, 0, lparam)
         
         self.logger.info(f"点击 {image_key}: ({screen_x}, {screen_y}) [scale={result.get('scale', 1):.3f}]")
         return True
