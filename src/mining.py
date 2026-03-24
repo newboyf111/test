@@ -304,7 +304,10 @@ class SingleWindowMiner:
         self.image_confidence = {
             "back":  0.75,
             "back1": 0.75,
+            "gather": 0.85,
         }
+
+        self.drag_distance = 240
 
         # 挖矿标记（True 表示已完成挖矿）
         self.mined = False
@@ -360,6 +363,8 @@ class SingleWindowMiner:
         if not self.is_mining:
             self.is_mining = True
             self.completed_cycles = 0
+            # 重置窗口激活状态，确保新窗口能够正确激活
+            self._window_activated = False
             size = self._get_window_size()
             if size:
                 self.last_window_size = size
@@ -543,7 +548,7 @@ class SingleWindowMiner:
             self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
         self.logger.info("点击 add 成功")
-        self._drag(240, 0)
+        self._drag(self.drag_distance, 0)
         time.sleep(random.uniform(1, 2))
 
         if not self._click("search_meat"):
@@ -553,38 +558,67 @@ class SingleWindowMiner:
         self.logger.info("点击 search_meat 成功")
         time.sleep(random.uniform(1, 2))
 
-        if not self._click("gather"):
-            self.logger.warning("未找到 gather，查找 minus")
-            minus_found = False
-            for i in range(5):
-                if self._click("minus"):
-                    self.logger.info("点击 minus 成功")
-                    minus_found = True
-                    break
-                self.logger.info(f"未找到 minus，{self.retry_delay}s 后重试 ({i+1}/5)")
-                time.sleep(self.retry_delay)
+        # 尝试最多8次寻找并点击 gather
+        gather_found = False
+        max_attempts = 7
+        for attempt in range(max_attempts):
+            self.logger.info(f"尝试寻找 gather ({attempt+1}/{max_attempts})")
+            
+            if self._click("gather"):
+                self.logger.info("点击 gather 成功")
+                gather_found = True
+                break
+            
+            self.logger.warning(f"第 {attempt+1} 次未找到 gather")
+            
+            # 执行备选方案
+            if attempt < max_attempts - 1:  # 最后一次尝试不需要执行备选方案
+                self.logger.info("执行备选方案：点击add并向左移动")
+                time.sleep(random.uniform(1, 2))
+                
+                # 尝试点击 add
+                if self._click("add"):
+                    self.logger.info("点击 add 成功")
+                    self._drag(-30, 0, 0.05)  # 向左移动30像素，持续时间0.05秒
+                    time.sleep(random.uniform(1, 2))
+                    
+                    # 重新点击 search_meat
+                    if self._click("search_meat"):
+                        self.logger.info("重新点击 search_meat 成功")
+                        time.sleep(random.uniform(1, 2))
+                    else:
+                        self.logger.warning("重新查找 search_meat 失败")
+                        # 继续下一次尝试
+                        continue
+                else:
+                    self.logger.warning("点击 add 失败，尝试查找 minus")
+                    # 尝试查找 minus
+                    minus_found = False
+                    for i in range(5):
+                        if self._click("minus"):
+                            self.logger.info("点击 minus 成功")
+                            minus_found = True
+                            break
+                        self.logger.info(f"未找到 minus，{self.retry_delay}s 后重试 ({i+1}/5)")
+                        time.sleep(self.retry_delay)
+                    
+                    if minus_found:
+                        time.sleep(random.uniform(1, 2))
+                        # 重新点击 search_meat
+                        if self._click("search_meat"):
+                            self.logger.info("重新点击 search_meat 成功")
+                            time.sleep(random.uniform(1, 2))
+                        else:
+                            self.logger.warning("重新查找 search_meat 失败")
+                    else:
+                        self.logger.warning("多次未找到 minus")
+                    # 继续下一次尝试
+                    continue
 
-            if not minus_found:
-                self.logger.warning("多次未找到 minus")
-                self.resource_index = (self.resource_index + 1) % len(self.resource_order)
-                return
-
-            time.sleep(random.uniform(1, 2))
-
-            if not self._click("search_meat"):
-                self.logger.warning("重新查找 search_meat 失败")
-                self.resource_index = (self.resource_index + 1) % len(self.resource_order)
-                return
-            self.logger.info("重新点击 search_meat 成功")
-            time.sleep(random.uniform(1, 2))
-
-            if not self._click("gather"):
-                self.logger.warning("再次未找到 gather")
-                self.resource_index = (self.resource_index + 1) % len(self.resource_order)
-                return
-            self.logger.info("点击 gather 成功")
-        else:
-            self.logger.info("点击 gather 成功")
+        if not gather_found:
+            self.logger.warning(f"{max_attempts} 次尝试后仍未找到 gather")
+            self.resource_index = (self.resource_index + 1) % len(self.resource_order)
+            return
 
         time.sleep(random.uniform(1, 2))
 
@@ -687,9 +721,12 @@ class SingleWindowMiner:
 
         self._invalidate_screenshot()
         
-        # 激活窗口
-        win32gui.SetForegroundWindow(self.hwnd)
-        time.sleep(0.1)
+        # 只在当前挖矿窗口激活一次，避免来回切换
+        if not hasattr(self, '_window_activated') or not self._window_activated:
+            win32gui.SetForegroundWindow(self.hwnd)
+            time.sleep(0.2)
+            self._window_activated = True
+            self.logger.info(f"激活窗口: {self.window_name}")
         
         # 使用 pyautogui 进行点击（确保点击有效）
         pyautogui.click(screen_x, screen_y)
@@ -698,13 +735,31 @@ class SingleWindowMiner:
         return True
 
     def _drag(self, dx: int, dy: int, duration: float = 0.4):
-        """拖动鼠标"""
+        """拖动鼠标（根据窗口大小自适应缩放）"""
         try:
+            window_size = self._get_window_size()
+            if window_size:
+                win_w, _ = window_size
+                scale = win_w / 558
+                dx_scaled = int(dx * scale)
+                dy_scaled = int(dy * scale)
+            else:
+                dx_scaled = dx
+                dy_scaled = dy
+                self.logger.debug("无法获取窗口尺寸，使用原始拖动距离")
+            
+            # 只在当前挖矿窗口激活一次，避免来回切换
+            if not hasattr(self, '_window_activated') or not self._window_activated:
+                win32gui.SetForegroundWindow(self.hwnd)
+                time.sleep(0.2)
+                self._window_activated = True
+                self.logger.info(f"激活窗口: {self.window_name}")
+            
             x, y = pyautogui.position()
             pyautogui.mouseDown()
-            pyautogui.moveTo(x + dx, y + dy, duration=duration)
+            pyautogui.moveTo(x + dx_scaled, y + dy_scaled, duration=duration)
             pyautogui.mouseUp()
-            self.logger.info(f"拖动: dx={dx}, dy={dy}")
+            self.logger.info(f"拖动: dx={dx_scaled}, dy={dy_scaled} [scale={scale:.3f}]")
             self._invalidate_screenshot()
         except Exception as e:
             self.logger.error(f"拖动失败: {e}")
@@ -833,17 +888,36 @@ class MultiWindowMiningManager:
         由 SingleWindowMiner 在挖矿停止时调用
         """
         self.logger.info(f"窗口 {hwnd} 挖矿停止")
+        # 确保所有窗口都已停止挖矿
+        self._stop_all_mining_threads()
         # 尝试启动下一个未标记的窗口
         self._try_start_next_window()
+
+    def _stop_all_mining_threads(self):
+        """
+        停止所有窗口的挖矿线程
+        确保在任何时候只有一个窗口在挖矿
+        """
+        with self._lock:
+            for miner in self.miners.values():
+                if miner.is_mining:
+                    self.logger.info(f"停止窗口 {miner.window_name} 的挖矿线程")
+                    miner.is_mining = False
+                    miner.mined = True
 
     def _try_start_next_window(self):
         """
         尝试启动下一个未标记的窗口
         
         从 window_order 中按顺序查找第一个未挖矿的窗口并启动
+        确保只有一个窗口在挖矿
         """
         self.logger.info(f"查找下一个未标记窗口，当前窗口数: {len(self.window_order)}")
         
+        # 首先确保所有窗口都已停止挖矿
+        self._stop_all_mining_threads()
+        
+        # 查找第一个未标记的窗口
         for hwnd in self.window_order:
             if hwnd in self.miners:
                 miner = self.miners[hwnd]

@@ -394,15 +394,37 @@ class WujindongriGUI:
             messagebox.showinfo("提示", "请先选择至少一个窗口")
             return
         
-        window_list = self.window_manager.get_window_list()
+        self.log(f"=== 选中窗口信息 ===")
+        self.log(f"选中窗口索引: {selected_indices}")
+        
+        # 直接从列表框获取选中的窗口信息
         selected_hwnds = []
         selected_titles = []
         
+        self.log(f"=== 从列表框获取选中窗口 ===")
         for index in selected_indices:
-            if index < len(window_list):
-                hwnd, title = window_list[index]
+            window_text = self.window_listbox.get(index)
+            self.log(f"索引 {index}: {window_text}")
+            
+            # 从映射中获取 hwnd
+            if index in self.window_listbox_hwnd_map:
+                hwnd = self.window_listbox_hwnd_map[index]
+                # 从窗口文本中提取标题
+                if "(" in window_text and ")" in window_text:
+                    start = window_text.rfind("(")
+                    title = window_text[:start].strip()
+                else:
+                    title = window_text
                 selected_hwnds.append(hwnd)
                 selected_titles.append(title)
+                self.log(f"索引 {index} -> {title} (hwnd={hwnd})")
+            else:
+                self.log(f"索引不在映射中: {index}")
+        
+        self.log(f"=== 待调整窗口列表 ===")
+        self.log(f"待调整窗口数量: {len(selected_hwnds)}")
+        for i, (hwnd, title) in enumerate(zip(selected_hwnds, selected_titles)):
+            self.log(f"#{i}: {title} (hwnd={hwnd})")
         
         # 调整所有选中窗口的尺寸
         success_count = 0
@@ -416,7 +438,7 @@ class WujindongriGUI:
             except:
                 full_title = selected_titles[i]
             
-            if self.window_manager.resize_window(hwnd, 558, 1021):
+            if self.window_manager.resize_window_by_script(hwnd, 558, 1021):
                 self.log(f"成功调整窗口尺寸: {full_title} -> 558x1021")
                 success_count += 1
             else:
