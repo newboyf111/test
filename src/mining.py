@@ -645,6 +645,8 @@ class SingleWindowMiner:
         else:
             self.logger.warning("未找到 battle，查找 team")
             team_found = self._find("team")
+            close_found = self._find("close")
+            town_found = self._find("town")
             
             if team_found:
                 self.logger.info("找到 team")
@@ -654,6 +656,9 @@ class SingleWindowMiner:
                     self.is_mining = False
                 else:
                     self.logger.warning("未找到 close")
+            elif not team_found and not close_found and not town_found:
+                self.logger.info("未找到 team、close 和 town，停止挖矿")
+                self.is_mining = False
             else:
                 self.logger.info("未找到 team，继续下一轮挖矿")
 
