@@ -321,6 +321,9 @@ class SingleWindowMiner:
 
         # 挖矿标记
         self.mined = False  # 标记窗口是否已经挖过矿
+        
+        # 挖矿管理器引用
+        self.mining_manager = None  # 引用 MultiWindowMiningManager 实例
 
     def _setup_logger(self) -> logging.Logger:
         """为每个窗口创建独立的日志记录器"""
@@ -384,7 +387,7 @@ class SingleWindowMiner:
             return True
         return False
 
-    def stop_mining(self) -> bool:
+    def stop_mining(self, hwnd: Optional[int] = None) -> bool:
         """停止挖矿"""
         if self.is_mining:
             self.is_mining = False
@@ -501,6 +504,9 @@ class SingleWindowMiner:
                 if consecutive_failures >= max_consecutive_failures:
                     self.logger.error(f"连续失败 {consecutive_failures} 次，停止挖矿")
                     self.is_mining = False
+                    # 调用 MultiWindowMiningManager.stop_mining 方法
+                    if self.mining_manager is not None and self.hwnd is not None:
+                        self.mining_manager.stop_mining(self.hwnd)
                     break
 
             time.sleep(random.uniform(1, 2))
@@ -510,6 +516,9 @@ class SingleWindowMiner:
         if not win32gui.IsWindow(self.hwnd):
             self.logger.warning("窗口已关闭")
             self.is_mining = False
+            # 调用 MultiWindowMiningManager.stop_mining 方法
+            if self.mining_manager is not None and self.hwnd is not None:
+                self.mining_manager.stop_mining(self.hwnd)
             return
 
         current_size = self._get_window_size()
@@ -646,12 +655,16 @@ class SingleWindowMiner:
                 self.logger.info("点击 close 成功")
             else:
                 self.logger.warning("未找到 close")
-            self.stop_mining()
+            # 调用 MultiWindowMiningManager.stop_mining 方法
+            if self.mining_manager is not None and self.hwnd is not None:
+                self.mining_manager.stop_mining(self.hwnd)
             return
         elif not team_found and not town_found:
             # 未找到 team 和 town，停止挖矿
             self.logger.info("未找到 team 和 town，停止挖矿")
-            self.stop_mining()
+            # 调用 MultiWindowMiningManager.stop_mining 方法
+            if self.mining_manager is not None and self.hwnd is not None:
+                self.mining_manager.stop_mining(self.hwnd)
             return
         else:
             # 未找到 team，继续下一轮挖矿
@@ -663,7 +676,9 @@ class SingleWindowMiner:
             self.logger.info(f"已完成 {self.completed_cycles}/{self.max_cycles} 轮")
             if self.completed_cycles >= self.max_cycles:
                 self.logger.info("已完成指定轮数，停止挖矿")
-                self.stop_mining()
+                # 调用 MultiWindowMiningManager.stop_mining 方法
+                if self.mining_manager is not None and self.hwnd is not None:
+                    self.mining_manager.stop_mining(self.hwnd)
             else:
                 # 只有在未达到最大轮数时，才递增资源索引
                 self.resource_index = (self.resource_index + 1) % len(self.resource_order)
@@ -678,7 +693,9 @@ class SingleWindowMiner:
                     self.logger.info("点击 close 成功")
                 else:
                     self.logger.warning("未找到 close")
-                self.stop_mining()
+                # 调用 MultiWindowMiningManager.stop_mining 方法
+                if self.mining_manager is not None and self.hwnd is not None:
+                    self.mining_manager.stop_mining(self.hwnd)
             else:
                 self.logger.info("未找到 team，继续下一轮挖矿")
 
@@ -784,6 +801,7 @@ class MultiWindowMiningManager:
                 return False
 
             miner = SingleWindowMiner(hwnd, window_name)
+            miner.mining_manager = self  # 设置挖矿管理器引用
             self.miners[hwnd] = miner
             self.window_order.append(hwnd)
             self.logger.info(f"添加窗口: {window_name} (hwnd={hwnd})")
