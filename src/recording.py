@@ -78,7 +78,7 @@ class RecordingModule:
         self.gui = gui
         self.is_recording = False
         self.recorded_coordinates = []
-        self.selected_window = None
+        self.selected_hwnds = []  # 存储选中的窗口句柄列表
         self.window_listbox = None
         self.mouse_hook_proc = None
         self.click_queue = None
@@ -89,19 +89,24 @@ class RecordingModule:
         """设置窗口列表框"""
         self.window_listbox = listbox
         
-    def set_selected_window(self, index):
-        """设置选中的窗口"""
-        self.selected_window = index
+    def set_selected_window(self, hwnd):
+        """设置选中的窗口句柄"""
+        if hwnd not in self.selected_hwnds:
+            self.selected_hwnds.append(hwnd)
+        
+    def clear_selected_windows(self):
+        """清空选中的窗口列表"""
+        self.selected_hwnds = []
         
     def start_recording(self):
         """开始记录"""
-        if self.selected_window is None:
-            messagebox.showinfo("提示", "请先选择一个游戏窗口")
+        if not self.selected_hwnds:
+            messagebox.showinfo("提示", "请先选择至少一个游戏窗口")
             return False
         
         self.is_recording = True
         self.recorded_coordinates = []
-        self.gui.log("开始记录坐标，请点击游戏窗口内需要记录的位置")
+        self.gui.log(f"开始记录坐标，请点击游戏窗口内需要记录的位置 (共 {len(self.selected_hwnds)} 个窗口)")
         
         # 设置鼠标钩子
         self.set_mouse_hook()
@@ -113,6 +118,9 @@ class RecordingModule:
         
         # 移除全局鼠标钩子
         self.remove_mouse_hook()
+        
+        # 清空选中的窗口列表
+        self.selected_hwnds = []
         
         if self.recorded_coordinates:
             self.save_coordinates()
@@ -244,19 +252,19 @@ class RecordingModule:
         if not self.is_recording:
             return
         
-        # 获取选中的窗口
-        if self.selected_window is None:
+        # 检查是否有选中的窗口
+        if not self.selected_hwnds:
             return
         
-        window_text = self.window_listbox.get(self.selected_window)
-        window_list = self.gui.window_manager.get_window_list()
-        
-        for hwnd, title in window_list:
-            if title in window_text:
+        # 遍历所有选中的窗口，检查点击是否在其中
+        for hwnd in self.selected_hwnds:
+            try:
+                # 检查窗口是否有效
+                if not win32gui.IsWindow(hwnd):
+                    continue
+                
                 # 获取窗口位置和大小
                 left, top, right, bottom = win32gui.GetWindowRect(hwnd)
-                window_width = right - left
-                window_height = bottom - top
                 
                 # 检查点击是否在窗口内
                 if left <= x <= right and top <= y <= bottom:
@@ -264,11 +272,18 @@ class RecordingModule:
                     relative_x = x - left
                     relative_y = y - top
                     
+                    # 获取窗口标题
+                    title = win32gui.GetWindowText(hwnd)
+                    
                     # 弹出输入框，输入位置名称
                     self.show_coordinate_input(relative_x, relative_y, x, y, title)
-                else:
-                    self.gui.log("点击位置不在游戏窗口内，忽略")
-                break
+                    return
+            except Exception as e:
+                self.gui.log(f"检查窗口 {hwnd} 时出错: {e}")
+                continue
+        
+        # 点击不在任何选中的窗口内
+        self.gui.log("点击位置不在选中的游戏窗口内，忽略")
     
     def show_coordinate_input(self, relative_x, relative_y, absolute_x, absolute_y, window_title):
         """显示坐标输入框"""
@@ -370,8 +385,18 @@ class RecordingModule:
             except:
                 pass
         
-        # 获取当前记录的窗口
-        current_window = self.window_listbox.get(self.selected_window) if self.selected_window is not None else "未知"
+        # 获取当前记录的窗口标题列表
+        window_titles = []
+        for hwnd in self.selected_hwnds:
+            try:
+                if win32gui.IsWindow(hwnd):
+                    title = win32gui.GetWindowText(hwnd)
+                    if title:
+                        window_titles.append(title)
+            except:
+                pass
+        
+        current_window = ", ".join(window_titles) if window_titles else "未知"
         
         # 检查是否已存在相同窗口的记录
         found = False

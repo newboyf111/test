@@ -12,6 +12,7 @@ import time
 from src.mining import MultiWindowMiningManager
 from src.window_manager import WindowManager
 from src.recording import RecordingModule
+from src.Protective_casing import ProtectiveCasing
 
 
 class WujindongriGUI:
@@ -36,6 +37,7 @@ class WujindongriGUI:
         self.mining_manager = MultiWindowMiningManager()
         self.window_manager = WindowManager()
         self.recording_module = RecordingModule(self)
+        self.protective_casing = ProtectiveCasing(mining_manager=self.mining_manager)
         self.selected_window = None
         self.timer_minutes = 0
         self.countdown_running = False
@@ -475,7 +477,8 @@ class WujindongriGUI:
                 hwnd, title = window_list[index]
                 selected_hwnds.append(hwnd)
         
-        # 设置所有选中的记录窗口
+        # 清空之前的窗口列表并设置新的选中窗口
+        self.recording_module.clear_selected_windows()
         for hwnd in selected_hwnds:
             self.recording_module.set_selected_window(hwnd)
         
@@ -558,6 +561,10 @@ class WujindongriGUI:
             self.mining_status.config(text="挖矿中")
             self.timer_status.config(text="")
             self.mining_countdown.config(text="")
+            # 挖矿开始时，暂停保护性外壳检测
+            if hasattr(self, 'protective_casing') and self.protective_casing:
+                self.protective_casing.stop()
+                self.log("已暂停保护性外壳检测")
         
         # 更新绿色标签显示当前被激活的窗口
         if self.active_windows_label:
@@ -571,6 +578,29 @@ class WujindongriGUI:
         self.mine_button.config(text="开始挖矿")
         self.mining_status.config(text="未开始")
         self.log("挖矿结束")
+        # 挖矿结束后，启动保护性外壳检测
+        if hasattr(self, 'protective_casing') and self.protective_casing:
+            # 获取当前选中的窗口列表
+            selected_indices = self.window_listbox.curselection()
+            window_list = self.window_manager.get_window_list()
+            selected_windows = []
+            
+            if not selected_indices:
+                # 使用所有可用窗口
+                selected_windows = window_list
+            else:
+                # 使用用户选择的窗口
+                for index in selected_indices:
+                    if index < len(window_list):
+                        selected_windows.append(window_list[index])
+            
+            if selected_windows:
+                self.protective_casing.set_windows(selected_windows)
+                # 启动保护性外壳检测
+                threading.Thread(target=self.protective_casing.start, daemon=True).start()
+                self.log(f"已启动保护性外壳检测，监控 {len(selected_windows)} 个窗口")
+            else:
+                self.log("无窗口可监控，保护性外壳检测未启动")
         # 挖矿结束后重置绿色标签
         if self.active_windows_label:
             self._update_active_windows_label([])
@@ -610,6 +640,30 @@ class WujindongriGUI:
                 
                 # 停止倒计时
                 self.countdown_running = False
+                
+                # 挖矿结束后，启动保护性外壳检测
+                if hasattr(self, 'protective_casing') and self.protective_casing:
+                    # 获取当前选中的窗口列表
+                    selected_indices = self.window_listbox.curselection()
+                    window_list = self.window_manager.get_window_list()
+                    selected_windows = []
+                    
+                    if not selected_indices:
+                        # 使用所有可用窗口
+                        selected_windows = window_list
+                    else:
+                        # 使用用户选择的窗口
+                        for index in selected_indices:
+                            if index < len(window_list):
+                                selected_windows.append(window_list[index])
+                    
+                    if selected_windows:
+                        self.protective_casing.set_windows(selected_windows)
+                        # 启动保护性外壳检测
+                        threading.Thread(target=self.protective_casing.start, daemon=True).start()
+                        self.log(f"已启动保护性外壳检测，监控 {len(selected_windows)} 个窗口")
+                    else:
+                        self.log("无窗口可监控，保护性外壳检测未启动")
                 
                 # 如果设置了定时，启动倒计时
                 timer_minutes = int(self.timer_slider.get())
