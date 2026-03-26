@@ -41,3 +41,6 @@ Thumbs.db
 # Project specific
 *.json
 *.spec
+
+# Pic files
+pic/
