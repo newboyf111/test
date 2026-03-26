@@ -9,6 +9,7 @@ from tkinter import ttk, messagebox
 import win32gui
 import threading
 import time
+import random
 from src.mining import MultiWindowMiningManager
 from src.window_manager import WindowManager
 from src.recording import RecordingModule
@@ -177,6 +178,15 @@ class WujindongriGUI:
             width=12
         )
         self.stop_auto_mining_button.pack(side="left", padx=5)
+        
+        # 开盾按钮
+        self.shield_button = ttk.Button(
+            mining_frame,
+            text="开盾",
+            command=self.start_shield_process,
+            width=10
+        )
+        self.shield_button.pack(side="left", padx=5)
         
         # 定时自动挖矿
         timer_frame = ttk.Frame(function_frame)
@@ -603,7 +613,94 @@ class WujindongriGUI:
                 self.log("无窗口可监控，保护性外壳检测未启动")
         # 挖矿结束后重置绿色标签
         if self.active_windows_label:
-            self._update_active_windows_label([])
+                self._update_active_windows_label([])
+    
+    def start_shield_process(self):
+        """开始开盾流程（直接检测 war 并处理）"""
+        # 获取当前选中的窗口列表
+        selected_indices = self.window_listbox.curselection()
+        window_list = self.window_manager.get_window_list()
+        selected_windows = []
+        
+        if not selected_indices:
+            # 使用所有可用窗口
+            selected_windows = window_list
+            self.log("未选择窗口，使用所有可用窗口进行开盾流程")
+        else:
+            # 使用用户选择的窗口
+            for index in selected_indices:
+                if index < len(window_list):
+                    selected_windows.append(window_list[index])
+            self.log(f"选择 {len(selected_windows)} 个窗口进行开盾流程")
+        
+        if not selected_windows:
+            messagebox.showinfo("提示", "没有可用的游戏窗口")
+            return
+        
+        # 暂停挖矿（如果正在挖矿）
+        if self.mining_manager.get_mining_status():
+            self.stop_mining()
+        
+        # 设置保护性外壳窗口
+        self.protective_casing.set_windows(selected_windows)
+        
+        # 启动保护性外壳检测（单次扫描模式）
+        def run_shield_scan():
+            self.log("开始开盾流程...")
+            self.protective_casing.running = True
+            
+            try:
+                for hwnd, window_name in selected_windows:
+                    if not self.protective_casing.running:
+                        break
+                    
+                    if not win32gui.IsWindow(hwnd):
+                        self.log(f"窗口无效: {window_name} ({hwnd})")
+                        continue
+                    
+                    # 清除截图缓存
+                    self.protective_casing._invalidate_screenshot(hwnd)
+                    
+                    # 检测 war
+                    if self.protective_casing.check_war_in_window(hwnd, window_name):
+                        self.log(f"[{window_name}] 检测到 war，开始处理流程")
+                        
+                        # 检测 town 和 six
+                        self.log(f"[{window_name}] 开始检测 town 和 six...")
+                        six_positions = self.protective_casing.check_town_and_six(hwnd, window_name)
+                        self.log(f"[{window_name}] 检测到 {len(six_positions)} 个 six")
+                        if len(six_positions) > 0:
+                            self.log(f"[{window_name}] 检测到 {len(six_positions)} 个 six，开始处理")
+                            self.protective_casing.process_six_with_red_check(hwnd, window_name, six_positions)
+                        else:
+                            self.log(f"[{window_name}] 未检测到 six，跳过处理")
+                        
+                        # 检查 war 是否仍然存在
+                        if self.protective_casing.check_war_in_window(hwnd, window_name):
+                            self.log(f"[{window_name}] war 仍然存在，开始 deploy 流程")
+                            self.protective_casing.start_deploy_flow(hwnd, window_name)
+                        else:
+                            self.log(f"[{window_name}] war 已消失")
+                    else:
+                        self.log(f"[{window_name}] 未检测到 war")
+                
+                self.log("开盾流程完成")
+            except Exception as e:
+                self.log(f"开盾流程错误: {e}")
+            finally:
+                self.protective_casing.running = False
+                # 开盾流程结束后，启动保护性外壳检测
+                if hasattr(self, 'protective_casing') and self.protective_casing:
+                    threading.Thread(target=self.protective_casing.start, daemon=True).start()
+                    self.log("开盾流程结束，已启动保护性外壳检测")
+        
+        # 在新线程中运行
+        threading.Thread(target=run_shield_scan, daemon=True).start()
+        
+        # 更新绿色标签
+        if self.active_windows_label:
+            current_activated = self.window_manager.get_activated_windows()
+            self._update_active_windows_label(current_activated)
     
     def stop_auto_mining(self):
         """停止自动挖矿"""

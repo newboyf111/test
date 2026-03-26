@@ -35764,3 +35764,2329 @@ AttributeError: module 'win32gui' has no attribute 'MAKELONG'
 2026-03-25 09:02:55,308 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 war! 置信度: 0.960
 2026-03-25 09:02:55,308 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.8 秒后点击 deploy...
 2026-03-25 09:02:56,102 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-25 09:45:04,541 - src.main - INFO - 无尽冬日程序启动
+2026-03-25 09:45:04,541 - src.main - INFO - 版本: 1.0.0
+2026-03-25 09:48:28,459 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 09:07:07,258 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 09:07:07,259 - src.main - INFO - 版本: 1.0.0
+2026-03-26 09:07:18,609 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-03-26 09:07:18,609 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-03-26 09:07:18,631 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (16104) (hwnd=4065424)
+2026-03-26 09:07:18,633 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (16104)
+2026-03-26 09:07:18,633 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-03-26 09:07:18,634 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-03-26 09:07:18,634 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (16104) 挖矿
+2026-03-26 09:07:18,635 - MultiWindowManager - INFO - 激活窗口: 4065424 (MuMu安卓设备 (16104))
+2026-03-26 09:07:18,657 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-03-26 09:07:18,735 - mining_4065424 - INFO - ==================================================
+2026-03-26 09:07:18,736 - mining_4065424 - INFO - 挖矿开始
+2026-03-26 09:07:18,736 - mining_4065424 - INFO - 基准尺寸: 558x1021
+2026-03-26 09:07:18,736 - mining_4065424 - INFO - ==================================================
+2026-03-26 09:07:18,737 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (16104) 挖矿完成...
+2026-03-26 09:07:18,813 - mining_4065424 - DEBUG - 加载模板: town.png 60x56
+2026-03-26 09:07:18,837 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-03-26 09:07:19,104 - mining_4065424 - DEBUG - 未找到: town.png
+2026-03-26 09:07:19,149 - mining_4065424 - DEBUG - 加载模板: wild.png 60x52
+2026-03-26 09:07:19,165 - mining_4065424 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.922
+2026-03-26 09:07:19,165 - mining_4065424 - DEBUG - 找到 wild [scale=1.000]
+2026-03-26 09:07:19,221 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-03-26 09:07:19,482 - mining_4065424 - DEBUG - 未找到: town.png
+2026-03-26 09:07:19,483 - mining_4065424 - DEBUG - 未找到 town，尝试 wild
+2026-03-26 09:07:20,536 - mining_4065424 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.922
+2026-03-26 09:07:20,641 - mining_4065424 - INFO - 点击 wild: (835, 986) [scale=1.000]
+2026-03-26 09:07:20,641 - mining_4065424 - INFO - 点击 wild 成功
+2026-03-26 09:07:22,294 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.882
+2026-03-26 09:07:22,295 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:07:22,295 - mining_4065424 - INFO - 找到 town
+2026-03-26 09:07:22,336 - mining_4065424 - DEBUG - 加载模板: meat.png 106x81
+2026-03-26 09:07:22,353 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: meat.png
+2026-03-26 09:07:22,628 - mining_4065424 - DEBUG - 未找到: meat.png
+2026-03-26 09:07:22,629 - mining_4065424 - INFO - 资源未找到，2s 后重试 (1/3)
+2026-03-26 09:07:24,688 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: meat.png
+2026-03-26 09:07:24,958 - mining_4065424 - DEBUG - 未找到: meat.png
+2026-03-26 09:07:24,958 - mining_4065424 - INFO - 资源未找到，2s 后重试 (2/3)
+2026-03-26 09:07:27,015 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: meat.png
+2026-03-26 09:07:27,288 - mining_4065424 - DEBUG - 未找到: meat.png
+2026-03-26 09:07:27,288 - mining_4065424 - WARNING - 资源 meat 多次未找到
+2026-03-26 09:07:28,363 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.882
+2026-03-26 09:07:28,363 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:07:28,418 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 09:07:28,801 - mining_4065424 - DEBUG - 未找到: wild.png
+2026-03-26 09:07:28,854 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.882
+2026-03-26 09:07:28,854 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:07:28,855 - mining_4065424 - INFO - 找到 town
+2026-03-26 09:07:30,476 - mining_4065424 - DEBUG - 加载模板: search.png 40x37
+2026-03-26 09:07:30,488 - mining_4065424 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.929
+2026-03-26 09:07:30,596 - mining_4065424 - INFO - 点击 search: (371, 711) [scale=1.000]
+2026-03-26 09:07:30,596 - mining_4065424 - INFO - 点击 search 成功
+2026-03-26 09:07:31,923 - mining_4065424 - DEBUG - 加载模板: wood.png 96x57
+2026-03-26 09:07:31,940 - mining_4065424 - DEBUG - [比例匹配] wood.png scale=1.000 conf=0.918
+2026-03-26 09:07:32,042 - mining_4065424 - INFO - 点击 wood: (768, 755) [scale=1.000]
+2026-03-26 09:07:32,042 - mining_4065424 - INFO - 点击资源成功: wood
+2026-03-26 09:07:33,552 - mining_4065424 - DEBUG - 加载模板: add.png 20x31
+2026-03-26 09:07:33,564 - mining_4065424 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.962
+2026-03-26 09:07:33,666 - mining_4065424 - INFO - 点击 add: (673, 844) [scale=1.000]
+2026-03-26 09:07:33,666 - mining_4065424 - INFO - 点击 add 成功
+2026-03-26 09:07:34,423 - mining_4065424 - INFO - 拖动: dx=240, dy=0 [scale=1.000]
+2026-03-26 09:07:36,213 - mining_4065424 - DEBUG - 加载模板: search_meat.png 78x34
+2026-03-26 09:07:36,227 - mining_4065424 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.842
+2026-03-26 09:07:36,330 - mining_4065424 - INFO - 点击 search_meat: (619, 972) [scale=1.000]
+2026-03-26 09:07:36,330 - mining_4065424 - INFO - 点击 search_meat 成功
+2026-03-26 09:07:37,354 - mining_4065424 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 09:07:37,399 - mining_4065424 - DEBUG - 加载模板: gather.png 63x36
+2026-03-26 09:07:37,411 - mining_4065424 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.876
+2026-03-26 09:07:37,513 - mining_4065424 - INFO - 点击 gather: (613, 519) [scale=1.000]
+2026-03-26 09:07:37,514 - mining_4065424 - INFO - 点击 gather 成功
+2026-03-26 09:07:38,639 - mining_4065424 - DEBUG - 加载模板: team.png 139x43
+2026-03-26 09:07:38,652 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 09:07:38,909 - mining_4065424 - DEBUG - 未找到: team.png
+2026-03-26 09:07:38,948 - mining_4065424 - DEBUG - 加载模板: battle.png 81x37
+2026-03-26 09:07:38,963 - mining_4065424 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.822
+2026-03-26 09:07:39,072 - mining_4065424 - INFO - 点击 battle: (766, 968) [scale=1.000]
+2026-03-26 09:07:39,072 - mining_4065424 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 09:07:39,073 - mining_4065424 - INFO - 已完成 1/6 轮
+2026-03-26 09:07:40,263 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 09:07:40,263 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:07:40,319 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 09:07:40,712 - mining_4065424 - DEBUG - 未找到: wild.png
+2026-03-26 09:07:40,768 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 09:07:40,768 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:07:40,769 - mining_4065424 - INFO - 找到 town
+2026-03-26 09:07:42,299 - mining_4065424 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.939
+2026-03-26 09:07:42,401 - mining_4065424 - INFO - 点击 search: (372, 711) [scale=1.000]
+2026-03-26 09:07:42,401 - mining_4065424 - INFO - 点击 search 成功
+2026-03-26 09:07:43,840 - mining_4065424 - DEBUG - 加载模板: coal mine.png 68x51
+2026-03-26 09:07:43,854 - mining_4065424 - DEBUG - [比例匹配] coal mine.png scale=1.000 conf=0.954
+2026-03-26 09:07:43,956 - mining_4065424 - INFO - 点击 coal: (735, 758) [scale=1.000]
+2026-03-26 09:07:43,956 - mining_4065424 - INFO - 点击资源成功: coal
+2026-03-26 09:07:45,881 - mining_4065424 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.962
+2026-03-26 09:07:45,982 - mining_4065424 - INFO - 点击 add: (673, 844) [scale=1.000]
+2026-03-26 09:07:45,983 - mining_4065424 - INFO - 点击 add 成功
+2026-03-26 09:07:46,740 - mining_4065424 - INFO - 拖动: dx=240, dy=0 [scale=1.000]
+2026-03-26 09:07:47,863 - mining_4065424 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.842
+2026-03-26 09:07:47,965 - mining_4065424 - INFO - 点击 search_meat: (619, 972) [scale=1.000]
+2026-03-26 09:07:47,966 - mining_4065424 - INFO - 点击 search_meat 成功
+2026-03-26 09:07:49,651 - mining_4065424 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 09:07:49,702 - mining_4065424 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.875
+2026-03-26 09:07:49,804 - mining_4065424 - INFO - 点击 gather: (613, 519) [scale=1.000]
+2026-03-26 09:07:49,805 - mining_4065424 - INFO - 点击 gather 成功
+2026-03-26 09:07:51,841 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 09:07:52,108 - mining_4065424 - DEBUG - 未找到: team.png
+2026-03-26 09:07:52,161 - mining_4065424 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.822
+2026-03-26 09:07:52,262 - mining_4065424 - INFO - 点击 battle: (766, 968) [scale=1.000]
+2026-03-26 09:07:52,262 - mining_4065424 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 09:07:52,263 - mining_4065424 - INFO - 已完成 2/6 轮
+2026-03-26 09:07:53,418 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 09:07:53,418 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:07:53,474 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 09:07:53,866 - mining_4065424 - DEBUG - 未找到: wild.png
+2026-03-26 09:07:53,917 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 09:07:53,917 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:07:53,918 - mining_4065424 - INFO - 找到 town
+2026-03-26 09:07:55,813 - mining_4065424 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.927
+2026-03-26 09:07:55,915 - mining_4065424 - INFO - 点击 search: (372, 711) [scale=1.000]
+2026-03-26 09:07:55,915 - mining_4065424 - INFO - 点击 search 成功
+2026-03-26 09:07:57,693 - mining_4065424 - DEBUG - 加载模板: iron.png 83x81
+2026-03-26 09:07:57,711 - mining_4065424 - DEBUG - [比例匹配] iron.png scale=1.000 conf=0.891
+2026-03-26 09:07:57,813 - mining_4065424 - INFO - 点击 iron: (817, 740) [scale=1.000]
+2026-03-26 09:07:57,813 - mining_4065424 - INFO - 点击资源成功: iron
+2026-03-26 09:07:59,583 - mining_4065424 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.962
+2026-03-26 09:07:59,685 - mining_4065424 - INFO - 点击 add: (673, 844) [scale=1.000]
+2026-03-26 09:07:59,685 - mining_4065424 - INFO - 点击 add 成功
+2026-03-26 09:08:00,443 - mining_4065424 - INFO - 拖动: dx=240, dy=0 [scale=1.000]
+2026-03-26 09:08:01,511 - mining_4065424 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.842
+2026-03-26 09:08:01,613 - mining_4065424 - INFO - 点击 search_meat: (619, 972) [scale=1.000]
+2026-03-26 09:08:01,613 - mining_4065424 - INFO - 点击 search_meat 成功
+2026-03-26 09:08:03,397 - mining_4065424 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 09:08:03,447 - mining_4065424 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.876
+2026-03-26 09:08:03,548 - mining_4065424 - INFO - 点击 gather: (613, 519) [scale=1.000]
+2026-03-26 09:08:03,549 - mining_4065424 - INFO - 点击 gather 成功
+2026-03-26 09:08:05,388 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 09:08:05,645 - mining_4065424 - DEBUG - 未找到: team.png
+2026-03-26 09:08:05,697 - mining_4065424 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.822
+2026-03-26 09:08:05,799 - mining_4065424 - INFO - 点击 battle: (766, 968) [scale=1.000]
+2026-03-26 09:08:05,799 - mining_4065424 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 09:08:05,799 - mining_4065424 - INFO - 已完成 3/6 轮
+2026-03-26 09:08:06,957 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 09:08:06,958 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:08:07,013 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 09:08:07,396 - mining_4065424 - DEBUG - 未找到: wild.png
+2026-03-26 09:08:07,447 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 09:08:07,448 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:08:07,448 - mining_4065424 - INFO - 找到 town
+2026-03-26 09:08:08,540 - mining_4065424 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.928
+2026-03-26 09:08:08,641 - mining_4065424 - INFO - 点击 search: (372, 711) [scale=1.000]
+2026-03-26 09:08:08,642 - mining_4065424 - INFO - 点击 search 成功
+2026-03-26 09:08:09,883 - mining_4065424 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.891
+2026-03-26 09:08:09,985 - mining_4065424 - INFO - 点击 meat: (460, 737) [scale=1.000]
+2026-03-26 09:08:09,985 - mining_4065424 - INFO - 点击资源成功: meat
+2026-03-26 09:08:11,696 - mining_4065424 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.962
+2026-03-26 09:08:11,798 - mining_4065424 - INFO - 点击 add: (673, 844) [scale=1.000]
+2026-03-26 09:08:11,799 - mining_4065424 - INFO - 点击 add 成功
+2026-03-26 09:08:12,557 - mining_4065424 - INFO - 拖动: dx=240, dy=0 [scale=1.000]
+2026-03-26 09:08:14,512 - mining_4065424 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.842
+2026-03-26 09:08:14,618 - mining_4065424 - INFO - 点击 search_meat: (619, 972) [scale=1.000]
+2026-03-26 09:08:14,618 - mining_4065424 - INFO - 点击 search_meat 成功
+2026-03-26 09:08:16,520 - mining_4065424 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 09:08:16,572 - mining_4065424 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.876
+2026-03-26 09:08:16,674 - mining_4065424 - INFO - 点击 gather: (613, 519) [scale=1.000]
+2026-03-26 09:08:16,674 - mining_4065424 - INFO - 点击 gather 成功
+2026-03-26 09:08:17,857 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 09:08:18,113 - mining_4065424 - DEBUG - 未找到: team.png
+2026-03-26 09:08:18,168 - mining_4065424 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.822
+2026-03-26 09:08:18,270 - mining_4065424 - INFO - 点击 battle: (766, 968) [scale=1.000]
+2026-03-26 09:08:18,270 - mining_4065424 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 09:08:18,271 - mining_4065424 - INFO - 已完成 4/6 轮
+2026-03-26 09:08:19,881 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 09:08:19,881 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:08:19,935 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 09:08:20,325 - mining_4065424 - DEBUG - 未找到: wild.png
+2026-03-26 09:08:20,379 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 09:08:20,380 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:08:20,380 - mining_4065424 - INFO - 找到 town
+2026-03-26 09:08:22,161 - mining_4065424 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.924
+2026-03-26 09:08:22,263 - mining_4065424 - INFO - 点击 search: (372, 711) [scale=1.000]
+2026-03-26 09:08:22,263 - mining_4065424 - INFO - 点击 search 成功
+2026-03-26 09:08:23,722 - mining_4065424 - DEBUG - [比例匹配] wood.png scale=1.000 conf=0.930
+2026-03-26 09:08:23,824 - mining_4065424 - INFO - 点击 wood: (733, 755) [scale=1.000]
+2026-03-26 09:08:23,824 - mining_4065424 - INFO - 点击资源成功: wood
+2026-03-26 09:08:25,218 - mining_4065424 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.962
+2026-03-26 09:08:25,320 - mining_4065424 - INFO - 点击 add: (673, 844) [scale=1.000]
+2026-03-26 09:08:25,320 - mining_4065424 - INFO - 点击 add 成功
+2026-03-26 09:08:26,078 - mining_4065424 - INFO - 拖动: dx=240, dy=0 [scale=1.000]
+2026-03-26 09:08:27,673 - mining_4065424 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.842
+2026-03-26 09:08:27,775 - mining_4065424 - INFO - 点击 search_meat: (619, 972) [scale=1.000]
+2026-03-26 09:08:27,775 - mining_4065424 - INFO - 点击 search_meat 成功
+2026-03-26 09:08:29,204 - mining_4065424 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 09:08:29,255 - mining_4065424 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.876
+2026-03-26 09:08:29,356 - mining_4065424 - INFO - 点击 gather: (613, 519) [scale=1.000]
+2026-03-26 09:08:29,356 - mining_4065424 - INFO - 点击 gather 成功
+2026-03-26 09:08:30,663 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 09:08:30,925 - mining_4065424 - DEBUG - 未找到: team.png
+2026-03-26 09:08:30,978 - mining_4065424 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.822
+2026-03-26 09:08:31,079 - mining_4065424 - INFO - 点击 battle: (766, 968) [scale=1.000]
+2026-03-26 09:08:31,080 - mining_4065424 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 09:08:31,080 - mining_4065424 - INFO - 已完成 5/6 轮
+2026-03-26 09:08:32,390 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 09:08:32,390 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:08:32,445 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 09:08:32,828 - mining_4065424 - DEBUG - 未找到: wild.png
+2026-03-26 09:08:32,880 - mining_4065424 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 09:08:32,881 - mining_4065424 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 09:08:32,881 - mining_4065424 - INFO - 找到 town
+2026-03-26 09:08:34,255 - mining_4065424 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.935
+2026-03-26 09:08:34,356 - mining_4065424 - INFO - 点击 search: (372, 711) [scale=1.000]
+2026-03-26 09:08:34,357 - mining_4065424 - INFO - 点击 search 成功
+2026-03-26 09:08:35,802 - mining_4065424 - DEBUG - [比例匹配] coal mine.png scale=1.000 conf=0.954
+2026-03-26 09:08:35,904 - mining_4065424 - INFO - 点击 coal: (735, 758) [scale=1.000]
+2026-03-26 09:08:35,904 - mining_4065424 - INFO - 点击资源成功: coal
+2026-03-26 09:08:37,279 - mining_4065424 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.962
+2026-03-26 09:08:37,381 - mining_4065424 - INFO - 点击 add: (673, 844) [scale=1.000]
+2026-03-26 09:08:37,381 - mining_4065424 - INFO - 点击 add 成功
+2026-03-26 09:08:38,138 - mining_4065424 - INFO - 拖动: dx=240, dy=0 [scale=1.000]
+2026-03-26 09:08:39,604 - mining_4065424 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.842
+2026-03-26 09:08:39,706 - mining_4065424 - INFO - 点击 search_meat: (619, 972) [scale=1.000]
+2026-03-26 09:08:39,706 - mining_4065424 - INFO - 点击 search_meat 成功
+2026-03-26 09:08:41,407 - mining_4065424 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 09:08:41,460 - mining_4065424 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.875
+2026-03-26 09:08:41,562 - mining_4065424 - INFO - 点击 gather: (613, 519) [scale=1.000]
+2026-03-26 09:08:41,563 - mining_4065424 - INFO - 点击 gather 成功
+2026-03-26 09:08:43,610 - mining_4065424 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 09:08:43,868 - mining_4065424 - INFO - [备选-全范围] team.png scale=0.974 conf=0.825
+2026-03-26 09:08:43,868 - mining_4065424 - DEBUG - 找到 team [scale=0.974]
+2026-03-26 09:08:43,869 - mining_4065424 - INFO - 找到 team，队列已满，停止挖矿
+2026-03-26 09:08:45,818 - mining_4065424 - DEBUG - 加载模板: close.png 43x33
+2026-03-26 09:08:45,831 - mining_4065424 - DEBUG - [比例匹配] close.png scale=1.000 conf=0.976
+2026-03-26 09:08:45,933 - mining_4065424 - INFO - 点击 close: (826, 297) [scale=1.000]
+2026-03-26 09:08:45,933 - mining_4065424 - INFO - 点击 close 成功
+2026-03-26 09:08:45,933 - MultiWindowManager - INFO - 窗口 4065424 挖矿停止
+2026-03-26 09:08:45,959 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 09:08:45,960 - ProtectiveCasing - INFO - ==================================================
+2026-03-26 09:08:45,960 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-03-26 09:08:45,960 - ProtectiveCasing - INFO - 检测目标: g:\yang\fish\wujindongri\pic\war.png
+2026-03-26 09:08:45,961 - ProtectiveCasing - INFO - Shield 目标: g:\yang\fish\wujindongri\pic\Shield.png
+2026-03-26 09:08:45,961 - ProtectiveCasing - INFO - Buy 目标: g:\yang\fish\wujindongri\pic\buy.png
+2026-03-26 09:08:45,961 - ProtectiveCasing - INFO - Deploy 相对坐标: (28, 94)
+2026-03-26 09:08:45,961 - ProtectiveCasing - INFO - Buy_2 相对坐标: (451, 423)
+2026-03-26 09:08:45,961 - ProtectiveCasing - INFO - 检测间隔: 5 秒
+2026-03-26 09:08:45,962 - ProtectiveCasing - INFO - 检测窗口数: 1
+2026-03-26 09:08:45,962 - ProtectiveCasing - INFO - ==================================================
+2026-03-26 09:08:45,962 - ProtectiveCasing - INFO - 检测 1 个窗口...
+2026-03-26 09:08:46,398 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (16104) 挖矿完成或停止
+2026-03-26 09:08:46,398 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-03-26 09:08:46,399 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-03-26 09:08:46,567 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 09:08:51,570 - ProtectiveCasing - INFO - 检测 1 个窗口...
+2026-03-26 09:08:52,188 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 09:08:57,191 - ProtectiveCasing - INFO - 检测 1 个窗口...
+2026-03-26 09:08:57,797 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 09:09:02,800 - ProtectiveCasing - INFO - 检测 1 个窗口...
+2026-03-26 09:09:03,413 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 09:09:08,415 - ProtectiveCasing - INFO - 检测 1 个窗口...
+2026-03-26 09:09:09,072 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 09:09:14,074 - ProtectiveCasing - INFO - 检测 1 个窗口...
+2026-03-26 09:09:14,721 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 09:09:19,724 - ProtectiveCasing - INFO - 检测 1 个窗口...
+2026-03-26 09:09:20,335 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 09:09:25,338 - ProtectiveCasing - INFO - 检测 1 个窗口...
+2026-03-26 09:09:25,993 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 09:09:30,995 - ProtectiveCasing - INFO - 检测 1 个窗口...
+2026-03-26 09:09:31,663 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 09:09:36,666 - ProtectiveCasing - INFO - 检测 1 个窗口...
+2026-03-26 09:09:36,832 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 13:37:57,737 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 13:37:57,737 - src.main - INFO - 版本: 1.0.0
+2026-03-26 13:38:01,205 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 13:44:26,660 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 13:44:26,661 - src.main - INFO - 版本: 1.0.0
+2026-03-26 13:44:36,618 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 13:50:48,867 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 13:50:48,867 - src.main - INFO - 版本: 1.0.0
+2026-03-26 18:03:06,961 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 18:03:19,455 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 18:03:19,457 - src.main - INFO - 版本: 1.0.0
+2026-03-26 18:03:37,459 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-03-26 18:03:37,460 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-03-26 18:03:37,478 - MultiWindowManager - INFO - 添加窗口: MuMuNxDevice (3696) (hwnd=592956)
+2026-03-26 18:03:37,481 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (12172) (hwnd=788366)
+2026-03-26 18:03:37,484 - MultiWindowManager - INFO - 加入挖矿队列: MuMuNxDevice (3696)
+2026-03-26 18:03:37,484 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (12172)
+2026-03-26 18:03:37,484 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-03-26 18:03:37,484 - MultiWindowManager - INFO - 启动挖矿队列，共 2 个窗口
+2026-03-26 18:03:37,484 - MultiWindowManager - INFO - 调度器启动窗口 MuMuNxDevice (3696) 挖矿
+2026-03-26 18:03:37,485 - MultiWindowManager - INFO - 激活窗口: 592956 (MuMuNxDevice (3696))
+2026-03-26 18:03:37,497 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-03-26 18:03:37,587 - mining_592956 - INFO - ==================================================
+2026-03-26 18:03:37,587 - mining_592956 - INFO - 挖矿开始
+2026-03-26 18:03:37,587 - mining_592956 - INFO - 基准尺寸: 558x1021
+2026-03-26 18:03:37,587 - mining_592956 - INFO - ==================================================
+2026-03-26 18:03:37,588 - MultiWindowManager - INFO - 等待窗口 MuMuNxDevice (3696) 挖矿完成...
+2026-03-26 18:03:37,643 - mining_592956 - DEBUG - 加载模板: town.png 60x56
+2026-03-26 18:03:37,667 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:03:37,667 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:03:37,708 - mining_592956 - DEBUG - 加载模板: wild.png 60x52
+2026-03-26 18:03:37,721 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:03:37,970 - mining_592956 - DEBUG - 未找到: wild.png
+2026-03-26 18:03:38,024 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:03:38,024 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:03:38,025 - mining_592956 - INFO - 找到 town
+2026-03-26 18:03:39,894 - mining_592956 - DEBUG - 加载模板: search.png 40x37
+2026-03-26 18:03:39,906 - mining_592956 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.980
+2026-03-26 18:03:40,014 - mining_592956 - INFO - 点击 search: (819, 785) [scale=0.986]
+2026-03-26 18:03:40,015 - mining_592956 - INFO - 点击 search 成功
+2026-03-26 18:03:41,447 - mining_592956 - DEBUG - 加载模板: meat.png 106x81
+2026-03-26 18:03:41,464 - mining_592956 - DEBUG - [比例匹配] meat.png scale=0.986 conf=0.946
+2026-03-26 18:03:41,572 - mining_592956 - INFO - 点击 meat: (1093, 811) [scale=0.986]
+2026-03-26 18:03:41,573 - mining_592956 - INFO - 点击资源成功: meat
+2026-03-26 18:03:43,147 - mining_592956 - DEBUG - 加载模板: add.png 20x31
+2026-03-26 18:03:43,158 - mining_592956 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.985
+2026-03-26 18:03:43,261 - mining_592956 - INFO - 点击 add: (883, 918) [scale=0.986]
+2026-03-26 18:03:43,261 - mining_592956 - INFO - 点击 add 成功
+2026-03-26 18:03:44,019 - mining_592956 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:03:45,965 - mining_592956 - DEBUG - 加载模板: search_meat.png 78x34
+2026-03-26 18:03:45,980 - mining_592956 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.811
+2026-03-26 18:03:46,082 - mining_592956 - INFO - 点击 search_meat: (1067, 1045) [scale=0.986]
+2026-03-26 18:03:46,082 - mining_592956 - INFO - 点击 search_meat 成功
+2026-03-26 18:03:47,300 - mining_592956 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:03:47,342 - mining_592956 - DEBUG - 加载模板: gather.png 63x36
+2026-03-26 18:03:47,355 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-03-26 18:03:47,600 - mining_592956 - INFO - [备选-全范围] gather.png scale=0.895 conf=0.879
+2026-03-26 18:03:47,702 - mining_592956 - INFO - 点击 gather: (1061, 593) [scale=0.895]
+2026-03-26 18:03:47,703 - mining_592956 - INFO - 点击 gather 成功
+2026-03-26 18:03:49,068 - mining_592956 - DEBUG - 加载模板: team.png 139x43
+2026-03-26 18:03:49,081 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:03:49,332 - mining_592956 - DEBUG - 未找到: team.png
+2026-03-26 18:03:49,371 - mining_592956 - DEBUG - 加载模板: battle.png 81x37
+2026-03-26 18:03:49,386 - mining_592956 - DEBUG - [比例匹配] battle.png scale=0.986 conf=0.748
+2026-03-26 18:03:49,488 - mining_592956 - INFO - 点击 battle: (1214, 1042) [scale=0.986]
+2026-03-26 18:03:49,488 - mining_592956 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 18:03:49,488 - mining_592956 - INFO - 已完成 1/6 轮
+2026-03-26 18:03:50,564 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:03:50,565 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:03:50,615 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:03:50,866 - mining_592956 - DEBUG - 未找到: wild.png
+2026-03-26 18:03:50,919 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:03:50,919 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:03:50,920 - mining_592956 - INFO - 找到 town
+2026-03-26 18:03:52,936 - mining_592956 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.980
+2026-03-26 18:03:53,041 - mining_592956 - INFO - 点击 search: (819, 785) [scale=0.986]
+2026-03-26 18:03:53,041 - mining_592956 - INFO - 点击 search 成功
+2026-03-26 18:03:54,333 - mining_592956 - DEBUG - 加载模板: wood.png 96x57
+2026-03-26 18:03:54,347 - mining_592956 - DEBUG - [比例匹配] wood.png scale=0.986 conf=0.959
+2026-03-26 18:03:54,449 - mining_592956 - INFO - 点击 wood: (1181, 829) [scale=0.986]
+2026-03-26 18:03:54,449 - mining_592956 - INFO - 点击资源成功: wood
+2026-03-26 18:03:56,184 - mining_592956 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.985
+2026-03-26 18:03:56,286 - mining_592956 - INFO - 点击 add: (883, 918) [scale=0.986]
+2026-03-26 18:03:56,286 - mining_592956 - INFO - 点击 add 成功
+2026-03-26 18:03:57,044 - mining_592956 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:03:58,774 - mining_592956 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.811
+2026-03-26 18:03:58,875 - mining_592956 - INFO - 点击 search_meat: (1067, 1045) [scale=0.986]
+2026-03-26 18:03:58,875 - mining_592956 - INFO - 点击 search_meat 成功
+2026-03-26 18:04:00,333 - mining_592956 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:04:00,388 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-03-26 18:04:00,500 - mining_592956 - INFO - [备选-近邻] gather.png scale=0.961 conf=0.898
+2026-03-26 18:04:00,601 - mining_592956 - INFO - 点击 gather: (1061, 593) [scale=0.961]
+2026-03-26 18:04:00,601 - mining_592956 - INFO - 点击 gather 成功
+2026-03-26 18:04:02,253 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:04:02,504 - mining_592956 - DEBUG - 未找到: team.png
+2026-03-26 18:04:02,557 - mining_592956 - DEBUG - [比例匹配] battle.png scale=0.986 conf=0.748
+2026-03-26 18:04:02,659 - mining_592956 - INFO - 点击 battle: (1214, 1042) [scale=0.986]
+2026-03-26 18:04:02,659 - mining_592956 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 18:04:02,660 - mining_592956 - INFO - 已完成 2/6 轮
+2026-03-26 18:04:04,683 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:04:04,683 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:04:04,733 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:04:04,984 - mining_592956 - DEBUG - 未找到: wild.png
+2026-03-26 18:04:05,036 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:04:05,036 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:04:05,037 - mining_592956 - INFO - 找到 town
+2026-03-26 18:04:06,182 - mining_592956 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.949
+2026-03-26 18:04:06,284 - mining_592956 - INFO - 点击 search: (819, 785) [scale=0.986]
+2026-03-26 18:04:06,284 - mining_592956 - INFO - 点击 search 成功
+2026-03-26 18:04:07,709 - mining_592956 - DEBUG - 加载模板: coal mine.png 68x51
+2026-03-26 18:04:07,725 - mining_592956 - DEBUG - [比例匹配] coal mine.png scale=0.986 conf=0.956
+2026-03-26 18:04:07,828 - mining_592956 - INFO - 点击 coal: (1182, 832) [scale=0.986]
+2026-03-26 18:04:07,829 - mining_592956 - INFO - 点击资源成功: coal
+2026-03-26 18:04:09,218 - mining_592956 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.963
+2026-03-26 18:04:09,319 - mining_592956 - INFO - 点击 add: (1120, 918) [scale=0.986]
+2026-03-26 18:04:09,319 - mining_592956 - INFO - 点击 add 成功
+2026-03-26 18:04:10,078 - mining_592956 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:04:11,481 - mining_592956 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.811
+2026-03-26 18:04:11,584 - mining_592956 - INFO - 点击 search_meat: (1067, 1045) [scale=0.986]
+2026-03-26 18:04:11,584 - mining_592956 - INFO - 点击 search_meat 成功
+2026-03-26 18:04:12,978 - mining_592956 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:04:13,027 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-03-26 18:04:13,142 - mining_592956 - INFO - [备选-近邻] gather.png scale=0.895 conf=0.879
+2026-03-26 18:04:13,243 - mining_592956 - INFO - 点击 gather: (1061, 593) [scale=0.895]
+2026-03-26 18:04:13,243 - mining_592956 - INFO - 点击 gather 成功
+2026-03-26 18:04:14,526 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:04:14,787 - mining_592956 - DEBUG - 未找到: team.png
+2026-03-26 18:04:14,842 - mining_592956 - DEBUG - [比例匹配] battle.png scale=0.986 conf=0.748
+2026-03-26 18:04:14,944 - mining_592956 - INFO - 点击 battle: (1214, 1042) [scale=0.986]
+2026-03-26 18:04:14,945 - mining_592956 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 18:04:14,945 - mining_592956 - INFO - 已完成 3/6 轮
+2026-03-26 18:04:16,396 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:04:16,397 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:04:16,446 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:04:16,702 - mining_592956 - DEBUG - 未找到: wild.png
+2026-03-26 18:04:16,755 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:04:16,755 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:04:16,756 - mining_592956 - INFO - 找到 town
+2026-03-26 18:04:18,421 - mining_592956 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.981
+2026-03-26 18:04:18,523 - mining_592956 - INFO - 点击 search: (819, 785) [scale=0.986]
+2026-03-26 18:04:18,523 - mining_592956 - INFO - 点击 search 成功
+2026-03-26 18:04:19,735 - mining_592956 - DEBUG - 加载模板: iron.png 83x81
+2026-03-26 18:04:19,750 - mining_592956 - DEBUG - [比例匹配] iron.png scale=0.986 conf=0.954
+2026-03-26 18:04:19,852 - mining_592956 - INFO - 点击 iron: (1265, 814) [scale=0.986]
+2026-03-26 18:04:19,852 - mining_592956 - INFO - 点击资源成功: iron
+2026-03-26 18:04:21,356 - mining_592956 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.985
+2026-03-26 18:04:21,457 - mining_592956 - INFO - 点击 add: (883, 918) [scale=0.986]
+2026-03-26 18:04:21,457 - mining_592956 - INFO - 点击 add 成功
+2026-03-26 18:04:22,216 - mining_592956 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:04:24,051 - mining_592956 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.811
+2026-03-26 18:04:24,153 - mining_592956 - INFO - 点击 search_meat: (1067, 1045) [scale=0.986]
+2026-03-26 18:04:24,153 - mining_592956 - INFO - 点击 search_meat 成功
+2026-03-26 18:04:25,263 - mining_592956 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:04:25,316 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-03-26 18:04:25,430 - mining_592956 - INFO - [备选-近邻] gather.png scale=0.961 conf=0.897
+2026-03-26 18:04:25,531 - mining_592956 - INFO - 点击 gather: (1061, 593) [scale=0.961]
+2026-03-26 18:04:25,532 - mining_592956 - INFO - 点击 gather 成功
+2026-03-26 18:04:27,001 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:04:27,283 - mining_592956 - DEBUG - 未找到: team.png
+2026-03-26 18:04:27,336 - mining_592956 - DEBUG - [比例匹配] battle.png scale=0.986 conf=0.748
+2026-03-26 18:04:27,437 - mining_592956 - INFO - 点击 battle: (1214, 1042) [scale=0.986]
+2026-03-26 18:04:27,437 - mining_592956 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 18:04:27,438 - mining_592956 - INFO - 已完成 4/6 轮
+2026-03-26 18:04:28,656 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:04:28,657 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:04:28,710 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:04:28,960 - mining_592956 - DEBUG - 未找到: wild.png
+2026-03-26 18:04:29,013 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:04:29,013 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:04:29,014 - mining_592956 - INFO - 找到 town
+2026-03-26 18:04:30,570 - mining_592956 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.985
+2026-03-26 18:04:30,672 - mining_592956 - INFO - 点击 search: (819, 785) [scale=0.986]
+2026-03-26 18:04:30,672 - mining_592956 - INFO - 点击 search 成功
+2026-03-26 18:04:32,084 - mining_592956 - DEBUG - [比例匹配] meat.png scale=0.986 conf=0.943
+2026-03-26 18:04:32,186 - mining_592956 - INFO - 点击 meat: (908, 811) [scale=0.986]
+2026-03-26 18:04:32,186 - mining_592956 - INFO - 点击资源成功: meat
+2026-03-26 18:04:33,335 - mining_592956 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.963
+2026-03-26 18:04:33,437 - mining_592956 - INFO - 点击 add: (1120, 918) [scale=0.986]
+2026-03-26 18:04:33,437 - mining_592956 - INFO - 点击 add 成功
+2026-03-26 18:04:34,194 - mining_592956 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:04:35,417 - mining_592956 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.811
+2026-03-26 18:04:35,519 - mining_592956 - INFO - 点击 search_meat: (1067, 1045) [scale=0.986]
+2026-03-26 18:04:35,519 - mining_592956 - INFO - 点击 search_meat 成功
+2026-03-26 18:04:36,590 - mining_592956 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:04:36,641 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-03-26 18:04:36,759 - mining_592956 - INFO - [备选-近邻] gather.png scale=0.895 conf=0.879
+2026-03-26 18:04:36,861 - mining_592956 - INFO - 点击 gather: (1061, 593) [scale=0.895]
+2026-03-26 18:04:36,861 - mining_592956 - INFO - 点击 gather 成功
+2026-03-26 18:04:38,405 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:04:38,655 - mining_592956 - DEBUG - 未找到: team.png
+2026-03-26 18:04:38,708 - mining_592956 - DEBUG - [比例匹配] battle.png scale=0.986 conf=0.748
+2026-03-26 18:04:38,809 - mining_592956 - INFO - 点击 battle: (1214, 1042) [scale=0.986]
+2026-03-26 18:04:38,809 - mining_592956 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 18:04:38,809 - mining_592956 - INFO - 已完成 5/6 轮
+2026-03-26 18:04:40,624 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:04:40,625 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:04:40,679 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:04:40,934 - mining_592956 - DEBUG - 未找到: wild.png
+2026-03-26 18:04:40,987 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:04:40,988 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:04:40,988 - mining_592956 - INFO - 找到 town
+2026-03-26 18:04:42,647 - mining_592956 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.979
+2026-03-26 18:04:42,749 - mining_592956 - INFO - 点击 search: (819, 785) [scale=0.986]
+2026-03-26 18:04:42,749 - mining_592956 - INFO - 点击 search 成功
+2026-03-26 18:04:44,316 - mining_592956 - DEBUG - [比例匹配] wood.png scale=0.986 conf=0.959
+2026-03-26 18:04:44,417 - mining_592956 - INFO - 点击 wood: (1181, 829) [scale=0.986]
+2026-03-26 18:04:44,418 - mining_592956 - INFO - 点击资源成功: wood
+2026-03-26 18:04:46,072 - mining_592956 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.963
+2026-03-26 18:04:46,174 - mining_592956 - INFO - 点击 add: (1120, 918) [scale=0.986]
+2026-03-26 18:04:46,174 - mining_592956 - INFO - 点击 add 成功
+2026-03-26 18:04:46,932 - mining_592956 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:04:48,710 - mining_592956 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.811
+2026-03-26 18:04:48,812 - mining_592956 - INFO - 点击 search_meat: (1067, 1045) [scale=0.986]
+2026-03-26 18:04:48,812 - mining_592956 - INFO - 点击 search_meat 成功
+2026-03-26 18:04:50,060 - mining_592956 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:04:50,112 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-03-26 18:04:50,231 - mining_592956 - INFO - [备选-近邻] gather.png scale=0.961 conf=0.897
+2026-03-26 18:04:50,332 - mining_592956 - INFO - 点击 gather: (1061, 593) [scale=0.961]
+2026-03-26 18:04:50,332 - mining_592956 - INFO - 点击 gather 成功
+2026-03-26 18:04:51,487 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:04:51,740 - mining_592956 - INFO - [备选-全范围] team.png scale=0.895 conf=0.723
+2026-03-26 18:04:51,740 - mining_592956 - DEBUG - 找到 team [scale=0.895]
+2026-03-26 18:04:51,741 - mining_592956 - INFO - 找到 team，队列已满，停止挖矿
+2026-03-26 18:04:53,239 - mining_592956 - DEBUG - 加载模板: close.png 43x33
+2026-03-26 18:04:53,250 - mining_592956 - DEBUG - [比例匹配] close.png scale=0.986 conf=0.961
+2026-03-26 18:04:53,352 - mining_592956 - INFO - 点击 close: (1275, 372) [scale=0.986]
+2026-03-26 18:04:53,353 - mining_592956 - INFO - 点击 close 成功
+2026-03-26 18:04:53,353 - MultiWindowManager - INFO - 窗口 592956 挖矿停止
+2026-03-26 18:04:53,763 - MultiWindowManager - INFO - 窗口 MuMuNxDevice (3696) 挖矿完成或停止
+2026-03-26 18:04:53,763 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (12172) 挖矿
+2026-03-26 18:04:53,763 - MultiWindowManager - INFO - 切换窗口: 从 592956 到 788366 (MuMu安卓设备 (12172))
+2026-03-26 18:04:53,864 - mining_788366 - INFO - ==================================================
+2026-03-26 18:04:53,864 - mining_788366 - INFO - 挖矿开始
+2026-03-26 18:04:53,865 - mining_788366 - INFO - 基准尺寸: 558x1021
+2026-03-26 18:04:53,865 - mining_788366 - INFO - ==================================================
+2026-03-26 18:04:53,866 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (12172) 挖矿完成...
+2026-03-26 18:04:53,907 - mining_788366 - DEBUG - 加载模板: town.png 60x56
+2026-03-26 18:04:53,919 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-03-26 18:04:54,189 - mining_788366 - DEBUG - 未找到: town.png
+2026-03-26 18:04:54,231 - mining_788366 - DEBUG - 加载模板: wild.png 60x52
+2026-03-26 18:04:54,244 - mining_788366 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.916
+2026-03-26 18:04:54,245 - mining_788366 - DEBUG - 找到 wild [scale=1.000]
+2026-03-26 18:04:54,298 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-03-26 18:04:54,579 - mining_788366 - DEBUG - 未找到: town.png
+2026-03-26 18:04:54,580 - mining_788366 - DEBUG - 未找到 town，尝试 wild
+2026-03-26 18:04:55,639 - mining_788366 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.916
+2026-03-26 18:04:55,746 - mining_788366 - INFO - 点击 wild: (724, 1056) [scale=1.000]
+2026-03-26 18:04:55,746 - mining_788366 - INFO - 点击 wild 成功
+2026-03-26 18:04:57,212 - mining_788366 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.882
+2026-03-26 18:04:57,212 - mining_788366 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 18:04:57,212 - mining_788366 - INFO - 找到 town
+2026-03-26 18:04:57,256 - mining_788366 - DEBUG - 加载模板: meat.png 106x81
+2026-03-26 18:04:57,272 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: meat.png
+2026-03-26 18:04:57,552 - mining_788366 - DEBUG - 未找到: meat.png
+2026-03-26 18:04:57,553 - mining_788366 - INFO - 资源未找到，2s 后重试 (1/3)
+2026-03-26 18:04:59,609 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: meat.png
+2026-03-26 18:04:59,902 - mining_788366 - DEBUG - 未找到: meat.png
+2026-03-26 18:04:59,903 - mining_788366 - INFO - 资源未找到，2s 后重试 (2/3)
+2026-03-26 18:05:01,964 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: meat.png
+2026-03-26 18:05:02,264 - mining_788366 - DEBUG - 未找到: meat.png
+2026-03-26 18:05:02,265 - mining_788366 - WARNING - 资源 meat 多次未找到
+2026-03-26 18:05:04,229 - mining_788366 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.882
+2026-03-26 18:05:04,229 - mining_788366 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 18:05:04,300 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:05:04,718 - mining_788366 - DEBUG - 未找到: wild.png
+2026-03-26 18:05:04,774 - mining_788366 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.882
+2026-03-26 18:05:04,775 - mining_788366 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 18:05:04,776 - mining_788366 - INFO - 找到 town
+2026-03-26 18:05:06,089 - mining_788366 - DEBUG - 加载模板: search.png 40x37
+2026-03-26 18:05:06,107 - mining_788366 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.920
+2026-03-26 18:05:06,211 - mining_788366 - INFO - 点击 search: (260, 781) [scale=1.000]
+2026-03-26 18:05:06,211 - mining_788366 - INFO - 点击 search 成功
+2026-03-26 18:05:07,724 - mining_788366 - DEBUG - 加载模板: wood.png 96x57
+2026-03-26 18:05:07,740 - mining_788366 - DEBUG - [比例匹配] wood.png scale=1.000 conf=0.927
+2026-03-26 18:05:07,847 - mining_788366 - INFO - 点击 wood: (472, 825) [scale=1.000]
+2026-03-26 18:05:07,847 - mining_788366 - INFO - 点击资源成功: wood
+2026-03-26 18:05:09,816 - mining_788366 - DEBUG - 加载模板: add.png 20x31
+2026-03-26 18:05:09,828 - mining_788366 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.962
+2026-03-26 18:05:09,930 - mining_788366 - INFO - 点击 add: (562, 914) [scale=1.000]
+2026-03-26 18:05:09,931 - mining_788366 - INFO - 点击 add 成功
+2026-03-26 18:05:10,688 - mining_788366 - INFO - 拖动: dx=240, dy=0 [scale=1.000]
+2026-03-26 18:05:12,047 - mining_788366 - DEBUG - 加载模板: search_meat.png 78x34
+2026-03-26 18:05:12,065 - mining_788366 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.842
+2026-03-26 18:05:12,167 - mining_788366 - INFO - 点击 search_meat: (508, 1042) [scale=1.000]
+2026-03-26 18:05:12,168 - mining_788366 - INFO - 点击 search_meat 成功
+2026-03-26 18:05:13,536 - mining_788366 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:05:13,577 - mining_788366 - DEBUG - 加载模板: gather.png 63x36
+2026-03-26 18:05:13,589 - mining_788366 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.876
+2026-03-26 18:05:13,692 - mining_788366 - INFO - 点击 gather: (502, 589) [scale=1.000]
+2026-03-26 18:05:13,693 - mining_788366 - INFO - 点击 gather 成功
+2026-03-26 18:05:14,781 - mining_788366 - DEBUG - 加载模板: team.png 139x43
+2026-03-26 18:05:14,795 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:05:15,062 - mining_788366 - DEBUG - 未找到: team.png
+2026-03-26 18:05:15,103 - mining_788366 - DEBUG - 加载模板: battle.png 81x37
+2026-03-26 18:05:15,117 - mining_788366 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.822
+2026-03-26 18:05:15,220 - mining_788366 - INFO - 点击 battle: (655, 1038) [scale=1.000]
+2026-03-26 18:05:15,220 - mining_788366 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 18:05:15,221 - mining_788366 - INFO - 已完成 1/6 轮
+2026-03-26 18:05:16,341 - mining_788366 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 18:05:16,341 - mining_788366 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 18:05:16,397 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:05:16,781 - mining_788366 - DEBUG - 未找到: wild.png
+2026-03-26 18:05:16,838 - mining_788366 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 18:05:16,838 - mining_788366 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 18:05:16,838 - mining_788366 - INFO - 找到 town
+2026-03-26 18:05:18,297 - mining_788366 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.933
+2026-03-26 18:05:18,399 - mining_788366 - INFO - 点击 search: (261, 781) [scale=1.000]
+2026-03-26 18:05:18,399 - mining_788366 - INFO - 点击 search 成功
+2026-03-26 18:05:19,669 - mining_788366 - DEBUG - 加载模板: coal mine.png 68x51
+2026-03-26 18:05:19,684 - mining_788366 - DEBUG - [比例匹配] coal mine.png scale=1.000 conf=0.954
+2026-03-26 18:05:19,786 - mining_788366 - INFO - 点击 coal: (624, 828) [scale=1.000]
+2026-03-26 18:05:19,786 - mining_788366 - INFO - 点击资源成功: coal
+2026-03-26 18:05:21,526 - mining_788366 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.962
+2026-03-26 18:05:21,629 - mining_788366 - INFO - 点击 add: (562, 914) [scale=1.000]
+2026-03-26 18:05:21,629 - mining_788366 - INFO - 点击 add 成功
+2026-03-26 18:05:22,387 - mining_788366 - INFO - 拖动: dx=240, dy=0 [scale=1.000]
+2026-03-26 18:05:23,632 - mining_788366 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.842
+2026-03-26 18:05:23,734 - mining_788366 - INFO - 点击 search_meat: (508, 1042) [scale=1.000]
+2026-03-26 18:05:23,734 - mining_788366 - INFO - 点击 search_meat 成功
+2026-03-26 18:05:25,441 - mining_788366 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:05:25,497 - mining_788366 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.876
+2026-03-26 18:05:25,599 - mining_788366 - INFO - 点击 gather: (502, 589) [scale=1.000]
+2026-03-26 18:05:25,600 - mining_788366 - INFO - 点击 gather 成功
+2026-03-26 18:05:27,009 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:05:27,278 - mining_788366 - DEBUG - 未找到: team.png
+2026-03-26 18:05:27,332 - mining_788366 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.822
+2026-03-26 18:05:27,435 - mining_788366 - INFO - 点击 battle: (655, 1038) [scale=1.000]
+2026-03-26 18:05:27,435 - mining_788366 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 18:05:27,435 - mining_788366 - INFO - 已完成 2/6 轮
+2026-03-26 18:05:29,463 - mining_788366 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 18:05:29,464 - mining_788366 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 18:05:29,521 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:05:29,919 - mining_788366 - DEBUG - 未找到: wild.png
+2026-03-26 18:05:29,975 - mining_788366 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 18:05:29,975 - mining_788366 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 18:05:29,976 - mining_788366 - INFO - 找到 town
+2026-03-26 18:05:31,193 - mining_788366 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.936
+2026-03-26 18:05:31,295 - mining_788366 - INFO - 点击 search: (261, 781) [scale=1.000]
+2026-03-26 18:05:31,295 - mining_788366 - INFO - 点击 search 成功
+2026-03-26 18:05:33,168 - mining_788366 - DEBUG - 加载模板: iron.png 83x81
+2026-03-26 18:05:33,188 - mining_788366 - DEBUG - [比例匹配] iron.png scale=1.000 conf=0.891
+2026-03-26 18:05:33,290 - mining_788366 - INFO - 点击 iron: (706, 810) [scale=1.000]
+2026-03-26 18:05:33,290 - mining_788366 - INFO - 点击资源成功: iron
+2026-03-26 18:05:35,212 - mining_788366 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.962
+2026-03-26 18:05:35,314 - mining_788366 - INFO - 点击 add: (562, 914) [scale=1.000]
+2026-03-26 18:05:35,315 - mining_788366 - INFO - 点击 add 成功
+2026-03-26 18:05:36,073 - mining_788366 - INFO - 拖动: dx=240, dy=0 [scale=1.000]
+2026-03-26 18:05:37,776 - mining_788366 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.842
+2026-03-26 18:05:37,879 - mining_788366 - INFO - 点击 search_meat: (508, 1042) [scale=1.000]
+2026-03-26 18:05:37,879 - mining_788366 - INFO - 点击 search_meat 成功
+2026-03-26 18:05:39,227 - mining_788366 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:05:39,280 - mining_788366 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.875
+2026-03-26 18:05:39,382 - mining_788366 - INFO - 点击 gather: (502, 589) [scale=1.000]
+2026-03-26 18:05:39,382 - mining_788366 - INFO - 点击 gather 成功
+2026-03-26 18:05:40,820 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:05:41,081 - mining_788366 - DEBUG - 未找到: team.png
+2026-03-26 18:05:41,136 - mining_788366 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.822
+2026-03-26 18:05:41,239 - mining_788366 - INFO - 点击 battle: (655, 1038) [scale=1.000]
+2026-03-26 18:05:41,239 - mining_788366 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 18:05:41,239 - mining_788366 - INFO - 已完成 3/6 轮
+2026-03-26 18:05:43,008 - mining_788366 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 18:05:43,009 - mining_788366 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 18:05:43,062 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:05:43,452 - mining_788366 - DEBUG - 未找到: wild.png
+2026-03-26 18:05:43,507 - mining_788366 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.875
+2026-03-26 18:05:43,508 - mining_788366 - DEBUG - 找到 town [scale=1.000]
+2026-03-26 18:05:43,508 - mining_788366 - INFO - 找到 town
+2026-03-26 18:05:45,342 - mining_788366 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.932
+2026-03-26 18:05:45,443 - mining_788366 - INFO - 点击 search: (261, 781) [scale=1.000]
+2026-03-26 18:05:45,443 - mining_788366 - INFO - 点击 search 成功
+2026-03-26 18:05:46,539 - mining_788366 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.891
+2026-03-26 18:05:46,640 - mining_788366 - INFO - 点击 meat: (349, 807) [scale=1.000]
+2026-03-26 18:05:46,640 - mining_788366 - INFO - 点击资源成功: meat
+2026-03-26 18:05:48,440 - mining_788366 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.962
+2026-03-26 18:05:48,542 - mining_788366 - INFO - 点击 add: (562, 914) [scale=1.000]
+2026-03-26 18:05:48,542 - mining_788366 - INFO - 点击 add 成功
+2026-03-26 18:05:49,300 - mining_788366 - INFO - 拖动: dx=240, dy=0 [scale=1.000]
+2026-03-26 18:05:50,649 - mining_788366 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.842
+2026-03-26 18:05:50,751 - mining_788366 - INFO - 点击 search_meat: (508, 1042) [scale=1.000]
+2026-03-26 18:05:50,752 - mining_788366 - INFO - 点击 search_meat 成功
+2026-03-26 18:05:52,272 - mining_788366 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:05:52,329 - mining_788366 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.876
+2026-03-26 18:05:52,431 - mining_788366 - INFO - 点击 gather: (502, 589) [scale=1.000]
+2026-03-26 18:05:52,431 - mining_788366 - INFO - 点击 gather 成功
+2026-03-26 18:05:54,480 - mining_788366 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:05:54,747 - mining_788366 - INFO - [备选-全范围] team.png scale=0.974 conf=0.825
+2026-03-26 18:05:54,747 - mining_788366 - DEBUG - 找到 team [scale=0.974]
+2026-03-26 18:05:54,747 - mining_788366 - INFO - 找到 team，队列已满，停止挖矿
+2026-03-26 18:05:56,074 - mining_788366 - DEBUG - 加载模板: close.png 43x33
+2026-03-26 18:05:56,089 - mining_788366 - DEBUG - [比例匹配] close.png scale=1.000 conf=0.976
+2026-03-26 18:05:56,190 - mining_788366 - INFO - 点击 close: (715, 367) [scale=1.000]
+2026-03-26 18:05:56,190 - mining_788366 - INFO - 点击 close 成功
+2026-03-26 18:05:56,191 - MultiWindowManager - INFO - 窗口 788366 挖矿停止
+2026-03-26 18:05:56,425 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (12172) 挖矿完成或停止
+2026-03-26 18:05:56,425 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-03-26 18:05:56,425 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-03-26 18:05:56,870 - ProtectiveCasing - INFO - 设置检测窗口列表: 2 个窗口
+2026-03-26 18:05:56,871 - ProtectiveCasing - INFO - ==================================================
+2026-03-26 18:05:56,871 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-03-26 18:05:56,871 - ProtectiveCasing - INFO - 检测目标: g:\yang\fish\wujindongri\pic\war.png
+2026-03-26 18:05:56,871 - ProtectiveCasing - INFO - Shield 目标: g:\yang\fish\wujindongri\pic\Shield.png
+2026-03-26 18:05:56,872 - ProtectiveCasing - INFO - Buy 目标: g:\yang\fish\wujindongri\pic\buy.png
+2026-03-26 18:05:56,872 - ProtectiveCasing - INFO - Deploy 相对坐标: (28, 94)
+2026-03-26 18:05:56,872 - ProtectiveCasing - INFO - Buy_2 相对坐标: (451, 423)
+2026-03-26 18:05:56,872 - ProtectiveCasing - INFO - 检测间隔: 5 秒
+2026-03-26 18:05:56,872 - ProtectiveCasing - INFO - 检测窗口数: 2
+2026-03-26 18:05:56,872 - ProtectiveCasing - INFO - ==================================================
+2026-03-26 18:05:56,873 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:05:58,224 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:06:03,228 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:06:04,592 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:06:09,595 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:06:10,946 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:06:15,949 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:06:17,313 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:06:22,315 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:06:23,671 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:06:28,674 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:06:30,018 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:06:35,019 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:06:36,403 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:06:41,404 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:06:42,759 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:06:47,762 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:06:49,113 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:06:54,115 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:06:54,466 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 war! 置信度: 0.829
+2026-03-26 18:06:54,520 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 town
+2026-03-26 18:06:54,546 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 83 个 six
+2026-03-26 18:06:54,548 - ProtectiveCasing - INFO - [MuMu安卓设备] 开始处理 83 个 six...
+2026-03-26 18:06:54,548 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #1 位置 (55, 245)
+2026-03-26 18:06:54,548 - ProtectiveCasing - ERROR - [MuMu安卓设备] 处理 six 失败: module 'win32con' has no attribute 'MAKELONG'
+Traceback (most recent call last):
+  File "g:\yang\fish\wujindongri\src\Protective_casing.py", line 464, in process_six_with_red_check
+    lParam = win32con.MAKELONG(click_x, click_y)
+             ^^^^^^^^^^^^^^^^^
+AttributeError: module 'win32con' has no attribute 'MAKELONG'
+2026-03-26 18:06:55,612 - ProtectiveCasing - WARNING - [WAR] 发现 war 的窗口: MuMu安卓设备
+2026-03-26 18:07:00,613 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:07:00,966 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 war! 置信度: 0.807
+2026-03-26 18:07:01,020 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 town
+2026-03-26 18:07:01,046 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 83 个 six
+2026-03-26 18:07:01,046 - ProtectiveCasing - INFO - [MuMu安卓设备] 开始处理 83 个 six...
+2026-03-26 18:07:01,046 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #1 位置 (55, 245)
+2026-03-26 18:07:01,047 - ProtectiveCasing - ERROR - [MuMu安卓设备] 处理 six 失败: module 'win32con' has no attribute 'MAKELONG'
+Traceback (most recent call last):
+  File "g:\yang\fish\wujindongri\src\Protective_casing.py", line 464, in process_six_with_red_check
+    lParam = win32con.MAKELONG(click_x, click_y)
+             ^^^^^^^^^^^^^^^^^
+AttributeError: module 'win32con' has no attribute 'MAKELONG'
+2026-03-26 18:07:01,098 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 war! 置信度: 0.851
+2026-03-26 18:07:01,098 - ProtectiveCasing - INFO - [MuMu安卓设备] war 仍然存在，开启 Shield 流程...
+2026-03-26 18:07:01,098 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.3 秒后点击 deploy...
+2026-03-26 18:07:02,376 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 deploy 按钮，相对坐标 (28, 94)，绝对坐标 (251, 164)
+2026-03-26 18:07:02,376 - ProtectiveCasing - ERROR - 点击 deploy 失败: module 'win32con' has no attribute 'MAKELONG'
+2026-03-26 18:07:02,376 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 2.0 秒后查找 Shield...
+2026-03-26 18:07:08,631 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 Shield 按钮
+2026-03-26 18:07:09,392 - ProtectiveCasing - WARNING - [WAR] 发现 war 的窗口: MuMu安卓设备
+2026-03-26 18:07:14,394 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:07:15,785 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:07:15,873 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 18:09:59,411 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 18:09:59,411 - src.main - INFO - 版本: 1.0.0
+2026-03-26 18:10:10,070 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-03-26 18:10:10,070 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-03-26 18:10:10,073 - MultiWindowManager - INFO - 添加窗口: MuMuNxDevice (3696) (hwnd=592956)
+2026-03-26 18:10:10,076 - MultiWindowManager - INFO - 添加窗口: MuMuNxDevice (12172) (hwnd=133284)
+2026-03-26 18:10:10,078 - MultiWindowManager - INFO - 加入挖矿队列: MuMuNxDevice (3696)
+2026-03-26 18:10:10,078 - MultiWindowManager - INFO - 加入挖矿队列: MuMuNxDevice (12172)
+2026-03-26 18:10:10,079 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-03-26 18:10:10,079 - MultiWindowManager - INFO - 启动挖矿队列，共 2 个窗口
+2026-03-26 18:10:10,079 - MultiWindowManager - INFO - 调度器启动窗口 MuMuNxDevice (3696) 挖矿
+2026-03-26 18:10:10,079 - MultiWindowManager - INFO - 激活窗口: 592956 (MuMuNxDevice (3696))
+2026-03-26 18:10:10,084 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-03-26 18:10:10,180 - mining_592956 - INFO - ==================================================
+2026-03-26 18:10:10,180 - mining_592956 - INFO - 挖矿开始
+2026-03-26 18:10:10,180 - mining_592956 - INFO - 基准尺寸: 558x1021
+2026-03-26 18:10:10,181 - mining_592956 - INFO - ==================================================
+2026-03-26 18:10:10,182 - MultiWindowManager - INFO - 等待窗口 MuMuNxDevice (3696) 挖矿完成...
+2026-03-26 18:10:10,233 - mining_592956 - DEBUG - 加载模板: town.png 60x56
+2026-03-26 18:10:10,247 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:10:10,247 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:10:10,284 - mining_592956 - DEBUG - 加载模板: wild.png 60x52
+2026-03-26 18:10:10,296 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:10:10,548 - mining_592956 - DEBUG - 未找到: wild.png
+2026-03-26 18:10:10,599 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:10:10,599 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:10:10,601 - mining_592956 - INFO - 找到 town
+2026-03-26 18:10:11,928 - mining_592956 - DEBUG - 加载模板: search.png 40x37
+2026-03-26 18:10:11,943 - mining_592956 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.984
+2026-03-26 18:10:12,050 - mining_592956 - INFO - 点击 search: (819, 785) [scale=0.986]
+2026-03-26 18:10:12,050 - mining_592956 - INFO - 点击 search 成功
+2026-03-26 18:10:13,401 - mining_592956 - DEBUG - 加载模板: meat.png 106x81
+2026-03-26 18:10:13,416 - mining_592956 - DEBUG - [比例匹配] meat.png scale=0.986 conf=0.949
+2026-03-26 18:10:13,524 - mining_592956 - INFO - 点击 meat: (943, 811) [scale=0.986]
+2026-03-26 18:10:13,524 - mining_592956 - INFO - 点击资源成功: meat
+2026-03-26 18:10:14,686 - mining_592956 - DEBUG - 加载模板: add.png 20x31
+2026-03-26 18:10:14,696 - mining_592956 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.963
+2026-03-26 18:10:14,798 - mining_592956 - INFO - 点击 add: (1120, 918) [scale=0.986]
+2026-03-26 18:10:14,799 - mining_592956 - INFO - 点击 add 成功
+2026-03-26 18:10:15,555 - mining_592956 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:10:17,565 - mining_592956 - DEBUG - 加载模板: search_meat.png 78x34
+2026-03-26 18:10:17,579 - mining_592956 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.811
+2026-03-26 18:10:17,681 - mining_592956 - INFO - 点击 search_meat: (1067, 1045) [scale=0.986]
+2026-03-26 18:10:17,681 - mining_592956 - INFO - 点击 search_meat 成功
+2026-03-26 18:10:19,619 - mining_592956 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:10:19,659 - mining_592956 - DEBUG - 加载模板: gather.png 63x36
+2026-03-26 18:10:19,672 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-03-26 18:10:19,917 - mining_592956 - INFO - [备选-全范围] gather.png scale=0.895 conf=0.879
+2026-03-26 18:10:20,019 - mining_592956 - INFO - 点击 gather: (1061, 593) [scale=0.895]
+2026-03-26 18:10:20,019 - mining_592956 - INFO - 点击 gather 成功
+2026-03-26 18:10:21,267 - mining_592956 - DEBUG - 加载模板: team.png 139x43
+2026-03-26 18:10:21,281 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:10:21,534 - mining_592956 - DEBUG - 未找到: team.png
+2026-03-26 18:10:21,572 - mining_592956 - DEBUG - 加载模板: battle.png 81x37
+2026-03-26 18:10:21,585 - mining_592956 - DEBUG - [比例匹配] battle.png scale=0.986 conf=0.748
+2026-03-26 18:10:21,688 - mining_592956 - INFO - 点击 battle: (1214, 1042) [scale=0.986]
+2026-03-26 18:10:21,688 - mining_592956 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 18:10:21,689 - mining_592956 - INFO - 已完成 1/6 轮
+2026-03-26 18:10:23,269 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:10:23,270 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:10:23,318 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:10:23,571 - mining_592956 - DEBUG - 未找到: wild.png
+2026-03-26 18:10:23,623 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:10:23,624 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:10:23,624 - mining_592956 - INFO - 找到 town
+2026-03-26 18:10:25,166 - mining_592956 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.959
+2026-03-26 18:10:25,273 - mining_592956 - INFO - 点击 search: (819, 785) [scale=0.986]
+2026-03-26 18:10:25,273 - mining_592956 - INFO - 点击 search 成功
+2026-03-26 18:10:26,755 - mining_592956 - DEBUG - 加载模板: wood.png 96x57
+2026-03-26 18:10:26,769 - mining_592956 - DEBUG - [比例匹配] wood.png scale=0.986 conf=0.959
+2026-03-26 18:10:26,871 - mining_592956 - INFO - 点击 wood: (1181, 829) [scale=0.986]
+2026-03-26 18:10:26,871 - mining_592956 - INFO - 点击资源成功: wood
+2026-03-26 18:10:28,772 - mining_592956 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.963
+2026-03-26 18:10:28,874 - mining_592956 - INFO - 点击 add: (1120, 918) [scale=0.986]
+2026-03-26 18:10:28,874 - mining_592956 - INFO - 点击 add 成功
+2026-03-26 18:10:29,631 - mining_592956 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:10:30,843 - mining_592956 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.811
+2026-03-26 18:10:30,947 - mining_592956 - INFO - 点击 search_meat: (1067, 1045) [scale=0.986]
+2026-03-26 18:10:30,947 - mining_592956 - INFO - 点击 search_meat 成功
+2026-03-26 18:10:32,750 - mining_592956 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:10:32,798 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-03-26 18:10:32,909 - mining_592956 - INFO - [备选-近邻] gather.png scale=0.961 conf=0.897
+2026-03-26 18:10:33,012 - mining_592956 - INFO - 点击 gather: (1061, 593) [scale=0.961]
+2026-03-26 18:10:33,012 - mining_592956 - INFO - 点击 gather 成功
+2026-03-26 18:10:34,430 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:10:34,677 - mining_592956 - INFO - [备选-全范围] team.png scale=0.895 conf=0.723
+2026-03-26 18:10:34,677 - mining_592956 - DEBUG - 找到 team [scale=0.895]
+2026-03-26 18:10:34,678 - mining_592956 - INFO - 找到 team，队列已满，停止挖矿
+2026-03-26 18:10:35,760 - mining_592956 - DEBUG - 加载模板: close.png 43x33
+2026-03-26 18:10:35,772 - mining_592956 - DEBUG - [比例匹配] close.png scale=0.986 conf=0.961
+2026-03-26 18:10:35,874 - mining_592956 - INFO - 点击 close: (1275, 372) [scale=0.986]
+2026-03-26 18:10:35,874 - mining_592956 - INFO - 点击 close 成功
+2026-03-26 18:10:35,874 - MultiWindowManager - INFO - 窗口 592956 挖矿停止
+2026-03-26 18:10:36,282 - MultiWindowManager - INFO - 窗口 MuMuNxDevice (3696) 挖矿完成或停止
+2026-03-26 18:10:36,282 - MultiWindowManager - INFO - 调度器启动窗口 MuMuNxDevice (12172) 挖矿
+2026-03-26 18:10:36,282 - MultiWindowManager - INFO - 切换窗口: 从 592956 到 133284 (MuMuNxDevice (12172))
+2026-03-26 18:10:36,383 - mining_133284 - INFO - ==================================================
+2026-03-26 18:10:36,383 - mining_133284 - INFO - 挖矿开始
+2026-03-26 18:10:36,384 - mining_133284 - INFO - 基准尺寸: 558x1021
+2026-03-26 18:10:36,384 - mining_133284 - INFO - ==================================================
+2026-03-26 18:10:36,385 - MultiWindowManager - INFO - 等待窗口 MuMuNxDevice (12172) 挖矿完成...
+2026-03-26 18:10:36,429 - mining_133284 - DEBUG - 加载模板: town.png 60x56
+2026-03-26 18:10:36,441 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.947
+2026-03-26 18:10:36,442 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:10:36,483 - mining_133284 - DEBUG - 加载模板: wild.png 60x52
+2026-03-26 18:10:36,495 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:10:36,748 - mining_133284 - DEBUG - 未找到: wild.png
+2026-03-26 18:10:36,800 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.947
+2026-03-26 18:10:36,800 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:10:36,801 - mining_133284 - INFO - 找到 town
+2026-03-26 18:10:38,056 - mining_133284 - DEBUG - 加载模板: search.png 40x37
+2026-03-26 18:10:38,069 - mining_133284 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.978
+2026-03-26 18:10:38,175 - mining_133284 - INFO - 点击 search: (260, 781) [scale=0.986]
+2026-03-26 18:10:38,175 - mining_133284 - INFO - 点击 search 成功
+2026-03-26 18:10:39,505 - mining_133284 - DEBUG - 加载模板: meat.png 106x81
+2026-03-26 18:10:39,520 - mining_133284 - DEBUG - [比例匹配] meat.png scale=0.986 conf=0.940
+2026-03-26 18:10:39,629 - mining_133284 - INFO - 点击 meat: (499, 807) [scale=0.986]
+2026-03-26 18:10:39,629 - mining_133284 - INFO - 点击资源成功: meat
+2026-03-26 18:10:40,991 - mining_133284 - DEBUG - 加载模板: add.png 20x31
+2026-03-26 18:10:41,003 - mining_133284 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.970
+2026-03-26 18:10:41,104 - mining_133284 - INFO - 点击 add: (561, 914) [scale=0.986]
+2026-03-26 18:10:41,104 - mining_133284 - INFO - 点击 add 成功
+2026-03-26 18:10:41,864 - mining_133284 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:10:43,222 - mining_133284 - DEBUG - 加载模板: search_meat.png 78x34
+2026-03-26 18:10:43,236 - mining_133284 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.918
+2026-03-26 18:10:43,339 - mining_133284 - INFO - 点击 search_meat: (507, 1042) [scale=0.986]
+2026-03-26 18:10:43,339 - mining_133284 - INFO - 点击 search_meat 成功
+2026-03-26 18:10:45,259 - mining_133284 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:10:45,303 - mining_133284 - DEBUG - 加载模板: gather.png 63x36
+2026-03-26 18:10:45,315 - mining_133284 - DEBUG - [比例匹配] gather.png scale=0.986 conf=0.961
+2026-03-26 18:10:45,417 - mining_133284 - INFO - 点击 gather: (502, 589) [scale=0.986]
+2026-03-26 18:10:45,418 - mining_133284 - INFO - 点击 gather 成功
+2026-03-26 18:10:46,619 - mining_133284 - DEBUG - 加载模板: team.png 139x43
+2026-03-26 18:10:46,635 - mining_133284 - DEBUG - [比例匹配] team.png scale=0.986 conf=0.706
+2026-03-26 18:10:46,636 - mining_133284 - DEBUG - 找到 team [scale=0.986]
+2026-03-26 18:10:46,636 - mining_133284 - INFO - 找到 team，队列已满，停止挖矿
+2026-03-26 18:10:48,628 - mining_133284 - DEBUG - 加载模板: close.png 43x33
+2026-03-26 18:10:48,639 - mining_133284 - DEBUG - [比例匹配] close.png scale=0.986 conf=0.967
+2026-03-26 18:10:48,747 - mining_133284 - INFO - 点击 close: (715, 368) [scale=0.986]
+2026-03-26 18:10:48,748 - mining_133284 - INFO - 点击 close 成功
+2026-03-26 18:10:48,748 - MultiWindowManager - INFO - 窗口 133284 挖矿停止
+2026-03-26 18:10:48,927 - MultiWindowManager - INFO - 窗口 MuMuNxDevice (12172) 挖矿完成或停止
+2026-03-26 18:10:48,927 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-03-26 18:10:48,927 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-03-26 18:10:49,619 - ProtectiveCasing - INFO - 设置检测窗口列表: 2 个窗口
+2026-03-26 18:10:49,619 - ProtectiveCasing - INFO - ==================================================
+2026-03-26 18:10:49,619 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-03-26 18:10:49,620 - ProtectiveCasing - INFO - 检测目标: g:\yang\fish\wujindongri\pic\war.png
+2026-03-26 18:10:49,620 - ProtectiveCasing - INFO - Shield 目标: g:\yang\fish\wujindongri\pic\Shield.png
+2026-03-26 18:10:49,620 - ProtectiveCasing - INFO - Buy 目标: g:\yang\fish\wujindongri\pic\buy.png
+2026-03-26 18:10:49,620 - ProtectiveCasing - INFO - Deploy 相对坐标: (28, 94)
+2026-03-26 18:10:49,620 - ProtectiveCasing - INFO - Buy_2 相对坐标: (451, 423)
+2026-03-26 18:10:49,621 - ProtectiveCasing - INFO - 检测间隔: 5 秒
+2026-03-26 18:10:49,621 - ProtectiveCasing - INFO - 检测窗口数: 2
+2026-03-26 18:10:49,621 - ProtectiveCasing - INFO - ==================================================
+2026-03-26 18:10:49,622 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:10:50,835 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:10:55,836 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:10:57,052 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:11:02,054 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:11:03,273 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:11:08,276 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:11:09,539 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:11:14,542 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:11:15,762 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:11:20,764 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:11:21,967 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:11:26,970 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:11:28,202 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:11:33,204 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:11:34,434 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:11:39,437 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:11:40,653 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:11:45,655 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:11:46,873 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:11:51,875 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:11:53,091 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:11:58,094 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:11:59,332 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:12:04,336 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:12:05,553 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:12:10,555 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:12:11,788 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:12:16,790 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:12:18,028 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:12:23,030 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:12:24,257 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:12:29,260 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:12:30,484 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:12:35,486 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:12:35,840 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 war! 置信度: 0.799
+2026-03-26 18:12:35,892 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 town
+2026-03-26 18:12:35,919 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 111 个 six
+2026-03-26 18:12:35,920 - ProtectiveCasing - INFO - [MuMu安卓设备] 开始处理 111 个 six...
+2026-03-26 18:12:35,921 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #1 位置 (55, 245)
+2026-03-26 18:12:35,972 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.1 秒后截图...
+2026-03-26 18:12:37,152 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:12:37,188 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:12:37,238 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:12:39,703 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:12:39,703 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:12:39,703 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #2 位置 (56, 245)
+2026-03-26 18:12:39,754 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.8 秒后截图...
+2026-03-26 18:12:41,635 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:12:41,669 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:12:41,720 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:12:44,186 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:12:44,186 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:12:44,186 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #3 位置 (57, 245)
+2026-03-26 18:12:44,237 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.9 秒后截图...
+2026-03-26 18:12:46,217 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:12:46,250 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:12:46,301 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:12:48,765 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:12:48,765 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:12:48,765 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #4 位置 (58, 245)
+2026-03-26 18:12:48,816 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.6 秒后截图...
+2026-03-26 18:12:50,493 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:12:50,525 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:12:50,577 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:12:53,035 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:12:53,035 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:12:53,036 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #5 位置 (55, 246)
+2026-03-26 18:12:53,087 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.0 秒后截图...
+2026-03-26 18:12:54,155 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:12:54,188 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:12:54,238 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:12:56,761 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:12:56,762 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:12:56,762 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #6 位置 (56, 246)
+2026-03-26 18:12:56,812 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.7 秒后截图...
+2026-03-26 18:12:58,556 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:12:58,588 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:12:58,639 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:13:01,123 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:13:01,123 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:13:01,123 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #7 位置 (57, 246)
+2026-03-26 18:13:01,174 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.6 秒后截图...
+2026-03-26 18:13:02,777 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:13:02,807 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:13:02,858 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:13:04,780 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 18:32:02,318 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 18:32:02,318 - src.main - INFO - 版本: 1.0.0
+2026-03-26 18:32:26,185 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-03-26 18:32:26,185 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-03-26 18:32:26,188 - MultiWindowManager - INFO - 添加窗口: MuMuNxDevice (12172) (hwnd=133284)
+2026-03-26 18:32:26,191 - MultiWindowManager - INFO - 添加窗口: MuMuNxDevice (3696) (hwnd=592956)
+2026-03-26 18:32:26,193 - MultiWindowManager - INFO - 加入挖矿队列: MuMuNxDevice (12172)
+2026-03-26 18:32:26,193 - MultiWindowManager - INFO - 加入挖矿队列: MuMuNxDevice (3696)
+2026-03-26 18:32:26,194 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-03-26 18:32:26,194 - MultiWindowManager - INFO - 启动挖矿队列，共 2 个窗口
+2026-03-26 18:32:26,195 - MultiWindowManager - INFO - 调度器启动窗口 MuMuNxDevice (12172) 挖矿
+2026-03-26 18:32:26,195 - MultiWindowManager - INFO - 激活窗口: 133284 (MuMuNxDevice (12172))
+2026-03-26 18:32:26,200 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-03-26 18:32:26,296 - mining_133284 - INFO - ==================================================
+2026-03-26 18:32:26,296 - mining_133284 - INFO - 挖矿开始
+2026-03-26 18:32:26,296 - mining_133284 - INFO - 基准尺寸: 558x1021
+2026-03-26 18:32:26,297 - mining_133284 - INFO - ==================================================
+2026-03-26 18:32:26,298 - MultiWindowManager - INFO - 等待窗口 MuMuNxDevice (12172) 挖矿完成...
+2026-03-26 18:32:26,347 - mining_133284 - DEBUG - 加载模板: town.png 60x56
+2026-03-26 18:32:26,358 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:26,358 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:26,397 - mining_133284 - DEBUG - 加载模板: wild.png 60x52
+2026-03-26 18:32:26,409 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:32:26,660 - mining_133284 - DEBUG - 未找到: wild.png
+2026-03-26 18:32:26,713 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:26,713 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:26,714 - mining_133284 - INFO - 找到 town
+2026-03-26 18:32:28,465 - mining_133284 - DEBUG - 加载模板: search.png 40x37
+2026-03-26 18:32:28,476 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: search.png
+2026-03-26 18:32:28,702 - mining_133284 - DEBUG - 未找到: search.png
+2026-03-26 18:32:28,702 - mining_133284 - WARNING - 未找到 search
+2026-03-26 18:32:30,666 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:30,666 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:30,721 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:32:30,966 - mining_133284 - DEBUG - 未找到: wild.png
+2026-03-26 18:32:31,018 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:31,019 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:31,019 - mining_133284 - INFO - 找到 town
+2026-03-26 18:32:32,353 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: search.png
+2026-03-26 18:32:32,582 - mining_133284 - DEBUG - 未找到: search.png
+2026-03-26 18:32:32,583 - mining_133284 - WARNING - 未找到 search
+2026-03-26 18:32:33,831 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:33,831 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:33,885 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:32:34,130 - mining_133284 - DEBUG - 未找到: wild.png
+2026-03-26 18:32:34,179 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:34,180 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:34,181 - mining_133284 - INFO - 找到 town
+2026-03-26 18:32:35,961 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: search.png
+2026-03-26 18:32:36,188 - mining_133284 - DEBUG - 未找到: search.png
+2026-03-26 18:32:36,188 - mining_133284 - WARNING - 未找到 search
+2026-03-26 18:32:37,781 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:37,782 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:37,828 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:32:38,076 - mining_133284 - DEBUG - 未找到: wild.png
+2026-03-26 18:32:38,128 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:38,128 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:38,129 - mining_133284 - INFO - 找到 town
+2026-03-26 18:32:39,224 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: search.png
+2026-03-26 18:32:39,450 - mining_133284 - DEBUG - 未找到: search.png
+2026-03-26 18:32:39,450 - mining_133284 - WARNING - 未找到 search
+2026-03-26 18:32:41,007 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:41,007 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:41,056 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:32:41,304 - mining_133284 - DEBUG - 未找到: wild.png
+2026-03-26 18:32:41,355 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:41,355 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:41,355 - mining_133284 - INFO - 找到 town
+2026-03-26 18:32:42,518 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: search.png
+2026-03-26 18:32:42,743 - mining_133284 - DEBUG - 未找到: search.png
+2026-03-26 18:32:42,744 - mining_133284 - WARNING - 未找到 search
+2026-03-26 18:32:44,707 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:44,707 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:44,760 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:32:45,009 - mining_133284 - DEBUG - 未找到: wild.png
+2026-03-26 18:32:45,057 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:45,058 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:45,058 - mining_133284 - INFO - 找到 town
+2026-03-26 18:32:46,177 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: search.png
+2026-03-26 18:32:46,408 - mining_133284 - DEBUG - 未找到: search.png
+2026-03-26 18:32:46,409 - mining_133284 - WARNING - 未找到 search
+2026-03-26 18:32:47,517 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:47,517 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:47,565 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:32:47,812 - mining_133284 - DEBUG - 未找到: wild.png
+2026-03-26 18:32:47,864 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:47,864 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:47,864 - mining_133284 - INFO - 找到 town
+2026-03-26 18:32:49,779 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: search.png
+2026-03-26 18:32:50,005 - mining_133284 - DEBUG - 未找到: search.png
+2026-03-26 18:32:50,006 - mining_133284 - WARNING - 未找到 search
+2026-03-26 18:32:52,022 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:52,022 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:52,070 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:32:52,319 - mining_133284 - DEBUG - 未找到: wild.png
+2026-03-26 18:32:52,370 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:52,370 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:52,370 - mining_133284 - INFO - 找到 town
+2026-03-26 18:32:53,865 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: search.png
+2026-03-26 18:32:54,090 - mining_133284 - DEBUG - 未找到: search.png
+2026-03-26 18:32:54,090 - mining_133284 - WARNING - 未找到 search
+2026-03-26 18:32:55,269 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:55,269 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:55,322 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:32:55,571 - mining_133284 - DEBUG - 未找到: wild.png
+2026-03-26 18:32:55,626 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:55,626 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:55,626 - mining_133284 - INFO - 找到 town
+2026-03-26 18:32:57,215 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: search.png
+2026-03-26 18:32:57,448 - mining_133284 - DEBUG - 未找到: search.png
+2026-03-26 18:32:57,448 - mining_133284 - WARNING - 未找到 search
+2026-03-26 18:32:58,879 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:58,879 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:58,929 - mining_133284 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:32:59,179 - mining_133284 - DEBUG - 未找到: wild.png
+2026-03-26 18:32:59,231 - mining_133284 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.672
+2026-03-26 18:32:59,231 - mining_133284 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:32:59,232 - mining_133284 - INFO - 找到 town
+2026-03-26 18:33:00,676 - mining_133284 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.978
+2026-03-26 18:33:00,781 - mining_133284 - INFO - 点击 search: (260, 781) [scale=0.986]
+2026-03-26 18:33:00,781 - mining_133284 - INFO - 点击 search 成功
+2026-03-26 18:33:02,264 - mining_133284 - DEBUG - 加载模板: meat.png 106x81
+2026-03-26 18:33:02,280 - mining_133284 - DEBUG - [比例匹配] meat.png scale=0.986 conf=0.940
+2026-03-26 18:33:02,382 - mining_133284 - INFO - 点击 meat: (499, 807) [scale=0.986]
+2026-03-26 18:33:02,382 - mining_133284 - INFO - 点击资源成功: meat
+2026-03-26 18:33:04,332 - mining_133284 - DEBUG - 加载模板: add.png 20x31
+2026-03-26 18:33:04,344 - mining_133284 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.970
+2026-03-26 18:33:04,446 - mining_133284 - INFO - 点击 add: (561, 914) [scale=0.986]
+2026-03-26 18:33:04,446 - mining_133284 - INFO - 点击 add 成功
+2026-03-26 18:33:05,203 - mining_133284 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:33:06,500 - mining_133284 - DEBUG - 加载模板: search_meat.png 78x34
+2026-03-26 18:33:06,518 - mining_133284 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.918
+2026-03-26 18:33:06,620 - mining_133284 - INFO - 点击 search_meat: (507, 1042) [scale=0.986]
+2026-03-26 18:33:06,621 - mining_133284 - INFO - 点击 search_meat 成功
+2026-03-26 18:33:07,803 - mining_133284 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:33:07,843 - mining_133284 - DEBUG - 加载模板: gather.png 63x36
+2026-03-26 18:33:07,856 - mining_133284 - DEBUG - [比例匹配] gather.png scale=0.986 conf=0.961
+2026-03-26 18:33:07,965 - mining_133284 - INFO - 点击 gather: (502, 589) [scale=0.986]
+2026-03-26 18:33:07,966 - mining_133284 - INFO - 点击 gather 成功
+2026-03-26 18:33:09,963 - mining_133284 - DEBUG - 加载模板: team.png 139x43
+2026-03-26 18:33:09,979 - mining_133284 - DEBUG - [比例匹配] team.png scale=0.986 conf=0.706
+2026-03-26 18:33:09,979 - mining_133284 - DEBUG - 找到 team [scale=0.986]
+2026-03-26 18:33:09,979 - mining_133284 - INFO - 找到 team，队列已满，停止挖矿
+2026-03-26 18:33:11,515 - mining_133284 - DEBUG - 加载模板: close.png 43x33
+2026-03-26 18:33:11,527 - mining_133284 - DEBUG - [比例匹配] close.png scale=0.986 conf=0.967
+2026-03-26 18:33:11,633 - mining_133284 - INFO - 点击 close: (715, 368) [scale=0.986]
+2026-03-26 18:33:11,633 - mining_133284 - INFO - 点击 close 成功
+2026-03-26 18:33:11,634 - MultiWindowManager - INFO - 窗口 133284 挖矿停止
+2026-03-26 18:33:11,919 - MultiWindowManager - INFO - 窗口 MuMuNxDevice (12172) 挖矿完成或停止
+2026-03-26 18:33:11,919 - MultiWindowManager - INFO - 调度器启动窗口 MuMuNxDevice (3696) 挖矿
+2026-03-26 18:33:11,919 - MultiWindowManager - INFO - 切换窗口: 从 133284 到 592956 (MuMuNxDevice (3696))
+2026-03-26 18:33:12,020 - mining_592956 - INFO - ==================================================
+2026-03-26 18:33:12,021 - mining_592956 - INFO - 挖矿开始
+2026-03-26 18:33:12,021 - mining_592956 - INFO - 基准尺寸: 558x1021
+2026-03-26 18:33:12,021 - mining_592956 - INFO - ==================================================
+2026-03-26 18:33:12,022 - MultiWindowManager - INFO - 等待窗口 MuMuNxDevice (3696) 挖矿完成...
+2026-03-26 18:33:12,063 - mining_592956 - DEBUG - 加载模板: town.png 60x56
+2026-03-26 18:33:12,075 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:33:12,076 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:33:12,114 - mining_592956 - DEBUG - 加载模板: wild.png 60x52
+2026-03-26 18:33:12,127 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:33:12,383 - mining_592956 - DEBUG - 未找到: wild.png
+2026-03-26 18:33:12,437 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:33:12,437 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:33:12,438 - mining_592956 - INFO - 找到 town
+2026-03-26 18:33:13,996 - mining_592956 - DEBUG - 加载模板: search.png 40x37
+2026-03-26 18:33:14,008 - mining_592956 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.975
+2026-03-26 18:33:14,112 - mining_592956 - INFO - 点击 search: (819, 785) [scale=0.986]
+2026-03-26 18:33:14,112 - mining_592956 - INFO - 点击 search 成功
+2026-03-26 18:33:15,401 - mining_592956 - DEBUG - 加载模板: meat.png 106x81
+2026-03-26 18:33:15,416 - mining_592956 - DEBUG - [比例匹配] meat.png scale=0.986 conf=0.949
+2026-03-26 18:33:15,525 - mining_592956 - INFO - 点击 meat: (943, 811) [scale=0.986]
+2026-03-26 18:33:15,525 - mining_592956 - INFO - 点击资源成功: meat
+2026-03-26 18:33:16,612 - mining_592956 - DEBUG - 加载模板: add.png 20x31
+2026-03-26 18:33:16,625 - mining_592956 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.963
+2026-03-26 18:33:16,727 - mining_592956 - INFO - 点击 add: (1120, 918) [scale=0.986]
+2026-03-26 18:33:16,727 - mining_592956 - INFO - 点击 add 成功
+2026-03-26 18:33:17,485 - mining_592956 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:33:19,201 - mining_592956 - DEBUG - 加载模板: search_meat.png 78x34
+2026-03-26 18:33:19,215 - mining_592956 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.811
+2026-03-26 18:33:19,317 - mining_592956 - INFO - 点击 search_meat: (1067, 1045) [scale=0.986]
+2026-03-26 18:33:19,317 - mining_592956 - INFO - 点击 search_meat 成功
+2026-03-26 18:33:20,988 - mining_592956 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:33:21,030 - mining_592956 - DEBUG - 加载模板: gather.png 63x36
+2026-03-26 18:33:21,046 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-03-26 18:33:21,296 - mining_592956 - INFO - [备选-全范围] gather.png scale=0.895 conf=0.879
+2026-03-26 18:33:21,398 - mining_592956 - INFO - 点击 gather: (1061, 593) [scale=0.895]
+2026-03-26 18:33:21,398 - mining_592956 - INFO - 点击 gather 成功
+2026-03-26 18:33:22,541 - mining_592956 - DEBUG - 加载模板: team.png 139x43
+2026-03-26 18:33:22,555 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:33:22,799 - mining_592956 - DEBUG - 未找到: team.png
+2026-03-26 18:33:22,840 - mining_592956 - DEBUG - 加载模板: battle.png 81x37
+2026-03-26 18:33:22,854 - mining_592956 - DEBUG - [比例匹配] battle.png scale=0.986 conf=0.748
+2026-03-26 18:33:22,956 - mining_592956 - INFO - 点击 battle: (1214, 1042) [scale=0.986]
+2026-03-26 18:33:22,956 - mining_592956 - INFO - 点击 battle 成功，完成一轮
+2026-03-26 18:33:22,957 - mining_592956 - INFO - 已完成 1/6 轮
+2026-03-26 18:33:24,119 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:33:24,120 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:33:24,173 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-03-26 18:33:24,422 - mining_592956 - DEBUG - 未找到: wild.png
+2026-03-26 18:33:24,475 - mining_592956 - DEBUG - [比例匹配] town.png scale=0.986 conf=0.907
+2026-03-26 18:33:24,475 - mining_592956 - DEBUG - 找到 town [scale=0.986]
+2026-03-26 18:33:24,475 - mining_592956 - INFO - 找到 town
+2026-03-26 18:33:26,315 - mining_592956 - DEBUG - [比例匹配] search.png scale=0.986 conf=0.986
+2026-03-26 18:33:26,418 - mining_592956 - INFO - 点击 search: (819, 785) [scale=0.986]
+2026-03-26 18:33:26,418 - mining_592956 - INFO - 点击 search 成功
+2026-03-26 18:33:27,593 - mining_592956 - DEBUG - 加载模板: wood.png 96x57
+2026-03-26 18:33:27,608 - mining_592956 - DEBUG - [比例匹配] wood.png scale=0.986 conf=0.959
+2026-03-26 18:33:27,710 - mining_592956 - INFO - 点击 wood: (1181, 829) [scale=0.986]
+2026-03-26 18:33:27,711 - mining_592956 - INFO - 点击资源成功: wood
+2026-03-26 18:33:29,464 - mining_592956 - DEBUG - [比例匹配] add.png scale=0.986 conf=0.963
+2026-03-26 18:33:29,566 - mining_592956 - INFO - 点击 add: (1120, 918) [scale=0.986]
+2026-03-26 18:33:29,567 - mining_592956 - INFO - 点击 add 成功
+2026-03-26 18:33:30,324 - mining_592956 - INFO - 拖动: dx=236, dy=0 [scale=0.986]
+2026-03-26 18:33:31,545 - mining_592956 - DEBUG - [比例匹配] search_meat.png scale=0.986 conf=0.811
+2026-03-26 18:33:31,647 - mining_592956 - INFO - 点击 search_meat: (1067, 1045) [scale=0.986]
+2026-03-26 18:33:31,647 - mining_592956 - INFO - 点击 search_meat 成功
+2026-03-26 18:33:33,206 - mining_592956 - INFO - 尝试寻找 gather (1/7)
+2026-03-26 18:33:33,256 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-03-26 18:33:33,369 - mining_592956 - INFO - [备选-近邻] gather.png scale=0.961 conf=0.897
+2026-03-26 18:33:33,470 - mining_592956 - INFO - 点击 gather: (1061, 593) [scale=0.961]
+2026-03-26 18:33:33,471 - mining_592956 - INFO - 点击 gather 成功
+2026-03-26 18:33:35,278 - mining_592956 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-03-26 18:33:35,524 - mining_592956 - INFO - [备选-全范围] team.png scale=0.895 conf=0.723
+2026-03-26 18:33:35,524 - mining_592956 - DEBUG - 找到 team [scale=0.895]
+2026-03-26 18:33:35,524 - mining_592956 - INFO - 找到 team，队列已满，停止挖矿
+2026-03-26 18:33:37,361 - mining_592956 - DEBUG - 加载模板: close.png 43x33
+2026-03-26 18:33:37,374 - mining_592956 - DEBUG - [比例匹配] close.png scale=0.986 conf=0.961
+2026-03-26 18:33:37,477 - mining_592956 - INFO - 点击 close: (1275, 372) [scale=0.986]
+2026-03-26 18:33:37,477 - mining_592956 - INFO - 点击 close 成功
+2026-03-26 18:33:37,478 - MultiWindowManager - INFO - 窗口 592956 挖矿停止
+2026-03-26 18:33:37,554 - ProtectiveCasing - INFO - 设置检测窗口列表: 2 个窗口
+2026-03-26 18:33:37,554 - ProtectiveCasing - INFO - ==================================================
+2026-03-26 18:33:37,554 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-03-26 18:33:37,555 - ProtectiveCasing - INFO - 检测目标: g:\yang\fish\wujindongri\pic\war.png
+2026-03-26 18:33:37,555 - ProtectiveCasing - INFO - Shield 目标: g:\yang\fish\wujindongri\pic\Shield.png
+2026-03-26 18:33:37,555 - ProtectiveCasing - INFO - Buy 目标: g:\yang\fish\wujindongri\pic\buy.png
+2026-03-26 18:33:37,556 - ProtectiveCasing - INFO - Deploy 相对坐标: (28, 94)
+2026-03-26 18:33:37,556 - ProtectiveCasing - INFO - Buy_2 相对坐标: (451, 423)
+2026-03-26 18:33:37,556 - ProtectiveCasing - INFO - 检测间隔: 5 秒
+2026-03-26 18:33:37,556 - ProtectiveCasing - INFO - 检测窗口数: 2
+2026-03-26 18:33:37,556 - ProtectiveCasing - INFO - ==================================================
+2026-03-26 18:33:37,557 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:33:37,592 - MultiWindowManager - INFO - 窗口 MuMuNxDevice (3696) 挖矿完成或停止
+2026-03-26 18:33:37,592 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-03-26 18:33:37,592 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-03-26 18:33:38,782 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:33:43,786 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:33:45,016 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:33:50,019 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:33:51,244 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:33:56,249 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:33:57,472 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:34:02,475 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:34:03,696 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:34:08,699 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:34:09,925 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:34:14,928 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:34:16,158 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:34:21,161 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:34:22,403 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:34:27,405 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:34:28,641 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:34:33,644 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:34:34,864 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:34:39,867 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:34:41,089 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:34:46,092 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:34:47,306 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:34:52,310 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:34:53,525 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:34:58,527 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:34:59,760 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:35:04,762 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:35:05,985 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:35:10,988 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:35:12,224 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:35:17,227 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:35:18,458 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:35:23,461 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:35:24,689 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:35:29,691 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:35:30,926 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:35:35,929 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:35:37,159 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:35:42,162 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:35:43,467 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:35:48,469 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:35:49,697 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:35:54,700 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:35:55,924 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:36:00,927 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:36:02,164 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:36:07,167 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:36:08,411 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:36:13,412 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:36:14,647 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:36:19,649 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:36:20,887 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:36:25,888 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:36:27,115 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:36:32,119 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:36:33,344 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:36:38,347 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:36:39,577 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:36:44,581 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:36:45,799 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:36:50,801 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:36:52,038 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:36:57,041 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:36:58,286 - ProtectiveCasing - INFO - [OK] 所有窗口未发现 war
+2026-03-26 18:37:03,289 - ProtectiveCasing - INFO - 检测 2 个窗口...
+2026-03-26 18:37:04,257 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 war! 置信度: 0.825
+2026-03-26 18:37:04,310 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 town
+2026-03-26 18:37:04,343 - ProtectiveCasing - INFO - [MuMu安卓设备] 发现 111 个 six
+2026-03-26 18:37:04,344 - ProtectiveCasing - INFO - [MuMu安卓设备] 开始处理 111 个 six...
+2026-03-26 18:37:04,345 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #1 位置 (57, 293)
+2026-03-26 18:37:04,549 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.9 秒后截图...
+2026-03-26 18:37:06,506 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:37:06,540 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:37:06,749 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:37:09,223 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:37:09,223 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:37:09,223 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #2 位置 (57, 386)
+2026-03-26 18:37:09,427 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.7 秒后截图...
+2026-03-26 18:37:11,181 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:37:11,214 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:37:11,422 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:37:13,915 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:37:13,915 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:37:13,915 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #3 位置 (57, 247)
+2026-03-26 18:37:14,119 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.4 秒后截图...
+2026-03-26 18:37:15,532 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:37:15,567 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:37:15,775 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:37:18,220 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:37:18,220 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:37:18,220 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #4 位置 (57, 432)
+2026-03-26 18:37:18,425 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.7 秒后截图...
+2026-03-26 18:37:20,133 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:37:20,167 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:37:20,370 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:37:22,842 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:37:22,842 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:37:22,842 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #5 位置 (57, 339)
+2026-03-26 18:37:23,051 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.8 秒后截图...
+2026-03-26 18:37:24,851 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:37:24,884 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:37:25,093 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:37:27,539 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:37:27,539 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:37:27,540 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #6 位置 (57, 340)
+2026-03-26 18:37:27,748 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.4 秒后截图...
+2026-03-26 18:37:29,161 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:37:29,195 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:37:29,398 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:37:31,847 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:37:31,847 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:37:31,847 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #7 位置 (57, 246)
+2026-03-26 18:37:32,053 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 2.0 秒后截图...
+2026-03-26 18:37:34,090 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:37:34,124 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:37:34,333 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:37:36,823 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:37:36,823 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:37:36,823 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #8 位置 (57, 433)
+2026-03-26 18:37:37,030 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.2 秒后截图...
+2026-03-26 18:37:38,254 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:37:38,285 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:37:38,492 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:37:40,958 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:37:40,958 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:37:40,958 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #9 位置 (57, 385)
+2026-03-26 18:37:41,165 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.6 秒后截图...
+2026-03-26 18:37:42,766 - ProtectiveCasing - INFO - [MuMu安卓设备] 已保存窗口截图到内存
+2026-03-26 18:37:42,798 - ProtectiveCasing - INFO - [MuMu安卓设备] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:37:43,001 - ProtectiveCasing - INFO - [MuMu安卓设备] 查找 sure.png...
+2026-03-26 18:37:45,498 - ProtectiveCasing - WARNING - [MuMu安卓设备] 未找到 sure 按钮
+2026-03-26 18:37:45,498 - ProtectiveCasing - INFO - [MuMu安卓设备] 未找到 sure.png
+2026-03-26 18:37:45,498 - ProtectiveCasing - INFO - [MuMu安卓设备] 点击 six #10 位置 (56, 293)
+2026-03-26 18:37:45,705 - ProtectiveCasing - INFO - [MuMu安卓设备] 等待 1.5 秒后截图...
+2026-03-26 18:37:47,071 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 18:47:29,404 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 18:47:29,405 - src.main - INFO - 版本: 1.0.0
+2026-03-26 18:47:42,529 - ProtectiveCasing - INFO - 设置检测窗口列表: 2 个窗口
+2026-03-26 18:48:03,382 - ProtectiveCasing - INFO - 设置检测窗口列表: 2 个窗口
+2026-03-26 18:48:05,655 - ProtectiveCasing - INFO - 设置检测窗口列表: 2 个窗口
+2026-03-26 18:48:07,400 - ProtectiveCasing - INFO - 设置检测窗口列表: 2 个窗口
+2026-03-26 18:48:27,020 - ProtectiveCasing - INFO - 设置检测窗口列表: 2 个窗口
+2026-03-26 18:48:27,369 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.832
+2026-03-26 18:48:27,393 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 18:48:27,417 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 7 个 six
+2026-03-26 18:48:27,427 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 7 个 six...
+2026-03-26 18:48:27,427 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 (53, 252)
+2026-03-26 18:48:27,633 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.0 秒后截图...
+2026-03-26 18:48:28,712 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 18:48:28,745 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:48:28,949 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 18:48:31,326 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 18:48:31,326 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 18:48:31,326 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 (53, 345)
+2026-03-26 18:48:31,531 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.7 秒后截图...
+2026-03-26 18:48:33,273 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 18:48:33,303 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:48:33,508 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 18:48:35,925 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 18:48:35,925 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 18:48:35,925 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 (53, 206)
+2026-03-26 18:48:36,132 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.6 秒后截图...
+2026-03-26 18:48:37,782 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 18:48:37,814 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:48:38,018 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 18:48:39,454 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 18:56:14,875 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 18:56:14,875 - src.main - INFO - 版本: 1.0.0
+2026-03-26 18:56:42,712 - ProtectiveCasing - INFO - 设置检测窗口列表: 14 个窗口
+2026-03-26 18:56:43,832 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.835
+2026-03-26 18:56:43,854 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 18:56:43,878 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 97 -> 7 个 six (阈值=0.8)
+2026-03-26 18:56:43,878 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 7 个 six
+2026-03-26 18:56:43,887 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 7 个 six...
+2026-03-26 18:56:43,888 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 (53, 252)
+2026-03-26 18:56:44,090 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.4 秒后截图...
+2026-03-26 18:56:45,527 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 18:56:45,562 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:56:45,770 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 18:56:48,184 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 18:56:48,184 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 18:56:48,184 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 (53, 345)
+2026-03-26 18:56:48,389 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.6 秒后截图...
+2026-03-26 18:56:49,997 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 18:56:50,029 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:56:50,232 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 18:56:52,653 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 18:56:52,653 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 18:56:52,653 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 (53, 206)
+2026-03-26 18:56:52,857 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.2 秒后截图...
+2026-03-26 18:56:54,093 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 18:56:54,125 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:56:54,330 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 18:56:56,759 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 18:56:56,759 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 18:56:56,759 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 (53, 391)
+2026-03-26 18:56:56,962 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 18:56:58,537 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 18:56:58,571 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:56:58,774 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 18:57:01,196 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 18:57:01,196 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 18:57:01,196 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 (53, 298)
+2026-03-26 18:57:01,400 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.7 秒后截图...
+2026-03-26 18:57:03,168 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 18:57:03,199 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 18:57:03,199 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 18:57:05,638 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 18:57:05,638 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 18:57:05,638 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #6 位置 (-39, 595)
+2026-03-26 18:57:05,844 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.0 秒后截图...
+2026-03-26 18:57:06,908 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 18:57:06,943 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 18:57:06,944 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 18:57:09,333 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 18:57:09,333 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 18:57:09,333 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #7 位置 (117, 935)
+2026-03-26 18:57:09,542 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.1 秒后截图...
+2026-03-26 18:57:10,647 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 18:57:10,684 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 18:57:10,887 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 18:57:12,605 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 19:05:19,366 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 19:05:19,366 - src.main - INFO - 版本: 1.0.0
+2026-03-26 19:05:24,227 - ProtectiveCasing - INFO - 设置检测窗口列表: 12 个窗口
+2026-03-26 19:05:24,789 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.877
+2026-03-26 19:05:24,808 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 19:05:24,832 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 81 -> 6 个 six (阈值=0.8)
+2026-03-26 19:05:24,833 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 6 个 six
+2026-03-26 19:05:24,840 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 6 个 six...
+2026-03-26 19:05:24,941 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 252)，绝对坐标: (765, 389)
+2026-03-26 19:05:25,048 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.4 秒后截图...
+2026-03-26 19:05:26,516 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:05:26,545 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:05:26,545 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:05:28,926 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:05:28,926 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:05:29,027 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 345)，绝对坐标: (765, 482)
+2026-03-26 19:05:29,133 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.2 秒后截图...
+2026-03-26 19:05:30,350 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:05:30,381 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:05:30,482 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 345)，绝对坐标: (765, 482)
+2026-03-26 19:05:30,588 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:05:32,962 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:05:32,962 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:05:33,062 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 298)，绝对坐标: (765, 435)
+2026-03-26 19:05:33,165 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.1 秒后截图...
+2026-03-26 19:05:34,333 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:05:34,360 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:05:34,461 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 298)，绝对坐标: (765, 435)
+2026-03-26 19:05:34,565 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:05:36,937 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:05:36,937 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:05:37,038 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 206)，绝对坐标: (765, 343)
+2026-03-26 19:05:37,141 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.3 秒后截图...
+2026-03-26 19:05:38,503 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:05:38,532 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:05:38,634 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 206)，绝对坐标: (765, 343)
+2026-03-26 19:05:38,737 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:05:41,112 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:05:41,112 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:05:41,213 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (-39, 595)，绝对坐标: (673, 732)
+2026-03-26 19:05:41,319 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.7 秒后截图...
+2026-03-26 19:05:43,084 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:05:43,114 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:05:43,215 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (-39, 595)，绝对坐标: (673, 732)
+2026-03-26 19:05:43,320 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:05:45,723 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:05:45,723 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:05:45,824 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #6 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (117, 935)，绝对坐标: (829, 1072)
+2026-03-26 19:05:45,927 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.9 秒后截图...
+2026-03-26 19:05:47,866 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:05:47,900 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:05:48,001 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (117, 935)，绝对坐标: (829, 1072)
+2026-03-26 19:05:48,103 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:05:48,897 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 19:08:34,743 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 19:08:34,743 - src.main - INFO - 版本: 1.0.0
+2026-03-26 19:08:48,389 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 19:08:48,466 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.865
+2026-03-26 19:08:48,486 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 19:08:48,510 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 29 -> 4 个 six (阈值=0.6)
+2026-03-26 19:08:48,510 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 4 个 six
+2026-03-26 19:08:48,518 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 4 个 six...
+2026-03-26 19:08:48,619 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 345)，绝对坐标: (765, 482)
+2026-03-26 19:08:48,723 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.8 秒后截图...
+2026-03-26 19:08:50,574 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:08:50,606 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:08:50,707 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 345)，绝对坐标: (765, 482)
+2026-03-26 19:08:50,814 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:08:53,190 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:08:53,190 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:08:53,291 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 252)，绝对坐标: (765, 389)
+2026-03-26 19:08:53,396 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.8 秒后截图...
+2026-03-26 19:08:55,269 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:08:55,297 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:08:55,298 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:08:57,682 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:08:57,682 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:08:57,782 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 206)，绝对坐标: (765, 343)
+2026-03-26 19:08:57,889 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.3 秒后截图...
+2026-03-26 19:08:59,247 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:08:59,279 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:08:59,380 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 206)，绝对坐标: (765, 343)
+2026-03-26 19:08:59,483 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:09:01,880 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:09:01,880 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:09:01,981 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 298)，绝对坐标: (765, 435)
+2026-03-26 19:09:02,084 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.9 秒后截图...
+2026-03-26 19:09:04,010 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:09:04,037 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:09:04,138 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 298)，绝对坐标: (765, 435)
+2026-03-26 19:09:04,243 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:09:06,622 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:09:06,622 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:09:06,622 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 19:09:06,673 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.868
+2026-03-26 19:09:10,718 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 19:09:43,270 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 19:09:43,328 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.858
+2026-03-26 19:09:43,349 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 19:09:43,373 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 31 -> 4 个 six (阈值=0.6)
+2026-03-26 19:09:43,373 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 4 个 six
+2026-03-26 19:09:43,382 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 4 个 six...
+2026-03-26 19:09:43,483 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 252)，绝对坐标: (765, 389)
+2026-03-26 19:09:43,588 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.6 秒后截图...
+2026-03-26 19:09:45,252 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:09:45,280 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:09:45,280 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:09:47,662 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:09:47,662 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:09:47,763 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 345)，绝对坐标: (765, 482)
+2026-03-26 19:09:47,868 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.4 秒后截图...
+2026-03-26 19:09:49,287 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:09:49,317 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:09:49,418 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 345)，绝对坐标: (765, 482)
+2026-03-26 19:09:49,524 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:09:52,011 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:09:52,011 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:09:52,112 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 206)，绝对坐标: (765, 343)
+2026-03-26 19:09:52,215 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.1 秒后截图...
+2026-03-26 19:09:53,348 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:09:53,381 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:09:53,482 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 206)，绝对坐标: (765, 343)
+2026-03-26 19:09:53,586 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:09:56,059 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:09:56,059 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:09:56,160 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 298)，绝对坐标: (765, 435)
+2026-03-26 19:09:56,264 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.4 秒后截图...
+2026-03-26 19:09:57,717 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:09:57,745 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:09:57,846 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 298)，绝对坐标: (765, 435)
+2026-03-26 19:09:57,950 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:10:00,357 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:10:00,357 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:10:00,358 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 19:10:00,408 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.846
+2026-03-26 19:10:04,491 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 19:10:21,270 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 19:10:21,332 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.848
+2026-03-26 19:10:21,351 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 19:10:21,375 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 31 -> 4 个 six (阈值=0.6)
+2026-03-26 19:10:21,375 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 4 个 six
+2026-03-26 19:10:21,385 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 4 个 six...
+2026-03-26 19:10:21,486 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 252)，绝对坐标: (765, 389)
+2026-03-26 19:10:21,588 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.6 秒后截图...
+2026-03-26 19:10:23,265 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:10:23,291 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:10:23,292 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:10:25,674 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:10:25,674 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:10:25,775 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 345)，绝对坐标: (765, 482)
+2026-03-26 19:10:25,880 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.7 秒后截图...
+2026-03-26 19:10:27,599 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:10:27,628 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:10:27,729 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 345)，绝对坐标: (765, 482)
+2026-03-26 19:10:27,832 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:10:30,205 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:10:30,205 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:10:30,306 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 206)，绝对坐标: (765, 343)
+2026-03-26 19:10:30,409 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.9 秒后截图...
+2026-03-26 19:10:32,316 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:10:32,346 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:10:32,446 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 206)，绝对坐标: (765, 343)
+2026-03-26 19:10:32,549 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:10:34,928 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:10:34,928 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:10:35,029 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 298)，绝对坐标: (765, 435)
+2026-03-26 19:10:35,131 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 2.0 秒后截图...
+2026-03-26 19:10:37,163 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:10:37,190 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心检测到红点，再次点击 six 位置...
+2026-03-26 19:10:37,291 - ProtectiveCasing - INFO - [MuMuNxDevice] 再次点击 six - 窗口坐标: (712, 137, 1262, 1115)，相对坐标: (53, 298)，绝对坐标: (765, 435)
+2026-03-26 19:10:37,393 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:10:39,766 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:10:39,766 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:10:39,766 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 19:10:39,814 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.869
+2026-03-26 19:10:43,842 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 19:26:45,535 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 19:26:49,928 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 19:26:49,928 - src.main - INFO - 版本: 1.0.0
+2026-03-26 19:26:56,343 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 19:26:56,416 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.872
+2026-03-26 19:26:56,435 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 19:26:56,461 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 34 -> 4 个 six (阈值=0.6)
+2026-03-26 19:26:56,461 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 4 个 six
+2026-03-26 19:26:56,469 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 4 个 six...
+2026-03-26 19:26:56,570 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (476, 177, 1026, 1155)，相对坐标: (53, 345)，绝对坐标: (529, 522)
+2026-03-26 19:26:56,675 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.0 秒后截图...
+2026-03-26 19:26:57,737 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:26:57,768 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:26:57,768 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:27:00,131 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:27:00,131 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:27:00,232 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (476, 177, 1026, 1155)，相对坐标: (53, 252)，绝对坐标: (529, 429)
+2026-03-26 19:27:00,335 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.2 秒后截图...
+2026-03-26 19:27:01,575 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:27:01,601 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:27:01,601 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:27:03,983 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:27:03,983 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:27:04,084 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (476, 177, 1026, 1155)，相对坐标: (53, 298)，绝对坐标: (529, 475)
+2026-03-26 19:27:04,192 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.6 秒后截图...
+2026-03-26 19:27:05,859 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:27:05,886 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:27:05,887 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:27:08,296 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:27:08,296 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:27:08,397 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (476, 177, 1026, 1155)，相对坐标: (53, 206)，绝对坐标: (529, 383)
+2026-03-26 19:27:08,502 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.4 秒后截图...
+2026-03-26 19:27:09,936 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:27:09,967 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:27:09,967 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:27:12,346 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:27:12,346 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:27:12,346 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 19:27:12,397 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.861
+2026-03-26 19:27:16,455 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 19:27:22,510 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 19:33:25,563 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 19:33:25,563 - src.main - INFO - 版本: 1.0.0
+2026-03-26 19:33:32,195 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 19:33:32,264 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.858
+2026-03-26 19:33:32,284 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 19:33:32,309 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 29 -> 4 个 six (阈值=0.6)
+2026-03-26 19:33:32,309 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 4 个 six
+2026-03-26 19:33:32,319 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 4 个 six...
+2026-03-26 19:33:32,420 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (476, 177, 1026, 1155)，相对坐标: (53, 345)，绝对坐标: (529, 522)
+2026-03-26 19:33:32,525 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.8 秒后截图...
+2026-03-26 19:33:34,319 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:33:34,350 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:33:34,350 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:33:36,744 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:33:36,744 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:33:36,845 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (476, 177, 1026, 1155)，相对坐标: (53, 252)，绝对坐标: (529, 429)
+2026-03-26 19:33:36,950 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.7 秒后截图...
+2026-03-26 19:33:38,645 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:33:38,673 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:33:38,673 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:33:41,050 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:33:41,050 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:33:41,151 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (476, 177, 1026, 1155)，相对坐标: (53, 206)，绝对坐标: (529, 383)
+2026-03-26 19:33:41,255 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.6 秒后截图...
+2026-03-26 19:33:42,947 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:33:42,978 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:33:42,978 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:33:45,367 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:33:45,367 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:33:45,468 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (476, 177, 1026, 1155)，相对坐标: (53, 298)，绝对坐标: (529, 475)
+2026-03-26 19:33:45,571 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 19:33:47,114 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:33:47,142 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:33:47,142 - ProtectiveCasing - INFO - [MuMuNxDevice] 查找 sure.png...
+2026-03-26 19:33:49,515 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 sure 按钮
+2026-03-26 19:33:49,515 - ProtectiveCasing - INFO - [MuMuNxDevice] 未找到 sure.png
+2026-03-26 19:33:49,515 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 19:33:49,563 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.858
+2026-03-26 19:33:53,618 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 19:34:06,219 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 19:48:24,298 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 19:48:24,298 - src.main - INFO - 版本: 1.0.0
+2026-03-26 19:48:34,368 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 19:48:34,439 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.874
+2026-03-26 19:48:34,459 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 19:48:34,483 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 35 -> 5 个 six (阈值=0.6)
+2026-03-26 19:48:34,483 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 5 个 six
+2026-03-26 19:48:34,491 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 19:48:34,592 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (796, 111, 1346, 1089)，相对坐标: (53, 252)，绝对坐标: (849, 363)
+2026-03-26 19:48:34,697 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.9 秒后截图...
+2026-03-26 19:48:36,634 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:48:36,662 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:48:36,763 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (796, 111, 1346, 1089)，相对坐标: (53, 345)，绝对坐标: (849, 456)
+2026-03-26 19:48:36,867 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.7 秒后截图...
+2026-03-26 19:48:38,592 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:48:38,622 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:48:38,722 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (796, 111, 1346, 1089)，相对坐标: (53, 206)，绝对坐标: (849, 317)
+2026-03-26 19:48:38,826 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.3 秒后截图...
+2026-03-26 19:48:40,120 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:48:40,150 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:48:40,252 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (796, 111, 1346, 1089)，相对坐标: (53, 298)，绝对坐标: (849, 409)
+2026-03-26 19:48:40,359 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.8 秒后截图...
+2026-03-26 19:48:42,200 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:48:42,226 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:48:42,326 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 - 窗口坐标: (796, 111, 1346, 1089)，相对坐标: (-39, 596)，绝对坐标: (757, 707)
+2026-03-26 19:48:42,433 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 19:48:43,971 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:48:43,996 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:48:43,997 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 19:48:44,009 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.874
+2026-03-26 19:48:48,004 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 19:48:55,559 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 19:50:40,273 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 19:50:40,273 - src.main - INFO - 版本: 1.0.0
+2026-03-26 19:50:46,157 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 19:50:46,232 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.874
+2026-03-26 19:50:46,252 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 19:50:46,276 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 35 -> 5 个 six (阈值=0.6)
+2026-03-26 19:50:46,277 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 5 个 six
+2026-03-26 19:50:46,286 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 19:50:46,387 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (796, 111, 1346, 1089)，相对坐标: (53, 252)，绝对坐标: (849, 363)
+2026-03-26 19:50:46,490 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 19:50:48,018 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:50:48,046 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:50:48,147 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (796, 111, 1346, 1089)，相对坐标: (53, 345)，绝对坐标: (849, 456)
+2026-03-26 19:50:48,254 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.2 秒后截图...
+2026-03-26 19:50:49,505 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:50:49,536 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:50:49,636 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (796, 111, 1346, 1089)，相对坐标: (53, 206)，绝对坐标: (849, 317)
+2026-03-26 19:50:49,739 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.6 秒后截图...
+2026-03-26 19:50:51,406 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:50:51,435 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:50:51,536 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (796, 111, 1346, 1089)，相对坐标: (53, 298)，绝对坐标: (849, 409)
+2026-03-26 19:50:51,643 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 2.0 秒后截图...
+2026-03-26 19:50:53,659 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:50:53,686 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:50:53,787 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 - 窗口坐标: (796, 111, 1346, 1089)，相对坐标: (-39, 596)，绝对坐标: (757, 707)
+2026-03-26 19:50:53,892 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.2 秒后截图...
+2026-03-26 19:50:55,160 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:50:55,186 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:50:55,186 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 19:50:55,198 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.875
+2026-03-26 19:50:59,199 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 19:51:07,035 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 19:54:56,935 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 19:54:56,936 - src.main - INFO - 版本: 1.0.0
+2026-03-26 19:55:03,135 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 19:55:03,209 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.870
+2026-03-26 19:55:03,234 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 19:55:03,261 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 29 -> 4 个 six (阈值=0.6)
+2026-03-26 19:55:03,261 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 4 个 six
+2026-03-26 19:55:03,271 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 4 个 six...
+2026-03-26 19:55:03,373 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (1026, 192, 1576, 1170)，相对坐标: (53, 345)，绝对坐标: (1079, 537)
+2026-03-26 19:55:03,479 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 19:55:05,054 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:55:05,085 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:55:05,185 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (1026, 192, 1576, 1170)，相对坐标: (53, 252)，绝对坐标: (1079, 444)
+2026-03-26 19:55:05,292 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.2 秒后截图...
+2026-03-26 19:55:06,531 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:55:06,562 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:55:06,664 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (1026, 192, 1576, 1170)，相对坐标: (53, 298)，绝对坐标: (1079, 490)
+2026-03-26 19:55:06,771 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.8 秒后截图...
+2026-03-26 19:55:08,562 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:55:08,590 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:55:08,691 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (1026, 192, 1576, 1170)，相对坐标: (53, 206)，绝对坐标: (1079, 398)
+2026-03-26 19:55:08,796 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.6 秒后截图...
+2026-03-26 19:55:10,454 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:55:10,486 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:55:10,486 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 19:55:10,498 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.867
+2026-03-26 19:55:14,546 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 19:55:26,763 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 19:58:58,696 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 19:58:58,696 - src.main - INFO - 版本: 1.0.0
+2026-03-26 19:59:07,285 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 19:59:07,360 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.870
+2026-03-26 19:59:07,379 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 19:59:07,409 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 36 -> 5 个 six (阈值=0.6)
+2026-03-26 19:59:07,409 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 5 个 six
+2026-03-26 19:59:07,417 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 19:59:07,519 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 345)，绝对坐标: (1002, 508)
+2026-03-26 19:59:07,622 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.9 秒后截图...
+2026-03-26 19:59:09,607 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:59:09,637 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:59:09,738 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 206)，绝对坐标: (1002, 369)
+2026-03-26 19:59:09,841 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.1 秒后截图...
+2026-03-26 19:59:10,978 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:59:11,008 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:59:11,110 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 252)，绝对坐标: (1002, 415)
+2026-03-26 19:59:11,217 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.3 秒后截图...
+2026-03-26 19:59:12,590 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:59:12,619 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:59:12,720 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 391)，绝对坐标: (1002, 554)
+2026-03-26 19:59:12,824 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.6 秒后截图...
+2026-03-26 19:59:14,500 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:59:14,527 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:59:14,629 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 298)，绝对坐标: (1002, 461)
+2026-03-26 19:59:14,733 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.3 秒后截图...
+2026-03-26 19:59:16,064 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 19:59:16,090 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 19:59:16,091 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 19:59:16,102 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.877
+2026-03-26 19:59:20,140 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 19:59:28,252 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:02:52,746 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:02:52,746 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:02:57,949 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:02:58,022 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.876
+2026-03-26 20:02:58,043 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 20:02:58,067 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 43 -> 6 个 six (阈值=0.6)
+2026-03-26 20:02:58,068 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 6 个 six
+2026-03-26 20:02:58,075 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 6 个 six...
+2026-03-26 20:02:58,177 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 252)，绝对坐标: (1002, 415)
+2026-03-26 20:02:58,283 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.9 秒后截图...
+2026-03-26 20:03:00,257 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:03:00,290 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:03:00,390 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 345)，绝对坐标: (1002, 508)
+2026-03-26 20:03:00,494 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.7 秒后截图...
+2026-03-26 20:03:02,189 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:03:02,217 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:03:02,319 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 391)，绝对坐标: (1002, 554)
+2026-03-26 20:03:02,422 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.8 秒后截图...
+2026-03-26 20:03:04,256 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:03:04,284 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:03:04,384 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 206)，绝对坐标: (1002, 369)
+2026-03-26 20:03:04,489 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 2.0 秒后截图...
+2026-03-26 20:03:06,523 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:03:06,553 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:03:06,654 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 298)，绝对坐标: (1002, 461)
+2026-03-26 20:03:06,757 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.0 秒后截图...
+2026-03-26 20:03:07,816 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:03:07,843 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:03:07,943 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #6 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (-39, 596)，绝对坐标: (910, 759)
+2026-03-26 20:03:08,048 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.7 秒后截图...
+2026-03-26 20:03:09,793 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:03:09,818 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:03:09,818 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 20:03:09,831 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.875
+2026-03-26 20:03:13,831 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 20:03:23,008 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:05:02,947 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:05:02,947 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:05:08,781 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:05:08,843 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.867
+2026-03-26 20:05:08,862 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 20:05:08,874 - ProtectiveCasing - INFO - [MuMuNxDevice] 六模板匹配成功，开始查找所有 six 位置
+2026-03-26 20:05:08,886 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 39 -> 5 个 six (阈值=0.6)
+2026-03-26 20:05:08,887 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 5 个 six
+2026-03-26 20:05:08,899 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 20:05:09,000 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 252)，绝对坐标: (1002, 415)
+2026-03-26 20:05:09,105 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 20:05:10,673 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:05:10,702 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:05:10,803 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 391)，绝对坐标: (1002, 554)
+2026-03-26 20:05:10,911 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.8 秒后截图...
+2026-03-26 20:05:12,762 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:05:12,791 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:05:12,891 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 345)，绝对坐标: (1002, 508)
+2026-03-26 20:05:12,997 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.8 秒后截图...
+2026-03-26 20:05:14,800 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:05:14,830 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:05:14,931 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 206)，绝对坐标: (1002, 369)
+2026-03-26 20:05:15,034 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.4 秒后截图...
+2026-03-26 20:05:16,516 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:05:16,549 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:05:16,650 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 - 窗口坐标: (949, 163, 1499, 1141)，相对坐标: (53, 298)，绝对坐标: (1002, 461)
+2026-03-26 20:05:16,755 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 20:05:18,331 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:05:18,358 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:05:18,358 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 20:05:18,370 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.866
+2026-03-26 20:05:22,429 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 20:05:54,202 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:08:40,010 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:08:40,011 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:08:46,383 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:08:46,450 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.869
+2026-03-26 20:08:46,478 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 20:08:46,491 - ProtectiveCasing - INFO - [MuMuNxDevice] 六模板匹配成功，开始查找所有 six 位置
+2026-03-26 20:08:46,505 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 39 -> 5 个 six (阈值=0.6)
+2026-03-26 20:08:46,505 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 5 个 six
+2026-03-26 20:08:46,514 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 20:08:46,616 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (908, 148, 1458, 1126)，相对坐标: (53, 252)，绝对坐标: (961, 400)
+2026-03-26 20:08:46,718 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 20:08:48,213 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:08:48,242 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:08:48,343 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (908, 148, 1458, 1126)，相对坐标: (53, 391)，绝对坐标: (961, 539)
+2026-03-26 20:08:48,446 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.7 秒后截图...
+2026-03-26 20:08:50,191 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:08:50,234 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:08:50,335 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (908, 148, 1458, 1126)，相对坐标: (53, 345)，绝对坐标: (961, 493)
+2026-03-26 20:08:50,439 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.3 秒后截图...
+2026-03-26 20:08:51,741 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:08:51,768 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:08:51,870 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (908, 148, 1458, 1126)，相对坐标: (53, 206)，绝对坐标: (961, 354)
+2026-03-26 20:08:51,974 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 20:08:53,474 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:08:53,505 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:08:53,606 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 - 窗口坐标: (908, 148, 1458, 1126)，相对坐标: (53, 298)，绝对坐标: (961, 446)
+2026-03-26 20:08:53,713 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.3 秒后截图...
+2026-03-26 20:08:55,029 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:08:55,055 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:08:55,056 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 20:08:55,056 - ProtectiveCasing - INFO - [MuMuNxDevice] 处理 six 总耗时: 8.5 秒
+2026-03-26 20:08:55,068 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.863
+2026-03-26 20:08:59,096 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 20:09:10,643 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:12:24,780 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:12:24,780 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:12:31,780 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:12:31,849 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.874
+2026-03-26 20:12:31,869 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 20:12:31,880 - ProtectiveCasing - INFO - [MuMuNxDevice] 六模板匹配成功，开始查找所有 six 位置
+2026-03-26 20:12:31,894 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 43 -> 6 个 six (阈值=0.6)
+2026-03-26 20:12:31,894 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 6 个 six
+2026-03-26 20:12:31,903 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 6 个 six...
+2026-03-26 20:12:32,004 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (908, 148, 1458, 1126)，相对坐标: (53, 252)，绝对坐标: (961, 400)
+2026-03-26 20:12:32,109 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 20:12:33,672 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:12:33,700 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:12:33,802 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (908, 148, 1458, 1126)，相对坐标: (53, 345)，绝对坐标: (961, 493)
+2026-03-26 20:12:33,903 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.7 秒后截图...
+2026-03-26 20:12:35,653 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:12:35,682 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:12:35,783 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (908, 148, 1458, 1126)，相对坐标: (53, 391)，绝对坐标: (961, 539)
+2026-03-26 20:12:35,886 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.2 秒后截图...
+2026-03-26 20:12:37,174 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:12:37,201 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:12:37,302 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (908, 148, 1458, 1126)，相对坐标: (53, 206)，绝对坐标: (961, 354)
+2026-03-26 20:12:37,408 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.6 秒后截图...
+2026-03-26 20:12:39,067 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:12:39,098 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:12:39,198 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 - 窗口坐标: (908, 148, 1458, 1126)，相对坐标: (53, 298)，绝对坐标: (961, 446)
+2026-03-26 20:12:39,305 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.1 秒后截图...
+2026-03-26 20:12:40,485 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:12:40,511 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:12:40,612 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #6 位置 - 窗口坐标: (908, 148, 1458, 1126)，相对坐标: (-39, 596)，绝对坐标: (869, 744)
+2026-03-26 20:12:40,719 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.4 秒后截图...
+2026-03-26 20:12:42,154 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:12:42,184 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:12:42,184 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 20:12:42,184 - ProtectiveCasing - INFO - [MuMuNxDevice] 处理 six 总耗时: 10.3 秒
+2026-03-26 20:12:42,197 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.874
+2026-03-26 20:12:46,198 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 20:14:48,496 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:15:46,451 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:15:46,452 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:15:52,252 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:15:52,255 - ProtectiveCasing - INFO - [MuMuNxDevice] === 准备检查 war ===
+2026-03-26 20:15:52,317 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.873
+2026-03-26 20:15:52,341 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 20:15:52,352 - ProtectiveCasing - INFO - [MuMuNxDevice] 六模板匹配成功，开始查找所有 six 位置
+2026-03-26 20:15:52,367 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 43 -> 6 个 six (阈值=0.6)
+2026-03-26 20:15:52,368 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 6 个 six
+2026-03-26 20:15:52,375 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 6 个 six...
+2026-03-26 20:15:52,477 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 252)，绝对坐标: (841, 371)
+2026-03-26 20:15:52,584 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.1 秒后截图...
+2026-03-26 20:15:53,697 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:15:53,726 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:15:53,826 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 345)，绝对坐标: (841, 464)
+2026-03-26 20:15:53,929 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.8 秒后截图...
+2026-03-26 20:15:55,767 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:15:55,797 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:15:55,898 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 391)，绝对坐标: (841, 510)
+2026-03-26 20:15:56,003 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.1 秒后截图...
+2026-03-26 20:15:57,099 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:15:57,126 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:15:57,227 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 206)，绝对坐标: (841, 325)
+2026-03-26 20:15:57,330 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.9 秒后截图...
+2026-03-26 20:15:59,318 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:15:59,350 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:15:59,451 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 298)，绝对坐标: (841, 417)
+2026-03-26 20:15:59,556 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.2 秒后截图...
+2026-03-26 20:16:00,802 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:16:00,828 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:16:00,929 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #6 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (-39, 596)，绝对坐标: (749, 715)
+2026-03-26 20:16:01,035 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 20:16:02,574 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:16:02,600 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:16:02,600 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 20:16:02,600 - ProtectiveCasing - INFO - [MuMuNxDevice] 处理 six 总耗时: 10.2 秒
+2026-03-26 20:16:02,601 - ProtectiveCasing - INFO - [MuMuNxDevice] === 准备检查 war ===
+2026-03-26 20:16:02,613 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.866
+2026-03-26 20:16:06,611 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 20:16:43,587 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:18:00,125 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:18:00,125 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:18:07,241 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:18:07,243 - ProtectiveCasing - INFO - [MuMuNxDevice] === 准备检查 war ===
+2026-03-26 20:18:07,313 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.846
+2026-03-26 20:18:07,340 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 20:18:07,351 - ProtectiveCasing - INFO - [MuMuNxDevice] 六模板匹配成功，开始查找所有 six 位置
+2026-03-26 20:18:07,364 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 39 -> 5 个 six (阈值=0.6)
+2026-03-26 20:18:07,364 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 5 个 six
+2026-03-26 20:18:07,376 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 20:18:07,477 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 252)，绝对坐标: (841, 371)
+2026-03-26 20:18:07,583 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.9 秒后截图...
+2026-03-26 20:18:09,483 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:18:09,515 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:18:09,617 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 391)，绝对坐标: (841, 510)
+2026-03-26 20:18:09,724 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.1 秒后截图...
+2026-03-26 20:18:10,860 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:18:10,889 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:18:10,990 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 345)，绝对坐标: (841, 464)
+2026-03-26 20:18:11,093 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.3 秒后截图...
+2026-03-26 20:18:12,414 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:18:12,445 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:18:12,546 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 206)，绝对坐标: (841, 325)
+2026-03-26 20:18:12,652 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 2.0 秒后截图...
+2026-03-26 20:18:14,649 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:18:14,679 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:18:14,781 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 298)，绝对坐标: (841, 417)
+2026-03-26 20:18:14,888 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.2 秒后截图...
+2026-03-26 20:18:16,161 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:18:16,188 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:18:16,188 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 20:18:16,188 - ProtectiveCasing - INFO - [MuMuNxDevice] 处理 six 总耗时: 8.8 秒
+2026-03-26 20:18:16,189 - ProtectiveCasing - INFO - [MuMuNxDevice] === 准备检查 war ===
+2026-03-26 20:18:16,199 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.874
+2026-03-26 20:18:20,233 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 20:18:46,178 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:30:14,115 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:30:14,115 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:30:25,029 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:30:25,041 - ProtectiveCasing - INFO - [无尽冬日 - 挂机系统] === 准备检查 war ===
+2026-03-26 20:30:25,472 - ProtectiveCasing - INFO - [无尽冬日 - 挂机系统] 未发现 war
+2026-03-26 20:30:37,262 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:30:37,273 - ProtectiveCasing - INFO - [无尽冬日 - 挂机系统] === 准备检查 war ===
+2026-03-26 20:30:37,697 - ProtectiveCasing - INFO - [无尽冬日 - 挂机系统] 未发现 war
+2026-03-26 20:31:00,385 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:31:00,397 - ProtectiveCasing - INFO - [无尽冬日 - 挂机系统] === 准备检查 war ===
+2026-03-26 20:31:00,816 - ProtectiveCasing - INFO - [无尽冬日 - 挂机系统] 未发现 war
+2026-03-26 20:31:54,490 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:31:55,011 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:31:55,011 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:31:57,170 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:32:00,475 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:32:00,475 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:32:06,241 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:32:06,308 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.873
+2026-03-26 20:32:06,329 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 town
+2026-03-26 20:32:06,355 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 39 -> 5 个 six (阈值=0.6)
+2026-03-26 20:32:06,355 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 5 个 six
+2026-03-26 20:32:06,366 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 20:32:06,467 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #1 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 252)，绝对坐标: (841, 371)
+2026-03-26 20:32:06,572 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.5 秒后截图...
+2026-03-26 20:32:08,146 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:32:08,174 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:32:08,275 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #2 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 391)，绝对坐标: (841, 510)
+2026-03-26 20:32:08,379 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.9 秒后截图...
+2026-03-26 20:32:10,340 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:32:10,369 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:32:10,469 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #3 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 345)，绝对坐标: (841, 464)
+2026-03-26 20:32:10,573 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.8 秒后截图...
+2026-03-26 20:32:12,445 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:32:12,851 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:32:12,953 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #4 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 206)，绝对坐标: (841, 325)
+2026-03-26 20:32:13,059 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.2 秒后截图...
+2026-03-26 20:32:14,315 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:32:14,349 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:32:14,451 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 six #5 位置 - 窗口坐标: (788, 119, 1338, 1097)，相对坐标: (53, 298)，绝对坐标: (841, 417)
+2026-03-26 20:32:14,556 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待 1.3 秒后截图...
+2026-03-26 20:32:15,918 - ProtectiveCasing - INFO - [MuMuNxDevice] 已获取窗口截图
+2026-03-26 20:32:15,944 - ProtectiveCasing - INFO - [MuMuNxDevice] 中心未检测到红点
+2026-03-26 20:32:15,944 - ProtectiveCasing - INFO - [MuMuNxDevice] 所有 six 处理完成
+2026-03-26 20:32:15,956 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.874
+2026-03-26 20:32:19,993 - ProtectiveCasing - WARNING - [MuMuNxDevice] 未找到 Shield 按钮
+2026-03-26 20:32:31,109 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:42:46,509 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:42:46,509 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:42:57,116 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:42:57,183 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.874
+2026-03-26 20:42:57,238 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 20:43:06,271 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.860
+2026-03-26 20:43:32,727 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:44:14,888 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:44:14,888 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:44:23,889 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:44:23,954 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.859
+2026-03-26 20:44:24,007 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 20:44:33,165 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.870
+2026-03-26 20:45:03,239 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:46:57,991 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:46:57,991 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:47:02,760 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:47:02,833 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.873
+2026-03-26 20:47:02,886 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 20:47:12,049 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.868
+2026-03-26 20:48:45,680 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:48:49,150 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:48:49,150 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:48:53,748 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:48:53,813 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.874
+2026-03-26 20:48:53,865 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 6 个 six...
+2026-03-26 20:49:04,562 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.875
+2026-03-26 20:49:29,180 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:50:26,868 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:50:26,868 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:50:31,023 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:50:31,086 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.875
+2026-03-26 20:50:31,139 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 6 个 six...
+2026-03-26 20:50:41,047 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.875
+2026-03-26 20:51:30,325 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:53:35,538 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:53:35,538 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:53:40,336 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:53:40,399 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.873
+2026-03-26 20:53:40,451 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 20:53:50,092 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.846
+2026-03-26 20:53:51,731 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 deploy @ (811, 214)
+2026-03-26 20:53:53,925 - ProtectiveCasing - INFO - [133284] 点击 Shield @ (69, 189)
+2026-03-26 20:53:55,798 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 buy_2 @ (1228, 538)
+2026-03-26 20:53:57,363 - ProtectiveCasing - INFO - [133284] 点击 buy @ (443, 294)
+2026-03-26 20:59:21,886 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 20:59:30,261 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 20:59:30,261 - src.main - INFO - 版本: 1.0.0
+2026-03-26 20:59:36,304 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 20:59:53,637 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:00:18,926 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:00:24,980 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:00:24,980 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:00:31,607 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:00:31,668 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.869
+2026-03-26 21:00:31,713 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 6 个 six...
+2026-03-26 21:00:43,666 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.870
+2026-03-26 21:00:55,822 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 buy_2 @ (1057, 598)
+2026-03-26 21:01:17,310 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:02:33,234 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:02:33,235 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:02:37,508 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:02:48,755 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:02:52,125 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:02:55,025 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:02:55,025 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:03:02,299 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:03:02,365 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.870
+2026-03-26 21:03:02,417 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 6 个 six...
+2026-03-26 21:03:13,384 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.875
+2026-03-26 21:03:15,537 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 deploy @ (640, 274)
+2026-03-26 21:03:17,004 - ProtectiveCasing - INFO - [133284] 点击 Shield @ (69, 189)
+2026-03-26 21:03:18,998 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 buy_2 @ (1057, 598)
+2026-03-26 21:03:21,029 - ProtectiveCasing - INFO - [133284] 点击 buy @ (443, 294)
+2026-03-26 21:03:22,563 - ProtectiveCasing - INFO - [133284] 点击 buy1 @ (443, 294)
+2026-03-26 21:03:45,444 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:05:32,054 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:05:32,054 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:05:38,396 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:05:38,456 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.897
+2026-03-26 21:05:38,490 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.897
+2026-03-26 21:05:39,782 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 deploy @ (633, 251)
+2026-03-26 21:05:41,564 - ProtectiveCasing - INFO - [133284] 点击 Shield @ (52, 141)
+2026-03-26 21:05:42,904 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 buy_2 @ (945, 494)
+2026-03-26 21:05:44,231 - ProtectiveCasing - INFO - [133284] 点击 buy @ (332, 220)
+2026-03-26 21:06:17,029 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:06:17,085 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.897
+2026-03-26 21:06:17,118 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.897
+2026-03-26 21:06:19,049 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 deploy @ (633, 251)
+2026-03-26 21:06:21,043 - ProtectiveCasing - INFO - [133284] 点击 Shield @ (52, 141)
+2026-03-26 21:06:22,316 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 buy_2 @ (945, 494)
+2026-03-26 21:06:24,171 - ProtectiveCasing - INFO - [133284] 点击 buy @ (332, 220)
+2026-03-26 21:06:25,766 - ProtectiveCasing - INFO - [133284] 点击 buy1 @ (332, 220)
+2026-03-26 21:07:09,868 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:07:35,231 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:07:35,231 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:07:40,137 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:07:40,202 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.873
+2026-03-26 21:07:40,351 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.873
+2026-03-26 21:07:42,050 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 deploy @ (633, 251)
+2026-03-26 21:07:44,250 - ProtectiveCasing - INFO - [133284] 点击 Shield @ (52, 141)
+2026-03-26 21:07:45,469 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 buy_2 @ (945, 494)
+2026-03-26 21:07:47,652 - ProtectiveCasing - INFO - [133284] 点击 buy @ (332, 220)
+2026-03-26 21:07:49,422 - ProtectiveCasing - INFO - [133284] 点击 buy1 @ (332, 220)
+2026-03-26 21:07:57,793 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:11:23,467 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:11:23,468 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:11:27,867 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:11:27,923 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.876
+2026-03-26 21:11:27,959 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.876
+2026-03-26 21:11:27,969 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始 deploy 流程
+2026-03-26 21:11:29,721 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后点击 deploy...
+2026-03-26 21:11:29,927 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 deploy @ (633, 251)
+2026-03-26 21:11:31,760 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 Shield 出现...
+2026-03-26 21:11:32,006 - ProtectiveCasing - INFO - [133284] 点击 Shield @ (52, 141)
+2026-03-26 21:11:33,044 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后点击 buy_2...
+2026-03-26 21:11:33,249 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 buy_2 @ (945, 494)
+2026-03-26 21:11:34,293 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 buy 出现...
+2026-03-26 21:11:34,547 - ProtectiveCasing - INFO - [133284] 点击 buy @ (332, 220)
+2026-03-26 21:11:36,448 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 buy1 出现...
+2026-03-26 21:11:41,470 - ProtectiveCasing - INFO - [MuMuNxDevice] 完成 deploy 流程
+2026-03-26 21:11:53,448 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:16:07,664 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:16:07,664 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:16:13,154 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:16:19,591 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:16:22,284 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:16:22,284 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:16:26,176 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:16:28,252 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:16:33,839 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:16:37,908 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:16:47,840 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:16:51,171 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:16:51,172 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:16:56,654 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:18:19,387 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:18:22,924 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:18:22,924 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:18:28,305 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:18:28,376 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.876
+2026-03-26 21:18:28,422 - ProtectiveCasing - INFO - [MuMuNxDevice] 检测到 0 个 six
+2026-03-26 21:18:28,459 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.876
+2026-03-26 21:18:28,467 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始 deploy 流程
+2026-03-26 21:18:30,006 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后点击 deploy...
+2026-03-26 21:18:30,210 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 deploy @ (633, 251)
+2026-03-26 21:18:31,468 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 Shield 出现...
+2026-03-26 21:18:35,982 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后点击 buy_2...
+2026-03-26 21:18:36,187 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 buy_2 @ (945, 494)
+2026-03-26 21:18:37,571 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 buy 出现...
+2026-03-26 21:18:42,476 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 buy1 出现...
+2026-03-26 21:18:47,182 - ProtectiveCasing - INFO - [MuMuNxDevice] 完成 deploy 流程
+2026-03-26 21:18:59,533 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:26:17,287 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:26:17,287 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:26:22,477 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:26:37,985 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:26:39,944 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:26:42,968 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:26:42,968 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:26:52,563 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:26:52,624 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.869
+2026-03-26 21:26:52,715 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 34 -> 6 个 six
+2026-03-26 21:26:52,715 - ProtectiveCasing - INFO - [MuMuNxDevice] 检测到 6 个 six
+2026-03-26 21:26:52,738 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 6 个 six...
+2026-03-26 21:27:04,094 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.900
+2026-03-26 21:27:04,101 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始 deploy 流程
+2026-03-26 21:27:05,542 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后点击 deploy...
+2026-03-26 21:27:05,747 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 deploy @ (641, 276)
+2026-03-26 21:27:07,634 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 Shield 出现...
+2026-03-26 21:27:12,794 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后点击 buy_2...
+2026-03-26 21:27:12,997 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 buy_2 @ (1064, 605)
+2026-03-26 21:27:14,882 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 buy 出现...
+2026-03-26 21:27:19,513 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 buy1 出现...
+2026-03-26 21:27:23,954 - ProtectiveCasing - INFO - [MuMuNxDevice] 完成 deploy 流程
+2026-03-26 21:30:04,655 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:30:11,980 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:30:11,980 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:30:16,325 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:30:16,389 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.898
+2026-03-26 21:30:16,485 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 24 -> 5 个 six
+2026-03-26 21:30:16,485 - ProtectiveCasing - INFO - [MuMuNxDevice] 检测到 5 个 six
+2026-03-26 21:30:16,500 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 21:30:24,402 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.876
+2026-03-26 21:30:24,411 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始 deploy 流程
+2026-03-26 21:30:26,407 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后点击 deploy...
+2026-03-26 21:30:26,615 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 deploy @ (633, 251)
+2026-03-26 21:30:27,676 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 Shield 出现...
+2026-03-26 21:30:27,931 - ProtectiveCasing - INFO - [133284] 点击 Shield @ (52, 141)
+2026-03-26 21:30:29,469 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后点击 buy_2...
+2026-03-26 21:30:29,676 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 buy_2 @ (945, 494)
+2026-03-26 21:30:31,347 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 buy 出现...
+2026-03-26 21:30:31,598 - ProtectiveCasing - INFO - [133284] 点击 buy @ (332, 220)
+2026-03-26 21:30:32,886 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 buy1 出现...
+2026-03-26 21:30:33,096 - ProtectiveCasing - INFO - [133284] 点击 buy1 @ (332, 220)
+2026-03-26 21:30:34,664 - ProtectiveCasing - INFO - [MuMuNxDevice] 完成 deploy 流程
+2026-03-26 21:32:39,782 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:32:39,840 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.856
+2026-03-26 21:32:39,988 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 38 -> 5 个 six
+2026-03-26 21:32:39,988 - ProtectiveCasing - INFO - [MuMuNxDevice] 检测到 5 个 six
+2026-03-26 21:32:40,011 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 21:32:49,391 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.856
+2026-03-26 21:32:49,400 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始 deploy 流程
+2026-03-26 21:32:51,355 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后点击 deploy...
+2026-03-26 21:32:51,557 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 deploy @ (640, 274)
+2026-03-26 21:32:52,787 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 Shield 出现...
+2026-03-26 21:32:53,048 - ProtectiveCasing - INFO - [133284] 点击 Shield @ (69, 189)
+2026-03-26 21:32:54,988 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后点击 buy_2...
+2026-03-26 21:32:55,195 - ProtectiveCasing - INFO - [MuMuNxDevice] 点击 buy_2 @ (1057, 598)
+2026-03-26 21:32:56,882 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 buy 出现...
+2026-03-26 21:32:57,141 - ProtectiveCasing - INFO - [133284] 点击 buy @ (443, 294)
+2026-03-26 21:32:59,017 - ProtectiveCasing - INFO - [MuMuNxDevice] 等待后等待 buy1 出现...
+2026-03-26 21:33:04,702 - ProtectiveCasing - INFO - [MuMuNxDevice] 完成 deploy 流程
+2026-03-26 21:41:06,070 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:41:11,523 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:41:11,524 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:41:19,938 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:41:23,996 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:41:25,777 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:41:25,777 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:41:30,443 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:41:30,508 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.856
+2026-03-26 21:41:30,660 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 38 -> 5 个 six
+2026-03-26 21:41:30,660 - ProtectiveCasing - INFO - [MuMuNxDevice] 检测到 5 个 six
+2026-03-26 21:41:30,684 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 21:41:55,961 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 21:43:36,550 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 21:43:36,551 - src.main - INFO - 版本: 1.0.0
+2026-03-26 21:43:42,245 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-03-26 21:43:42,311 - ProtectiveCasing - INFO - [MuMuNxDevice] 发现 war! 置信度: 0.868
+2026-03-26 21:43:42,465 - ProtectiveCasing - INFO - [MuMuNxDevice] NMS 过滤: 39 -> 5 个 six
+2026-03-26 21:43:42,465 - ProtectiveCasing - INFO - [MuMuNxDevice] 检测到 5 个 six
+2026-03-26 21:43:42,484 - ProtectiveCasing - INFO - [MuMuNxDevice] 开始处理 5 个 six...
+2026-03-26 21:43:49,963 - ProtectiveCasing - INFO - [133284] 点击 sure @ (392, 600)
+2026-03-26 21:43:56,833 - ProtectiveCasing - INFO - [133284] 点击 sure @ (392, 600)
+2026-03-26 21:44:04,009 - ProtectiveCasing - INFO - [133284] 点击 sure @ (392, 600)
+2026-03-26 21:44:11,478 - ProtectiveCasing - INFO - [133284] 点击 sure @ (392, 600)
+2026-03-26 21:44:18,663 - ProtectiveCasing - INFO - [133284] 点击 sure @ (392, 600)
+2026-03-26 21:44:43,205 - src.main - INFO - 无尽冬日程序正常退出

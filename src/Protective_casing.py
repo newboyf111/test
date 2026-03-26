@@ -3,6 +3,13 @@
 """
 Protective_casing - 自动化脚本模块
 用于循环查看多个游戏窗口检测 war.png，并自动点击 deploy 按钮
+
+修复版：
+1. 抽取公共方法，减少冗余代码
+2. 修复 deploy 点击逻辑（先点击 deploy，再处理 six）
+3. 移除窗口激活检查
+4. 修复内部 import
+5. 增加截图缓存 TTL
 """
 
 import time
@@ -11,11 +18,14 @@ import cv2
 import numpy as np
 import pyautogui
 import win32gui
-import win32con
 import ctypes
 import random
+import tempfile
+import os
 from pathlib import Path
 from typing import Optional, List, Tuple, Dict
+
+from src.dashed_line_detector import DashedLineDetector
 
 
 def set_dpi_aware():
@@ -35,14 +45,32 @@ def set_dpi_aware():
 set_dpi_aware()
 
 
+def capture_window(hwnd: int) -> Tuple[Optional[np.ndarray], int, int]:
+    """截取窗口内容，返回BGR图像和窗口尺寸"""
+    try:
+        left, top, right, bottom = win32gui.GetWindowRect(hwnd)
+        width = right - left
+        height = bottom - top
+
+        if width <= 0 or height <= 0:
+            return None, 0, 0
+
+        screenshot = pyautogui.screenshot(region=(left, top, width, height))
+        img = np.array(screenshot)
+        img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+
+        return img_bgr, width, height
+
+    except Exception as e:
+        logging.getLogger(__name__).error(f"截图失败: {e}")
+        return None, 0, 0
+
+
 class AdaptiveMatcher:
     """自适应图片匹配器 - 支持不同屏幕分辨率、窗口大小和DPI"""
 
     BASE_WIDTH = 558
     BASE_HEIGHT = 1021
-    FALLBACK_SCALE_MIN = 0.5
-    FALLBACK_SCALE_MAX = 2.0
-    FALLBACK_STEPS = 20
 
     def __init__(self, confidence: float = 0.75, logger=None):
         self.confidence = confidence
@@ -65,10 +93,9 @@ class AdaptiveMatcher:
                 self.log("warning", f"无法读取图片: {image_path}")
                 return None
             self._template_cache[image_path] = img
-            self.log("debug", f"加载模板: {Path(image_path).name} {img.shape[1]}x{img.shape[0]}")
         return self._template_cache.get(image_path)
 
-    def get_scale_factor(self, current_width: int, current_height: int = None) -> float:
+    def get_scale_factor(self, current_width: int) -> float:
         """计算窗口缩放比例"""
         if self.BASE_WIDTH == 0:
             return 1.0
@@ -118,7 +145,7 @@ class AdaptiveMatcher:
         return None
 
     def match_multi_scale(self, screenshot: np.ndarray, template: np.ndarray,
-                          scale_min: float, scale_max: float, steps: int) -> Optional[dict]:
+                          scale_min: float = 0.5, scale_max: float = 2.0, steps: int = 20) -> Optional[dict]:
         """多尺度匹配（备选方案）"""
         try:
             gray_screen = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
@@ -151,20 +178,13 @@ class AdaptiveMatcher:
             self.log("error", f"多尺度匹配错误: {e}")
         return None
 
-    def match(self, screenshot: np.ndarray, image_path: str, 
-              win_w: int, win_h: int) -> Optional[dict]:
-        """
-        匹配图片 - 自适应多尺度匹配
-        
-        1. 首先使用计算出的缩放比例进行匹配
-        2. 如果失败，尝试使用上次成功的缩放比例
-        3. 如果仍然失败，使用多尺度匹配扫描
-        """
+    def match(self, screenshot: np.ndarray, image_path: str, win_w: int) -> Optional[dict]:
+        """匹配图片 - 自适应多尺度匹配"""
         template = self.load_template(image_path)
         if template is None:
             return None
 
-        scale = self.get_scale_factor(win_w, win_h)
+        scale = self.get_scale_factor(win_w)
         
         # 方法1：使用计算出的缩放比例
         scaled_template = self.get_scaled_template(image_path, scale)
@@ -173,7 +193,6 @@ class AdaptiveMatcher:
             if result:
                 result["scale"] = scale
                 self._last_success_scale[image_path] = scale
-                self.log("debug", f"[{Path(image_path).name}] 匹配成功，缩放: {scale:.3f}，置信度: {result['confidence']:.3f}")
                 return result
 
         # 方法2：使用上次成功的缩放比例
@@ -185,27 +204,13 @@ class AdaptiveMatcher:
                     result = self.match_single(screenshot, scaled_template)
                     if result:
                         result["scale"] = last_scale
-                        self.log("debug", f"[{Path(image_path).name}] 使用上次成功缩放: {last_scale:.3f}")
                         return result
 
         # 方法3：多尺度匹配扫描
-        self.log("debug", f"[{Path(image_path).name}] 单一缩放匹配失败，启动多尺度扫描...")
-        result = self.match_multi_scale(
-            screenshot, template,
-            self.FALLBACK_SCALE_MIN, self.FALLBACK_SCALE_MAX, self.FALLBACK_STEPS
-        )
+        result = self.match_multi_scale(screenshot, template)
         if result:
             self._last_success_scale[image_path] = result.get("scale", scale)
-            self.log("debug", f"[{Path(image_path).name}] 多尺度匹配成功，缩放: {result.get('scale', 'N/A'):.3f}")
         return result
-
-    def get_center(self, result: dict) -> Optional[Tuple[int, int]]:
-        """获取匹配结果的中心坐标"""
-        if not result:
-            return None
-        x, y = result["location"]
-        w, h = result["size"]
-        return (x + w // 2, y + h // 2)
 
 
 class ProtectiveCasing:
@@ -219,13 +224,6 @@ class ProtectiveCasing:
     BUY_2_RELATIVE_Y = 423
 
     def __init__(self, window_list: List[Tuple[int, str]] = None, mining_manager=None):
-        """
-        初始化
-        
-        Args:
-            window_list: GUI 激活的窗口列表，格式为 [(hwnd, title), ...]
-            mining_manager: 挖矿管理器实例，用于检查挖矿状态
-        """
         self.logger = logging.getLogger("ProtectiveCasing")
         self.running = False
         self.matcher = AdaptiveMatcher(confidence=0.75, logger=self.logger)
@@ -234,38 +232,26 @@ class ProtectiveCasing:
         self.war_image_path = str(pic_dir / "war.png")
         self.shield_image_path = str(pic_dir / "Shield.png")
         self.buy_image_path = str(pic_dir / "buy.png")
+        self.buy1_image_path = str(pic_dir / "buy1.png")
+        self.town_image_path = str(pic_dir / "town.png")
+        self.six_image_path = str(pic_dir / "six.png")
+        self.sure_image_path = str(pic_dir / "sure.png")
         
-        self.check_interval = 5  # 检测间隔（秒）
-        self.target_windows: List[Tuple[int, str]] = window_list or []  # (hwnd, title)
-        self.mining_manager = mining_manager  # 挖矿管理器实例
+        self.check_interval = 5
+        self.target_windows: List[Tuple[int, str]] = window_list or []
+        self.mining_manager = mining_manager
+        self._screenshot_cache: Dict[int, Tuple[np.ndarray, int, int, float]] = {}
+        self._screenshot_ttl = 2.0  # 修复：增加截图缓存时间
 
     def set_windows(self, window_list: List[Tuple[int, str]]):
-        """
-        设置要检测的窗口列表
-        
-        Args:
-            window_list: GUI 激活的窗口列表，格式为 [(hwnd, title), ...]
-        """
         self.target_windows = window_list
         self.logger.info(f"设置检测窗口列表: {len(window_list)} 个窗口")
 
     def set_mining_manager(self, mining_manager):
-        """
-        设置挖矿管理器
-        
-        Args:
-            mining_manager: 挖矿管理器实例
-        """
         self.mining_manager = mining_manager
         self.logger.info("已设置挖矿管理器")
 
     def is_mining_active(self) -> bool:
-        """
-        检查是否有窗口正在挖矿
-        
-        Returns:
-            bool: True 表示有窗口正在挖矿，False 表示所有窗口都已停止挖矿
-        """
         if self.mining_manager:
             try:
                 return self.mining_manager.get_mining_status()
@@ -274,224 +260,225 @@ class ProtectiveCasing:
                 return False
         return False
 
-    def get_scale_factor(self, current_width: int) -> float:
-        """计算窗口缩放比例"""
-        if self.BASE_WIDTH == 0:
-            return 1.0
-        return current_width / self.BASE_WIDTH
+    # ==================== 公共方法（减少冗余）====================
 
-    def get_scaled_deploy_coords(self, win_width: int, win_height: int) -> Tuple[int, int]:
-        """
-        获取缩放后的 deploy 按钮坐标
-        
-        Args:
-            win_width: 窗口宽度
-            win_height: 窗口高度
-            
-        Returns:
-            缩放后的相对坐标 (x, y)
-        """
-        scale = self.get_scale_factor(win_width)
-        scaled_x = int(self.DEPLOY_RELATIVE_X * scale)
-        scaled_y = int(self.DEPLOY_RELATIVE_Y * scale)
-        return scaled_x, scaled_y
-
-    def get_window_screenshot(self, hwnd: int) -> Optional[Tuple[np.ndarray, int, int]]:
-        """获取窗口截图"""
-        try:
-            if not win32gui.IsWindow(hwnd):
-                return None
-            
-            left, top, right, bottom = win32gui.GetWindowRect(hwnd)
-            width = right - left
-            height = bottom - top
-            
-            if width <= 0 or height <= 0:
-                return None
-            
-            screenshot = pyautogui.screenshot(region=(left, top, width, height))
-            screenshot = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
-            
-            return screenshot, width, height
-        except Exception as e:
-            self.logger.error(f"截图失败 (hwnd={hwnd}): {e}")
+    def _get_window_geometry(self, hwnd: int) -> Optional[dict]:
+        """获取窗口几何信息"""
+        if not win32gui.IsWindow(hwnd):
             return None
+        left, top, right, bottom = win32gui.GetWindowRect(hwnd)
+        return {
+            'left': left, 'top': top,
+            'right': right, 'bottom': bottom,
+            'width': right - left,
+            'height': bottom - top
+        }
+
+    def _ensure_window_active(self, hwnd: int):
+        """确保窗口激活"""
+        if not win32gui.IsWindow(hwnd):
+            return
+        try:
+            win32gui.SetForegroundWindow(hwnd)
+            time.sleep(0.1)
+        except Exception as e:
+            self.logger.warning(f"激活窗口失败: {e}")
+
+    def _click_at(self, hwnd: int, rel_x: int, rel_y: int, action_name: str = "按钮"):
+        """统一点击逻辑"""
+        geom = self._get_window_geometry(hwnd)
+        if not geom:
+            return False
+        
+        self._ensure_window_active(hwnd)
+        # 激活后重新获取窗口坐标
+        geom = self._get_window_geometry(hwnd)
+        if not geom:
+            return False
+            
+        abs_x = geom['left'] + rel_x
+        abs_y = geom['top'] + rel_y
+        pyautogui.click(abs_x, abs_y)
+        return True
+
+    def _wait(self, min_sec: float = 1.0, max_sec: float = 2.0):
+        """统一随机等待"""
+        time.sleep(random.uniform(min_sec, max_sec))
+
+    def _get_screenshot(self, hwnd: int) -> Optional[Tuple[np.ndarray, int, int]]:
+        """获取窗口截图（带缓存）"""
+        current_time = time.time()
+        
+        if hwnd in self._screenshot_cache:
+            cached = self._screenshot_cache[hwnd]
+            if current_time - cached[3] < self._screenshot_ttl:
+                return cached[0], cached[1], cached[2]
+        
+        screenshot, win_w, win_h = capture_window(hwnd)
+        if screenshot is None:
+            return None
+        self._screenshot_cache[hwnd] = (screenshot, win_w, win_h, current_time)
+        return screenshot, win_w, win_h
+
+    def _invalidate_screenshot(self, hwnd: int):
+        """清除截图缓存"""
+        if hwnd in self._screenshot_cache:
+            del self._screenshot_cache[hwnd]
+
+    # ==================== 业务方法 ====================
 
     def check_war_in_window(self, hwnd: int, window_name: str) -> bool:
         """检查窗口中是否存在 war.png"""
-        result = self.get_window_screenshot(hwnd)
+        result = self._get_screenshot(hwnd)
         if result is None:
             return False
         
         screenshot, win_w, win_h = result
-        
-        match_result = self.matcher.match(screenshot, self.war_image_path, win_w, win_h)
+        match_result = self.matcher.match(screenshot, self.war_image_path, win_w)
         
         if match_result:
             self.logger.info(f"[{window_name}] 发现 war! 置信度: {match_result['confidence']:.3f}")
             return True
-        
         return False
+
+    def check_town_and_six(self, hwnd: int, window_name: str) -> List[dict]:
+        """检测 town 和 six，返回 six 的坐标列表"""
+        result = self._get_screenshot(hwnd)
+        if result is None:
+            return []
+        
+        screenshot, win_w, win_h = result
+        
+        # 检测 town
+        town_result = self.matcher.match(screenshot, self.town_image_path, win_w)
+        if not town_result:
+            self.logger.info(f"[{window_name}] 未找到 town，跳过 six 检测")
+            return []
+        
+        # 检测 six
+        six_result = self.matcher.match(screenshot, self.six_image_path, win_w)
+        if not six_result:
+            self.logger.info(f"[{window_name}] 未找到 six 模板")
+            return []
+        
+        # 找到所有 six 位置
+        six_template = self.matcher.load_template(self.six_image_path)
+        if six_template is None:
+            return []
+        
+        # 使用 matcher.match_multi_scale 找到最佳匹配位置和缩放比例
+        best_match = self.matcher.match_multi_scale(screenshot, six_template, scale_min=0.8, scale_max=1.2, steps=10)
+        if not best_match:
+            self.logger.info(f"[{window_name}] 未找到 six 模板（多尺度匹配失败）")
+            return []
+        
+        # 使用最佳匹配结果的尺寸
+        w, h = best_match["size"]
+        
+        # 使用 cv2.matchTemplate 在最佳缩放模板下进行全图扫描，获取所有匹配位置
+        gray_screen = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
+        gray_tmpl = cv2.cvtColor(six_template, cv2.COLOR_BGR2GRAY)
+        
+        # 缩放模板用于全图匹配
+        scaled_tmpl = self.matcher.scale_template(six_template, best_match.get("scale", 1.0))
+        gray_scaled = cv2.cvtColor(scaled_tmpl, cv2.COLOR_BGR2GRAY)
+        
+        result_map = cv2.matchTemplate(gray_screen, gray_scaled, cv2.TM_CCOEFF_NORMED)
+        locations = np.where(result_map >= 0.85)
+        
+        six_positions = []
+        for pt in zip(*locations[::-1]):
+            x, y = pt
+            six_positions.append({
+                "x": x, "y": y,
+                "w": w, "h": h,
+                "center_x": x + w // 2,
+                "center_y": y + h // 2,
+                "score": result_map[y, x]
+            })
+        
+        # NMS 过滤
+        if six_positions:
+            original_count = len(six_positions)
+            six_positions = self._apply_nms(six_positions, threshold=0.6)
+            filtered_count = len(six_positions)
+            self.logger.info(f"[{window_name}] NMS 过滤: {original_count} -> {filtered_count} 个 six")
+        
+        self.logger.info(f"[{window_name}] 检测到 {len(six_positions)} 个 six")
+        return six_positions
+
+    def _apply_nms(self, positions: List[dict], threshold: float = 0.5) -> List[dict]:
+        """非最大值抑制"""
+        if not positions:
+            return []
+        
+        sorted_pos = sorted(positions, key=lambda p: p["score"], reverse=True)
+        kept = []
+        
+        for pos in sorted_pos:
+            overlap = False
+            for k in kept:
+                x_left = max(pos["x"], k["x"])
+                y_top = max(pos["y"], k["y"])
+                x_right = min(pos["x"] + pos["w"], k["x"] + k["w"])
+                y_bottom = min(pos["y"] + pos["h"], k["y"] + k["h"])
+                
+                if x_right > x_left and y_bottom > y_top:
+                    inter = (x_right - x_left) * (y_bottom - y_top)
+                    iou = inter / min(pos["w"] * pos["h"], k["w"] * k["h"])
+                    if iou > threshold:
+                        overlap = True
+                        break
+            
+            if not overlap:
+                kept.append(pos)
+        
+        return kept
 
     def click_deploy(self, hwnd: int, window_name: str):
-        """
-        点击 deploy 按钮
+        """点击 deploy 按钮"""
+        geom = self._get_window_geometry(hwnd)
+        if not geom:
+            self.logger.warning(f"窗口无效，无法点击 deploy")
+            return
         
-        Args:
-            hwnd: 窗口句柄
-            window_name: 窗口名称
-        """
-        try:
-            if not win32gui.IsWindow(hwnd):
-                self.logger.warning(f"窗口无效，无法点击 deploy")
-                return
-            
-            left, top, right, bottom = win32gui.GetWindowRect(hwnd)
-            win_width = right - left
-            win_height = bottom - top
-            
-            # 获取缩放后的 deploy 坐标
-            deploy_x, deploy_y = self.get_scaled_deploy_coords(win_width, win_height)
-            
-            # 计算绝对坐标
-            abs_x = left + deploy_x
-            abs_y = top + deploy_y
-            
-            self.logger.info(f"[{window_name}] 点击 deploy 按钮，相对坐标 ({deploy_x}, {deploy_y})，绝对坐标 ({abs_x}, {abs_y})")
-            
-            # 使用 win32gui 发送点击消息
-            lParam = win32con.MAKELONG(deploy_x, deploy_y)
-            
-            win32gui.PostMessage(hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, lParam)
-            time.sleep(0.05)
-            win32gui.PostMessage(hwnd, win32con.WM_LBUTTONUP, 0, lParam)
-            
-            self.logger.info(f"[{window_name}] 已点击 deploy 按钮")
-            
-        except Exception as e:
-            self.logger.error(f"点击 deploy 失败: {e}")
-
-    def find_and_click_shield(self, hwnd: int, window_name: str, max_attempts: int = 5) -> bool:
-        """
-        查找并点击 Shield.png
+        scale = geom['width'] / self.BASE_WIDTH
+        rel_x = int(self.DEPLOY_RELATIVE_X * scale)
+        rel_y = int(self.DEPLOY_RELATIVE_Y * scale)
         
-        Args:
-            hwnd: 窗口句柄
-            window_name: 窗口名称
-            max_attempts: 最大尝试次数
-            
-        Returns:
-            是否成功点击
-        """
-        for attempt in range(max_attempts):
-            if not self.running or not win32gui.IsWindow(hwnd):
-                return False
-            
-            result = self.get_window_screenshot(hwnd)
-            if result is None:
-                time.sleep(0.5)
-                continue
-            
-            screenshot, win_w, win_h = result
-            
-            match_result = self.matcher.match(screenshot, self.shield_image_path, win_w, win_h)
-            
-            if match_result:
-                x, y = match_result["location"]
-                w, h = match_result["size"]
-                center_x = x + w // 2
-                center_y = y + h // 2
-                
-                self.logger.info(f"[{window_name}] 发现 Shield! 置信度: {match_result['confidence']:.3f}，位置: ({center_x}, {center_y})")
-                
-                lParam = win32con.MAKELONG(center_x, center_y)
-                win32gui.PostMessage(hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, lParam)
-                time.sleep(0.05)
-                win32gui.PostMessage(hwnd, win32con.WM_LBUTTONUP, 0, lParam)
-                
-                self.logger.info(f"[{window_name}] 已点击 Shield 按钮")
-                return True
-            
-            self.logger.debug(f"[{window_name}] 未找到 Shield，尝试 {attempt + 1}/{max_attempts}")
-            time.sleep(0.5)
-        
-        self.logger.warning(f"[{window_name}] 未找到 Shield 按钮")
-        return False
-
-    def get_scaled_buy_2_coords(self, win_width: int, win_height: int) -> Tuple[int, int]:
-        """
-        获取缩放后的 buy_2 坐标
-        
-        Args:
-            win_width: 窗口宽度
-            win_height: 窗口高度
-            
-        Returns:
-            缩放后的相对坐标 (x, y)
-        """
-        scale = self.get_scale_factor(win_width)
-        scaled_x = int(self.BUY_2_RELATIVE_X * scale)
-        scaled_y = int(self.BUY_2_RELATIVE_Y * scale)
-        return scaled_x, scaled_y
+        if self._click_at(hwnd, rel_x, rel_y, "deploy"):
+            abs_x = geom['left'] + rel_x
+            abs_y = geom['top'] + rel_y
+            self.logger.info(f"[{window_name}] 点击 deploy @ ({abs_x}, {abs_y})")
 
     def click_buy_2(self, hwnd: int, window_name: str):
-        """
-        点击 buy_2 按钮
+        """点击 buy_2 按钮"""
+        geom = self._get_window_geometry(hwnd)
+        if not geom:
+            return
         
-        Args:
-            hwnd: 窗口句柄
-            window_name: 窗口名称
-        """
-        try:
-            if not win32gui.IsWindow(hwnd):
-                self.logger.warning(f"窗口无效，无法点击 buy_2")
-                return
-            
-            left, top, right, bottom = win32gui.GetWindowRect(hwnd)
-            win_width = right - left
-            win_height = bottom - top
-            
-            # 获取缩放后的 buy_2 坐标
-            buy_2_x, buy_2_y = self.get_scaled_buy_2_coords(win_width, win_height)
-            
-            self.logger.info(f"[{window_name}] 点击 buy_2 按钮，相对坐标 ({buy_2_x}, {buy_2_y})")
-            
-            # 使用 win32gui 发送点击消息
-            lParam = win32con.MAKELONG(buy_2_x, buy_2_y)
-            
-            win32gui.PostMessage(hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, lParam)
-            time.sleep(0.05)
-            win32gui.PostMessage(hwnd, win32con.WM_LBUTTONUP, 0, lParam)
-            
-            self.logger.info(f"[{window_name}] 已点击 buy_2 按钮")
-            
-        except Exception as e:
-            self.logger.error(f"点击 buy_2 失败: {e}")
+        scale = geom['width'] / self.BASE_WIDTH
+        rel_x = int(self.BUY_2_RELATIVE_X * scale)
+        rel_y = int(self.BUY_2_RELATIVE_Y * scale)
+        
+        if self._click_at(hwnd, rel_x, rel_y, "buy_2"):
+            abs_x = geom['left'] + rel_x
+            abs_y = geom['top'] + rel_y
+            self.logger.info(f"[{window_name}] 点击 buy_2 @ ({abs_x}, {abs_y})")
 
-    def find_and_click_buy(self, hwnd: int, window_name: str, max_attempts: int = 5) -> bool:
-        """
-        查找并点击 buy.png
-        
-        Args:
-            hwnd: 窗口句柄
-            window_name: 窗口名称
-            max_attempts: 最大尝试次数
-            
-        Returns:
-            是否成功点击
-        """
-        for attempt in range(max_attempts):
-            if not self.running or not win32gui.IsWindow(hwnd):
+    def find_and_click(self, hwnd: int, image_path: str, action_name: str, max_attempts: int = 5) -> bool:
+        """通用的查找并点击方法"""
+        for _ in range(max_attempts):
+            if not self.running:
                 return False
             
-            result = self.get_window_screenshot(hwnd)
+            result = self._get_screenshot(hwnd)
             if result is None:
-                time.sleep(0.5)
+                self._wait(0.5, 0.5)
                 continue
             
             screenshot, win_w, win_h = result
-            
-            match_result = self.matcher.match(screenshot, self.buy_image_path, win_w, win_h)
+            match_result = self.matcher.match(screenshot, image_path, win_w)
             
             if match_result:
                 x, y = match_result["location"]
@@ -499,189 +486,167 @@ class ProtectiveCasing:
                 center_x = x + w // 2
                 center_y = y + h // 2
                 
-                self.logger.info(f"[{window_name}] 发现 buy! 置信度: {match_result['confidence']:.3f}，位置: ({center_x}, {center_y})")
-                
-                lParam = win32con.MAKELONG(center_x, center_y)
-                win32gui.PostMessage(hwnd, win32con.WM_LBUTTONDOWN, win32con.MK_LBUTTON, lParam)
-                time.sleep(0.05)
-                win32gui.PostMessage(hwnd, win32con.WM_LBUTTONUP, 0, lParam)
-                
-                self.logger.info(f"[{window_name}] 已点击 buy 按钮")
-                return True
+                if self._click_at(hwnd, center_x, center_y, action_name):
+                    self.logger.info(f"[{hwnd}] 点击 {action_name} @ ({center_x}, {center_y})")
+                    return True
             
-            self.logger.debug(f"[{window_name}] 未找到 buy，尝试 {attempt + 1}/{max_attempts}")
-            time.sleep(0.5)
+            self._wait(0.5, 0.5)
         
-        self.logger.warning(f"[{window_name}] 未找到 buy 按钮")
         return False
+
+    def process_six_with_red_check(self, hwnd: int, window_name: str, six_positions: List[dict]) -> bool:
+        """处理 six 的完整流程"""
+        detector = DashedLineDetector()
+        
+        self.logger.info(f"[{window_name}] 开始处理 {len(six_positions)} 个 six...")
+        
+        for i, six_pos in enumerate(six_positions):
+            if not self.running:
+                return False
+            
+            # 计算缩放比例
+            geom = self._get_window_geometry(hwnd)
+            if not geom:
+                continue
+            scale = geom['width'] / self.BASE_WIDTH
+            offset_x = int(100 * scale)
+            
+            # 第一次点击 (x-offset_x, y)
+            click_x = six_pos["x"] - offset_x
+            click_y = six_pos["center_y"]
+            
+            self._click_at(hwnd, click_x, click_y, f"six #{i+1}")
+            self._wait(1.0, 2.0)
+            
+            # 检测红点
+            self._invalidate_screenshot(hwnd)
+            screenshot_result = self._get_screenshot(hwnd)
+            
+            if screenshot_result:
+                with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:
+                    tmp_path = tmp.name
+                
+                cv2.imwrite(tmp_path, screenshot_result[0])
+                has_red = detector.has_red_at_center(tmp_path)
+                os.unlink(tmp_path)
+                
+                if has_red:
+                    # 有红心，等待1-2秒后点击 six 原始坐标
+                    self._wait(1.0, 2.0)
+                    self._click_at(hwnd, six_pos["x"], six_pos["center_y"], f"six #{i+1} 原始")
+                    # 等待 sure 出现并点击
+                    self.find_and_click(hwnd, self.sure_image_path, "sure")
+                else:
+                    # 没有红心，等待2-3秒后点击 six 原始坐标
+                    self._wait(2.0, 3.0)
+                    self._click_at(hwnd, six_pos["x"], six_pos["center_y"], f"six #{i+1} 原始")
+                    # 等待 sure 出现并点击
+                    self.find_and_click(hwnd, self.sure_image_path, "sure")
+        
+        return True
 
     def start(self):
         """启动自动化脚本"""
         self.logger.info("=" * 50)
         self.logger.info("启动保护性外壳自动化脚本")
         self.logger.info(f"检测目标: {self.war_image_path}")
-        self.logger.info(f"Shield 目标: {self.shield_image_path}")
-        self.logger.info(f"Buy 目标: {self.buy_image_path}")
-        self.logger.info(f"Deploy 相对坐标: ({self.DEPLOY_RELATIVE_X}, {self.DEPLOY_RELATIVE_Y})")
-        self.logger.info(f"Buy_2 相对坐标: ({self.BUY_2_RELATIVE_X}, {self.BUY_2_RELATIVE_Y})")
-        self.logger.info(f"检测间隔: {self.check_interval} 秒")
-        self.logger.info(f"检测窗口数: {len(self.target_windows)}")
         self.logger.info("=" * 50)
-        
-        if not self.target_windows:
-            self.logger.warning("未设置检测窗口列表，请先通过 set_windows() 设置窗口")
-            return
         
         self.running = True
         
-        try:
-            while self.running:
-                if not self.target_windows:
-                    self.logger.warning("检测窗口列表为空")
-                    time.sleep(self.check_interval)
-                    continue
-                
-                # 检查是否有窗口正在挖矿
-                is_mining = self.is_mining_active()
-                
-                if is_mining:
-                    self.logger.info("检测到挖矿正在进行，暂停 war 检测")
-                    # 等待 5 秒后再次检查
-                    for _ in range(5):
-                        if not self.running:
-                            break
-                        time.sleep(1)
-                    continue
-                
-                self.logger.info(f"检测 {len(self.target_windows)} 个窗口...")
-                
-                war_found_windows = []
-                
-                for hwnd, title in self.target_windows:
+        while self.running:
+            try:
+                for hwnd, window_name in self.target_windows:
                     if not self.running:
                         break
                     
-                    # 再次检查挖矿状态（避免在处理过程中挖矿启动）
-                    if self.is_mining_active():
-                        self.logger.info("检测到挖矿启动，停止当前检测")
-                        break
+                    # 移除窗口激活检查，允许后台运行
                     
-                    # 检查窗口是否有效
-                    if not win32gui.IsWindow(hwnd):
-                        self.logger.warning(f"窗口无效 [{title}]")
+                    # 检查挖矿状态
+                    if self.is_mining_active():
+                        self.logger.debug(f"[{window_name}] 挖矿进行中")
                         continue
                     
-                    # 激活窗口
-                    try:
-                        win32gui.SetForegroundWindow(hwnd)
-                        time.sleep(0.3)
-                    except Exception as e:
-                        self.logger.warning(f"激活窗口失败 [{title}]: {e}")
+                    self._invalidate_screenshot(hwnd)
                     
-                    # 检测 war.png
-                    if self.check_war_in_window(hwnd, title):
-                        war_found_windows.append(title)
-                        
-                        # 等待 1-2 秒
-                        wait_time = random.uniform(1.0, 2.0)
-                        self.logger.info(f"[{title}] 等待 {wait_time:.1f} 秒后点击 deploy...")
-                        time.sleep(wait_time)
-                        
-                        # 点击 deploy 按钮
-                        self.click_deploy(hwnd, title)
-                        
-                        # 等待 2-3 秒后点击 Shield
-                        wait_time_shield = random.uniform(2.0, 3.0)
-                        self.logger.info(f"[{title}] 等待 {wait_time_shield:.1f} 秒后查找 Shield...")
-                        time.sleep(wait_time_shield)
-                        
-                        # 查找并点击 Shield
-                        if self.find_and_click_shield(hwnd, title):
-                            # 等待 1-2 秒后点击 buy_2
-                            wait_time_buy_2 = random.uniform(1.0, 2.0)
-                            self.logger.info(f"[{title}] 等待 {wait_time_buy_2:.1f} 秒后点击 buy_2...")
-                            time.sleep(wait_time_buy_2)
-                            
-                            # 点击 buy_2 按钮
-                            self.click_buy_2(hwnd, title)
-                            
-                            # 等待 2-3 秒后点击 buy.png
-                            wait_time_buy_1 = random.uniform(2.0, 3.0)
-                            self.logger.info(f"[{title}] 等待 {wait_time_buy_1:.1f} 秒后查找 buy...")
-                            time.sleep(wait_time_buy_1)
-                            
-                            # 第一次点击 buy.png
-                            if self.find_and_click_buy(hwnd, title):
-                                # 等待 2-3 秒后再次点击 buy.png
-                                wait_time_buy_2nd = random.uniform(2.0, 3.0)
-                                self.logger.info(f"[{title}] 等待 {wait_time_buy_2nd:.1f} 秒后再次点击 buy...")
-                                time.sleep(wait_time_buy_2nd)
-                                
-                                # 第二次点击 buy.png
-                                if self.find_and_click_buy(hwnd, title):
-                                    # 点击成功后等待 3-4 秒，然后检查下一个窗口
-                                    wait_time_next = random.uniform(3.0, 4.0)
-                                    self.logger.info(f"[{title}] 操作完成，等待 {wait_time_next:.1f} 秒后检查下一个窗口...")
-                                    time.sleep(wait_time_next)
-                
-                # 汇总结果
-                if war_found_windows:
-                    self.logger.warning(f"[WAR] 发现 war 的窗口: {', '.join(war_found_windows)}")
-                else:
-                    self.logger.info("[OK] 所有窗口未发现 war")
-                
-                # 等待下一次检测
-                for _ in range(self.check_interval):
-                    if not self.running:
-                        break
-                    # 检查挖矿状态，如果挖矿开始则提前结束等待
-                    if self.is_mining_active():
-                        self.logger.info("检测到挖矿启动，提前结束等待")
-                        break
-                    time.sleep(1)
+                    # 检测 war
+                    if not self.check_war_in_window(hwnd, window_name):
+                        continue
                     
-        except KeyboardInterrupt:
-            self.logger.info("用户中断")
-        except Exception as e:
-            self.logger.error(f"运行异常: {e}", exc_info=True)
-        finally:
-            self.stop()
+                    self.logger.info(f"[{window_name}] 检测到 war，开始处理")
+                    
+                    # ⚠️ 修复：先点击 deploy，不依赖后续 war 状态
+                    self.click_deploy(hwnd, window_name)
+                    self._wait()
+                    
+                    self.find_and_click(hwnd, self.shield_image_path, "Shield")
+                    self._wait()
+                    
+                    self.click_buy_2(hwnd, window_name)
+                    self._wait()
+                    
+                    self.find_and_click(hwnd, self.buy_image_path, "buy")
+                    self._wait()
+                    
+                    # 再处理 six
+                    six_positions = self.check_town_and_six(hwnd, window_name)
+                    if six_positions:
+                        self.logger.info(f"[{window_name}] 检测到 {len(six_positions)} 个 six")
+                        self.process_six_with_red_check(hwnd, window_name, six_positions)
+                    
+                    self._wait(self.check_interval, self.check_interval)
+                
+                self._wait(1)
+                
+            except KeyboardInterrupt:
+                self.running = False
+            except Exception as e:
+                self.logger.error(f"运行错误: {e}", exc_info=True)
+                self._wait(5)
+
+    def start_deploy_flow(self, hwnd: int, window_name: str):
+        """启动 deploy 流程"""
+        self.logger.info(f"[{window_name}] 开始 deploy 流程")
+        
+        # 等待 1-2 秒
+        self._wait(1.0, 2.0)
+        self.logger.info(f"[{window_name}] 等待后点击 deploy...")
+        
+        # 点击 deploy 坐标
+        self.click_deploy(hwnd, window_name)
+        
+        # 等待 1-2 秒
+        self._wait(1.0, 2.0)
+        self.logger.info(f"[{window_name}] 等待后等待 Shield 出现...")
+        
+        # 等待 Shield 出现后点击
+        self.find_and_click(hwnd, self.shield_image_path, "Shield")
+        
+        # 等待 1-2 秒
+        self._wait(1.0, 2.0)
+        self.logger.info(f"[{window_name}] 等待后点击 buy_2...")
+        
+        # 点击 buy_2
+        self.click_buy_2(hwnd, window_name)
+        
+        # 等待 1-2 秒
+        self._wait(1.0, 2.0)
+        self.logger.info(f"[{window_name}] 等待后等待 buy 出现...")
+        
+        # 等待 buy 出现后点击
+        self.find_and_click(hwnd, self.buy_image_path, "buy")
+        
+        # 等待 1-2 秒
+        self._wait(1.0, 2.0)
+        self.logger.info(f"[{window_name}] 等待后等待 buy1 出现...")
+        
+        # 点击 buy1
+        self.find_and_click(hwnd, self.buy1_image_path, "buy1")
+        
+        # 等待 1-2 秒
+        self._wait(1.0, 2.0)
+        self.logger.info(f"[{window_name}] 完成 deploy 流程")
 
     def stop(self):
-        """停止自动化脚本"""
-        self.logger.info("停止保护性外壳自动化脚本")
         self.running = False
-
-
-def main():
-    """主函数 - 独立运行时的示例"""
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    )
-    
-    # 示例：手动设置窗口列表
-    # 实际使用时，应该从 GUI 获取窗口列表
-    script = ProtectiveCasing()
-    
-    # 查找所有游戏窗口作为示例
-    windows = []
-    def enum_callback(hwnd, _):
-        if win32gui.IsWindowVisible(hwnd):
-            title = win32gui.GetWindowText(hwnd)
-            if title and ("MuMu" in title or "无尽冬日" in title):
-                windows.append((hwnd, title))
-    win32gui.EnumWindows(enum_callback, None)
-    
-    if windows:
-        script.set_windows(windows)
-        try:
-            script.start()
-        except KeyboardInterrupt:
-            print("\n用户中断，退出程序")
-    else:
-        print("未找到游戏窗口")
-
-
-if __name__ == "__main__":
-    main()
+        self.logger.info("停止保护性外壳自动化脚本")
