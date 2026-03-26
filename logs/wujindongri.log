@@ -38090,3 +38090,6 @@ AttributeError: module 'win32con' has no attribute 'MAKELONG'
 2026-03-26 21:44:11,478 - ProtectiveCasing - INFO - [133284] 点击 sure @ (392, 600)
 2026-03-26 21:44:18,663 - ProtectiveCasing - INFO - [133284] 点击 sure @ (392, 600)
 2026-03-26 21:44:43,205 - src.main - INFO - 无尽冬日程序正常退出
+2026-03-26 22:25:35,055 - src.main - INFO - 无尽冬日程序启动
+2026-03-26 22:25:35,055 - src.main - INFO - 版本: 1.0.0
+2026-03-26 22:25:38,546 - src.main - INFO - 无尽冬日程序正常退出
