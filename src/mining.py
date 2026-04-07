@@ -30,227 +30,12 @@ from pathlib import Path
 from typing import Optional, Tuple, Dict, List
 from collections import defaultdict, deque
 
-
-# ─────────────────────────────────────────────
-# DPI 感知设置
-# ─────────────────────────────────────────────
-
-def set_dpi_aware():
-    """设置进程为DPI感知，确保坐标和像素一致"""
-    try:
-        ctypes.windll.shcore.SetProcessDpiAwareness(2)
-    except Exception:
-        try:
-            ctypes.windll.shcore.SetProcessDpiAwareness(1)
-        except Exception:
-            try:
-                ctypes.windll.user32.SetProcessDPIAware()
-            except Exception:
-                pass
+from src.utils.adaptive_matcher import AdaptiveMatcher
+from src.utils.window_utils import set_dpi_aware, capture_window
+from src.utils.resource_path import get_pic_path
 
 
 set_dpi_aware()
-
-
-# ─────────────────────────────────────────────
-# 屏幕截图工具
-# ─────────────────────────────────────────────
-
-def capture_window(hwnd: int) -> Tuple[Optional[np.ndarray], int, int]:
-    """截取窗口内容，返回BGR图像和窗口尺寸"""
-    try:
-        left, top, right, bottom = win32gui.GetWindowRect(hwnd)
-        logic_width = right - left
-        logic_height = bottom - top
-
-        if logic_width <= 0 or logic_height <= 0:
-            return None, 0, 0
-
-        screenshot = pyautogui.screenshot(region=(left, top, logic_width, logic_height))
-        img = np.array(screenshot)
-        img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-
-        phys_height, phys_width = img_bgr.shape[:2]
-
-        if phys_width != logic_width or phys_height != logic_height:
-            img_bgr = cv2.resize(img_bgr, (logic_width, logic_height),
-                                 interpolation=cv2.INTER_AREA)
-
-        return img_bgr, logic_width, logic_height
-
-    except Exception as e:
-        logging.getLogger(__name__).error(f"截图失败: {e}")
-        return None, 0, 0
-
-
-# ─────────────────────────────────────────────
-# 自适应图片匹配器
-# ─────────────────────────────────────────────
-
-class AdaptiveMatcher:
-    """自适应图片匹配器"""
-
-    BASE_WIDTH = 558
-    BASE_HEIGHT = 1021
-    FALLBACK_SCALE_MIN = 0.5
-    FALLBACK_SCALE_MAX = 2.0
-    FALLBACK_STEPS = 20
-
-    def __init__(self, confidence: float = 0.65, logger=None):
-        self.confidence = confidence
-        self.logger = logger or logging.getLogger(__name__)
-        self._template_cache: Dict[str, np.ndarray] = {}
-        self._scaled_cache: Dict[tuple, np.ndarray] = {}
-        self._last_success_scale: Dict[str, float] = {}
-
-    def log(self, level: str, msg: str):
-        getattr(self.logger, level)(msg)
-
-    def load_template(self, image_path: str) -> Optional[np.ndarray]:
-        """加载模板图片（带缓存）"""
-        if image_path not in self._template_cache:
-            if not os.path.exists(image_path):
-                self.log("warning", f"图片不存在: {image_path}")
-                return None
-            img = cv2.imread(image_path)
-            if img is None:
-                self.log("warning", f"无法读取图片: {image_path}")
-                return None
-            self._template_cache[image_path] = img
-            self.log("debug", f"加载模板: {os.path.basename(image_path)} {img.shape[1]}x{img.shape[0]}")
-        return self._template_cache.get(image_path)
-
-    def get_scale_factor(self, current_width: int, current_height: int) -> float:
-        """计算窗口缩放比例"""
-        if self.BASE_WIDTH == 0:
-            return 1.0
-        return current_width / self.BASE_WIDTH
-
-    def scale_template(self, template: np.ndarray, scale: float) -> np.ndarray:
-        """按比例缩放模板图片"""
-        if abs(scale - 1.0) < 0.001:
-            return template
-        h, w = template.shape[:2]
-        new_w = max(8, int(w * scale))
-        new_h = max(8, int(h * scale))
-        interp = cv2.INTER_AREA if scale < 1.0 else cv2.INTER_LINEAR
-        return cv2.resize(template, (new_w, new_h), interpolation=interp)
-
-    def get_scaled_template(self, image_path: str, scale: float) -> Optional[np.ndarray]:
-        """获取缩放后的模板（带缓存）"""
-        cache_key = (image_path, round(scale, 3))
-        if cache_key not in self._scaled_cache:
-            template = self.load_template(image_path)
-            if template is None:
-                return None
-            scaled = self.scale_template(template, scale)
-            self._scaled_cache[cache_key] = scaled
-        return self._scaled_cache.get(cache_key)
-
-    def match_single(self, screenshot: np.ndarray, template: np.ndarray) -> Optional[dict]:
-        """单次模板匹配"""
-        try:
-            gray_screen = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
-            gray_tmpl = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
-            tmpl_h, tmpl_w = gray_tmpl.shape[:2]
-            scr_h, scr_w = gray_screen.shape[:2]
-            if tmpl_w > scr_w or tmpl_h > scr_h:
-                return None
-            result = cv2.matchTemplate(gray_screen, gray_tmpl, cv2.TM_CCOEFF_NORMED)
-            _, max_val, _, max_loc = cv2.minMaxLoc(result)
-            if max_val >= self.confidence:
-                return {
-                    "found": True,
-                    "location": max_loc,
-                    "confidence": max_val,
-                    "size": (tmpl_w, tmpl_h)
-                }
-        except Exception as e:
-            self.log("error", f"匹配错误: {e}")
-        return None
-
-    def match_multi_scale(self, screenshot: np.ndarray, template: np.ndarray,
-                          scale_min: float, scale_max: float, steps: int) -> Optional[dict]:
-        """多尺度匹配（备选方案）"""
-        try:
-            gray_screen = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
-            gray_tmpl_orig = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
-            orig_h, orig_w = gray_tmpl_orig.shape[:2]
-            best_score = 0.0
-            best_result = None
-            for scale in np.linspace(scale_min, scale_max, steps):
-                new_w = int(orig_w * scale)
-                new_h = int(orig_h * scale)
-                if new_w < 8 or new_h < 8:
-                    continue
-                if new_w > screenshot.shape[1] or new_h > screenshot.shape[0]:
-                    continue
-                gray_tmpl = cv2.resize(gray_tmpl_orig, (new_w, new_h),
-                                       interpolation=cv2.INTER_AREA if scale < 1 else cv2.INTER_LINEAR)
-                result = cv2.matchTemplate(gray_screen, gray_tmpl, cv2.TM_CCOEFF_NORMED)
-                _, max_val, _, max_loc = cv2.minMaxLoc(result)
-                if max_val > best_score:
-                    best_score = max_val
-                    best_result = {"location": max_loc, "size": (new_w, new_h), "scale": scale}
-            if best_result and best_score >= self.confidence:
-                best_result["found"] = True
-                best_result["confidence"] = best_score
-                return best_result
-        except Exception as e:
-            self.log("error", f"多尺度匹配错误: {e}")
-        return None
-
-    def match(self, screenshot: np.ndarray, image_path: str,
-              window_width: int, window_height: int) -> Optional[dict]:
-        """主匹配函数"""
-        template = self.load_template(image_path)
-        if template is None:
-            return None
-        image_name = os.path.basename(image_path)
-        scale = self.get_scale_factor(window_width, window_height)
-        scaled_template = self.get_scaled_template(image_path, scale)
-        if scaled_template is not None:
-            result = self.match_single(screenshot, scaled_template)
-            if result:
-                result["scale"] = scale
-                result["method"] = "window_scale"
-                self._last_success_scale[image_path] = scale
-                self.log("debug", f"[比例匹配] {image_name} scale={scale:.3f} conf={result['confidence']:.3f}")
-                return result
-        self.log("info", f"比例匹配失败，启用备选搜索: {image_name}")
-        if image_path in self._last_success_scale:
-            last_scale = self._last_success_scale[image_path]
-            search_min = max(self.FALLBACK_SCALE_MIN, last_scale - 0.2)
-            search_max = min(self.FALLBACK_SCALE_MAX, last_scale + 0.2)
-            result = self.match_multi_scale(screenshot, template, search_min, search_max, 10)
-            if result:
-                result["method"] = "fallback_near_last"
-                self._last_success_scale[image_path] = result["scale"]
-                self.log("info", f"[备选-近邻] {image_name} scale={result['scale']:.3f} conf={result['confidence']:.3f}")
-                return result
-        result = self.match_multi_scale(screenshot, template,
-                                        self.FALLBACK_SCALE_MIN,
-                                        self.FALLBACK_SCALE_MAX,
-                                        self.FALLBACK_STEPS)
-        if result:
-            result["method"] = "fallback_full"
-            self._last_success_scale[image_path] = result["scale"]
-            self.log("info", f"[备选-全范围] {image_name} scale={result['scale']:.3f} conf={result['confidence']:.3f}")
-            return result
-        self.log("debug", f"未找到: {image_name}")
-        return None
-
-    def get_center(self, result: dict) -> Optional[Tuple[int, int]]:
-        """获取匹配结果的中心点"""
-        if not result or not result.get("found"):
-            return None
-        x, y = result["location"]
-        w, h = result["size"]
-        return (x + w // 2, y + h // 2)
-
-    def clear_cache(self):
-        """清除缓存"""
-        self._scaled_cache.clear()
 
 
 # ─────────────────────────────────────────────
@@ -268,25 +53,23 @@ class SingleWindowMiner:
         self.logger = self._setup_logger()
         self.matcher = AdaptiveMatcher(confidence=0.65, logger=self.logger)
 
-        pic_dir = Path(__file__).parent.parent / "pic"
-
         self.image_paths = {
-            "town":        str(pic_dir / "town.png"),
-            "wild":        str(pic_dir / "wild.png"),
-            "search":      str(pic_dir / "search.png"),
-            "meat":        str(pic_dir / "meat.png"),
-            "wood":        str(pic_dir / "wood.png"),
-            "coal":        str(pic_dir / "coal mine.png"),
-            "iron":        str(pic_dir / "iron.png"),
-            "add":         str(pic_dir / "add.png"),
-            "search_meat": str(pic_dir / "search_meat.png"),
-            "gather":      str(pic_dir / "gather.png"),
-            "battle":      str(pic_dir / "battle.png"),
-            "team":        str(pic_dir / "team.png"),
-            "close":       str(pic_dir / "close.png"),
-            "minus":       str(pic_dir / "minus.png"),
-            "back":        str(pic_dir / "back.png"),
-            "back1":       str(pic_dir / "back1.png"),
+            "town":        get_pic_path("town.png"),
+            "wild":        get_pic_path("wild.png"),
+            "search":      get_pic_path("search.png"),
+            "meat":        get_pic_path("meat.png"),
+            "wood":        get_pic_path("wood.png"),
+            "coal":        get_pic_path("coal mine.png"),
+            "iron":        get_pic_path("iron.png"),
+            "add":         get_pic_path("add.png"),
+            "search_meat": get_pic_path("search_meat.png"),
+            "gather":      get_pic_path("gather.png"),
+            "battle":      get_pic_path("battle.png"),
+            "team":        get_pic_path("team.png"),
+            "close":       get_pic_path("close.png"),
+            "minus":       get_pic_path("minus.png"),
+            "back":        get_pic_path("back.png"),
+            "back1":       get_pic_path("back1.png"),
         }
 
         self.resource_order = ["meat", "wood", "coal", "iron"]
@@ -305,6 +88,7 @@ class SingleWindowMiner:
             "back":  0.75,
             "back1": 0.75,
             "gather": 0.85,
+            "town": 0.75,  # 提高 town 的阈值，防止误匹配
         }
 
         self.drag_distance = 240
@@ -312,8 +96,25 @@ class SingleWindowMiner:
         # 挖矿标记（True 表示已完成挖矿）
         self.mined = False
         
+        # 是否需要执行初始化流程
+        self._need_init = True
+        
         # 挖矿管理器引用
         self.mining_manager = None
+        
+        # Level8 坐标（相对于游戏窗口的基准坐标）
+        # 这些是基准值，会根据窗口大小自适应缩放
+        self.level8_target_base = (339, 844)
+        self.level8_tolerance = 1
+        
+        # 用户手动停止标志
+        self._user_stopped = False
+        
+        # OCR 识别区域（相对于游戏窗口的基准坐标）
+        # 区域: (156, 184) -> (194, 220) 大小: 38x36
+        self.ocr_region_base = (156, 184, 194, 220)
+        self.ocr_enabled = False
+        self.ocr_reader = None
 
     def _setup_logger(self) -> logging.Logger:
         """为每个窗口创建独立的日志记录器"""
@@ -327,6 +128,30 @@ class SingleWindowMiner:
             logger.addHandler(handler)
             logger.setLevel(logging.DEBUG)
         return logger
+
+    def _init_ocr(self):
+        """初始化 OCR"""
+        if self.ocr_reader is not None:
+            return
+        
+        try:
+            # 忽略 PyTorch DataLoader 的 pin_memory 警告
+            import warnings
+            warnings.filterwarnings("ignore", message="'pin_memory' argument is set as true but no accelerator is found")
+            # 忽略 easyocr 的 GPU 检查警告
+            warnings.filterwarnings("ignore", message="Neither CUDA nor MPS are available - defaulting to CPU")
+            
+            import easyocr
+            # 禁用 GPU 检查，直接使用 CPU
+            self.ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False)
+            self.ocr_enabled = True
+            self.logger.info("OCR 初始化成功")
+        except ImportError:
+            self.ocr_enabled = False
+            self.logger.warning("easyocr 未安装，跳过 OCR 识别")
+        except Exception as e:
+            self.ocr_enabled = False
+            self.logger.warning(f"OCR 初始化失败: {e}")
 
     def _get_screenshot(self) -> Tuple[Optional[np.ndarray], int, int]:
         """获取截图（带缓存）"""
@@ -358,11 +183,84 @@ class SingleWindowMiner:
         except Exception:
             return None
 
+    def _capture_ocr_region(self, screenshot: np.ndarray, win_w: int, win_h: int) -> Optional[np.ndarray]:
+        """截取 OCR 识别区域
+        
+        Args:
+            screenshot: 全屏截图
+            win_w: 窗口宽度
+            win_h: 窗口高度
+        
+        Returns:
+            OCR 区域截图，失败返回 None
+        """
+        if screenshot is None:
+            return None
+        
+        # 根据窗口大小自适应缩放 OCR 区域
+        scale = win_w / AdaptiveMatcher.BASE_WIDTH
+        x1 = int(self.ocr_region_base[0] * scale)
+        y1 = int(self.ocr_region_base[1] * scale)
+        x2 = int(self.ocr_region_base[2] * scale)
+        y2 = int(self.ocr_region_base[3] * scale)
+        
+        # 确保坐标在截图范围内
+        x1 = max(0, min(x1, screenshot.shape[1]))
+        y1 = max(0, min(y1, screenshot.shape[0]))
+        x2 = max(0, min(x2, screenshot.shape[1]))
+        y2 = max(0, min(y2, screenshot.shape[0]))
+        
+        if x1 >= x2 or y1 >= y2:
+            self.logger.warning("OCR 区域坐标无效")
+            return None
+        
+        # 截取区域
+        ocr_region = screenshot[y1:y2, x1:x2]
+        return ocr_region
+
+    def _ocr_recognize(self, region: np.ndarray) -> Optional[str]:
+        """使用 OCR 识别区域内容
+        
+        Args:
+            region: OCR 区域截图
+        
+        Returns:
+            识别结果文本，失败返回 None
+        """
+        if not self.ocr_enabled or self.ocr_reader is None:
+            return None
+        
+        try:
+            # 转换为灰度图
+            gray = cv2.cvtColor(region, cv2.COLOR_RGB2GRAY)
+            
+            # OCR 识别
+            results = self.ocr_reader.readtext(gray)
+            
+            if results:
+                # 提取识别文本
+                text = results[0][1]
+                confidence = results[0][2]
+                self.logger.info(f"OCR 识别结果: '{text}' (置信度: {confidence:.2f})")
+                return text
+            
+            return None
+        except Exception as e:
+            self.logger.warning(f"OCR 识别失败: {e}")
+            return None
+
     def start_mining(self) -> bool:
         """开始挖矿"""
         if not self.is_mining:
+            # 清除缓存
+            self._screenshot_cache = None
+            self._screenshot_time = 0
+            self.matcher.clear_cache()
+            
             self.is_mining = True
+            self._user_stopped = False  # 重置用户停止标志
             self.completed_cycles = 0
+            self._need_init = True  # 开始时需要执行初始化流程
             size = self._get_window_size()
             if size:
                 self.last_window_size = size
@@ -375,15 +273,27 @@ class SingleWindowMiner:
             return True
         return False
 
-    def stop_mining(self) -> bool:
-        """停止挖矿"""
+    def stop_mining(self, user_stopped: bool = False) -> bool:
+        """停止挖矿
+        
+        Args:
+            user_stopped: 是否是用户手动停止
+        """
         if self.is_mining:
             self.is_mining = False
-            # 标记窗口为已挖矿
-            self.mined = True
-            self.logger.info(f"挖矿结束，标记窗口为已挖矿")
+            self._user_stopped = user_stopped
+            # 标记窗口为已挖矿（只有用户手动停止或自然完成时才标记）
+            if user_stopped:
+                self.logger.info(f"用户手动停止挖矿")
+            else:
+                self.mined = True
+                self.logger.info(f"挖矿结束，标记窗口为已挖矿")
             return True
         return False
+
+    def is_user_stopped(self) -> bool:
+        """检查是否是用户手动停止"""
+        return self._user_stopped
 
     def get_mining_status(self) -> bool:
         return self.is_mining
@@ -458,7 +368,90 @@ class SingleWindowMiner:
                         self.mining_manager._on_window_mining_stopped(self.hwnd)
                     break
 
-            time.sleep(random.uniform(1, 2))
+            # 用户手动停止时立即退出，不等待
+            if self._user_stopped:
+                self.logger.info("用户手动停止，立即退出挖矿线程")
+                break
+            
+            time.sleep(0.1)  # 减少等待时间，快速响应停止请求
+
+    def _init_mining_flow(self) -> bool:
+        """
+        挖矿初始化流程
+        
+        步骤1: 搜索 town，发现则开始挖矿流程
+        步骤2: 未发现 town，搜索 wild，发现则点击后等待2-3秒，开始挖矿流程
+        步骤3: 未发现 town 和 wild，执行 close/back/back1 流程
+        
+        Returns:
+            bool: 初始化是否成功
+        """
+        self.logger.info("执行挖矿初始化流程...")
+        
+        # 步骤1: 搜索 town
+        if self._find("town"):
+            self.logger.info("找到 town，开始挖矿流程")
+            return True
+        
+        # 步骤2: 搜索 wild
+        if self._find("wild"):
+            self.logger.info("找到 wild")
+            time.sleep(random.uniform(0.5, 1))
+            if self._click("wild"):
+                self.logger.info("点击 wild 成功，等待2-3秒后开始挖矿流程")
+                time.sleep(random.uniform(2, 3))
+                return True
+            else:
+                self.logger.warning("点击 wild 失败")
+        
+        # 步骤3: 搜索 close
+        self.logger.info("未找到 town 和 wild，开始搜索 close 流程")
+        if self._find("close"):
+            self.logger.info("找到 close")
+            time.sleep(random.uniform(0.5, 1))
+            if self._click("close"):
+                self.logger.info("点击 close 成功，开始挖矿流程")
+                time.sleep(random.uniform(1, 2))
+                return True
+            else:
+                self.logger.warning("点击 close 失败")
+        
+        # 步骤4: 搜索 back
+        if self._find("back"):
+            self.logger.info("找到 back")
+            time.sleep(random.uniform(0.5, 1))
+            if self._click("back"):
+                self.logger.info("点击 back 成功")
+                time.sleep(random.uniform(1, 2))
+                
+                # 搜索 back1
+                if self._find("back1"):
+                    self.logger.info("找到 back1")
+                    time.sleep(random.uniform(0.5, 1))
+                    if self._click("back1"):
+                        self.logger.info("点击 back1 成功，开始挖矿流程")
+                        time.sleep(random.uniform(2, 3))
+                        return True
+                    else:
+                        self.logger.warning("点击 back1 失败")
+                else:
+                    self.logger.warning("未找到 back1")
+            else:
+                self.logger.warning("点击 back 失败")
+        
+        # 步骤5: 直接搜索 back1
+        if self._find("back1"):
+            self.logger.info("找到 back1")
+            time.sleep(random.uniform(0.5, 1))
+            if self._click("back1"):
+                self.logger.info("点击 back1 成功，开始挖矿流程")
+                time.sleep(random.uniform(1, 2))
+                return True
+            else:
+                self.logger.warning("点击 back1 失败")
+        
+        self.logger.warning("挖矿初始化流程失败")
+        return False
 
     def _run_cycle(self):
         """执行一轮挖矿流程"""
@@ -470,12 +463,75 @@ class SingleWindowMiner:
                 self.mining_manager._on_window_mining_stopped(self.hwnd)
             return
 
+        # 用户手动停止时立即退出
+        if self._user_stopped:
+            self.logger.info("用户手动停止，退出挖矿流程")
+            return
+
+        # 初始化 OCR（仅在第一次执行时）
+        if not hasattr(self, '_ocr_initialized'):
+            self._init_ocr()
+            self._ocr_initialized = True
+
+        # 优先执行初始化流程
+        if self._need_init:
+            self.logger.info("开始执行挖矿初始化流程...")
+            if self._init_mining_flow():
+                self._need_init = False
+                self.logger.info("挖矿初始化完成，开始正常挖矿流程")
+            else:
+                self.logger.warning("挖矿初始化失败，将在下一轮重试")
+                return
+
+        # 用户手动停止时立即退出
+        if self._user_stopped:
+            self.logger.info("用户手动停止，退出挖矿流程")
+            return
+
         current_size = self._get_window_size()
         if current_size and current_size != self.last_window_size:
             self.logger.info(f"窗口尺寸变化: {self.last_window_size} -> {current_size}")
             self.last_window_size = current_size
             self.matcher.clear_cache()
             self._invalidate_screenshot()
+
+        # 获取截图并进行 OCR 识别
+        screenshot, win_w, win_h = self._get_screenshot()
+        if screenshot is not None and win_w > 0 and win_h > 0:
+            # 截取 OCR 区域
+            ocr_region = self._capture_ocr_region(screenshot, win_w, win_h)
+            if ocr_region is not None:
+                # OCR 识别
+                ocr_text = self._ocr_recognize(ocr_region)
+                if ocr_text:
+                    self.logger.info(f"OCR 识别到文本: {ocr_text}")
+                    
+                    # 解析 OCR 文本，计算差值
+                    try:
+                        # 提取格式为 "x/y" 的文本
+                        if "/" in ocr_text:
+                            parts = ocr_text.split("/")
+                            if len(parts) == 2:
+                                current = int(parts[0].strip())
+                                total = int(parts[1].strip())
+                                remaining = total - current
+                                self.logger.info(f"解析结果: 当前 {current}, 总数 {total}, 剩余 {remaining}")
+                                
+                                # 如果剩余为0，不需要执行挖矿流程
+                                if remaining <= 0:
+                                    self.logger.info("剩余次数为0，跳过挖矿流程")
+                                    # 开启保护性外壳自动化脚本
+                                    if self.mining_manager is not None:
+                                        self.logger.info("开启保护性外壳自动化脚本")
+                                        self.is_mining = False
+                                        self.mined = True
+                                        self.mining_manager._on_window_mining_stopped(self.hwnd)
+                                    return
+                                # 设置还需要循环的次数
+                                self.max_cycles = remaining
+                                self.logger.info(f"设置还需要循环的次数为: {self.max_cycles}")
+                    except (ValueError, IndexError) as e:
+                        self.logger.warning(f"解析 OCR 文本失败: {e}")
 
         town_found = self._find("town")
         wild_found = self._find("wild")
@@ -502,14 +558,21 @@ class SingleWindowMiner:
                 self.logger.warning("未找到 back1，初始化失败")
                 return
 
+        # 用户手动停止时立即退出
+        if self._user_stopped:
+            self.logger.info("用户手动停止，退出挖矿流程")
+            return
+
         if self._find("town"):
             self.logger.info("找到 town")
             time.sleep(random.uniform(1, 2))
             if not self._click("search"):
-                self.logger.warning("未找到 search")
-                return
-            self.logger.info("点击 search 成功")
-            time.sleep(random.uniform(1, 2))
+                self.logger.warning("未找到 search，执行挖矿初始化流程")
+                if not self._init_mining_flow():
+                    return
+            else:
+                self.logger.info("点击 search 成功")
+                time.sleep(random.uniform(1, 2))
         else:
             self.logger.debug("未找到 town，尝试 wild")
             time.sleep(1)
@@ -541,12 +604,11 @@ class SingleWindowMiner:
 
         time.sleep(random.uniform(1, 2))
 
-        if not self._click("add"):
-            self.logger.warning("未找到 add")
+        if not self._click_and_align("add", self.level8_target_base, self.level8_tolerance):
+            self.logger.warning("未找到 add 或坐标校准失败")
             self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
-        self.logger.info("点击 add 成功")
-        self._drag(self.drag_distance, 0)
+        self.logger.info("点击 add 成功且坐标校准完成")
         time.sleep(random.uniform(1, 2))
 
         if not self._click("search_meat"):
@@ -555,6 +617,11 @@ class SingleWindowMiner:
             return
         self.logger.info("点击 search_meat 成功")
         time.sleep(random.uniform(1, 2))
+
+        # 用户手动停止时立即退出
+        if self._user_stopped:
+            self.logger.info("用户手动停止，退出挖矿流程")
+            return
 
         # 尝试最多8次寻找并点击 gather
         gather_found = False
@@ -571,45 +638,29 @@ class SingleWindowMiner:
             
             # 执行备选方案
             if attempt < max_attempts - 1:  # 最后一次尝试不需要执行备选方案
-                self.logger.info("执行备选方案：点击add并向左移动")
+                self.logger.info("执行备选方案：向左移动并重新点击 search_meat")
                 time.sleep(random.uniform(1, 2))
                 
-                # 尝试点击 add
-                if self._click("add"):
-                    self.logger.info("点击 add 成功")
-                    self._drag(-30, 0, 0.05)  # 向左移动30像素，持续时间0.05秒
-                    time.sleep(random.uniform(1, 2))
-                    
-                    # 重新点击 search_meat
-                    if self._click("search_meat"):
-                        self.logger.info("重新点击 search_meat 成功")
-                        time.sleep(random.uniform(1, 2))
-                    else:
-                        self.logger.warning("重新查找 search_meat 失败")
-                        # 继续下一次尝试
-                        continue
+                # 向左移动（自适应窗口大小，基准30像素）
+                window_size = self._get_window_size()
+                if window_size:
+                    win_w, _ = window_size
+                    scale = win_w / 558
+                    drag_distance = int(30 * scale)
+                    self.logger.info(f"窗口宽度: {win_w}, 缩放比例: {scale:.3f}, 拖动距离: {drag_distance} 像素")
                 else:
-                    self.logger.warning("点击 add 失败，尝试查找 minus")
-                    # 尝试查找 minus
-                    minus_found = False
-                    for i in range(5):
-                        if self._click("minus"):
-                            self.logger.info("点击 minus 成功")
-                            minus_found = True
-                            break
-                        self.logger.info(f"未找到 minus，{self.retry_delay}s 后重试 ({i+1}/5)")
-                        time.sleep(self.retry_delay)
-                    
-                    if minus_found:
-                        time.sleep(random.uniform(1, 2))
-                        # 重新点击 search_meat
-                        if self._click("search_meat"):
-                            self.logger.info("重新点击 search_meat 成功")
-                            time.sleep(random.uniform(1, 2))
-                        else:
-                            self.logger.warning("重新查找 search_meat 失败")
-                    else:
-                        self.logger.warning("多次未找到 minus")
+                    drag_distance = 30
+                    self.logger.warning("无法获取窗口尺寸，使用原始拖动距离 30 像素")
+                
+                self._drag(-drag_distance, 0, 0.05)
+                time.sleep(random.uniform(1, 2))
+                
+                # 重新点击 search_meat
+                if self._click("search_meat"):
+                    self.logger.info("重新点击 search_meat 成功")
+                    time.sleep(random.uniform(1, 2))
+                else:
+                    self.logger.warning("重新查找 search_meat 失败")
                     # 继续下一次尝试
                     continue
 
@@ -619,6 +670,20 @@ class SingleWindowMiner:
             return
 
         time.sleep(random.uniform(1, 2))
+
+        # 用户手动停止时立即退出
+        if self._user_stopped:
+            self.logger.info("用户手动停止，退出挖矿流程")
+            return
+
+        # 再次检查 gather 是否存在（如果存在说明点击失败）
+        if self._find("gather"):
+            self.logger.info("gather 仍然存在，点击失败，停止挖矿")
+            self.is_mining = False
+            self.mined = True
+            if self.mining_manager is not None:
+                self.mining_manager._on_window_mining_stopped(self.hwnd)
+            return
 
         # 检查 team（表示队列已满，需要停止）
         if self._find("team"):
@@ -635,9 +700,10 @@ class SingleWindowMiner:
         if self._click("battle"):
             self.logger.info("点击 battle 成功，完成一轮")
             self.completed_cycles += 1
-            self.logger.info(f"已完成 {self.completed_cycles}/{self.max_cycles} 轮")
-            if self.completed_cycles >= self.max_cycles:
-                self.logger.info("已完成指定轮数，停止挖矿")
+            self.max_cycles -= 1  # 减少还需要循环的次数
+            self.logger.info(f"已完成 {self.completed_cycles} 轮，还需要循环 {self.max_cycles} 轮")
+            if self.max_cycles <= 0:
+                self.logger.info("已完成所有循环次数，停止挖矿")
                 self.is_mining = False
                 self.mined = True
                 if self.mining_manager is not None:
@@ -683,19 +749,23 @@ class SingleWindowMiner:
             return True
         return False
 
-    def _click(self, image_key: str) -> bool:
-        """查找并点击图片（使用 win32gui.PostMessage 发送鼠标点击消息）"""
+    def _click(self, image_key: str) -> Tuple[bool, Optional[Tuple[int, int]]]:
+        """查找并点击图片（使用 win32gui.PostMessage 发送鼠标点击消息）
+        
+        Returns:
+            Tuple[bool, Optional[Tuple[int, int]]]: (是否成功, 点击的相对坐标)
+        """
         image_path = self.image_paths.get(image_key)
         if not image_path:
             self.logger.error(f"未知图片key: {image_key}")
-            return False
+            return False, None
 
         # 清除截图缓存，确保使用最新截图
         self._invalidate_screenshot()
         
         screenshot, win_w, win_h = self._get_screenshot()
         if screenshot is None:
-            return False
+            return False, None
 
         original_confidence = self.matcher.confidence
         if image_key in self.image_confidence:
@@ -705,11 +775,11 @@ class SingleWindowMiner:
         self.matcher.confidence = original_confidence
 
         if not result:
-            return False
+            return False, None
 
         center = self.matcher.get_center(result)
         if center is None:
-            return False
+            return False, None
 
         left, top, _, _ = win32gui.GetWindowRect(self.hwnd)
         client_x = center[0]
@@ -728,6 +798,70 @@ class SingleWindowMiner:
         pyautogui.click(screen_x, screen_y)
         
         self.logger.info(f"点击 {image_key}: ({screen_x}, {screen_y}) [scale={result.get('scale', 1):.3f}]")
+        return True, (client_x, client_y)
+
+    def _click_and_align(self, image_key: str, target_pos_base: Tuple[int, int], tolerance: int = 1) -> bool:
+        """查找并点击图片，如果坐标不在目标位置则拖动到目标位置
+        
+        Args:
+            image_key: 图片key
+            target_pos_base: 目标位置（相对于游戏窗口的基准坐标）
+            tolerance: 坐标容差（像素）
+        
+        Returns:
+            bool: 是否成功
+        """
+        success, pos = self._click(image_key)
+        if not success or pos is None:
+            return False
+        
+        current_x, current_y = pos
+        target_x_base, target_y_base = target_pos_base
+        
+        # 根据窗口大小自适应缩放目标坐标
+        window_size = self._get_window_size()
+        if window_size:
+            win_w, _ = window_size
+            scale = win_w / 558
+            target_x = int(target_x_base * scale)
+            target_y = int(target_y_base * scale)
+            self.logger.info(f"窗口宽度: {win_w}, 缩放比例: {scale:.3f}, 目标坐标缩放: ({target_x_base}, {target_y_base}) -> ({target_x}, {target_y})")
+        else:
+            target_x, target_y = target_x_base, target_y_base
+            self.logger.warning("无法获取窗口尺寸，使用原始目标坐标")
+        
+        self.logger.info(f"{image_key} 当前坐标: ({current_x}, {current_y}), 目标坐标: ({target_x}, {target_y})")
+        
+        if (abs(current_x - target_x) <= tolerance and 
+            abs(current_y - target_y) <= tolerance):
+            self.logger.info(f"{image_key} 坐标在容差范围内，继续流程")
+            return True
+        
+        dx = target_x - current_x
+        dy = target_y - current_y
+        
+        self.logger.info(f"拖动 {image_key} 到目标位置: dx={dx}, dy={dy}")
+        
+        try:
+            if window_size:
+                scale = win_w / 558
+                dx_scaled = int(dx * scale)
+                dy_scaled = int(dy * scale)
+            else:
+                dx_scaled = dx
+                dy_scaled = dy
+                self.logger.debug("无法获取窗口尺寸，使用原始拖动距离")
+            
+            x, y = pyautogui.position()
+            pyautogui.mouseDown()
+            pyautogui.moveTo(x + dx_scaled, y + dy_scaled, duration=0.5)
+            pyautogui.mouseUp()
+            self.logger.info(f"拖动完成: dx={dx_scaled}, dy={dy_scaled} [scale={scale:.3f}]")
+            self._invalidate_screenshot()
+        except Exception as e:
+            self.logger.error(f"拖动失败: {e}")
+            return False
+        
         return True
 
     def _drag(self, dx: int, dy: int, duration: float = 0.4):
@@ -850,8 +984,12 @@ class MultiWindowMiningManager:
                 return True
             return False
 
-    def stop_mining(self, hwnd: int) -> bool:
-        """停止指定窗口的挖矿"""
+    def stop_mining(self, hwnd: int, user_stopped: bool = False) -> bool:
+        """停止指定窗口的挖矿
+        
+        Args:
+            user_stopped: 是否是用户手动停止
+        """
         with self._lock:
             if hwnd not in self.miners:
                 self.logger.error(f"窗口 {hwnd} 不存在")
@@ -859,10 +997,13 @@ class MultiWindowMiningManager:
             
             miner = self.miners[hwnd]
             was_mining = miner.is_mining
-            if miner.stop_mining():
-                self.logger.info(f"停止窗口 {miner.window_name} 挖矿")
-                # 如果窗口正在挖矿，尝试启动下一个
-                if was_mining:
+            if miner.stop_mining(user_stopped=user_stopped):
+                if user_stopped:
+                    self.logger.info(f"用户手动停止窗口 {miner.window_name} 挖矿")
+                else:
+                    self.logger.info(f"停止窗口 {miner.window_name} 挖矿")
+                # 如果窗口正在挖矿，尝试启动下一个（用户手动停止时不启动下一个）
+                if was_mining and not user_stopped:
                     self._try_start_next_window()
                 return True
             return False
@@ -901,7 +1042,7 @@ class MultiWindowMiningManager:
         with self._lock:
             count = 0
             for miner in self.miners.values():
-                if miner.stop_mining():
+                if miner.stop_mining(user_stopped=True):
                     count += 1
             self.logger.info(f"已停止 {count} 个窗口的挖矿")
             return count
@@ -964,6 +1105,9 @@ class MultiWindowMiningManager:
                 self.logger.info("队列模式运行中，跳过 _try_start_next_window")
                 return
         
+        next_hwnd = None
+        next_window_name = None
+        
         # 使用锁防止多个线程同时启动新窗口
         with self._lock:
             self.logger.info(f"查找下一个未标记窗口，当前窗口数: {len(self.window_order)}")
@@ -977,7 +1121,6 @@ class MultiWindowMiningManager:
                     if not miner.mined and not miner.is_mining:
                         if miner.start_mining():
                             self.logger.info(f"自动启动下一个窗口 {miner.window_name} 挖矿")
-                            # 保存窗口信息用于锁外激活
                             next_hwnd = hwnd
                             next_window_name = miner.window_name
                             break
@@ -989,7 +1132,8 @@ class MultiWindowMiningManager:
                 return
         
         # 在锁外激活新窗口
-        self._ensure_window_active(next_hwnd, next_window_name)
+        if next_hwnd is not None:
+            self._ensure_window_active(next_hwnd, next_window_name)
     
     def _mining_scheduler(self):
         """
@@ -1014,6 +1158,7 @@ class MultiWindowMiningManager:
                     continue
                 
                 # 检查窗口是否有效
+                miner = None
                 with self._lock:
                     if hwnd not in self.miners:
                         self.logger.warning(f"窗口 {hwnd} 不存在，跳过")
@@ -1029,6 +1174,10 @@ class MultiWindowMiningManager:
                     if miner.is_mining:
                         self.logger.warning(f"窗口 {miner.window_name} 已经在挖矿，跳过")
                         continue
+                
+                # miner 可能为 None（如果 continue 被执行）
+                if miner is None:
+                    continue
                 
                 # 激活窗口并启动挖矿
                 self.logger.info(f"调度器启动窗口 {miner.window_name} 挖矿")
@@ -1103,8 +1252,12 @@ class MultiWindowMiningManager:
             self.logger.info(f"启动挖矿队列，共 {len(self._mining_queue)} 个窗口")
             return True
     
-    def stop_mining_queue(self) -> bool:
-        """停止队列挖矿"""
+    def stop_mining_queue(self, user_stopped: bool = False) -> bool:
+        """停止队列挖矿
+        
+        Args:
+            user_stopped: 是否是用户手动停止
+        """
         with self._scheduler_lock:
             if not self._scheduler_running:
                 return False
@@ -1115,9 +1268,12 @@ class MultiWindowMiningManager:
             with self._lock:
                 for miner in self.miners.values():
                     if miner.is_mining:
-                        miner.stop_mining()
+                        miner.stop_mining(user_stopped=user_stopped)
             
-            self.logger.info("停止挖矿队列")
+            if user_stopped:
+                self.logger.info("用户手动停止挖矿队列")
+            else:
+                self.logger.info("停止挖矿队列")
             return True
     
     def set_window_timer(self, hwnd: int, seconds: int) -> bool:

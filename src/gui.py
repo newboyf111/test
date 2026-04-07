@@ -15,6 +15,11 @@ from src.window_manager import WindowManager
 from src.recording import RecordingModule
 from src.Protective_casing import ProtectiveCasing
 
+try:
+    from PIL import ImageTk
+except ImportError:
+    ImageTk = None
+
 
 class WujindongriGUI:
     """无尽冬日 GUI 界面类"""
@@ -31,7 +36,7 @@ class WujindongriGUI:
         # 设置窗口图标（可选）
         try:
             self.root.iconbitmap(default='icon.ico')
-        except:
+        except Exception:
             pass
         
         # 初始化模块
@@ -250,6 +255,24 @@ class WujindongriGUI:
         other_label = ttk.Label(other_frame, text="其他功能:", width=10, font=("Microsoft YaHei", 10))
         other_label.pack(side="left")
         
+        # 画框按钮
+        self.draw_frame_button = ttk.Button(
+            other_frame,
+            text="画框",
+            command=self.draw_frame,
+            width=10
+        )
+        self.draw_frame_button.pack(side="left", padx=5)
+        
+        # 画框结果显示
+        self.draw_frame_result = ttk.Label(
+            other_frame,
+            text="",
+            font=("Microsoft YaHei", 10),
+            foreground="blue"
+        )
+        self.draw_frame_result.pack(side="left", padx=10)
+        
         ttk.Label(other_frame, text="开发中...", font=("Microsoft YaHei", 10)).pack(side="left")
         
         # 操作按钮
@@ -303,7 +326,7 @@ class WujindongriGUI:
                     display_text = f"{title} ({process_id})"
                 else:
                     display_text = title
-            except:
+            except Exception:
                 display_text = title
             self.window_listbox.insert(tk.END, display_text)
             self.window_listbox_hwnd_map[i] = hwnd  # 存储映射
@@ -383,7 +406,7 @@ class WujindongriGUI:
                     full_title = f"{selected_titles[i]} ({process_id})"
                 else:
                     full_title = selected_titles[i]
-            except:
+            except Exception:
                 full_title = selected_titles[i]
             
             if self.window_manager.activate_window(hwnd):
@@ -447,7 +470,7 @@ class WujindongriGUI:
                     full_title = f"{selected_titles[i]} ({process_id})"
                 else:
                     full_title = selected_titles[i]
-            except:
+            except Exception:
                 full_title = selected_titles[i]
             
             if self.window_manager.resize_window_by_script(hwnd, 558, 1021):
@@ -479,12 +502,11 @@ class WujindongriGUI:
             messagebox.showinfo("提示", "请先选择至少一个游戏窗口")
             return
         
-        window_list = self.window_manager.get_window_list()
         selected_hwnds = []
         
         for index in selected_indices:
-            if index < len(window_list):
-                hwnd, title = window_list[index]
+            if index in self.window_listbox_hwnd_map:
+                hwnd = self.window_listbox_hwnd_map[index]
                 selected_hwnds.append(hwnd)
         
         # 清空之前的窗口列表并设置新的选中窗口
@@ -522,21 +544,27 @@ class WujindongriGUI:
     def start_mining(self):
         """开始挖矿（支持多窗口队列模式）"""
         selected_indices = self.window_listbox.curselection()
-        window_list = self.window_manager.get_window_list()
         selected_hwnds = []
         selected_titles = []
         
         if not selected_indices:
             # 自动挖矿时，使用所有可用窗口
             self.log("未选择窗口，使用所有可用窗口")
+            window_list = self.window_manager.get_window_list()
             for hwnd, title in window_list:
                 selected_hwnds.append(hwnd)
                 selected_titles.append(title)
         else:
-            # 使用用户选择的窗口
+            # 使用映射获取选中的窗口
             for index in selected_indices:
-                if index < len(window_list):
-                    hwnd, title = window_list[index]
+                if index in self.window_listbox_hwnd_map:
+                    hwnd = self.window_listbox_hwnd_map[index]
+                    window_text = self.window_listbox.get(index)
+                    if "(" in window_text and ")" in window_text:
+                        start = window_text.rfind("(")
+                        title = window_text[:start].strip()
+                    else:
+                        title = window_text
                     selected_hwnds.append(hwnd)
                     selected_titles.append(title)
         
@@ -557,7 +585,7 @@ class WujindongriGUI:
                     full_title = f"{selected_titles[i]} ({process_id})"
                 else:
                     full_title = selected_titles[i]
-            except:
+            except Exception:
                 full_title = selected_titles[i]
             
             # 添加窗口到管理器
@@ -583,54 +611,39 @@ class WujindongriGUI:
         
     def stop_mining(self):
         """停止挖矿（支持多窗口队列模式）"""
-        # 停止挖矿队列
-        self.mining_manager.stop_mining_queue()
-        self.mine_button.config(text="开始挖矿")
-        self.mining_status.config(text="未开始")
-        self.log("挖矿结束")
-        # 挖矿结束后，启动保护性外壳检测
-        if hasattr(self, 'protective_casing') and self.protective_casing:
-            # 获取当前选中的窗口列表
-            selected_indices = self.window_listbox.curselection()
-            window_list = self.window_manager.get_window_list()
-            selected_windows = []
-            
-            if not selected_indices:
-                # 使用所有可用窗口
-                selected_windows = window_list
-            else:
-                # 使用用户选择的窗口
-                for index in selected_indices:
-                    if index < len(window_list):
-                        selected_windows.append(window_list[index])
-            
-            if selected_windows:
-                self.protective_casing.set_windows(selected_windows)
-                # 启动保护性外壳检测
-                threading.Thread(target=self.protective_casing.start, daemon=True).start()
-                self.log(f"已启动保护性外壳检测，监控 {len(selected_windows)} 个窗口")
-            else:
-                self.log("无窗口可监控，保护性外壳检测未启动")
+        # 停止挖矿队列（用户手动停止）
+        stopped = self.mining_manager.stop_mining_queue(user_stopped=True)
+        if stopped:
+            self.mine_button.config(text="开始挖矿")
+            self.mining_status.config(text="未开始")
+            self.log("挖矿结束")
         # 挖矿结束后重置绿色标签
         if self.active_windows_label:
-                self._update_active_windows_label([])
+            self._update_active_windows_label([])
     
     def start_shield_process(self):
         """开始开盾流程（直接检测 war 并处理）"""
-        # 获取当前选中的窗口列表
+        # 获取当前选中的窗口列表（使用映射获取正确的窗口）
         selected_indices = self.window_listbox.curselection()
-        window_list = self.window_manager.get_window_list()
         selected_windows = []
         
         if not selected_indices:
             # 使用所有可用窗口
+            window_list = self.window_manager.get_window_list()
             selected_windows = window_list
             self.log("未选择窗口，使用所有可用窗口进行开盾流程")
         else:
-            # 使用用户选择的窗口
+            # 使用映射获取选中的窗口
             for index in selected_indices:
-                if index < len(window_list):
-                    selected_windows.append(window_list[index])
+                if index in self.window_listbox_hwnd_map:
+                    hwnd = self.window_listbox_hwnd_map[index]
+                    window_text = self.window_listbox.get(index)
+                    if "(" in window_text and ")" in window_text:
+                        start = window_text.rfind("(")
+                        title = window_text[:start].strip()
+                    else:
+                        title = window_text
+                    selected_windows.append((hwnd, title))
             self.log(f"选择 {len(selected_windows)} 个窗口进行开盾流程")
         
         if not selected_windows:
@@ -738,29 +751,53 @@ class WujindongriGUI:
                 # 停止倒计时
                 self.countdown_running = False
                 
-                # 挖矿结束后，启动保护性外壳检测
-                if hasattr(self, 'protective_casing') and self.protective_casing:
-                    # 获取当前选中的窗口列表
-                    selected_indices = self.window_listbox.curselection()
-                    window_list = self.window_manager.get_window_list()
-                    selected_windows = []
-                    
-                    if not selected_indices:
-                        # 使用所有可用窗口
-                        selected_windows = window_list
+                # 检查是否有窗口是用户手动停止的
+                user_stopped_windows = []
+                auto_stopped_windows = []
+                for miner in self.mining_manager.miners.values():
+                    if miner.is_user_stopped():
+                        user_stopped_windows.append(miner.window_name)
                     else:
-                        # 使用用户选择的窗口
-                        for index in selected_indices:
-                            if index < len(window_list):
-                                selected_windows.append(window_list[index])
+                        auto_stopped_windows.append(miner.window_name)
+                
+                # 只有在所有窗口都是自动停止（自然完成）时才启动保护性外壳
+                if user_stopped_windows:
+                    self.log(f"检测到用户手动停止了 {len(user_stopped_windows)} 个窗口，不启动保护性外壳检测")
+                elif auto_stopped_windows:
+                    self.log(f"检测到 {len(auto_stopped_windows)} 个窗口自动挖矿完成，准备启动保护性外壳检测")
                     
-                    if selected_windows:
-                        self.protective_casing.set_windows(selected_windows)
-                        # 启动保护性外壳检测
-                        threading.Thread(target=self.protective_casing.start, daemon=True).start()
-                        self.log(f"已启动保护性外壳检测，监控 {len(selected_windows)} 个窗口")
-                    else:
-                        self.log("无窗口可监控，保护性外壳检测未启动")
+                    # 挖矿结束后，启动保护性外壳检测
+                    if hasattr(self, 'protective_casing') and self.protective_casing:
+                        # 检查是否已经在运行
+                        if not self.protective_casing.running:
+                            # 获取当前选中的窗口列表（使用映射获取正确的窗口）
+                            selected_indices = self.window_listbox.curselection()
+                            selected_windows = []
+                            
+                            if not selected_indices:
+                                # 使用所有可用窗口
+                                window_list = self.window_manager.get_window_list()
+                                selected_windows = window_list
+                            else:
+                                # 使用映射获取选中的窗口
+                                for index in selected_indices:
+                                    if index in self.window_listbox_hwnd_map:
+                                        hwnd = self.window_listbox_hwnd_map[index]
+                                        window_text = self.window_listbox.get(index)
+                                        if "(" in window_text and ")" in window_text:
+                                            start = window_text.rfind("(")
+                                            title = window_text[:start].strip()
+                                        else:
+                                            title = window_text
+                                        selected_windows.append((hwnd, title))
+                            
+                            if selected_windows:
+                                self.protective_casing.set_windows(selected_windows)
+                                # 启动保护性外壳检测
+                                threading.Thread(target=self.protective_casing.start, daemon=True).start()
+                                self.log(f"已启动保护性外壳检测，监控 {len(selected_windows)} 个窗口")
+                            else:
+                                self.log("无窗口可监控，保护性外壳检测未启动")
                 
                 # 如果设置了定时，启动倒计时
                 timer_minutes = int(self.timer_slider.get())
@@ -827,6 +864,173 @@ class WujindongriGUI:
                 self._update_active_windows_label([])
             self.root.destroy()
             
+    def draw_frame(self):
+        """画框功能：让用户在激活的窗口中框选区域，并显示相对位置"""
+        # 获取选中的窗口
+        selected_indices = self.window_listbox.curselection()
+        if not selected_indices:
+            messagebox.showwarning("警告", "请先选择一个窗口")
+            return
+        
+        # 获取第一个选中的窗口
+        index = selected_indices[0]
+        if index not in self.window_listbox_hwnd_map:
+            messagebox.showwarning("警告", "无法获取窗口信息")
+            return
+        
+        hwnd = self.window_listbox_hwnd_map[index]
+        
+        # 获取窗口信息
+        window_info = self.window_manager.get_window_info(hwnd)
+        if not window_info:
+            messagebox.showwarning("警告", "无法获取窗口信息")
+            return
+        
+        window_title = window_info['title']
+        window_rect = window_info['window_rect']
+        window_width = window_rect['width']
+        window_height = window_rect['height']
+        
+        self.log(f"选择窗口: {window_title} ({window_width}x{window_height})")
+        
+        # 激活窗口
+        win32gui.ShowWindow(hwnd, 5)
+        win32gui.SetForegroundWindow(hwnd)
+        time.sleep(0.5)
+        
+        # 创建画框窗口
+        self._create_draw_window(hwnd, window_width, window_height, window_rect)
+        
+    def _create_draw_window(self, hwnd, window_width, window_height, window_rect):
+        """创建画框覆盖窗口"""
+        try:
+            import pyautogui
+        except ImportError:
+            messagebox.showwarning("警告", "请先安装 pyautogui: pip install pyautogui")
+            return
+        
+        draw_window = tk.Toplevel(self.root)
+        draw_window.title("画框 - 请框选区域")
+        draw_window.attributes('-topmost', True)
+        draw_window.overrideredirect(True)
+        
+        # 获取窗口在屏幕上的位置
+        win_x = window_rect['left']
+        win_y = window_rect['top']
+        
+        # 设置画框窗口大小和位置
+        draw_window.geometry(f"{window_width}x{window_height}+{win_x}+{win_y}")
+        
+        # 截取游戏窗口的屏幕截图
+        try:
+            screenshot = pyautogui.screenshot(region=(win_x, win_y, window_width, window_height))
+        except Exception as e:
+            messagebox.showwarning("警告", f"无法截取屏幕: {e}")
+            draw_window.destroy()
+            return
+        
+        # 创建画布
+        canvas = tk.Canvas(draw_window, width=window_width, height=window_height, highlightthickness=0)
+        canvas.pack(fill="both", expand=True)
+        
+        # 检查 PIL 是否可用
+        if ImageTk is None:
+            messagebox.showwarning("警告", "请先安装 Pillow: pip install Pillow")
+            draw_window.destroy()
+            return
+        
+        # 将截图转换为 PhotoImage 并显示
+        try:
+            photo = ImageTk.PhotoImage(image=screenshot)
+            canvas.create_image(0, 0, anchor="nw", image=photo)
+        except Exception as e:
+            messagebox.showwarning("警告", f"无法显示截图: {e}")
+            draw_window.destroy()
+            return
+        
+        # 保存 photo 引用，防止被垃圾回收
+        canvas.image = photo
+        
+        # 绘制半透明遮罩
+        canvas.create_rectangle(0, 0, window_width, window_height, fill='black', stipple='gray25', outline='')
+        
+        # 画框变量
+        start_x = tk.IntVar()
+        start_y = tk.IntVar()
+        end_x = tk.IntVar()
+        end_y = tk.IntVar()
+        rect_id = [None]
+        
+        # 鼠标按下事件
+        def on_mouse_down(event):
+            start_x.set(event.x)
+            start_y.set(event.y)
+            end_x.set(event.x)
+            end_y.set(event.y)
+            if rect_id[0]:
+                canvas.delete(rect_id[0])
+            rect_id[0] = canvas.create_rectangle(
+                start_x.get(), start_y.get(), end_x.get(), end_y.get(),
+                outline='red', width=2
+            )
+        
+        # 鼠标移动事件
+        def on_mouse_move(event):
+            end_x.set(event.x)
+            end_y.set(event.y)
+            if rect_id[0]:
+                canvas.coords(rect_id[0], start_x.get(), start_y.get(), end_x.get(), end_y.get())
+        
+        # 鼠标释放事件
+        def on_mouse_up(event):
+            end_x.set(event.x)
+            end_y.set(event.y)
+            if rect_id[0]:
+                canvas.coords(rect_id[0], start_x.get(), start_y.get(), end_x.get(), end_y.get())
+            
+            # 计算相对位置
+            x1 = start_x.get()
+            y1 = start_y.get()
+            x2 = end_x.get()
+            y2 = end_y.get()
+            
+            # 确保 x1 < x2, y1 < y2
+            if x1 > x2:
+                x1, x2 = x2, x1
+            if y1 > y2:
+                y1, y2 = y2, y1
+            
+            width = x2 - x1
+            height = y2 - y1
+            
+            # 计算相对于窗口左上角的相对位置
+            rel_x = x1 / window_width
+            rel_y = y1 / window_height
+            rel_width = width / window_width
+            rel_height = height / window_height
+            
+            # 显示结果
+            result_text = f"区域: ({x1}, {y1}) -> ({x2}, {y2})\n" \
+                         f"大小: {width}x{height}\n" \
+                         f"相对位置: x={rel_x:.4f}, y={rel_y:.4f}, w={rel_width:.4f}, h={rel_height:.4f}"
+            
+            self.draw_frame_result.config(text=result_text)
+            self.log(f"画框完成: {result_text.replace(chr(10), ' ')}")
+            
+            # 2秒后关闭画框窗口
+            draw_window.after(2000, draw_window.destroy)
+        
+        # 绑定鼠标事件
+        canvas.bind("<Button-1>", on_mouse_down)
+        canvas.bind("<B1-Motion>", on_mouse_move)
+        canvas.bind("<ButtonRelease-1>", on_mouse_up)
+        
+        # 提示标签
+        label = tk.Label(draw_window, text="请在窗口中框选区域", fg='white', bg='black', font=('Microsoft YaHei', 12))
+        label.place(relx=0.5, rely=0.5, anchor='center')
+        
+        self.log("画框窗口已打开，请在窗口中框选区域")
+        
     def _update_active_windows_label(self, titles):
         """更新被激活窗口的绿色标签（每个窗口一行）"""
         if not titles:

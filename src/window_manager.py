@@ -10,25 +10,8 @@ import win32process
 import win32api
 import psutil
 import time
-import ctypes
 
-
-# ─────────────────────────────────────────────
-# DPI 感知设置
-# ─────────────────────────────────────────────
-
-def set_dpi_aware():
-    """设置进程为DPI感知"""
-    try:
-        ctypes.windll.shcore.SetProcessDpiAwareness(2)
-    except Exception:
-        try:
-            ctypes.windll.shcore.SetProcessDpiAwareness(1)
-        except Exception:
-            try:
-                ctypes.windll.user32.SetProcessDPIAware()
-            except Exception:
-                pass
+from src.utils.window_utils import set_dpi_aware
 
 
 set_dpi_aware()
@@ -247,7 +230,7 @@ class WindowManager:
             _, process_id = win32process.GetWindowThreadProcessId(hwnd)
             info["process_id"] = process_id
             info["process_name"] = psutil.Process(process_id).name()
-        except Exception:
+        except Exception as e:
             info["process_id"] = None
             info["process_name"] = "未知"
 

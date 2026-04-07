@@ -26,191 +26,12 @@ from pathlib import Path
 from typing import Optional, List, Tuple, Dict
 
 from src.dashed_line_detector import DashedLineDetector
-
-
-def set_dpi_aware():
-    """设置进程为DPI感知，确保坐标和像素一致"""
-    try:
-        ctypes.windll.shcore.SetProcessDpiAwareness(2)
-    except Exception:
-        try:
-            ctypes.windll.shcore.SetProcessDpiAwareness(1)
-        except Exception:
-            try:
-                ctypes.windll.user32.SetProcessDPIAware()
-            except Exception:
-                pass
+from src.utils.adaptive_matcher import AdaptiveMatcher
+from src.utils.window_utils import set_dpi_aware, capture_window
+from src.utils.resource_path import get_pic_path
 
 
 set_dpi_aware()
-
-
-def capture_window(hwnd: int) -> Tuple[Optional[np.ndarray], int, int]:
-    """截取窗口内容，返回BGR图像和窗口尺寸"""
-    try:
-        left, top, right, bottom = win32gui.GetWindowRect(hwnd)
-        width = right - left
-        height = bottom - top
-
-        if width <= 0 or height <= 0:
-            return None, 0, 0
-
-        screenshot = pyautogui.screenshot(region=(left, top, width, height))
-        img = np.array(screenshot)
-        img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-
-        return img_bgr, width, height
-
-    except Exception as e:
-        logging.getLogger(__name__).error(f"截图失败: {e}")
-        return None, 0, 0
-
-
-class AdaptiveMatcher:
-    """自适应图片匹配器 - 支持不同屏幕分辨率、窗口大小和DPI"""
-
-    BASE_WIDTH = 558
-    BASE_HEIGHT = 1021
-
-    def __init__(self, confidence: float = 0.75, logger=None):
-        self.confidence = confidence
-        self.logger = logger or logging.getLogger(__name__)
-        self._template_cache: Dict[str, np.ndarray] = {}
-        self._scaled_cache: Dict[tuple, np.ndarray] = {}
-        self._last_success_scale: Dict[str, float] = {}
-
-    def log(self, level: str, msg: str):
-        getattr(self.logger, level)(msg)
-
-    def load_template(self, image_path: str) -> Optional[np.ndarray]:
-        """加载模板图片（带缓存）"""
-        if image_path not in self._template_cache:
-            if not Path(image_path).exists():
-                self.log("warning", f"图片不存在: {image_path}")
-                return None
-            img = cv2.imread(image_path)
-            if img is None:
-                self.log("warning", f"无法读取图片: {image_path}")
-                return None
-            self._template_cache[image_path] = img
-        return self._template_cache.get(image_path)
-
-    def get_scale_factor(self, current_width: int) -> float:
-        """计算窗口缩放比例"""
-        if self.BASE_WIDTH == 0:
-            return 1.0
-        return current_width / self.BASE_WIDTH
-
-    def scale_template(self, template: np.ndarray, scale: float) -> np.ndarray:
-        """按比例缩放模板图片"""
-        if abs(scale - 1.0) < 0.001:
-            return template
-        h, w = template.shape[:2]
-        new_w = max(8, int(w * scale))
-        new_h = max(8, int(h * scale))
-        interp = cv2.INTER_AREA if scale < 1.0 else cv2.INTER_LINEAR
-        return cv2.resize(template, (new_w, new_h), interpolation=interp)
-
-    def get_scaled_template(self, image_path: str, scale: float) -> Optional[np.ndarray]:
-        """获取缩放后的模板（带缓存）"""
-        cache_key = (image_path, round(scale, 3))
-        if cache_key not in self._scaled_cache:
-            template = self.load_template(image_path)
-            if template is None:
-                return None
-            scaled = self.scale_template(template, scale)
-            self._scaled_cache[cache_key] = scaled
-        return self._scaled_cache.get(cache_key)
-
-    def match_single(self, screenshot: np.ndarray, template: np.ndarray) -> Optional[dict]:
-        """单次模板匹配"""
-        try:
-            gray_screen = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
-            gray_tmpl = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
-            tmpl_h, tmpl_w = gray_tmpl.shape[:2]
-            scr_h, scr_w = gray_screen.shape[:2]
-            if tmpl_w > scr_w or tmpl_h > scr_h:
-                return None
-            result = cv2.matchTemplate(gray_screen, gray_tmpl, cv2.TM_CCOEFF_NORMED)
-            _, max_val, _, max_loc = cv2.minMaxLoc(result)
-            if max_val >= self.confidence:
-                return {
-                    "found": True,
-                    "location": max_loc,
-                    "confidence": max_val,
-                    "size": (tmpl_w, tmpl_h)
-                }
-        except Exception as e:
-            self.log("error", f"匹配错误: {e}")
-        return None
-
-    def match_multi_scale(self, screenshot: np.ndarray, template: np.ndarray,
-                          scale_min: float = 0.5, scale_max: float = 2.0, steps: int = 20) -> Optional[dict]:
-        """多尺度匹配（备选方案）"""
-        try:
-            gray_screen = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
-            gray_tmpl_orig = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
-            orig_h, orig_w = gray_tmpl_orig.shape[:2]
-            best_score = 0.0
-            best_result = None
-            for scale in np.linspace(scale_min, scale_max, steps):
-                new_w = int(orig_w * scale)
-                new_h = int(orig_h * scale)
-                if new_w < 8 or new_h < 8:
-                    continue
-                if new_w > screenshot.shape[1] or new_h > screenshot.shape[0]:
-                    continue
-                gray_tmpl = cv2.resize(gray_tmpl_orig, (new_w, new_h),
-                                       interpolation=cv2.INTER_AREA if scale < 1 else cv2.INTER_LINEAR)
-                result = cv2.matchTemplate(gray_screen, gray_tmpl, cv2.TM_CCOEFF_NORMED)
-                _, max_val, _, max_loc = cv2.minMaxLoc(result)
-                if max_val >= self.confidence and max_val > best_score:
-                    best_score = max_val
-                    best_result = {
-                        "found": True,
-                        "location": max_loc,
-                        "confidence": max_val,
-                        "size": (new_w, new_h),
-                        "scale": scale
-                    }
-            return best_result
-        except Exception as e:
-            self.log("error", f"多尺度匹配错误: {e}")
-        return None
-
-    def match(self, screenshot: np.ndarray, image_path: str, win_w: int) -> Optional[dict]:
-        """匹配图片 - 自适应多尺度匹配"""
-        template = self.load_template(image_path)
-        if template is None:
-            return None
-
-        scale = self.get_scale_factor(win_w)
-        
-        # 方法1：使用计算出的缩放比例
-        scaled_template = self.get_scaled_template(image_path, scale)
-        if scaled_template is not None:
-            result = self.match_single(screenshot, scaled_template)
-            if result:
-                result["scale"] = scale
-                self._last_success_scale[image_path] = scale
-                return result
-
-        # 方法2：使用上次成功的缩放比例
-        if image_path in self._last_success_scale:
-            last_scale = self._last_success_scale[image_path]
-            if abs(last_scale - scale) > 0.01:
-                scaled_template = self.get_scaled_template(image_path, last_scale)
-                if scaled_template is not None:
-                    result = self.match_single(screenshot, scaled_template)
-                    if result:
-                        result["scale"] = last_scale
-                        return result
-
-        # 方法3：多尺度匹配扫描
-        result = self.match_multi_scale(screenshot, template)
-        if result:
-            self._last_success_scale[image_path] = result.get("scale", scale)
-        return result
 
 
 class ProtectiveCasing:
@@ -228,14 +49,13 @@ class ProtectiveCasing:
         self.running = False
         self.matcher = AdaptiveMatcher(confidence=0.75, logger=self.logger)
         
-        pic_dir = Path(__file__).parent.parent / "pic"
-        self.war_image_path = str(pic_dir / "war.png")
-        self.shield_image_path = str(pic_dir / "Shield.png")
-        self.buy_image_path = str(pic_dir / "buy.png")
-        self.buy1_image_path = str(pic_dir / "buy1.png")
-        self.town_image_path = str(pic_dir / "town.png")
-        self.six_image_path = str(pic_dir / "six.png")
-        self.sure_image_path = str(pic_dir / "sure.png")
+        self.war_image_path = get_pic_path("war.png")
+        self.shield_image_path = get_pic_path("Shield.png")
+        self.buy_image_path = get_pic_path("buy.png")
+        self.buy1_image_path = get_pic_path("buy1.png")
+        self.town_image_path = get_pic_path("town.png")
+        self.six_image_path = get_pic_path("six.png")
+        self.sure_image_path = get_pic_path("sure.png")
         
         self.check_interval = 5
         self.target_windows: List[Tuple[int, str]] = window_list or []
@@ -334,7 +154,7 @@ class ProtectiveCasing:
             return False
         
         screenshot, win_w, win_h = result
-        match_result = self.matcher.match(screenshot, self.war_image_path, win_w)
+        match_result = self.matcher.match(screenshot, self.war_image_path, win_w, win_h)
         
         if match_result:
             self.logger.info(f"[{window_name}] 发现 war! 置信度: {match_result['confidence']:.3f}")
@@ -350,13 +170,13 @@ class ProtectiveCasing:
         screenshot, win_w, win_h = result
         
         # 检测 town
-        town_result = self.matcher.match(screenshot, self.town_image_path, win_w)
+        town_result = self.matcher.match(screenshot, self.town_image_path, win_w, win_h)
         if not town_result:
             self.logger.info(f"[{window_name}] 未找到 town，跳过 six 检测")
             return []
         
         # 检测 six
-        six_result = self.matcher.match(screenshot, self.six_image_path, win_w)
+        six_result = self.matcher.match(screenshot, self.six_image_path, win_w, win_h)
         if not six_result:
             self.logger.info(f"[{window_name}] 未找到 six 模板")
             return []
@@ -478,7 +298,7 @@ class ProtectiveCasing:
                 continue
             
             screenshot, win_w, win_h = result
-            match_result = self.matcher.match(screenshot, image_path, win_w)
+            match_result = self.matcher.match(screenshot, image_path, win_w, win_h)
             
             if match_result:
                 x, y = match_result["location"]
@@ -523,25 +343,29 @@ class ProtectiveCasing:
             screenshot_result = self._get_screenshot(hwnd)
             
             if screenshot_result:
-                with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:
-                    tmp_path = tmp.name
-                
-                cv2.imwrite(tmp_path, screenshot_result[0])
-                has_red = detector.has_red_at_center(tmp_path)
-                os.unlink(tmp_path)
-                
-                if has_red:
-                    # 有红心，等待1-2秒后点击 six 原始坐标
-                    self._wait(1.0, 2.0)
-                    self._click_at(hwnd, six_pos["x"], six_pos["center_y"], f"six #{i+1} 原始")
-                    # 等待 sure 出现并点击
-                    self.find_and_click(hwnd, self.sure_image_path, "sure")
-                else:
-                    # 没有红心，等待2-3秒后点击 six 原始坐标
-                    self._wait(2.0, 3.0)
-                    self._click_at(hwnd, six_pos["x"], six_pos["center_y"], f"six #{i+1} 原始")
-                    # 等待 sure 出现并点击
-                    self.find_and_click(hwnd, self.sure_image_path, "sure")
+                tmp_path = None
+                try:
+                    with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:
+                        tmp_path = tmp.name
+                    
+                    cv2.imwrite(tmp_path, screenshot_result[0])
+                    has_red = detector.has_red_at_center(tmp_path)
+                    
+                    if has_red:
+                        # 有红心，等待1-2秒后点击 six 原始坐标
+                        self._wait(1.0, 2.0)
+                        self._click_at(hwnd, six_pos["x"], six_pos["center_y"], f"six #{i+1} 原始")
+                        # 等待 sure 出现并点击
+                        self.find_and_click(hwnd, self.sure_image_path, "sure")
+                    else:
+                        # 没有红心，等待2-3秒后点击 six 原始坐标
+                        self._wait(2.0, 3.0)
+                        self._click_at(hwnd, six_pos["x"], six_pos["center_y"], f"six #{i+1} 原始")
+                        # 等待 sure 出现并点击
+                        self.find_and_click(hwnd, self.sure_image_path, "sure")
+                finally:
+                    if tmp_path and os.path.exists(tmp_path):
+                        os.unlink(tmp_path)
         
         return True
 
