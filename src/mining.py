@@ -981,7 +981,11 @@ class SingleWindowMiner:
         # 检查坐标是否在容差范围内
         if (abs(current_x - target_x) <= tolerance and 
             abs(current_y - target_y) <= tolerance):
-            self.logger.info(f"{image_key} 坐标在容差范围内，无需点击，继续流程")
+            self.logger.info(f"{image_key} 坐标在容差范围内，点击 add 触发后续流程")
+            # 坐标在容差范围内，也需要点击一下
+            success, pos = self._click(image_key)
+            if not success or pos is None:
+                return False
             return True
         
         # 坐标不在容差范围内，需要点击并拖动
