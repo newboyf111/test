@@ -36,6 +36,7 @@ class SnowfieldWeaponLeague:
             "snowfield": get_pic_path("snowfield.png"),
             "back": get_pic_path("back.png"),
             "back1": get_pic_path("back1.png"),
+            "back2": get_pic_path("back2.png"),
             "close": get_pic_path("close.png"),
             "daily_task": get_pic_path("雪域兵器联赛/每日任务.png"),
             "weekly_task": get_pic_path("雪域兵器联赛/每周任务.png"),
