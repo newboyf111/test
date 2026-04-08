@@ -110,8 +110,11 @@ class SnowfieldWeaponLeague:
                 self.logger.error(f"未找到图像路径: {name}")
                 return None
             
-            result = self.matcher.find(path, screenshot, confidence=confidence)
-            return result
+            result = self.matcher.match(screenshot, path, win_w, win_h)
+            if result is not None:
+                x, y = result.get("location", (0, 0))
+                return (float(x), float(y))
+            return None
         except Exception as e:
             self.logger.warning(f"查找图像失败: {e}")
             return None
@@ -236,10 +239,12 @@ class SnowfieldWeaponLeague:
                 self.logger.info(f"未找到红点图片,点击区域中心: ({center_x}, {center_y})")
                 return True
             
-            result = self.matcher.find(red_dot_path, region_screenshot, confidence=0.8)
+            region_win_w = abs_width
+            region_win_h = abs_height
+            result = self.matcher.match(region_screenshot, red_dot_path, region_win_w, region_win_h)
             
             if result is not None:
-                dx, dy = result
+                dx, dy = result.get("location", (0, 0))
                 click_x = abs_x + int(dx)
                 click_y = abs_y + int(dy)
                 self.logger.info(f"✓ 检测到红点,点击位置: ({click_x}, {click_y})")
