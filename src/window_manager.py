@@ -11,7 +11,6 @@ import win32api
 import psutil
 import time
 import logging
-from typing import Optional, List, Tuple
 
 from src.utils.window_utils import set_dpi_aware
 
@@ -211,13 +210,6 @@ class WindowManager:
 
         win32gui.EnumWindows(callback, None)
         return activated_titles
-    
-    def get_active_window(self) -> Optional[int]:
-        """获取当前被激活的窗口句柄"""
-        try:
-            return win32gui.GetForegroundWindow()
-        except Exception:
-            return None
 
     def get_window_info(self, hwnd):
         """获取窗口详细信息（用于调试）"""
