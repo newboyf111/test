@@ -273,11 +273,116 @@ class SnowfieldWeaponLeague:
                     import pyautogui
                     pyautogui.click(screen_x, screen_y)
                 return True
+    
+    def _click_red_dot_in_reward_region(self) -> bool:
+        """在领奖区域检测并点击红点"""
+        self.logger.info("开始检测领奖区域的红点...")
+        
+        reward_info = self.frame_data.get("雪域兵器联赛", {}).get("领奖")
+        if not reward_info:
+            self.logger.warning("未找到领奖区域的画框数据")
+            return False
+        
+        try:
+            screenshot = self._screenshot()
+            if screenshot is None:
+                return False
+            
+            win_w, win_h = self._get_window_size()
+            if win_w is None or win_h is None:
+                return False
+            
+            if self.last_window_size != (win_w, win_h):
+                self.matcher.clear_cache()
+                self.last_window_size = (win_w, win_h)
+            
+            region = reward_info.get("region", [0, 0, 0, 0])
+            
+            x1, y1, width, height = region
+            
+            abs_x = int(x1)
+            abs_y = int(y1)
+            abs_width = int(width)
+            abs_height = int(height)
+            
+            if abs_x >= 0 and abs_y >= 0 and abs_x + abs_width <= screenshot.shape[1] and abs_y + abs_height <= screenshot.shape[0]:
+                region_screenshot = screenshot[abs_y:abs_y + abs_height, abs_x:abs_x + abs_width]
+            else:
+                self.logger.warning("领奖区域超出截图范围")
+                return False
+            
+            red_dot_positions = self._find_all_red_dots(region_screenshot, abs_x, abs_y)
+            
+            if not red_dot_positions:
+                self.logger.info("领奖区域未检测到红点")
+                return False
+            
+            self.logger.info(f"✓ 检测到 {len(red_dot_positions)} 个红点")
+            
+            for i, (click_x, click_y) in enumerate(red_dot_positions):
+                self.logger.info(f"点击第 {i+1} 个红点: 窗口内({click_x}, {click_y})")
+                import pyautogui
+                pyautogui.click(click_x, click_y)
+                if i < len(red_dot_positions) - 1:
+                    time.sleep(0.5)
+            
+            return True
         except Exception as e:
-            self.logger.warning(f"检测红点失败: {e}")
+            self.logger.warning(f"检测领奖区域红点失败: {e}")
             import traceback
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
+    
+    def _find_all_red_dots(self, region_screenshot: np.ndarray, offset_x: int, offset_y: int) -> list:
+        """在指定区域内查找所有红点
+        
+        Args:
+            region_screenshot: 区域截图
+            offset_x: 区域在截图中的x偏移
+            offset_y: 区域在截图中的y偏移
+            
+        Returns:
+            红点位置列表 [(x1, y1), (x2, y2), ...]
+        """
+        try:
+            if region_screenshot is None or len(region_screenshot.shape) < 3:
+                return []
+            
+            hsv = cv2.cvtColor(region_screenshot, cv2.COLOR_BGR2HSV)
+            
+            lower_red1 = np.array([0, 100, 100])
+            upper_red1 = np.array([10, 255, 255])
+            lower_red2 = np.array([160, 100, 100])
+            upper_red2 = np.array([180, 255, 255])
+            
+            mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
+            mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
+            red_mask = cv2.bitwise_or(mask1, mask2)
+            
+            kernel = np.ones((3, 3), np.uint8)
+            red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, kernel)
+            red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, kernel)
+            
+            contours, _ = cv2.findContours(red_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            
+            red_dot_positions = []
+            min_contour_area = 10
+            
+            for contour in contours:
+                area = cv2.contourArea(contour)
+                if area >= min_contour_area:
+                    M = cv2.moments(contour)
+                    if M["m00"] != 0:
+                        cx = int(M["m10"] / M["m00"])
+                        cy = int(M["m01"] / M["m00"])
+                        abs_x = offset_x + cx
+                        abs_y = offset_y + cy
+                        red_dot_positions.append((abs_x, abs_y))
+            
+            return red_dot_positions
+        except Exception as e:
+            self.logger.warning(f"查找红点失败: {e}")
+            return []
     
     def run_full_cycle_async(self, callback=None):
         """异步运行完整流程(在后台线程中执行)
@@ -349,7 +454,11 @@ class SnowfieldWeaponLeague:
             self.logger.warning("snowfield点击失败")
         
         if not self._click_red_dot_in_daily_task_region():
-            self.logger.warning("红点检测失败")
+            self.logger.warning("每日任务红点检测失败")
+        
+        time.sleep(0.5)
+        
+        self._click_red_dot_in_reward_region()
         
         self.logger.info("雪域兵器联赛完整流程完成")
         return True
