@@ -1125,19 +1125,19 @@ class WujindongriGUI:
             warnings.filterwarnings("ignore", message="'pin_memory' argument is set as true but no accelerator is found")
             warnings.filterwarnings("ignore", message="Neither CUDA nor MPS are available - defaulting to CPU")
             
-            # 模拟加载进度
-            for i in range(1, 101):
-                time.sleep(0.05)  # 模拟加载时间
-                self.root.after(0, lambda value=i: self.update_loading_progress(value, "正在加载 OCR 模型..."))
-            
             import easyocr
             ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False)
+            
+            # OCR 加载完成，更新进度为 100%
+            self.root.after(0, lambda: self.update_loading_progress(100, "OCR 加载完成"))
             
             # OCR 加载完成，更新界面
             self.root.after(0, self._on_ocr_loaded)
         except ImportError:
+            self.root.after(0, lambda: self.update_loading_progress(100, "easyocr 未安装"))
             self.root.after(0, self._on_ocr_loaded)
         except Exception as e:
+            self.root.after(0, lambda: self.update_loading_progress(100, f"OCR 加载失败: {e}"))
             self.root.after(0, self._on_ocr_loaded)
     
     def update_loading_progress(self, value, text):
