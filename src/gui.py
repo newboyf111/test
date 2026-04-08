@@ -581,16 +581,19 @@ class WujindongriGUI:
         # 检查是否有被激活的游戏窗口
         active_hwnd = self.window_manager.get_active_window()
         if not active_hwnd:
-            self.log("错误: 没有被激活的游戏窗口")
-            messagebox.showerror("错误", "没有被激活的游戏窗口，请先激活一个游戏窗口再开始挖矿")
+            self.log("警告: 没有被激活的游戏窗口")
+            messagebox.showwarning("提示", "没有被激活的游戏窗口，请先激活一个游戏窗口")
             return
         
-        if active_hwnd not in selected_hwnds:
+        if active_hwnd and active_hwnd in selected_hwnds:
+            self.log(f"✓ 检测到被激活的游戏窗口: {active_hwnd}")
+        else:
             self.log(f"警告: 激活的窗口({active_hwnd})不在选中的窗口列表中")
             window_list_str = "\n".join([f"{i+1}. {selected_titles[i]}" for i in range(len(selected_hwnds))])
-            message = f"激活的窗口不在选中列表中。\n\n激活的窗口: {active_hwnd}\n选中的窗口列表:\n{window_list_str}\n\n请先选择正确的窗口或激活正确的窗口。"
-            messagebox.showwarning("警告", message)
-            return
+            message = f"激活的窗口不在选中的窗口列表中。\n\n选中的窗口列表:\n{window_list_str}\n\n是否继续？"
+            result = messagebox.askyesno("提示", message)
+            if not result:
+                return
         
         # 重置所有窗口的挖矿标记
         self.mining_manager.reset_all_mined_flags()
