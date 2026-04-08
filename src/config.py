@@ -3,3 +3,12 @@
 """
 
 VERSION = "1.0.0"
+
+
+class Settings:
+    """配置类"""
+    def __init__(self):
+        self.VERSION = VERSION
+
+
+settings = Settings()
