@@ -39,9 +39,6 @@ class SnowfieldWeaponLeague:
             "back1": get_pic_path("back1.png"),
             "back2": get_pic_path("back2.png"),
             "close": get_pic_path("close.png"),
-            "daily_task": get_pic_path("雪域兵器联赛/每日任务.png"),
-            "weekly_task": get_pic_path("雪域兵器联赛/每周任务.png"),
-            "claim_reward": get_pic_path("雪域兵器联赛/领奖.png"),
         }
         
         self.last_window_size = None
@@ -133,22 +130,39 @@ class SnowfieldWeaponLeague:
             self.logger.warning(f"点击图像失败: {e}")
             return False
     
-    def _click_any_of(self, names: list, confidence: Optional[float] = None) -> Optional[str]:
-        """查找并点击多个图像中的任意一个"""
-        for name in names:
-            if self._click(name, confidence):
-                return name
-        return None
+    def _click_back_sequence(self) -> bool:
+        """点击back/back1/back2/close的序列流程"""
+        self.logger.info("开始点击back序列流程...")
+        
+        if self._click("back"):
+            self.logger.info("✓ 成功点击back")
+            time.sleep(random.uniform(1, 2))
+            if self._click("back1"):
+                self.logger.info("✓ 成功点击back1")
+                time.sleep(random.uniform(1, 2))
+                return True
+            return False
+        
+        if self._click("back1"):
+            self.logger.info("✓ 成功点击back1")
+            time.sleep(random.uniform(1, 2))
+            return True
+        
+        if self._click("back2"):
+            self.logger.info("✓ 成功点击back2")
+            time.sleep(random.uniform(1, 2))
+            return True
+        
+        if self._click("close"):
+            self.logger.info("✓ 成功点击close")
+            time.sleep(random.uniform(1, 2))
+            return True
+        
+        self.logger.warning("back/back1/back2/close均未匹配成功")
+        return False
     
-    def _find_any_of(self, names: list, confidence: Optional[float] = None) -> Optional[str]:
-        """查找多个图像中的任意一个"""
-        for name in names:
-            if self._find(name, confidence):
-                return name
-        return None
-    
-    def _click_snowfield_with_retry(self) -> bool:
-        """点击snowfield,如果不存在则点击back/back1/close"""
+    def _click_snowfield_with_back_sequence(self) -> bool:
+        """点击snowfield,如果不存在则按顺序匹配back/back1/back2/close"""
         self.logger.info("开始点击snowfield...")
         
         for attempt in range(10):
@@ -162,37 +176,20 @@ class SnowfieldWeaponLeague:
             else:
                 self.logger.info("未找到snowfield,尝试点击back/back1/back2/close...")
                 
-                clicked = self._click_any_of(["back", "back1", "back2", "close"])
-                if clicked:
-                    self.logger.info(f"✓ 成功点击{clicked}")
+                if self._click_back_sequence():
+                    self.logger.info("等待1-2秒后继续搜索snowfield...")
                     time.sleep(random.uniform(1, 2))
                     continue
                 else:
-                    self.logger.warning(f"未找到back/back1/back2/close,继续等待...")
+                    self.logger.warning("未找到back/back1/back2/close,继续等待...")
                     time.sleep(random.uniform(1, 2))
         
         self.logger.warning("尝试次数过多,点击snowfield失败")
         return False
     
-    def _click_back1_after_back(self) -> bool:
-        """点击back后,搜索back1并点击"""
-        self.logger.info("开始点击back后流程...")
-        
-        if self._click("back"):
-            self.logger.info("✓ 成功点击back")
-            time.sleep(random.uniform(1, 2))
-            
-            if self._click("back1"):
-                self.logger.info("✓ 成功点击back1")
-                time.sleep(random.uniform(1, 2))
-                return True
-        
-        self.logger.warning("back/back1点击失败")
-        return False
-    
-    def _click_daily_task(self) -> bool:
-        """点击每日任务按钮,检测并点击红点"""
-        self.logger.info("开始点击每日任务...")
+    def _click_red_dot_in_daily_task_region(self) -> bool:
+        """在每日任务区域检测并点击红点"""
+        self.logger.info("开始检测每日任务区域的红点...")
         
         daily_task_info = self.frame_data.get("雪域兵器联赛", {}).get("每日任务")
         if not daily_task_info:
@@ -213,25 +210,20 @@ class SnowfieldWeaponLeague:
                 self.last_window_size = (win_w, win_h)
             
             region = daily_task_info.get("region", [0, 0, 0, 0])
-            relative = daily_task_info.get("relative", {})
             
             x1, y1, width, height = region
             
-            # 计算相对于窗口的坐标
             abs_x = int(x1)
             abs_y = int(y1)
             abs_width = int(width)
             abs_height = int(height)
             
-            # 裁剪出指定区域
-            import numpy as np
             if abs_x >= 0 and abs_y >= 0 and abs_x + abs_width <= screenshot.shape[1] and abs_y + abs_height <= screenshot.shape[0]:
                 region_screenshot = screenshot[abs_y:abs_y + abs_height, abs_x:abs_x + abs_width]
             else:
                 self.logger.warning("指定区域超出截图范围")
                 return False
             
-            # 检测红点
             red_dot_path = get_pic_path("red_dot.png")
             if not os.path.exists(red_dot_path):
                 self.logger.warning(f"红点图片不存在: {red_dot_path}")
@@ -256,55 +248,10 @@ class SnowfieldWeaponLeague:
                 self.logger.info(f"未检测到红点,点击区域中心: ({center_x}, {center_y})")
                 return True
         except Exception as e:
-            self.logger.warning(f"点击每日任务失败: {e}")
+            self.logger.warning(f"检测红点失败: {e}")
             import traceback
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
-    
-    def start_daily_task(self) -> bool:
-        """开始每日任务"""
-        self.logger.info("开始雪域兵器联赛每日任务...")
-        
-        if not self._find("daily_task"):
-            self.logger.warning("未找到每日任务按钮")
-            return False
-        
-        if self._click("daily_task"):
-            self.logger.info("点击每日任务成功")
-            time.sleep(random.uniform(1, 2))
-            return True
-        
-        return False
-    
-    def start_weekly_task(self) -> bool:
-        """开始每周任务"""
-        self.logger.info("开始雪域兵器联赛每周任务...")
-        
-        if not self._find("weekly_task"):
-            self.logger.warning("未找到每周任务按钮")
-            return False
-        
-        if self._click("weekly_task"):
-            self.logger.info("点击每周任务成功")
-            time.sleep(random.uniform(1, 2))
-            return True
-        
-        return False
-    
-    def claim_reward(self) -> bool:
-        """领取奖励"""
-        self.logger.info("开始领取雪域兵器联赛奖励...")
-        
-        if not self._find("claim_reward"):
-            self.logger.warning("未找到领奖按钮")
-            return False
-        
-        if self._click("claim_reward"):
-            self.logger.info("点击领奖成功")
-            time.sleep(random.uniform(1, 2))
-            return True
-        
-        return False
     
     def run_full_cycle_async(self, callback=None):
         """异步运行完整流程(在后台线程中执行)
@@ -332,25 +279,11 @@ class SnowfieldWeaponLeague:
         """内部运行完整流程(不阻塞)"""
         self.logger.info("开始雪域兵器联赛完整流程...")
         
-        # 领取奖励
-        if not self.claim_reward():
-            self.logger.warning("领取奖励失败")
-        
-        # 点击snowfield,如果不存在则点击back/back1/close
-        if not self._click_snowfield_with_retry():
+        if not self._click_snowfield_with_back_sequence():
             self.logger.warning("snowfield点击失败")
         
-        # 点击back后,搜索back1并点击
-        if not self._click_back1_after_back():
-            self.logger.warning("back/back1点击失败")
-        
-        # 点击每日任务
-        if not self.start_daily_task():
-            self.logger.warning("每日任务失败")
-        
-        # 开始每周任务
-        if not self.start_weekly_task():
-            self.logger.warning("每周任务失败")
+        if not self._click_red_dot_in_daily_task_region():
+            self.logger.warning("红点检测失败")
         
         self.logger.info("雪域兵器联赛完整流程完成")
         return True
