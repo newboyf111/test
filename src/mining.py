@@ -170,6 +170,11 @@ class SingleWindowMiner:
         self._screenshot_cache = screenshot
         self._screenshot_time = current_time
         return screenshot, win_w, win_h
+    
+    def _screenshot(self) -> Optional[np.ndarray]:
+        """获取截图（简化版本，兼容旧代码）"""
+        screenshot, _, _ = self._get_screenshot()
+        return screenshot
 
     def _invalidate_screenshot(self):
         """清除截图缓存"""
@@ -741,19 +746,8 @@ class SingleWindowMiner:
             return
         time.sleep(random.uniform(1, 2))
 
-        # 搜索 search_meat
-        if not self._find("search_meat"):
-            self.logger.warning("未找到 search_meat")
-            self.resource_index = (self.resource_index + 1) % len(self.resource_order)
-            return
-        self.logger.info("找到 search_meat，开始 search_meat 流程")
-        if self._user_stopped:
-            self.logger.info("用户手动停止，退出挖矿流程")
-            return
-        time.sleep(random.uniform(1, 2))
-
         if not self._click("search_meat"):
-            self.logger.warning("点击 search_meat 失败")
+            self.logger.warning("未找到 search_meat")
             self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
         self.logger.info("点击 search_meat 成功")
