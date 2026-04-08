@@ -361,9 +361,9 @@ class SnowfieldWeaponLeague:
             
             hsv = cv2.cvtColor(region_screenshot, cv2.COLOR_BGR2HSV)
             
-            lower_red1 = np.array([0, 100, 100])
+            lower_red1 = np.array([0, 150, 150])
             upper_red1 = np.array([10, 255, 255])
-            lower_red2 = np.array([160, 100, 100])
+            lower_red2 = np.array([160, 150, 150])
             upper_red2 = np.array([180, 255, 255])
             
             mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
@@ -377,18 +377,23 @@ class SnowfieldWeaponLeague:
             contours, _ = cv2.findContours(red_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
             
             red_dot_positions = []
-            min_contour_area = 10
+            min_contour_area = 50
             
             for contour in contours:
                 area = cv2.contourArea(contour)
                 if area >= min_contour_area:
-                    M = cv2.moments(contour)
-                    if M["m00"] != 0:
-                        cx = int(M["m10"] / M["m00"])
-                        cy = int(M["m01"] / M["m00"])
-                        abs_x = offset_x + cx
-                        abs_y = offset_y + cy
-                        red_dot_positions.append((abs_x, abs_y))
+                    perimeter = cv2.arcLength(contour, True)
+                    approx = cv2.approxPolyDP(contour, 0.04 * perimeter, True)
+                    circularity = 4 * np.pi * area / (perimeter * perimeter)
+                    
+                    if circularity > 0.5:
+                        M = cv2.moments(contour)
+                        if M["m00"] != 0:
+                            cx = int(M["m10"] / M["m00"])
+                            cy = int(M["m01"] / M["m00"])
+                            abs_x = offset_x + cx
+                            abs_y = offset_y + cy
+                            red_dot_positions.append((abs_x, abs_y))
             
             return red_dot_positions
         except Exception as e:
