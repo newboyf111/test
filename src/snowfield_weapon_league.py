@@ -195,6 +195,11 @@ class SnowfieldWeaponLeague:
                 if self._click("snowfield"):
                     self.logger.info("✓ 成功点击snowfield")
                     time.sleep(random.uniform(1, 2))
+                    
+                    if not self._check_red_dot_in_entry_region():
+                        self.logger.warning("入口区域红点检测失败")
+                        return False
+                    
                     return True
             else:
                 self.logger.info("未找到snowfield,尝试点击back/back1/back2/close...")
@@ -279,7 +284,58 @@ class SnowfieldWeaponLeague:
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
     
-    def _click_red_dot_in_reward_region(self) -> bool:
+    def _check_red_dot_in_entry_region(self) -> bool:
+        """检查入口区域是否有红点"""
+        self.logger.info("开始检测入口区域的红点...")
+        
+        entry_info = self.frame_data.get("雪域兵器联赛", {}).get("入口")
+        if not entry_info:
+            self.logger.warning("未找到入口区域的画框数据")
+            return False
+        
+        try:
+            screenshot = self._screenshot()
+            if screenshot is None:
+                return False
+            
+            win_w, win_h = self._get_window_size()
+            if win_w is None or win_h is None:
+                return False
+            
+            if self.last_window_size != (win_w, win_h):
+                self.matcher.clear_cache()
+                self.last_window_size = (win_w, win_h)
+            
+            region = entry_info.get("region", [0, 0, 0, 0])
+            
+            x1, y1, width, height = region
+            
+            abs_x = int(x1)
+            abs_y = int(y1)
+            abs_width = int(width)
+            abs_height = int(height)
+            
+            if abs_x >= 0 and abs_y >= 0 and abs_x + abs_width <= screenshot.shape[1] and abs_y + abs_height <= screenshot.shape[0]:
+                region_screenshot = screenshot[abs_y:abs_y + abs_height, abs_x:abs_x + abs_width]
+            else:
+                self.logger.warning("入口区域超出截图范围")
+                return False
+            
+            red_dot_positions = self._find_all_red_dots(region_screenshot, abs_x, abs_y)
+            
+            if len(red_dot_positions) == 1:
+                self.logger.info(f"✓ 检测到1个红点,继续执行后续逻辑")
+                return True
+            else:
+                self.logger.warning(f"未检测到1个红点(检测到{len(red_dot_positions)}个),结束流程")
+                return False
+        except Exception as e:
+            self.logger.warning(f"检测入口区域红点失败: {e}")
+            import traceback
+            self.logger.warning(f"详细错误: {traceback.format_exc()}")
+            return False
+    
+    def _click_red_dot_in_daily_task_region(self) -> bool:
         """在领奖区域检测并点击红点"""
         self.logger.info("开始检测领奖区域的红点...")
         
