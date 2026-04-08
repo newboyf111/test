@@ -569,6 +569,7 @@ class SnowfieldWeaponLeague:
         
         if not self._click_snowfield_with_back_sequence():
             self.logger.warning("snowfield点击失败")
+            return False
         
         time.sleep(0.5)
         
