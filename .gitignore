@@ -44,3 +44,8 @@ Thumbs.db
 
 # Pic files
 pic/
+
+# Build outputs
+dist/
+build/
+*.spec
