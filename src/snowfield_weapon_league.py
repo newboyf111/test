@@ -325,10 +325,10 @@ class SnowfieldWeaponLeague:
             
             red_dot_positions = self._find_all_red_dots(region_screenshot, abs_x, abs_y)
             
-            if len(red_dot_positions) == 1:
+            if len(red_dot_positions) == 0:
                 self.logger.info(f"✓ 检测到1个红点,继续执行后续逻辑")
                 return True
-            elif len(red_dot_positions) == 0:
+            elif len(red_dot_positions) == 1:
                 self.logger.warning(f"未检测到红点(检测到0个),结束雪域兵器联赛完整流程")
                 return False
             else:
@@ -340,7 +340,7 @@ class SnowfieldWeaponLeague:
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
     
-    def _click_red_dot_in_daily_task_region(self) -> bool:
+    def _click_red_dot_in_reward_region(self) -> bool:
         """在领奖区域检测并点击红点"""
         self.logger.info("开始检测领奖区域的红点...")
         
@@ -566,9 +566,6 @@ class SnowfieldWeaponLeague:
         
         if not self._click_snowfield_with_back_sequence():
             self.logger.warning("snowfield点击失败")
-        
-        if not self._click_red_dot_in_daily_task_region():
-            self.logger.warning("每日任务红点检测失败")
         
         time.sleep(0.5)
         
