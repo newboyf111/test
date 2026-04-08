@@ -353,6 +353,11 @@ class SingleWindowMiner:
         max_consecutive_failures = 10
 
         while self.is_mining:
+            # 用户手动停止时立即退出，不等待
+            if self._user_stopped:
+                self.logger.info("用户手动停止，立即退出挖矿线程")
+                break
+            
             try:
                 self._run_cycle()
                 consecutive_failures = 0
@@ -367,11 +372,6 @@ class SingleWindowMiner:
                     if self.mining_manager is not None:
                         self.mining_manager._on_window_mining_stopped(self.hwnd)
                     break
-
-            # 用户手动停止时立即退出，不等待
-            if self._user_stopped:
-                self.logger.info("用户手动停止，立即退出挖矿线程")
-                break
             
             time.sleep(0.1)  # 减少等待时间，快速响应停止请求
 
@@ -396,9 +396,15 @@ class SingleWindowMiner:
         # 步骤2: 搜索 wild
         if self._find("wild"):
             self.logger.info("找到 wild")
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return False
             time.sleep(random.uniform(0.5, 1))
             if self._click("wild"):
                 self.logger.info("点击 wild 成功，等待2-3秒后开始挖矿流程")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return False
                 time.sleep(random.uniform(2, 3))
                 return True
             else:
@@ -408,9 +414,15 @@ class SingleWindowMiner:
         self.logger.info("未找到 town 和 wild，开始搜索 close 流程")
         if self._find("close"):
             self.logger.info("找到 close")
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return False
             time.sleep(random.uniform(0.5, 1))
             if self._click("close"):
                 self.logger.info("点击 close 成功，开始挖矿流程")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return False
                 time.sleep(random.uniform(1, 2))
                 return True
             else:
@@ -419,17 +431,29 @@ class SingleWindowMiner:
         # 步骤4: 搜索 back
         if self._find("back"):
             self.logger.info("找到 back")
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return False
             time.sleep(random.uniform(0.5, 1))
             if self._click("back"):
                 self.logger.info("点击 back 成功")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return False
                 time.sleep(random.uniform(1, 2))
                 
                 # 搜索 back1
                 if self._find("back1"):
                     self.logger.info("找到 back1")
+                    if self._user_stopped:
+                        self.logger.info("用户手动停止，退出挖矿流程")
+                        return False
                     time.sleep(random.uniform(0.5, 1))
                     if self._click("back1"):
                         self.logger.info("点击 back1 成功，开始挖矿流程")
+                        if self._user_stopped:
+                            self.logger.info("用户手动停止，退出挖矿流程")
+                            return False
                         time.sleep(random.uniform(2, 3))
                         return True
                     else:
@@ -442,9 +466,15 @@ class SingleWindowMiner:
         # 步骤5: 直接搜索 back1
         if self._find("back1"):
             self.logger.info("找到 back1")
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return False
             time.sleep(random.uniform(0.5, 1))
             if self._click("back1"):
                 self.logger.info("点击 back1 成功，开始挖矿流程")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return False
                 time.sleep(random.uniform(1, 2))
                 return True
             else:
@@ -541,18 +571,30 @@ class SingleWindowMiner:
 
             if self._find("back"):
                 self.logger.info("找到 back")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
                 time.sleep(random.uniform(1, 2))
                 if not self._click("back"):
                     return
                 self.logger.info("点击 back 成功")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
                 time.sleep(random.uniform(1, 2))
 
             if self._find("back1"):
                 self.logger.info("找到 back1")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
                 time.sleep(random.uniform(1, 2))
                 if not self._click("back1"):
                     return
                 self.logger.info("点击 back1 成功")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
                 time.sleep(random.uniform(1, 2))
             else:
                 self.logger.warning("未找到 back1，初始化失败")
@@ -565,6 +607,9 @@ class SingleWindowMiner:
 
         if self._find("town"):
             self.logger.info("找到 town")
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return
             time.sleep(random.uniform(1, 2))
             if not self._click("search"):
                 self.logger.warning("未找到 search，执行挖矿初始化流程")
@@ -572,14 +617,23 @@ class SingleWindowMiner:
                     return
             else:
                 self.logger.info("点击 search 成功")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
                 time.sleep(random.uniform(1, 2))
         else:
             self.logger.debug("未找到 town，尝试 wild")
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return
             time.sleep(1)
             if not self._click("wild"):
                 self.logger.debug("未找到 wild")
                 return
             self.logger.info("点击 wild 成功")
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return
             time.sleep(random.uniform(1, 2))
             if not self._find("town"):
                 self.logger.debug("点击 wild 后仍未找到 town")
@@ -589,12 +643,18 @@ class SingleWindowMiner:
         resource_key = self.resource_order[self.resource_index]
         resource_found = False
         for i in range(self.retry_times):
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return
             if self._click(resource_key):
                 self.logger.info(f"点击资源成功: {resource_key}")
                 resource_found = True
                 break
             if i < self.retry_times - 1:
                 self.logger.info(f"资源未找到，{self.retry_delay}s 后重试 ({i+1}/{self.retry_times})")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
                 time.sleep(self.retry_delay)
 
         if not resource_found:
@@ -602,6 +662,9 @@ class SingleWindowMiner:
             self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
 
+        if self._user_stopped:
+            self.logger.info("用户手动停止，退出挖矿流程")
+            return
         time.sleep(random.uniform(1, 2))
 
         if not self._click_and_align("add", self.level8_target_base, self.level8_tolerance):
@@ -609,6 +672,9 @@ class SingleWindowMiner:
             self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
         self.logger.info("点击 add 成功且坐标校准完成")
+        if self._user_stopped:
+            self.logger.info("用户手动停止，退出挖矿流程")
+            return
         time.sleep(random.uniform(1, 2))
 
         if not self._click("search_meat"):
@@ -616,6 +682,9 @@ class SingleWindowMiner:
             self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
         self.logger.info("点击 search_meat 成功")
+        if self._user_stopped:
+            self.logger.info("用户手动停止，退出挖矿流程")
+            return
         time.sleep(random.uniform(1, 2))
 
         # 用户手动停止时立即退出
@@ -627,6 +696,9 @@ class SingleWindowMiner:
         gather_found = False
         max_attempts = 7
         for attempt in range(max_attempts):
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return
             self.logger.info(f"尝试寻找 gather ({attempt+1}/{max_attempts})")
             
             if self._click("gather"):
@@ -639,6 +711,9 @@ class SingleWindowMiner:
             # 执行备选方案
             if attempt < max_attempts - 1:  # 最后一次尝试不需要执行备选方案
                 self.logger.info("执行备选方案：向左移动并重新点击 search_meat")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
                 time.sleep(random.uniform(1, 2))
                 
                 # 向左移动（自适应窗口大小，基准30像素）
@@ -653,11 +728,17 @@ class SingleWindowMiner:
                     self.logger.warning("无法获取窗口尺寸，使用原始拖动距离 30 像素")
                 
                 self._drag(-drag_distance, 0, 0.05)
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
                 time.sleep(random.uniform(1, 2))
                 
                 # 重新点击 search_meat
                 if self._click("search_meat"):
                     self.logger.info("重新点击 search_meat 成功")
+                    if self._user_stopped:
+                        self.logger.info("用户手动停止，退出挖矿流程")
+                        return
                     time.sleep(random.uniform(1, 2))
                 else:
                     self.logger.warning("重新查找 search_meat 失败")
