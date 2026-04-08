@@ -269,10 +269,73 @@ class SingleWindowMiner:
             self.logger.info("挖矿开始")
             self.logger.info(f"基准尺寸: {AdaptiveMatcher.BASE_WIDTH}x{AdaptiveMatcher.BASE_HEIGHT}")
             self.logger.info("=" * 50)
+            
+            # 优先执行 OCR 检查
+            if not self._check_ocr_before_mining():
+                self.logger.info("OCR 检查未通过，跳过挖矿流程")
+                self.mined = True
+                if self.mining_manager is not None:
+                    self.mining_manager._on_window_mining_stopped(self.hwnd)
+                return False
+            
             self.mining_thread = threading.Thread(target=self._mining_loop, daemon=True)
             self.mining_thread.start()
             return True
         return False
+
+    def _check_ocr_before_mining(self) -> bool:
+        """开始挖矿前的 OCR 检查
+        
+        Returns:
+            bool: OCR 检查是否通过
+        """
+        if not self.ocr_enabled or self.ocr_reader is None:
+            self.logger.info("OCR 未启用，跳过 OCR 检查")
+            return True
+        
+        self.logger.info("开始执行 OCR 检查...")
+        
+        # 获取窗口截图
+        screenshot = self._screenshot()
+        if screenshot is None:
+            self.logger.warning("获取截图失败，跳过 OCR 检查")
+            return True
+        
+        win_w, win_h = self._get_window_size()
+        if win_w is None or win_h is None:
+            self.logger.warning("获取窗口尺寸失败，跳过 OCR 检查")
+            return True
+        
+        # 截取 OCR 区域
+        ocr_region = self._capture_ocr_region(screenshot, win_w, win_h)
+        if ocr_region is None:
+            self.logger.warning("截取 OCR 区域失败，跳过 OCR 检查")
+            return True
+        
+        # OCR 识别
+        ocr_text = self._ocr_recognize(ocr_region)
+        if ocr_text is None:
+            self.logger.info("OCR 识别失败，视为需要挖矿")
+            return True
+        
+        # 解析识别结果
+        try:
+            if "/" in ocr_text:
+                parts = ocr_text.split("/")
+                if len(parts) == 2:
+                    current = int(parts[0].strip())
+                    total = int(parts[1].strip())
+                    remaining = total - current
+                    
+                    self.logger.info(f"OCR 识别结果: {ocr_text} (剩余: {remaining})")
+                    
+                    if remaining <= 0:
+                        self.logger.info("挖矿次数已用完，跳过挖矿流程")
+                        return False
+        except (ValueError, IndexError) as e:
+            self.logger.warning(f"解析 OCR 结果失败: {e}")
+        
+        return True
 
     def stop_mining(self, user_stopped: bool = False) -> bool:
         """停止挖矿
