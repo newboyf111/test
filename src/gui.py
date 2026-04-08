@@ -1041,7 +1041,7 @@ class WujindongriGUI:
         """
         dialog = tk.Toplevel(self.root)
         dialog.title("保存画框信息")
-        dialog.geometry("400x250")
+        dialog.geometry("400x320")
         dialog.transient(self.root)
         dialog.grab_set()
         
