@@ -340,8 +340,8 @@ class SnowfieldWeaponLeague:
             self.logger.info("等待1-2秒...")
             time.sleep(random.uniform(1, 2))
             
-            if len(red_dot_positions) == 3:
-                self.logger.info("检测到3个红点,执行滑动操作...")
+            if len(red_dot_positions) == 0:
+                self.logger.info("未检测到红点,执行滑动操作...")
                 self._swipe_up_from_center()
             
             return True
