@@ -18,6 +18,7 @@ import cv2
 import numpy as np
 import pyautogui
 import win32gui
+import threading
 import ctypes
 import random
 import tempfile
