@@ -477,3 +477,7 @@ class ProtectiveCasing:
     def stop(self):
         self.running = False
         self.logger.info("停止保护性外壳自动化脚本")
+    
+    def stop_protection(self):
+        """停止保护"""
+        self.stop()
