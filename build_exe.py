@@ -54,7 +54,6 @@ def build_exe():
         "-m", "PyInstaller",
         "--name", exe_name,
         "--windowed",
-        "--onefile",
         "--clean",
         "--add-data", f"src{os.pathsep}src",
         "--add-data", f"pic{os.pathsep}pic",
@@ -72,8 +71,8 @@ def build_exe():
     
     if result.returncode == 0:
         print(f"\n打包成功!")
-        print(f"exe文件位置: {dist_dir / f'{exe_name}.exe'}")
-        print(f"文件大小: {(dist_dir / f'{exe_name}.exe').stat().st_size / 1024 / 1024:.2f} MB")
+        print(f"exe文件位置: {dist_dir / exe_name / f'{exe_name}.exe'}")
+        print(f"文件大小: {(dist_dir / exe_name / f'{exe_name}.exe').stat().st_size / 1024 / 1024:.2f} MB")
         return True
     else:
         print(f"\n打包失败! 退出码: {result.returncode}")
