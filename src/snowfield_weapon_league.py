@@ -83,9 +83,9 @@ class SnowfieldWeaponLeague:
     def _screenshot(self) -> Optional[Any]:
         """截取窗口截图"""
         try:
-            screenshot = capture_window(self.hwnd)
-            if screenshot is not None:
-                return screenshot
+            result = capture_window(self.hwnd)
+            if result is not None and result[0] is not None:
+                return result[0]
         except Exception as e:
             self.logger.warning(f"截取截图失败: {e}")
         return None
