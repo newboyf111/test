@@ -77,6 +77,12 @@ class AdaptiveMatcher:
     def match_single(self, screenshot: np.ndarray, template: np.ndarray) -> Optional[dict]:
         """单次模板匹配"""
         try:
+            if screenshot is None or template is None:
+                return None
+            
+            if len(screenshot.shape) < 3 or len(template.shape) < 3:
+                return None
+            
             gray_screen = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
             gray_tmpl = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
             tmpl_h, tmpl_w = gray_tmpl.shape[:2]
@@ -100,6 +106,12 @@ class AdaptiveMatcher:
                           scale_min: float = 0.5, scale_max: float = 2.0, steps: int = 20) -> Optional[dict]:
         """多尺度匹配（备选方案）"""
         try:
+            if screenshot is None or template is None:
+                return None
+            
+            if len(screenshot.shape) < 3 or len(template.shape) < 3:
+                return None
+            
             gray_screen = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
             gray_tmpl_orig = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
             orig_h, orig_w = gray_tmpl_orig.shape[:2]
