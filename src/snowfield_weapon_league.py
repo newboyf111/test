@@ -176,7 +176,7 @@ class SnowfieldWeaponLeague:
         return False
     
     def _click_daily_task(self) -> bool:
-        """点击每日任务按钮"""
+        """点击每日任务按钮,检测并点击红点"""
         self.logger.info("开始点击每日任务...")
         
         daily_task_info = self.frame_data.get("雪域兵器联赛", {}).get("每日任务")
@@ -201,19 +201,47 @@ class SnowfieldWeaponLeague:
             relative = daily_task_info.get("relative", {})
             
             x1, y1, width, height = region
-            rel_x = relative.get("x", x1 / win_w) if win_w > 0 else 0
-            rel_y = relative.get("y", y1 / win_h) if win_h > 0 else 0
-            rel_w = relative.get("width", width / win_w) if win_w > 0 else 0
-            rel_h = relative.get("height", height / win_h) if win_h > 0 else 0
             
-            center_x = int(x1 + width / 2)
-            center_y = int(y1 + height / 2)
+            # 计算相对于窗口的坐标
+            abs_x = int(x1)
+            abs_y = int(y1)
+            abs_width = int(width)
+            abs_height = int(height)
             
-            self.logger.info(f"点击每日任务区域: ({center_x}, {center_y})")
+            # 裁剪出指定区域
+            import numpy as np
+            if abs_x >= 0 and abs_y >= 0 and abs_x + abs_width <= screenshot.shape[1] and abs_y + abs_height <= screenshot.shape[0]:
+                region_screenshot = screenshot[abs_y:abs_y + abs_height, abs_x:abs_x + abs_width]
+            else:
+                self.logger.warning("指定区域超出截图范围")
+                return False
             
-            return True
+            # 检测红点
+            red_dot_path = get_pic_path("red_dot.png")
+            if not os.path.exists(red_dot_path):
+                self.logger.warning(f"红点图片不存在: {red_dot_path}")
+                center_x = int(x1 + width / 2)
+                center_y = int(y1 + height / 2)
+                self.logger.info(f"未找到红点图片,点击区域中心: ({center_x}, {center_y})")
+                return True
+            
+            result = self.matcher.find(red_dot_path, region_screenshot, confidence=0.8)
+            
+            if result is not None:
+                dx, dy = result
+                click_x = abs_x + int(dx)
+                click_y = abs_y + int(dy)
+                self.logger.info(f"✓ 检测到红点,点击位置: ({click_x}, {click_y})")
+                return True
+            else:
+                center_x = int(x1 + width / 2)
+                center_y = int(y1 + height / 2)
+                self.logger.info(f"未检测到红点,点击区域中心: ({center_x}, {center_y})")
+                return True
         except Exception as e:
             self.logger.warning(f"点击每日任务失败: {e}")
+            import traceback
+            self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
     
     def start_daily_task(self) -> bool:
