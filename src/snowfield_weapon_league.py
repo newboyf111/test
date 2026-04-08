@@ -44,7 +44,17 @@ class SnowfieldWeaponLeague:
         
         self.last_window_size = None
         self.frame_data = self._load_frame_data()
-        
+    
+    def _setup_logger(self) -> logging.Logger:
+        """设置日志"""
+        logger = logging.getLogger(f"SnowfieldWeaponLeague_{self.hwnd}")
+        if not logger.handlers:
+            logger.setLevel(logging.INFO)
+            handler = logging.StreamHandler()
+            handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+            logger.addHandler(handler)
+        return logger
+    
     def _load_frame_data(self) -> Dict[str, Any]:
         """加载frame_data.json中的画框数据"""
         try:
