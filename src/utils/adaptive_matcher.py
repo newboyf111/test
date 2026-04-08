@@ -24,7 +24,11 @@ class AdaptiveMatcher:
     
     def __init__(self, confidence: float = 0.65, logger=None):
         self.confidence = confidence
-        self.logger = logger or logging.getLogger(__name__)
+        if logger is None:
+            self.logger = logging.getLogger(__name__)
+            self.logger.propagate = False
+        else:
+            self.logger = logger
         self._template_cache: Dict[str, np.ndarray] = {}
         self._scaled_cache: Dict[Tuple[str, float], np.ndarray] = {}
         self._last_success_scale: Dict[str, float] = {}

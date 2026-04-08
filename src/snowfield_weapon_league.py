@@ -52,6 +52,7 @@ class SnowfieldWeaponLeague:
             handler = logging.StreamHandler()
             handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
             logger.addHandler(handler)
+            logger.propagate = False
         return logger
     
     def _load_frame_data(self) -> Dict[str, Any]:
