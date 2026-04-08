@@ -11,6 +11,7 @@ import win32api
 import psutil
 import time
 import logging
+from typing import Optional, List, Tuple
 
 from src.utils.window_utils import set_dpi_aware
 
