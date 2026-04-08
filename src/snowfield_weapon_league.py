@@ -325,10 +325,10 @@ class SnowfieldWeaponLeague:
             
             red_dot_positions = self._find_all_red_dots(region_screenshot, abs_x, abs_y)
             
-            if len(red_dot_positions) == 0:
+            if len(red_dot_positions) == 1:
                 self.logger.info(f"✓ 检测到1个红点,继续执行后续逻辑")
                 return True
-            elif len(red_dot_positions) == 1:
+            elif len(red_dot_positions) == 0:
                 self.logger.warning(f"未检测到红点(检测到0个),结束雪域兵器联赛完整流程")
                 return False
             else:
@@ -401,9 +401,12 @@ class SnowfieldWeaponLeague:
             self.logger.info("等待1-2秒...")
             time.sleep(random.uniform(1, 2))
             
-            if len(red_dot_positions) == 0:
-                self.logger.info("未检测到红点,执行滑动操作...")
-                self._swipe_up_from_center()
+            new_screenshot = self._screenshot()
+            if new_screenshot is not None:
+                new_red_dot_positions = self._find_all_red_dots(new_screenshot, abs_x, abs_y)
+                if len(new_red_dot_positions) == 0:
+                    self.logger.info("领奖区域红点已全部点击,执行滑动操作...")
+                    self._swipe_up_from_center()
             
             return True
         except Exception as e:
