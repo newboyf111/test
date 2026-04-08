@@ -585,12 +585,11 @@ class WujindongriGUI:
             messagebox.showwarning("提示", "没有被激活的游戏窗口，请先激活一个游戏窗口")
             return
         
-        if active_hwnd and active_hwnd in selected_hwnds:
-            self.log(f"✓ 检测到被激活的游戏窗口: {active_hwnd}")
-        else:
+        # 检查被激活的窗口是否在选中的窗口列表中
+        if active_hwnd not in selected_hwnds:
             self.log(f"警告: 激活的窗口({active_hwnd})不在选中的窗口列表中")
             window_list_str = "\n".join([f"{i+1}. {selected_titles[i]}" for i in range(len(selected_hwnds))])
-            message = f"激活的窗口不在选中的窗口列表中。\n\n选中的窗口列表:\n{window_list_str}\n\n是否继续？"
+            message = f"激活的窗口不在选中的窗口列表中。\n\n选中的窗口列表:\n{window_list_str}\n\n请先激活一个选中的窗口，然后点击'确定'继续，或'取消'重新选择。"
             result = messagebox.askyesno("提示", message)
             if not result:
                 return
