@@ -25,7 +25,6 @@ import os
 from pathlib import Path
 from typing import Optional, List, Tuple, Dict
 
-from src.dashed_line_detector import DashedLineDetector
 from src.utils.adaptive_matcher import AdaptiveMatcher
 from src.utils.window_utils import set_dpi_aware, capture_window
 from src.utils.resource_path import get_pic_path
@@ -470,7 +469,11 @@ class ProtectiveCasing:
         # 等待 1-2 秒
         self._wait(1.0, 2.0)
         self.logger.info(f"[{window_name}] 完成 deploy 流程")
-
+    
+    def is_protecting(self) -> bool:
+        """检查是否正在保护中"""
+        return self.running
+    
     def stop(self):
         self.running = False
         self.logger.info("停止保护性外壳自动化脚本")
