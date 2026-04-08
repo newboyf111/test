@@ -337,12 +337,46 @@ class SnowfieldWeaponLeague:
                 if i < len(red_dot_positions) - 1:
                     time.sleep(0.5)
             
+            if len(red_dot_positions) == 3:
+                self.logger.info("检测到3个红点,执行滑动操作...")
+                self._swipe_up_from_center()
+            
             return True
         except Exception as e:
             self.logger.warning(f"检测领奖区域红点失败: {e}")
             import traceback
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
+    
+    def _swipe_up_from_center(self):
+        """从窗口中心向上滑动100像素"""
+        try:
+            import pyautogui
+            window_pos = self._get_window_position()
+            window_size = self._get_window_size()
+            
+            if window_pos is None or window_size is None:
+                self.logger.warning("无法获取窗口位置或尺寸,滑动失败")
+                return
+            
+            center_x = window_pos[0] + window_size[0] // 2
+            center_y = window_pos[1] + window_size[1] // 2
+            
+            start_x = center_x
+            start_y = center_y
+            end_x = center_x
+            end_y = center_y - 100
+            
+            self.logger.info(f"从窗口中心滑动: 起点({start_x}, {start_y}), 终点({end_x}, {end_y})")
+            
+            pyautogui.moveTo(start_x, start_y)
+            pyautogui.dragTo(end_x, end_y, duration=0.5, button='left')
+            
+            self.logger.info("✓ 滑动完成")
+        except Exception as e:
+            self.logger.warning(f"滑动操作失败: {e}")
+            import traceback
+            self.logger.warning(f"详细错误: {traceback.format_exc()}")
     
     def _find_all_red_dots(self, region_screenshot: np.ndarray, offset_x: int, offset_y: int) -> list:
         """在指定区域内查找所有红点
