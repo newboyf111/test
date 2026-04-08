@@ -6,7 +6,14 @@
 
 import sys
 import os
+import io
 from pathlib import Path
+
+# 设置控制台编码为UTF-8
+if sys.stdout:
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+if sys.stderr:
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 # 获取项目根目录
 project_root = Path(__file__).parent
