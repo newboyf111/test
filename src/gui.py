@@ -1011,6 +1011,9 @@ class WujindongriGUI:
             self.draw_frame_result.config(text=result_text)
             self.log(f"画框完成: {result_text.replace(chr(10), ' ')}")
             
+            # 弹出输入框让用户输入模块名和功能名
+            self._show_input_dialog(hwnd, x1, y1, width, height, rel_x, rel_y, rel_width, rel_height, window_width, window_height)
+            
             # 2秒后关闭画框窗口
             draw_window.after(2000, draw_window.destroy)
         
@@ -1024,7 +1027,114 @@ class WujindongriGUI:
         label.place(relx=0.5, rely=0.5, anchor='center')
         
         self.log("画框窗口已打开，请在窗口中框选区域")
+    
+    def _show_input_dialog(self, hwnd, x1, y1, width, height, rel_x, rel_y, rel_width, rel_height, window_width, window_height):
+        """显示输入对话框，让用户输入模块名和功能名
         
+        Args:
+            hwnd: 窗口句柄
+            x1, y1: 区域左上角坐标
+            width, height: 区域大小
+            rel_x, rel_y: 相对位置 x, y
+            rel_width, rel_height: 相对宽度和高度
+            window_width, window_height: 窗口大小
+        """
+        dialog = tk.Toplevel(self.root)
+        dialog.title("保存画框信息")
+        dialog.geometry("400x250")
+        dialog.transient(self.root)
+        dialog.grab_set()
+        
+        # 模块名输入
+        ttk.Label(dialog, text="模块名:", font=("Microsoft YaHei", 10)).pack(pady=10)
+        module_entry = ttk.Entry(dialog, width=30)
+        module_entry.pack(pady=5)
+        
+        # 功能名输入
+        ttk.Label(dialog, text="功能名:", font=("Microsoft YaHei", 10)).pack(pady=10)
+        function_entry = ttk.Entry(dialog, width=30)
+        function_entry.pack(pady=5)
+        
+        # 信息显示
+        info_text = f"窗口: {hwnd}\n区域: ({x1}, {y1}) -> ({x1+width}, {y1+height})\n大小: {width}x{height}\n相对位置: x={rel_x:.4f}, y={rel_y:.4f}, w={rel_width:.4f}, h={rel_height:.4f}"
+        info_label = ttk.Label(dialog, text=info_text, font=("Microsoft YaHei", 8), foreground="gray")
+        info_label.pack(pady=10)
+        
+        # 按钮框架
+        button_frame = ttk.Frame(dialog)
+        button_frame.pack(pady=20)
+        
+        def save_and_close():
+            module_name = module_entry.get().strip()
+            function_name = function_entry.get().strip()
+            
+            if not module_name or not function_name:
+                messagebox.showwarning("警告", "请输入模块名和功能名")
+                return
+            
+            # 保存到 JSON
+            frame_info = {
+                "hwnd": hwnd,
+                "window_size": [window_width, window_height],
+                "region": [x1, y1, width, height],
+                "relative": {
+                    "x": round(rel_x, 4),
+                    "y": round(rel_y, 4),
+                    "width": round(rel_width, 4),
+                    "height": round(rel_height, 4)
+                }
+            }
+            
+            self._save_frame_info(module_name, function_name, frame_info)
+            
+            dialog.destroy()
+            messagebox.showinfo("成功", f"已保存: {module_name} - {function_name}")
+        
+        def cancel():
+            dialog.destroy()
+        
+        save_button = ttk.Button(button_frame, text="保存", command=save_and_close)
+        save_button.pack(side="left", padx=10)
+        
+        cancel_button = ttk.Button(button_frame, text="取消", command=cancel)
+        cancel_button.pack(side="left", padx=10)
+    
+    def _save_frame_info(self, module_name, function_name, frame_info):
+        """保存画框信息到 JSON 文件
+        
+        Args:
+            module_name: 模块名
+            function_name: 功能名
+            frame_info: 画框信息
+        """
+        import json
+        import os
+        
+        json_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "frame_data.json")
+        
+        # 读取现有数据
+        if os.path.exists(json_path):
+            try:
+                with open(json_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+            except Exception:
+                data = {}
+        else:
+            data = {}
+        
+        # 添加新数据
+        if module_name not in data:
+            data[module_name] = {}
+        data[module_name][function_name] = frame_info
+        
+        # 保存回文件
+        try:
+            with open(json_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            self.log(f"✓ 已保存画框信息: {module_name} -> {function_name}")
+        except Exception as e:
+            self.log(f"✗ 保存画框信息失败: {e}")
+    
     def _update_active_windows_label(self, titles):
         """更新被激活窗口的绿色标签（每个窗口一行）"""
         if not titles:
