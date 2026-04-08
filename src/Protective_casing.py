@@ -484,5 +484,7 @@ class ProtectiveCasing:
     
     def start_protection(self):
         """开始保护"""
-        self.running = True
-        self.logger.info("启动保护性外壳自动化脚本")
+        if not self.running:
+            self.running = True
+            threading.Thread(target=self.start, daemon=True).start()
+            self.logger.info("启动保护性外壳自动化脚本")
