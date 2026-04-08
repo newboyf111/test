@@ -883,6 +883,20 @@ class WujindongriGUI:
         
         hwnd = self.window_listbox_hwnd_map[index]
         
+        # 获取窗口信息
+        window_info = self.window_manager.get_window_info(hwnd)
+        if not window_info:
+            messagebox.showwarning("警告", "无法获取窗口信息")
+            return
+        
+        window_title = window_info['title']
+        self.log(f"选择窗口: {window_title}")
+        
+        # 激活窗口
+        win32gui.ShowWindow(hwnd, 5)
+        win32gui.SetForegroundWindow(hwnd)
+        time.sleep(0.5)
+        
         # 检查是否有其他系统在运行
         is_mining = self.mining_manager.get_mining_status()
         is_protective = self.protective_casing.is_protecting()
