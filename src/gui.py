@@ -14,6 +14,7 @@ from src.mining import MultiWindowMiningManager
 from src.window_manager import WindowManager
 from src.recording import RecordingModule
 from src.Protective_casing import ProtectiveCasing
+from src.snowfield_weapon_league import SnowfieldWeaponLeague
 
 try:
     from PIL import ImageTk
@@ -44,6 +45,7 @@ class WujindongriGUI:
         self.window_manager = WindowManager()
         self.recording_module = RecordingModule(self)
         self.protective_casing = ProtectiveCasing(mining_manager=self.mining_manager)
+        self.snowfield_league = None  # 雪域兵器联赛模块
         self.selected_window = None
         self.timer_minutes = 0
         self.countdown_running = False
@@ -257,6 +259,15 @@ class WujindongriGUI:
             width=10
         )
         self.draw_frame_button.pack(side="left", padx=5)
+        
+        # 雪域兵器联赛按钮
+        self.snowfield_button = ttk.Button(
+            other_frame,
+            text="雪域兵器联赛",
+            command=self.start_snowfield_league,
+            width=15
+        )
+        self.snowfield_button.pack(side="left", padx=5)
         
         # 画框结果显示
         self.draw_frame_result = ttk.Label(
@@ -857,7 +868,77 @@ class WujindongriGUI:
             if self.active_windows_label:
                 self._update_active_windows_label([])
             self.root.destroy()
+    
+    def start_snowfield_league(self):
+        """启动雪域兵器联赛模块"""
+        selected_indices = self.window_listbox.curselection()
+        if not selected_indices:
+            messagebox.showwarning("警告", "请先选择一个窗口")
+            return
+        
+        index = selected_indices[0]
+        if index not in self.window_listbox_hwnd_map:
+            messagebox.showwarning("警告", "无法获取窗口信息")
+            return
+        
+        hwnd = self.window_listbox_hwnd_map[index]
+        
+        # 检查是否有其他系统在运行
+        is_mining = self.mining_manager.get_mining_status()
+        is_protective = self.protective_casing.is_protecting()
+        is_recording = self.recording_module.get_recording_status()
+        
+        if is_mining or is_protective or is_recording:
+            self.log(f"检测到其他系统运行中，暂停其他系统...")
             
+            if is_mining:
+                self.mining_manager.stop_mining_queue()
+                self.log("已暂停挖矿系统")
+            
+            if is_protective:
+                self.protective_casing.stop_protection()
+                self.log("已暂停外壳保护系统")
+            
+            if is_recording:
+                self.stop_recording()
+                self.log("已暂停录制系统")
+            
+            time.sleep(1)
+        
+        # 初始化雪域兵器联赛模块
+        self.log(f"开始初始化雪域兵器联赛模块...")
+        
+        try:
+            self.snowfield_league = SnowfieldWeaponLeague(hwnd=hwnd)
+            self.log(f"✓ 雪域兵器联赛模块初始化成功")
+            
+            # 运行雪域联赛流程
+            self.log(f"开始执行雪域兵器联赛完整流程...")
+            success = self.snowfield_league.run_full_cycle()
+            
+            if success:
+                self.log(f"✓ 雪域兵器联赛流程执行完成")
+            else:
+                self.log(f"✗ 雪域兵器联赛流程执行失败")
+            
+            # 恢复之前暂停的系统
+            if is_mining:
+                self.log(f"恢复挖矿系统...")
+                self.mining_manager.start_mining_queue()
+            
+            if is_protective:
+                self.log(f"恢复外壳保护系统...")
+                self.protective_casing.start_protection()
+            
+            if is_recording:
+                self.log(f"恢复录制系统...")
+                self.toggle_recording()
+            
+        except Exception as e:
+            self.log(f"✗ 雪域兵器联赛初始化失败: {e}")
+            import traceback
+            self.log(f"详细错误: {traceback.format_exc()}")
+    
     def draw_frame(self):
         """画框功能：让用户在激活的窗口中框选区域，并显示相对位置"""
         # 获取选中的窗口
