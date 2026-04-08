@@ -89,6 +89,7 @@ class SingleWindowMiner:
             "back1": 0.75,
             "gather": 0.85,
             "town": 0.75,  # 提高 town 的阈值，防止误匹配
+            "close": 0.85,  # 提高 close 的阈值，防止错误识别
         }
 
         self.drag_distance = 240
