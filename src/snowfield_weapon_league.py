@@ -328,8 +328,11 @@ class SnowfieldWeaponLeague:
             if len(red_dot_positions) == 1:
                 self.logger.info(f"✓ 检测到1个红点,继续执行后续逻辑")
                 return True
+            elif len(red_dot_positions) == 0:
+                self.logger.warning(f"未检测到红点(检测到0个),结束雪域兵器联赛完整流程")
+                return False
             else:
-                self.logger.warning(f"未检测到1个红点(检测到{len(red_dot_positions)}个),结束流程")
+                self.logger.warning(f"检测到{len(red_dot_positions)}个红点(期望1个),结束流程")
                 return False
         except Exception as e:
             self.logger.warning(f"检测入口区域红点失败: {e}")
