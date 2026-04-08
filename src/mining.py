@@ -956,7 +956,8 @@ class SingleWindowMiner:
         Returns:
             bool: 是否成功
         """
-        success, pos = self._click(image_key)
+        # 先查找图片
+        success, pos = self._find(image_key)
         if not success or pos is None:
             return False
         
@@ -977,10 +978,16 @@ class SingleWindowMiner:
         
         self.logger.info(f"{image_key} 当前坐标: ({current_x}, {current_y}), 目标坐标: ({target_x}, {target_y})")
         
+        # 检查坐标是否在容差范围内
         if (abs(current_x - target_x) <= tolerance and 
             abs(current_y - target_y) <= tolerance):
-            self.logger.info(f"{image_key} 坐标在容差范围内，继续流程")
+            self.logger.info(f"{image_key} 坐标在容差范围内，无需点击，继续流程")
             return True
+        
+        # 坐标不在容差范围内，需要点击并拖动
+        success, pos = self._click(image_key)
+        if not success or pos is None:
+            return False
         
         dx = target_x - current_x
         dy = target_y - current_y
