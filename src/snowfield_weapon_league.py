@@ -10,6 +10,8 @@ import logging
 import json
 import os
 import threading
+import cv2
+import numpy as np
 from typing import Optional, Dict, Any, Tuple
 
 from src.utils.adaptive_matcher import AdaptiveMatcher
@@ -245,39 +247,32 @@ class SnowfieldWeaponLeague:
                 self.logger.warning("指定区域超出截图范围")
                 return False
             
-            red_dot_path = get_pic_path("red_dot.png")
-            if not os.path.exists(red_dot_path):
-                self.logger.warning(f"红点图片不存在: {red_dot_path}")
-                center_x = int(x1 + width / 2)
-                center_y = int(y1 + height / 2)
-                window_pos = self._get_window_position()
-                if window_pos is not None:
-                    screen_x = window_pos[0] + center_x
-                    screen_y = window_pos[1] + center_y
-                    self.logger.info(f"未找到红点图片,点击区域中心: 窗口内({center_x}, {center_y}), 屏幕({screen_x}, {screen_y})")
-                    import pyautogui
-                    pyautogui.click(screen_x, screen_y)
-                return True
+            center_x = int(x1 + width / 2)
+            center_y = int(y1 + height / 2)
             
-            region_win_w = abs_width
-            region_win_h = abs_height
-            result = self.matcher.match(region_screenshot, red_dot_path, region_win_w, region_win_h)
+            red_dot_found = self._detect_red_dot_in_region(region_screenshot)
             
-            if result is not None:
-                dx, dy = result.get("location", (0, 0))
-                click_x = abs_x + int(dx)
-                click_y = abs_y + int(dy)
+            if red_dot_found:
+                click_x = abs_x + int(width / 2)
+                click_y = abs_y + int(height / 2)
                 window_pos = self._get_window_position()
                 if window_pos is not None:
                     screen_x = window_pos[0] + click_x
                     screen_y = window_pos[1] + click_y
-                    self.logger.info(f"✓ 检测到红点,点击位置: 窗口内({click_x}, {click_y}), 屏幕({screen_x}, {screen_y})")
+                    self.logger.info(f"✓ 检测到红点,点击区域中心: 窗口内({click_x}, {click_y}), 屏幕({screen_x}, {screen_y})")
                     import pyautogui
                     pyautogui.click(screen_x, screen_y)
                 return True
             else:
-                self.logger.info("未检测到红点,结束流程")
-                return False
+                self.logger.info("未检测到红点,点击区域中心")
+                window_pos = self._get_window_position()
+                if window_pos is not None:
+                    screen_x = window_pos[0] + center_x
+                    screen_y = window_pos[1] + center_y
+                    self.logger.info(f"点击区域中心: 窗口内({center_x}, {center_y}), 屏幕({screen_x}, {screen_y})")
+                    import pyautogui
+                    pyautogui.click(screen_x, screen_y)
+                return True
         except Exception as e:
             self.logger.warning(f"检测红点失败: {e}")
             import traceback
@@ -305,6 +300,46 @@ class SnowfieldWeaponLeague:
         thread = threading.Thread(target=run, daemon=True)
         thread.start()
         return thread
+    
+    def _detect_red_dot_in_region(self, region_screenshot: np.ndarray) -> bool:
+        """在指定区域内检测红点
+        
+        Args:
+            region_screenshot: 区域截图
+            
+        Returns:
+            是否检测到红点
+        """
+        try:
+            import numpy as np
+            if region_screenshot is None or len(region_screenshot.shape) < 3:
+                return False
+            
+            hsv = cv2.cvtColor(region_screenshot, cv2.COLOR_BGR2HSV)
+            
+            lower_red1 = np.array([0, 100, 100])
+            upper_red1 = np.array([10, 255, 255])
+            lower_red2 = np.array([160, 100, 100])
+            upper_red2 = np.array([180, 255, 255])
+            
+            mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
+            mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
+            red_mask = cv2.bitwise_or(mask1, mask2)
+            
+            kernel = np.ones((3, 3), np.uint8)
+            red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, kernel)
+            red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, kernel)
+            
+            red_pixels = np.sum(red_mask > 0)
+            total_pixels = red_mask.size
+            red_ratio = red_pixels / total_pixels
+            
+            if red_ratio > 0.01:
+                return True
+            return False
+        except Exception as e:
+            self.logger.warning(f"检测红点失败: {e}")
+            return False
     
     def _run_full_cycle_internal(self) -> bool:
         """内部运行完整流程(不阻塞)"""
