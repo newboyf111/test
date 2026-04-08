@@ -57,9 +57,6 @@ class WujindongriGUI:
         # 在后台线程中初始化 OCR
         threading.Thread(target=self._init_ocr_in_background, daemon=True).start()
         
-        # 启动状态检查
-        self._check_mining_status()
-        
     def create_widgets(self):
         """创建界面组件"""
         # 主标题
@@ -1159,6 +1156,9 @@ class WujindongriGUI:
             self.loading_status.pack_forget()
         if hasattr(self, 'subtitle_label'):
             self.subtitle_label.pack_forget()
+        
+        # 启动状态检查
+        self._check_mining_status()
     
     def run(self):
         """运行 GUI"""
