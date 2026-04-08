@@ -578,6 +578,13 @@ class WujindongriGUI:
             messagebox.showinfo("提示", "没有可用的游戏窗口")
             return
         
+        # 检查是否有被激活的游戏窗口
+        active_hwnd = self.window_manager.get_active_window()
+        if active_hwnd and active_hwnd in selected_hwnds:
+            self.log(f"✓ 检测到被激活的游戏窗口: {active_hwnd}")
+        else:
+            self.log("警告: 没有被激活的游戏窗口")
+        
         # 重置所有窗口的挖矿标记
         self.mining_manager.reset_all_mined_flags()
         self.log("已重置所有窗口的挖矿标记")
