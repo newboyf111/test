@@ -741,8 +741,19 @@ class SingleWindowMiner:
             return
         time.sleep(random.uniform(1, 2))
 
-        if not self._click("search_meat"):
+        # 搜索 search_meat
+        if not self._find("search_meat"):
             self.logger.warning("未找到 search_meat")
+            self.resource_index = (self.resource_index + 1) % len(self.resource_order)
+            return
+        self.logger.info("找到 search_meat，开始 search_meat 流程")
+        if self._user_stopped:
+            self.logger.info("用户手动停止，退出挖矿流程")
+            return
+        time.sleep(random.uniform(1, 2))
+
+        if not self._click("search_meat"):
+            self.logger.warning("点击 search_meat 失败")
             self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
         self.logger.info("点击 search_meat 成功")
@@ -956,8 +967,7 @@ class SingleWindowMiner:
         Returns:
             bool: 是否成功
         """
-        # 先查找图片
-        success, pos = self._find(image_key)
+        success, pos = self._click(image_key)
         if not success or pos is None:
             return False
         
@@ -978,20 +988,10 @@ class SingleWindowMiner:
         
         self.logger.info(f"{image_key} 当前坐标: ({current_x}, {current_y}), 目标坐标: ({target_x}, {target_y})")
         
-        # 检查坐标是否在容差范围内
         if (abs(current_x - target_x) <= tolerance and 
             abs(current_y - target_y) <= tolerance):
-            self.logger.info(f"{image_key} 坐标在容差范围内，点击 add 触发后续流程")
-            # 坐标在容差范围内，也需要点击一下
-            success, pos = self._click(image_key)
-            if not success or pos is None:
-                return False
+            self.logger.info(f"{image_key} 坐标在容差范围内，继续流程")
             return True
-        
-        # 坐标不在容差范围内，需要点击并拖动
-        success, pos = self._click(image_key)
-        if not success or pos is None:
-            return False
         
         dx = target_x - current_x
         dy = target_y - current_y
