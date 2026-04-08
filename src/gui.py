@@ -926,16 +926,37 @@ class WujindongriGUI:
             self.snowfield_league = SnowfieldWeaponLeague(hwnd=hwnd)
             self.log(f"✓ 雪域兵器联赛模块初始化成功")
             
-            # 运行雪域联赛流程
+            # 运行雪域联赛流程(异步,不阻塞GUI)
             self.log(f"开始执行雪域兵器联赛完整流程...")
-            success = self.snowfield_league.run_full_cycle()
             
-            if success:
-                self.log(f"✓ 雪域兵器联赛流程执行完成")
-            else:
-                self.log(f"✗ 雪域兵器联赛流程执行失败")
+            def on_league_complete(success):
+                """流程完成后的回调"""
+                if success:
+                    self.log(f"✓ 雪域兵器联赛流程执行完成")
+                else:
+                    self.log(f"✗ 雪域兵器联赛流程执行失败")
+                
+                # 恢复之前暂停的系统
+                if is_mining:
+                    self.log(f"恢复挖矿系统...")
+                    self.mining_manager.start_mining_queue()
+                
+                if is_protective:
+                    self.log(f"恢复外壳保护系统...")
+                    self.protective_casing.start_protection()
+                
+                if is_recording:
+                    self.log(f"恢复录制系统...")
+                    self.toggle_recording()
             
-            # 恢复之前暂停的系统
+            self.snowfield_league.run_full_cycle_async(callback=on_league_complete)
+            
+        except Exception as e:
+            self.log(f"✗ 雪域兵器联赛初始化失败: {e}")
+            import traceback
+            self.log(f"详细错误: {traceback.format_exc()}")
+            
+            # 初始化失败,恢复之前暂停的系统
             if is_mining:
                 self.log(f"恢复挖矿系统...")
                 self.mining_manager.start_mining_queue()
@@ -947,11 +968,6 @@ class WujindongriGUI:
             if is_recording:
                 self.log(f"恢复录制系统...")
                 self.toggle_recording()
-            
-        except Exception as e:
-            self.log(f"✗ 雪域兵器联赛初始化失败: {e}")
-            import traceback
-            self.log(f"详细错误: {traceback.format_exc()}")
     
     def draw_frame(self):
         """画框功能：让用户在激活的窗口中框选区域，并显示相对位置"""

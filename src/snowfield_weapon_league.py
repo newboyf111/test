@@ -9,6 +9,7 @@ import random
 import logging
 import json
 import os
+import threading
 from typing import Optional, Dict, Any, Tuple
 
 from src.utils.adaptive_matcher import AdaptiveMatcher
@@ -305,8 +306,30 @@ class SnowfieldWeaponLeague:
         
         return False
     
-    def run_full_cycle(self) -> bool:
-        """运行完整流程"""
+    def run_full_cycle_async(self, callback=None):
+        """异步运行完整流程(在后台线程中执行)
+        
+        Args:
+            callback: 可选的回调函数,接收一个布尔参数表示成功与否
+        """
+        def run():
+            try:
+                success = self._run_full_cycle_internal()
+                if callback:
+                    callback(success)
+            except Exception as e:
+                self.logger.error(f"异步执行失败: {e}")
+                import traceback
+                self.logger.error(f"详细错误: {traceback.format_exc()}")
+                if callback:
+                    callback(False)
+        
+        thread = threading.Thread(target=run, daemon=True)
+        thread.start()
+        return thread
+    
+    def _run_full_cycle_internal(self) -> bool:
+        """内部运行完整流程(不阻塞)"""
         self.logger.info("开始雪域兵器联赛完整流程...")
         
         # 领取奖励
@@ -331,3 +354,7 @@ class SnowfieldWeaponLeague:
         
         self.logger.info("雪域兵器联赛完整流程完成")
         return True
+    
+    def run_full_cycle(self) -> bool:
+        """运行完整流程(同步版本,不推荐用于GUI)"""
+        return self._run_full_cycle_internal()
