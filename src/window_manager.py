@@ -10,6 +10,7 @@ import win32process
 import win32api
 import psutil
 import time
+import logging
 
 from src.utils.window_utils import set_dpi_aware
 
@@ -23,6 +24,7 @@ class WindowManager:
     def __init__(self):
         """初始化窗口管理器"""
         self.window_list = []
+        self.logger = logging.getLogger(__name__)
 
     def get_window_list(self):
         """获取所有可见窗口列表"""
@@ -53,23 +55,23 @@ class WindowManager:
         直接使用 Windows API 调整窗口大小
         """
         try:
-            print(f"[resize_window] 开始调整窗口 (hwnd={hwnd})")
-            print(f"[resize_window] 目标窗口尺寸: {client_width}x{client_height}")
+            self.logger.debug(f"[resize_window] 开始调整窗口 (hwnd={hwnd})")
+            self.logger.debug(f"[resize_window] 目标窗口尺寸: {client_width}x{client_height}")
 
             if not win32gui.IsWindow(hwnd):
-                print(f"[resize_window] 调整窗口尺寸失败: 窗口句柄无效")
+                self.logger.error(f"[resize_window] 调整窗口尺寸失败: 窗口句柄无效")
                 return False
 
             # 激活并恢复窗口
-            print(f"[resize_window] 激活并恢复窗口")
+            self.logger.debug(f"[resize_window] 激活并恢复窗口")
             show_result = win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
-            print(f"[resize_window] ShowWindow 返回: {show_result}")
+            self.logger.debug(f"[resize_window] ShowWindow 返回: {show_result}")
             
             try:
                 fg_result = win32gui.SetForegroundWindow(hwnd)
-                print(f"[resize_window] SetForegroundWindow 返回: {fg_result}")
+                self.logger.debug(f"[resize_window] SetForegroundWindow 返回: {fg_result}")
             except Exception as fg_e:
-                print(f"[resize_window] SetForegroundWindow 失败: {fg_e}")
+                self.logger.warning(f"[resize_window] SetForegroundWindow 失败: {fg_e}")
             
             time.sleep(0.2)
 
@@ -77,24 +79,24 @@ class WindowManager:
             left, top, right, bottom = win32gui.GetWindowRect(hwnd)
             current_width = right - left
             current_height = bottom - top
-            print(f"[resize_window] 当前窗口尺寸: {current_width}x{current_height}")
-            print(f"[resize_window] 窗口位置: ({left}, {top}, {right}, {bottom})")
+            self.logger.debug(f"[resize_window] 当前窗口尺寸: {current_width}x{current_height}")
+            self.logger.debug(f"[resize_window] 窗口位置: ({left}, {top}, {right}, {bottom})")
 
             # 如果尺寸已匹配，无需调整
             if current_width == client_width and current_height == client_height:
-                print(f"[resize_window] 窗口尺寸已匹配，无需调整")
+                self.logger.info(f"[resize_window] 窗口尺寸已匹配，无需调整")
                 return True
 
             # 检查 win32con 常量值
-            print(f"[resize_window] SWP_NOMOVE: {win32con.SWP_NOMOVE}")
-            print(f"[resize_window] SWP_NOZORDER: {win32con.SWP_NOZORDER}")
-            print(f"[resize_window] SWP_FRAMECHANGED: {win32con.SWP_FRAMECHANGED}")
+            self.logger.debug(f"[resize_window] SWP_NOMOVE: {win32con.SWP_NOMOVE}")
+            self.logger.debug(f"[resize_window] SWP_NOZORDER: {win32con.SWP_NOZORDER}")
+            self.logger.debug(f"[resize_window] SWP_FRAMECHANGED: {win32con.SWP_FRAMECHANGED}")
             flags = win32con.SWP_NOMOVE | win32con.SWP_NOZORDER | win32con.SWP_FRAMECHANGED
-            print(f"[resize_window] 组合标志: {flags}")
+            self.logger.debug(f"[resize_window] 组合标志: {flags}")
 
             # 使用 SetWindowPos 直接设置窗口尺寸
-            print(f"[resize_window] 调用 SetWindowPos")
-            print(f"[resize_window] 参数: hwnd={hwnd}, hWndInsertAfter=0, x=0, y=0, cx={client_width}, cy={client_height}, uFlags={flags}")
+            self.logger.debug(f"[resize_window] 调用 SetWindowPos")
+            self.logger.debug(f"[resize_window] 参数: hwnd={hwnd}, hWndInsertAfter=0, x=0, y=0, cx={client_width}, cy={client_height}, uFlags={flags}")
             
             # 尝试不同的 SetWindowPos 调用方式
             try:
@@ -106,16 +108,16 @@ class WindowManager:
                     client_width, client_height,
                     flags
                 )
-                print(f"[resize_window] SetWindowPos 返回: {result}")
-                print(f"[resize_window] SetWindowPos 返回类型: {type(result)}")
+                self.logger.debug(f"[resize_window] SetWindowPos 返回: {result}")
+                self.logger.debug(f"[resize_window] SetWindowPos 返回类型: {type(result)}")
                 
                 # 注意：SetWindowPos 在某些情况下可能返回 None，但窗口调整仍然成功
                 # 所以我们不依赖返回值，而是通过后续的尺寸验证来判断
                 
             except Exception as swp_e:
-                print(f"[resize_window] SetWindowPos 异常: {swp_e}")
+                self.logger.error(f"[resize_window] SetWindowPos 异常: {swp_e}")
                 import traceback
-                traceback.print_exc()
+                self.logger.error(traceback.format_exc())
                 # 即使出现异常，也继续尝试验证尺寸
             
             time.sleep(0.3)
@@ -125,23 +127,23 @@ class WindowManager:
                 left2, top2, right2, bottom2 = win32gui.GetWindowRect(hwnd)
                 new_width = right2 - left2
                 new_height = bottom2 - top2
-                print(f"[resize_window] 调整后窗口尺寸: {new_width}x{new_height}")
-                print(f"[resize_window] 调整后窗口位置: ({left2}, {top2}, {right2}, {bottom2})")
+                self.logger.debug(f"[resize_window] 调整后窗口尺寸: {new_width}x{new_height}")
+                self.logger.debug(f"[resize_window] 调整后窗口位置: ({left2}, {top2}, {right2}, {bottom2})")
             except Exception as rect_e:
-                print(f"[resize_window] GetWindowRect 异常: {rect_e}")
+                self.logger.warning(f"[resize_window] GetWindowRect 异常: {rect_e}")
                 new_width, new_height = 0, 0
 
             if new_width == client_width and new_height == client_height:
-                print(f"[resize_window] 成功!")
+                self.logger.info(f"[resize_window] 成功!")
                 return True
 
-            print(f"[resize_window] 失败: 期望 {client_width}x{client_height}, 实际 {new_width}x{new_height}")
+            self.logger.warning(f"[resize_window] 失败: 期望 {client_width}x{client_height}, 实际 {new_width}x{new_height}")
             return False
 
         except Exception as e:
-            print(f"[resize_window] 调整窗口尺寸失败: {e}")
+            self.logger.error(f"[resize_window] 调整窗口尺寸失败: {e}")
             import traceback
-            traceback.print_exc()
+            self.logger.error(traceback.format_exc())
             return False
 
     def resize_window_by_script(self, hwnd, client_width, client_height):
@@ -152,7 +154,7 @@ class WindowManager:
         """激活窗口（保持置顶）"""
         try:
             if not win32gui.IsWindow(hwnd):
-                print(f"激活窗口失败: 窗口句柄无效")
+                self.logger.error(f"激活窗口失败: 窗口句柄无效")
                 return False
 
             win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
@@ -163,11 +165,11 @@ class WindowManager:
                 0, 0, 0, 0,
                 win32con.SWP_NOMOVE | win32con.SWP_NOSIZE | win32con.SWP_SHOWWINDOW
             )
-            print(f"使用 SetWindowPos 方法激活窗口成功（保持置顶）")
+            self.logger.info(f"使用 SetWindowPos 方法激活窗口成功（保持置顶）")
             return True
 
         except Exception as e:
-            print(f"激活窗口失败: {e}")
+            self.logger.error(f"激活窗口失败: {e}")
             return False
 
     def get_process_name(self, hwnd):
@@ -177,7 +179,7 @@ class WindowManager:
             process = psutil.Process(process_id)
             return process.name()
         except Exception as e:
-            print(f"获取进程名失败: {e}")
+            self.logger.warning(f"获取进程名失败: {e}")
             return "未知进程"
 
     def get_process_id(self, hwnd):
@@ -186,7 +188,7 @@ class WindowManager:
             _, process_id = win32process.GetWindowThreadProcessId(hwnd)
             return process_id
         except Exception as e:
-            print(f"获取进程ID失败: {e}")
+            self.logger.warning(f"获取进程ID失败: {e}")
             return None
 
     def find_window_by_title(self, title):
@@ -208,6 +210,13 @@ class WindowManager:
 
         win32gui.EnumWindows(callback, None)
         return activated_titles
+    
+    def get_active_window(self) -> Optional[int]:
+        """获取当前被激活的窗口句柄"""
+        try:
+            return win32gui.GetForegroundWindow()
+        except Exception:
+            return None
 
     def get_window_info(self, hwnd):
         """获取窗口详细信息（用于调试）"""
@@ -242,27 +251,31 @@ class WindowManager:
 # ─────────────────────────────────────────────
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
     wm = WindowManager()
     wm.get_window_list()
-    print("可用窗口:")
+    wm.logger.info("可用窗口:")
     for hwnd, title in wm.window_list:
-        print(f"  {hwnd}: {title}")
+        wm.logger.info(f"  {hwnd}: {title}")
 
     test_title = "MuMu"
     hwnd = wm.find_window_by_title(test_title)
 
     if hwnd:
-        print(f"\n窗口信息: {test_title} (hwnd={hwnd})")
+        wm.logger.info(f"窗口信息: {test_title} (hwnd={hwnd})")
         info = wm.get_window_info(hwnd)
-        print(f"  窗口尺寸: {info['window_rect']['width']}x{info['window_rect']['height']}")
-        print(f"  客户区尺寸: {info['client_rect']['width']}x{info['client_rect']['height']}")
+        wm.logger.info(f"  窗口尺寸: {info['window_rect']['width']}x{info['window_rect']['height']}")
+        wm.logger.info(f"  客户区尺寸: {info['client_rect']['width']}x{info['client_rect']['height']}")
 
-        print(f"\n调整窗口尺寸为 558x1021...")
+        wm.logger.info(f"调整窗口尺寸为 558x1021...")
         wm.resize_window(hwnd, 558, 1021)
 
-        print("\n调整后:")
+        wm.logger.info("调整后:")
         info = wm.get_window_info(hwnd)
-        print(f"  窗口尺寸: {info['window_rect']['width']}x{info['window_rect']['height']}")
-        print(f"  客户区尺寸: {info['client_rect']['width']}x{info['client_rect']['height']}")
+        wm.logger.info(f"  窗口尺寸: {info['window_rect']['width']}x{info['window_rect']['height']}")
+        wm.logger.info(f"  客户区尺寸: {info['client_rect']['width']}x{info['client_rect']['height']}")
     else:
-        print(f"\n未找到窗口: {test_title}")
+        wm.logger.warning(f"未找到窗口: {test_title}")
