@@ -156,15 +156,15 @@ class SnowfieldWeaponLeague:
                     time.sleep(random.uniform(1, 2))
                     return True
             else:
-                self.logger.info("未找到snowfield,尝试点击back/back1/close...")
+                self.logger.info("未找到snowfield,尝试点击back/back1/back2/close...")
                 
-                clicked = self._click_any_of(["back", "back1", "close"])
+                clicked = self._click_any_of(["back", "back1", "back2", "close"])
                 if clicked:
                     self.logger.info(f"✓ 成功点击{clicked}")
                     time.sleep(random.uniform(1, 2))
                     continue
                 else:
-                    self.logger.warning(f"未找到back/back1/close,继续等待...")
+                    self.logger.warning(f"未找到back/back1/back2/close,继续等待...")
                     time.sleep(random.uniform(1, 2))
         
         self.logger.warning("尝试次数过多,点击snowfield失败")
