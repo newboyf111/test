@@ -124,6 +124,8 @@ class SnowfieldWeaponLeague:
             if result is not None:
                 x, y = result
                 self.logger.info(f"点击 {name}: ({x}, {y})")
+                import pyautogui
+                pyautogui.click(x, y)
                 return True
             return False
         except Exception as e:
