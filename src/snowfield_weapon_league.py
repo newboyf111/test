@@ -273,6 +273,11 @@ class SnowfieldWeaponLeague:
                     import pyautogui
                     pyautogui.click(screen_x, screen_y)
                 return True
+        except Exception as e:
+            self.logger.warning(f"检测每日任务红点失败: {e}")
+            import traceback
+            self.logger.warning(f"详细错误: {traceback.format_exc()}")
+            return False
     
     def _click_red_dot_in_reward_region(self) -> bool:
         """在领奖区域检测并点击红点"""
@@ -319,10 +324,16 @@ class SnowfieldWeaponLeague:
             
             self.logger.info(f"✓ 检测到 {len(red_dot_positions)} 个红点")
             
+            window_pos = self._get_window_position()
             for i, (click_x, click_y) in enumerate(red_dot_positions):
-                self.logger.info(f"点击第 {i+1} 个红点: 窗口内({click_x}, {click_y})")
-                import pyautogui
-                pyautogui.click(click_x, click_y)
+                if window_pos is not None:
+                    screen_x = window_pos[0] + click_x
+                    screen_y = window_pos[1] + click_y
+                    self.logger.info(f"点击第 {i+1} 个红点: 窗口内({click_x}, {click_y}), 屏幕({screen_x}, {screen_y})")
+                    import pyautogui
+                    pyautogui.click(screen_x, screen_y)
+                else:
+                    self.logger.warning(f"无法获取窗口位置,点击第 {i+1} 个红点失败")
                 if i < len(red_dot_positions) - 1:
                     time.sleep(0.5)
             
