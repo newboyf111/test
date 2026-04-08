@@ -1085,11 +1085,20 @@ class WujindongriGUI:
         # 进度条
         self.loading_progress = ttk.Progressbar(
             loading_frame,
-            mode='indeterminate',
+            mode='determinate',
+            maximum=100,
             length=300
         )
         self.loading_progress.pack(pady=20)
-        self.loading_progress.start(10)
+        self.loading_progress['value'] = 0
+        
+        # 进度文本标签
+        self.loading_text_label = ttk.Label(
+            loading_frame,
+            text="0%",
+            font=("Microsoft YaHei", 9)
+        )
+        self.loading_text_label.pack(pady=5)
         
         # 状态标签
         self.loading_status = ttk.Label(
@@ -1126,11 +1135,24 @@ class WujindongriGUI:
         except Exception as e:
             self.root.after(0, self._on_ocr_loaded)
     
+    def update_loading_progress(self, value, text):
+        """更新加载进度
+        
+        Args:
+            value: 进度值 (0-100)
+            text: 进度文本
+        """
+        if hasattr(self, 'loading_progress'):
+            self.loading_progress['value'] = value
+        if hasattr(self, 'loading_text_label'):
+            self.loading_text_label.config(text=f"{value}%")
+        if hasattr(self, 'loading_status'):
+            self.loading_status.config(text=text)
+    
     def _on_ocr_loaded(self):
         """OCR 加载完成后的回调"""
-        # 停止进度条
-        if hasattr(self, 'loading_progress'):
-            self.loading_progress.stop()
+        # 更新进度为 100%
+        self.update_loading_progress(100, "OCR 加载完成")
         
         # 更新状态
         if hasattr(self, 'loading_status'):
@@ -1152,6 +1174,8 @@ class WujindongriGUI:
         # 隐藏加载进度条和标题
         if hasattr(self, 'loading_progress'):
             self.loading_progress.pack_forget()
+        if hasattr(self, 'loading_text_label'):
+            self.loading_text_label.pack_forget()
         if hasattr(self, 'loading_status'):
             self.loading_status.pack_forget()
         if hasattr(self, 'subtitle_label'):
