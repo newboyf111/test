@@ -79,6 +79,17 @@ class SnowfieldWeaponLeague:
             self.logger.warning(f"获取窗口尺寸失败: {e}")
         return None
     
+    def _get_window_position(self) -> Optional[tuple]:
+        """获取窗口屏幕位置"""
+        try:
+            import win32gui
+            rect = win32gui.GetWindowRect(self.hwnd)
+            if rect:
+                return (rect[0], rect[1])
+        except Exception as e:
+            self.logger.warning(f"获取窗口位置失败: {e}")
+        return None
+    
     def _screenshot(self) -> Optional[Any]:
         """截取窗口截图"""
         try:
@@ -124,9 +135,16 @@ class SnowfieldWeaponLeague:
             result = self._find(name, confidence)
             if result is not None:
                 x, y = result
-                self.logger.info(f"点击 {name}: ({x}, {y})")
-                import pyautogui
-                pyautogui.click(x, y)
+                window_pos = self._get_window_position()
+                if window_pos is not None:
+                    screen_x = window_pos[0] + int(x)
+                    screen_y = window_pos[1] + int(y)
+                    self.logger.info(f"点击 {name}: 窗口内({x}, {y}), 屏幕({screen_x}, {screen_y})")
+                    import pyautogui
+                    pyautogui.click(screen_x, screen_y)
+                else:
+                    self.logger.warning(f"无法获取窗口位置,点击失败")
+                    return False
                 return True
             return False
         except Exception as e:
@@ -232,7 +250,13 @@ class SnowfieldWeaponLeague:
                 self.logger.warning(f"红点图片不存在: {red_dot_path}")
                 center_x = int(x1 + width / 2)
                 center_y = int(y1 + height / 2)
-                self.logger.info(f"未找到红点图片,点击区域中心: ({center_x}, {center_y})")
+                window_pos = self._get_window_position()
+                if window_pos is not None:
+                    screen_x = window_pos[0] + center_x
+                    screen_y = window_pos[1] + center_y
+                    self.logger.info(f"未找到红点图片,点击区域中心: 窗口内({center_x}, {center_y}), 屏幕({screen_x}, {screen_y})")
+                    import pyautogui
+                    pyautogui.click(screen_x, screen_y)
                 return True
             
             region_win_w = abs_width
@@ -243,7 +267,13 @@ class SnowfieldWeaponLeague:
                 dx, dy = result.get("location", (0, 0))
                 click_x = abs_x + int(dx)
                 click_y = abs_y + int(dy)
-                self.logger.info(f"✓ 检测到红点,点击位置: ({click_x}, {click_y})")
+                window_pos = self._get_window_position()
+                if window_pos is not None:
+                    screen_x = window_pos[0] + click_x
+                    screen_y = window_pos[1] + click_y
+                    self.logger.info(f"✓ 检测到红点,点击位置: 窗口内({click_x}, {click_y}), 屏幕({screen_x}, {screen_y})")
+                    import pyautogui
+                    pyautogui.click(screen_x, screen_y)
                 return True
             else:
                 self.logger.info("未检测到红点,结束流程")
