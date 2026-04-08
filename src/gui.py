@@ -49,16 +49,13 @@ class WujindongriGUI:
         self.countdown_running = False
         self.active_windows_label = None
         self.window_listbox_hwnd_map = {}  # 列表框索引到 hwnd 的映射
+        self.ocr_loaded = False  # OCR 是否加载完成
         
-        # 创建界面
-        self.create_widgets()
+        # 创建启动进度条界面
+        self._create_loading_screen()
         
-        # 初始化记录模块的窗口列表框
-        self.recording_module.set_window_listbox(self.window_listbox)
-        
-        # 初始化绿色标签显示
-        if self.active_windows_label:
-            self._update_active_windows_label([])
+        # 在后台线程中初始化 OCR
+        threading.Thread(target=self._init_ocr_in_background, daemon=True).start()
         
         # 启动状态检查
         self._check_mining_status()
@@ -66,12 +63,12 @@ class WujindongriGUI:
     def create_widgets(self):
         """创建界面组件"""
         # 主标题
-        title_label = ttk.Label(
+        self.title_label = ttk.Label(
             self.root, 
             text="无尽冬日挂机系统", 
             font=("Microsoft YaHei", 16, "bold")
         )
-        title_label.pack(pady=20)
+        self.title_label.pack(pady=20)
         
         # 窗口选择区域
         window_frame = ttk.LabelFrame(self.root, text="窗口管理", padding=10)
@@ -1045,6 +1042,123 @@ class WujindongriGUI:
         for title in titles:
             self.active_windows_label.insert("end", f"• {title}\n", "green")
         self.active_windows_label.config(state="disabled")
+    
+    def _pre_init_ocr(self):
+        """提前初始化OCR（在GUI启动时）"""
+        self.log("正在提前初始化OCR...")
+        try:
+            import warnings
+            warnings.filterwarnings("ignore", message="'pin_memory' argument is set as true but no accelerator is found")
+            warnings.filterwarnings("ignore", message="Neither CUDA nor MPS are available - defaulting to CPU")
+            
+            import easyocr
+            ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False)
+            self.log("✓ OCR 提前初始化完成")
+        except ImportError:
+            self.log("⚠ easyocr 未安装，跳过 OCR 初始化")
+        except Exception as e:
+            self.log(f"⚠ OCR 初始化失败: {e}")
+    
+    def _create_loading_screen(self):
+        """创建启动进度条界面"""
+        # 清空根窗口
+        for widget in self.root.winfo_children():
+            widget.destroy()
+        
+        # 创建加载界面框架
+        loading_frame = ttk.Frame(self.root)
+        loading_frame.pack(expand=True)
+        
+        # 标题
+        self.title_label = ttk.Label(
+            loading_frame,
+            text="无尽冬日挂机系统",
+            font=("Microsoft YaHei", 16, "bold")
+        )
+        self.title_label.pack(pady=20)
+        
+        # 副标题
+        self.subtitle_label = ttk.Label(
+            loading_frame,
+            text="正在初始化...",
+            font=("Microsoft YaHei", 10)
+        )
+        self.subtitle_label.pack(pady=10)
+        
+        # 进度条
+        self.loading_progress = ttk.Progressbar(
+            loading_frame,
+            mode='indeterminate',
+            length=300
+        )
+        self.loading_progress.pack(pady=20)
+        self.loading_progress.start(10)
+        
+        # 状态标签
+        self.loading_status = ttk.Label(
+            loading_frame,
+            text="正在加载 OCR 模型...",
+            font=("Microsoft YaHei", 9)
+        )
+        self.loading_status.pack(pady=10)
+        
+        # 窗口居中
+        self.root.update_idletasks()
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        window_width = 800
+        window_height = 1100
+        x = (screen_width - window_width) // 2
+        y = (screen_height - window_height) // 2
+        self.root.geometry(f"{window_width}x{window_height}+{x}+{y}")
+    
+    def _init_ocr_in_background(self):
+        """后台初始化 OCR"""
+        try:
+            import warnings
+            warnings.filterwarnings("ignore", message="'pin_memory' argument is set as true but no accelerator is found")
+            warnings.filterwarnings("ignore", message="Neither CUDA nor MPS are available - defaulting to CPU")
+            
+            import easyocr
+            ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False)
+            
+            # OCR 加载完成，更新界面
+            self.root.after(0, self._on_ocr_loaded)
+        except ImportError:
+            self.root.after(0, self._on_ocr_loaded)
+        except Exception as e:
+            self.root.after(0, self._on_ocr_loaded)
+    
+    def _on_ocr_loaded(self):
+        """OCR 加载完成后的回调"""
+        # 停止进度条
+        if hasattr(self, 'loading_progress'):
+            self.loading_progress.stop()
+        
+        # 更新状态
+        if hasattr(self, 'loading_status'):
+            self.loading_status.config(text="初始化完成，正在加载主界面...")
+        
+        # 创建主界面
+        self.create_widgets()
+        
+        # 初始化记录模块的窗口列表框
+        self.recording_module.set_window_listbox(self.window_listbox)
+        
+        # 初始化绿色标签显示
+        if self.active_windows_label:
+            self._update_active_windows_label([])
+        
+        # 标记 OCR 已加载
+        self.ocr_loaded = True
+        
+        # 隐藏加载进度条
+        if hasattr(self, 'loading_progress'):
+            self.loading_progress.pack_forget()
+        if hasattr(self, 'loading_status'):
+            self.loading_status.pack_forget()
+        if hasattr(self, 'subtitle_label'):
+            self.subtitle_label.pack_forget()
     
     def run(self):
         """运行 GUI"""
