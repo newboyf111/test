@@ -1149,13 +1149,16 @@ class WujindongriGUI:
         # 标记 OCR 已加载
         self.ocr_loaded = True
         
-        # 隐藏加载进度条
+        # 隐藏加载进度条和标题
         if hasattr(self, 'loading_progress'):
             self.loading_progress.pack_forget()
         if hasattr(self, 'loading_status'):
             self.loading_status.pack_forget()
         if hasattr(self, 'subtitle_label'):
             self.subtitle_label.pack_forget()
+        if hasattr(self, 'title_label') and self.title_label.cget("text") == "无尽冬日挂机系统":
+            # 这是加载界面的标题，需要隐藏
+            self.title_label.pack_forget()
         
         # 启动状态检查
         self._check_mining_status()
