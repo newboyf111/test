@@ -243,10 +243,8 @@ class SnowfieldWeaponLeague:
                 self.logger.info(f"✓ 检测到红点,点击位置: ({click_x}, {click_y})")
                 return True
             else:
-                center_x = int(x1 + width / 2)
-                center_y = int(y1 + height / 2)
-                self.logger.info(f"未检测到红点,点击区域中心: ({center_x}, {center_y})")
-                return True
+                self.logger.info("未检测到红点,结束流程")
+                return False
         except Exception as e:
             self.logger.warning(f"检测红点失败: {e}")
             import traceback
