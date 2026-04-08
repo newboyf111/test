@@ -46,7 +46,7 @@ def build_exe():
     
     # 创建构建命令
     main_script = project_root / "run.py"
-    exe_name = "无尽冬日_自动挖矿_雪域兵器联赛"
+    exe_name = "无尽冬日"
     
     # PyInstaller命令
     cmd = [
