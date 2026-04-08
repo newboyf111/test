@@ -192,14 +192,16 @@ class SnowfieldWeaponLeague:
             snowfield_result = self._find("snowfield")
             
             if snowfield_result is not None:
+                self.logger.info("✓ 检测到snowfield,不点击,先检测入口区域红点...")
+                
+                if not self._check_red_dot_in_entry_region():
+                    self.logger.warning("入口区域红点检测失败")
+                    return False
+                
+                self.logger.info("✓ 入口区域红点检测通过,点击snowfield...")
                 if self._click("snowfield"):
                     self.logger.info("✓ 成功点击snowfield")
                     time.sleep(random.uniform(1, 2))
-                    
-                    if not self._check_red_dot_in_entry_region():
-                        self.logger.warning("入口区域红点检测失败")
-                        return False
-                    
                     return True
             else:
                 self.logger.info("未找到snowfield,尝试点击back/back1/back2/close...")
