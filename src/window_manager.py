@@ -11,7 +11,7 @@ import win32api
 import psutil
 import time
 import logging
-from typing import List, Tuple, Optional, Dict
+from typing import List, Tuple, Optional, Dict, Any
 
 from src.utils.window_utils import set_dpi_aware
 
@@ -29,16 +29,21 @@ class WindowManager:
     
     def get_window_list(self) -> List[Tuple[int, str]]:
         """获取所有可见窗口列表"""
-        self.window_list = []
+        self.window_list = self._get_visible_windows()
+        return self.window_list
+    
+    def _get_visible_windows(self) -> List[Tuple[int, str]]:
+        """获取所有可见窗口（内部方法）"""
+        windows = []
         
         def callback(hwnd: int, extra: None) -> None:
             if win32gui.IsWindowVisible(hwnd):
                 title = win32gui.GetWindowText(hwnd)
                 if title:
-                    self.window_list.append((hwnd, title))
+                    windows.append((hwnd, title))
         
         win32gui.EnumWindows(callback, None)
-        return self.window_list
+        return windows
     
     def get_window_title(self, hwnd: int) -> str:
         """获取窗口标题"""
@@ -49,11 +54,19 @@ class WindowManager:
         left, top, right, bottom = win32gui.GetClientRect(hwnd)
         return right - left, bottom - top
 
-    def resize_window(self, hwnd, client_width, client_height):
+    def resize_window(self, hwnd: int, client_width: int, client_height: int) -> bool:
         """
         调整窗口尺寸为指定大小（直接设置窗口尺寸，不是客户区）
         
         直接使用 Windows API 调整窗口大小
+        
+        Args:
+            hwnd: 窗口句柄
+            client_width: 目标窗口宽度
+            client_height: 目标窗口高度
+            
+        Returns:
+            是否调整成功
         """
         try:
             self.logger.debug(f"[resize_window] 开始调整窗口 (hwnd={hwnd})")
@@ -147,10 +160,6 @@ class WindowManager:
             self.logger.error(traceback.format_exc())
             return False
 
-    def resize_window_by_script(self, hwnd, client_width, client_height):
-        """调用 resize_window 方法"""
-        return self.resize_window(hwnd, client_width, client_height)
-
     def activate_window(self, hwnd):
         """激活窗口（保持置顶）"""
         try:
@@ -199,22 +208,14 @@ class WindowManager:
                 return hwnd
         return None
 
-    def get_activated_windows(self):
+    def get_activated_windows(self) -> List[str]:
         """获取当前被激活的窗口标题列表"""
-        activated_titles = []
+        windows = self._get_visible_windows()
+        return [title for _, title in windows]
 
-        def callback(hwnd, extra):
-            if win32gui.IsWindowVisible(hwnd):
-                title = win32gui.GetWindowText(hwnd)
-                if title:
-                    activated_titles.append(title)
-
-        win32gui.EnumWindows(callback, None)
-        return activated_titles
-
-    def get_window_info(self, hwnd):
+    def get_window_info(self, hwnd: int) -> Dict[str, Any]:
         """获取窗口详细信息（用于调试）"""
-        info = {}
+        info: Dict[str, Any] = {}
 
         info["title"] = win32gui.GetWindowText(hwnd)
 

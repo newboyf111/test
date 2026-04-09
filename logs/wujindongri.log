@@ -47394,3 +47394,7 @@ AttributeError: 'SingleWindowMiner' object has no attribute '_screenshot'. Did y
 2026-04-08 19:43:29,936 - src.main - INFO - 版本: 1.0.0
 2026-04-08 19:43:33,557 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
 2026-04-08 19:44:39,686 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 09:50:07,393 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 09:50:07,393 - src.main - INFO - 版本: 1.0.0
+2026-04-09 09:50:16,687 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 09:50:56,073 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）

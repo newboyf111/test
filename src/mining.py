@@ -54,22 +54,22 @@ class SingleWindowMiner:
         self.matcher = AdaptiveMatcher(confidence=0.65, logger=self.logger)
 
         self.image_paths = {
-            "town":        get_pic_path("town.png"),
-            "wild":        get_pic_path("wild.png"),
-            "search":      get_pic_path("search.png"),
-            "meat":        get_pic_path("meat.png"),
-            "wood":        get_pic_path("wood.png"),
-            "coal":        get_pic_path("coal mine.png"),
-            "iron":        get_pic_path("iron.png"),
-            "add":         get_pic_path("add.png"),
-            "search_meat": get_pic_path("search_meat.png"),
-            "gather":      get_pic_path("gather.png"),
-            "battle":      get_pic_path("battle.png"),
-            "team":        get_pic_path("team.png"),
-            "close":       get_pic_path("close.png"),
-            "minus":       get_pic_path("minus.png"),
-            "back":        get_pic_path("back.png"),
-            "back1":       get_pic_path("back1.png"),
+            "town":        "town.png",
+            "wild":        "wild.png",
+            "search":      "search.png",
+            "meat":        "meat.png",
+            "wood":        "wood.png",
+            "coal":        "coal mine.png",
+            "iron":        "iron.png",
+            "add":         "add.png",
+            "search_meat": "search_meat.png",
+            "gather":      "gather.png",
+            "battle":      "battle.png",
+            "team":        "team.png",
+            "close":       "close.png",
+            "minus":       "minus.png",
+            "back":        "back.png",
+            "back1":       "back1.png",
         }
 
         self.resource_order = ["meat", "wood", "coal", "iron"]

@@ -39,11 +39,11 @@ class SnowfieldWeaponLeague:
             self.matcher = matcher
         
         self.image_paths = {
-            "snowfield": get_pic_path("snowfield.png"),
-            "back": get_pic_path("back.png"),
-            "back1": get_pic_path("back1.png"),
-            "back2": get_pic_path("back2.png"),
-            "close": get_pic_path("close.png"),
+            "snowfield": "snowfield.png",
+            "back": "back.png",
+            "back1": "back1.png",
+            "back2": "back2.png",
+            "close": "close.png",
         }
         
         self.last_window_size = None

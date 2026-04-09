@@ -391,7 +391,7 @@ class RecordingModule:
             try:
                 with open(record_file, 'r', encoding='utf-8') as f:
                     existing_records = json.load(f)
-            except:
+            except (json.JSONDecodeError, IOError):
                 pass
         
         # 获取当前记录的窗口标题列表
@@ -402,10 +402,29 @@ class RecordingModule:
                     title = win32gui.GetWindowText(hwnd)
                     if title:
                         window_titles.append(title)
-            except:
+            except (win32gui.error, TypeError):
                 pass
         
         current_window = ", ".join(window_titles) if window_titles else "未知"
+        
+        # 验证坐标数据
+        if not self.recorded_coordinates:
+            self.gui.log("保存失败：没有记录到坐标数据")
+            return
+        
+        # 检查坐标数据格式
+        try:
+            for coord in self.recorded_coordinates:
+                if not isinstance(coord, (list, tuple)) or len(coord) != 2:
+                    self.gui.log("保存失败：坐标数据格式错误")
+                    return
+                x, y = coord
+                if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
+                    self.gui.log("保存失败：坐标值类型错误")
+                    return
+        except Exception as e:
+            self.gui.log(f"保存失败：坐标数据验证错误: {e}")
+            return
         
         # 检查是否已存在相同窗口的记录
         found = False

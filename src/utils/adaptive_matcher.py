@@ -11,6 +11,7 @@ import cv2
 import numpy as np
 from typing import Optional, Tuple, Dict
 from pathlib import Path
+from .resource_pool import get_image
 
 
 class AdaptiveMatcher:
@@ -40,10 +41,8 @@ class AdaptiveMatcher:
     def load_template(self, image_path: str) -> Optional[np.ndarray]:
         """加载模板图片（带缓存）"""
         if image_path not in self._template_cache:
-            if not Path(image_path).exists():
-                self.log("warning", f"图片不存在: {image_path}")
-                return None
-            img = cv2.imread(image_path)
+            # 从资源池获取图像
+            img = get_image(image_path)
             if img is None:
                 self.log("warning", f"无法读取图片: {image_path}")
                 return None
