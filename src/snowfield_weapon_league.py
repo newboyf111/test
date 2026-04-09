@@ -18,7 +18,7 @@ import traceback
 from typing import Optional, Dict, Any, Tuple
 
 from src.utils.adaptive_matcher import AdaptiveMatcher
-from src.utils.window_utils import set_dpi_aware, capture_window
+from src.utils.window_utils import set_dpi_aware, capture_window, get_window_size, get_window_rect
 from src.utils.resource_path import get_pic_path
 
 
