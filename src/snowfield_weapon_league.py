@@ -12,6 +12,9 @@ import os
 import threading
 import cv2
 import numpy as np
+import pyautogui
+import win32gui
+import traceback
 from typing import Optional, Dict, Any, Tuple
 
 from src.utils.adaptive_matcher import AdaptiveMatcher
@@ -71,7 +74,6 @@ class SnowfieldWeaponLeague:
     def _get_window_size(self) -> Optional[tuple]:
         """获取窗口尺寸"""
         try:
-            import win32gui
             rect = win32gui.GetWindowRect(self.hwnd)
             if rect:
                 width = rect[2] - rect[0]
@@ -84,7 +86,6 @@ class SnowfieldWeaponLeague:
     def _get_window_position(self) -> Optional[tuple]:
         """获取窗口屏幕位置"""
         try:
-            import win32gui
             rect = win32gui.GetWindowRect(self.hwnd)
             if rect:
                 return (rect[0], rect[1])
@@ -142,7 +143,6 @@ class SnowfieldWeaponLeague:
                     screen_x = window_pos[0] + int(x)
                     screen_y = window_pos[1] + int(y)
                     self.logger.info(f"点击 {name}: 窗口内({x}, {y}), 屏幕({screen_x}, {screen_y})")
-                    import pyautogui
                     pyautogui.click(screen_x, screen_y)
                 else:
                     self.logger.warning(f"无法获取窗口位置,点击失败")
@@ -267,7 +267,6 @@ class SnowfieldWeaponLeague:
                     screen_x = window_pos[0] + click_x
                     screen_y = window_pos[1] + click_y
                     self.logger.info(f"✓ 检测到红点,点击区域中心: 窗口内({click_x}, {click_y}), 屏幕({screen_x}, {screen_y})")
-                    import pyautogui
                     pyautogui.click(screen_x, screen_y)
                 return True
             else:
@@ -277,12 +276,10 @@ class SnowfieldWeaponLeague:
                     screen_x = window_pos[0] + center_x
                     screen_y = window_pos[1] + center_y
                     self.logger.info(f"点击区域中心: 窗口内({center_x}, {center_y}), 屏幕({screen_x}, {screen_y})")
-                    import pyautogui
                     pyautogui.click(screen_x, screen_y)
                 return True
         except Exception as e:
             self.logger.warning(f"检测每日任务红点失败: {e}")
-            import traceback
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
     
@@ -336,7 +333,6 @@ class SnowfieldWeaponLeague:
                 return False
         except Exception as e:
             self.logger.warning(f"检测入口区域红点失败: {e}")
-            import traceback
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
     
@@ -391,7 +387,6 @@ class SnowfieldWeaponLeague:
                     screen_x = window_pos[0] + click_x
                     screen_y = window_pos[1] + click_y
                     self.logger.info(f"点击第 {i+1} 个红点: 窗口内({click_x}, {click_y}), 屏幕({screen_x}, {screen_y})")
-                    import pyautogui
                     pyautogui.click(screen_x, screen_y)
                 else:
                     self.logger.warning(f"无法获取窗口位置,点击第 {i+1} 个红点失败")
@@ -411,14 +406,12 @@ class SnowfieldWeaponLeague:
             return True
         except Exception as e:
             self.logger.warning(f"检测领奖区域红点失败: {e}")
-            import traceback
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
     
     def _swipe_up_from_center(self):
         """从窗口中心向上滑动100像素"""
         try:
-            import pyautogui
             window_pos = self._get_window_position()
             window_size = self._get_window_size()
             
@@ -442,7 +435,6 @@ class SnowfieldWeaponLeague:
             self.logger.info("✓ 滑动完成")
         except Exception as e:
             self.logger.warning(f"滑动操作失败: {e}")
-            import traceback
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
     
     def _find_all_red_dots(self, region_screenshot: np.ndarray, offset_x: int, offset_y: int) -> list:
@@ -514,7 +506,6 @@ class SnowfieldWeaponLeague:
                     callback(success)
             except Exception as e:
                 self.logger.error(f"异步执行失败: {e}")
-                import traceback
                 self.logger.error(f"详细错误: {traceback.format_exc()}")
                 if callback:
                     callback(False)
@@ -533,7 +524,6 @@ class SnowfieldWeaponLeague:
             是否检测到红点
         """
         try:
-            import numpy as np
             if region_screenshot is None or len(region_screenshot.shape) < 3:
                 return False
             

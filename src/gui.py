@@ -869,6 +869,47 @@ class WujindongriGUI:
                 self._update_active_windows_label([])
             self.root.destroy()
     
+    def _pause_other_systems(self):
+        """暂停其他正在运行的系统，返回状态字典"""
+        status = {
+            'mining': self.mining_manager.get_mining_status(),
+            'protective': self.protective_casing.is_protecting(),
+            'recording': self.recording_module.get_recording_status()
+        }
+        
+        if any(status.values()):
+            self.log("检测到其他系统运行中，暂停其他系统...")
+            
+            if status['mining']:
+                self.mining_manager.stop_mining_queue()
+                self.log("已暂停挖矿系统")
+            
+            if status['protective']:
+                self.protective_casing.stop_protection()
+                self.log("已暂停外壳保护系统")
+            
+            if status['recording']:
+                self.stop_recording()
+                self.log("已暂停录制系统")
+            
+            time.sleep(1)
+        
+        return status
+    
+    def _resume_systems(self, status: dict):
+        """恢复之前暂停的系统"""
+        if status['mining']:
+            self.log("恢复挖矿系统...")
+            self.mining_manager.start_mining_queue()
+        
+        if status['protective']:
+            self.log("恢复外壳保护系统...")
+            self.protective_casing.start_protection()
+        
+        if status['recording']:
+            self.log("恢复录制系统...")
+            self.toggle_recording()
+    
     def start_snowfield_league(self):
         """启动雪域兵器联赛模块"""
         selected_indices = self.window_listbox.curselection()
@@ -897,27 +938,8 @@ class WujindongriGUI:
         win32gui.SetForegroundWindow(hwnd)
         time.sleep(0.5)
         
-        # 检查是否有其他系统在运行
-        is_mining = self.mining_manager.get_mining_status()
-        is_protective = self.protective_casing.is_protecting()
-        is_recording = self.recording_module.get_recording_status()
-        
-        if is_mining or is_protective or is_recording:
-            self.log(f"检测到其他系统运行中，暂停其他系统...")
-            
-            if is_mining:
-                self.mining_manager.stop_mining_queue()
-                self.log("已暂停挖矿系统")
-            
-            if is_protective:
-                self.protective_casing.stop_protection()
-                self.log("已暂停外壳保护系统")
-            
-            if is_recording:
-                self.stop_recording()
-                self.log("已暂停录制系统")
-            
-            time.sleep(1)
+        # 暂停其他系统
+        system_status = self._pause_other_systems()
         
         # 初始化雪域兵器联赛模块
         self.log(f"开始初始化雪域兵器联赛模块...")
@@ -936,18 +958,7 @@ class WujindongriGUI:
                 else:
                     self.log(f"✗ 雪域兵器联赛流程执行失败")
                 
-                # 恢复之前暂停的系统
-                if is_mining:
-                    self.log(f"恢复挖矿系统...")
-                    self.mining_manager.start_mining_queue()
-                
-                if is_protective:
-                    self.log(f"恢复外壳保护系统...")
-                    self.protective_casing.start_protection()
-                
-                if is_recording:
-                    self.log(f"恢复录制系统...")
-                    self.toggle_recording()
+                self._resume_systems(system_status)
             
             self.snowfield_league.run_full_cycle_async(callback=on_league_complete)
             
@@ -956,18 +967,7 @@ class WujindongriGUI:
             import traceback
             self.log(f"详细错误: {traceback.format_exc()}")
             
-            # 初始化失败,恢复之前暂停的系统
-            if is_mining:
-                self.log(f"恢复挖矿系统...")
-                self.mining_manager.start_mining_queue()
-            
-            if is_protective:
-                self.log(f"恢复外壳保护系统...")
-                self.protective_casing.start_protection()
-            
-            if is_recording:
-                self.log(f"恢复录制系统...")
-                self.toggle_recording()
+            self._resume_systems(system_status)
     
     def draw_frame(self):
         """画框功能：让用户在激活的窗口中框选区域，并显示相对位置"""
