@@ -47398,3 +47398,2488 @@ AttributeError: 'SingleWindowMiner' object has no attribute '_screenshot'. Did y
 2026-04-09 09:50:07,393 - src.main - INFO - 版本: 1.0.0
 2026-04-09 09:50:16,687 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
 2026-04-09 09:50:56,073 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 09:51:34,542 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-09 09:51:34,542 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-09 09:51:34,551 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (9696) (hwnd=6032138)
+2026-04-09 09:51:34,551 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (9696)
+2026-04-09 09:51:34,552 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-09 09:51:34,552 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-09 09:51:34,552 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (9696) 挖矿
+2026-04-09 09:51:34,552 - MultiWindowManager - INFO - 激活窗口: 6032138 (MuMu安卓设备 (9696))
+2026-04-09 09:51:34,556 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 09:51:34,653 - mining_6032138 - INFO - ==================================================
+2026-04-09 09:51:34,654 - mining_6032138 - INFO - 挖矿开始
+2026-04-09 09:51:34,654 - mining_6032138 - INFO - 基准尺寸: 558x1021
+2026-04-09 09:51:34,654 - mining_6032138 - INFO - ==================================================
+2026-04-09 09:51:34,654 - mining_6032138 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-09 09:51:34,655 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (9696) 挖矿完成...
+2026-04-09 09:51:34,655 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 09:51:37,021 - mining_6032138 - INFO - OCR 初始化成功
+2026-04-09 09:51:37,021 - mining_6032138 - INFO - 开始执行挖矿初始化流程...
+2026-04-09 09:51:37,021 - mining_6032138 - INFO - 执行挖矿初始化流程...
+2026-04-09 09:51:37,131 - mining_6032138 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 09:51:37,155 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 09:51:37,445 - mining_6032138 - DEBUG - 未找到: town.png
+2026-04-09 09:51:37,489 - mining_6032138 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 09:51:37,500 - mining_6032138 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.920
+2026-04-09 09:51:37,501 - mining_6032138 - DEBUG - 找到 wild [scale=1.000]
+2026-04-09 09:51:37,501 - mining_6032138 - INFO - 找到 wild
+2026-04-09 09:51:38,445 - mining_6032138 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.920
+2026-04-09 09:51:38,551 - mining_6032138 - INFO - 点击 wild: (861, 1081) [scale=1.000]
+2026-04-09 09:51:38,552 - mining_6032138 - INFO - 点击 wild 成功，等待2-3秒后开始挖矿流程
+2026-04-09 09:51:41,540 - mining_6032138 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-09 09:51:41,744 - mining_6032138 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.878
+2026-04-09 09:51:41,745 - mining_6032138 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 09:51:41,800 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 09:51:42,196 - mining_6032138 - DEBUG - 未找到: wild.png
+2026-04-09 09:51:42,247 - mining_6032138 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.878
+2026-04-09 09:51:42,247 - mining_6032138 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 09:51:42,247 - mining_6032138 - INFO - 找到 town
+2026-04-09 09:51:44,072 - mining_6032138 - DEBUG - 加载模板: search.png 40x37
+2026-04-09 09:51:44,085 - mining_6032138 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.940
+2026-04-09 09:51:44,188 - mining_6032138 - INFO - 点击 search: (398, 806) [scale=1.000]
+2026-04-09 09:51:44,188 - mining_6032138 - INFO - 点击 search 成功
+2026-04-09 09:51:45,945 - mining_6032138 - DEBUG - 加载模板: meat.png 106x81
+2026-04-09 09:51:45,966 - mining_6032138 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.888
+2026-04-09 09:51:46,075 - mining_6032138 - INFO - 点击 meat: (792, 832) [scale=1.000]
+2026-04-09 09:51:46,075 - mining_6032138 - INFO - 点击资源成功: meat
+2026-04-09 09:51:48,080 - mining_6032138 - DEBUG - 加载模板: add.png 20x31
+2026-04-09 09:51:48,096 - mining_6032138 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-09 09:51:48,199 - mining_6032138 - INFO - 点击 add: (699, 939) [scale=1.000]
+2026-04-09 09:51:48,199 - mining_6032138 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 09:51:48,199 - mining_6032138 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-09 09:51:48,200 - mining_6032138 - INFO - add 坐标在容差范围内，继续流程
+2026-04-09 09:51:48,200 - mining_6032138 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 09:51:49,739 - mining_6032138 - DEBUG - 加载模板: search_meat.png 78x34
+2026-04-09 09:51:49,755 - mining_6032138 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-09 09:51:49,858 - mining_6032138 - INFO - 点击 search_meat: (645, 1067) [scale=1.000]
+2026-04-09 09:51:49,858 - mining_6032138 - INFO - 点击 search_meat 成功
+2026-04-09 09:51:51,856 - mining_6032138 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 09:51:51,905 - mining_6032138 - DEBUG - 加载模板: gather.png 63x36
+2026-04-09 09:51:51,924 - mining_6032138 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.868
+2026-04-09 09:51:52,028 - mining_6032138 - INFO - 点击 gather: (639, 614) [scale=1.000]
+2026-04-09 09:51:52,028 - mining_6032138 - INFO - 点击 gather 成功
+2026-04-09 09:51:53,610 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 09:51:53,985 - mining_6032138 - DEBUG - 未找到: gather.png
+2026-04-09 09:51:54,027 - mining_6032138 - DEBUG - 加载模板: team.png 139x43
+2026-04-09 09:51:54,039 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 09:51:54,303 - mining_6032138 - DEBUG - 未找到: team.png
+2026-04-09 09:51:54,341 - mining_6032138 - DEBUG - 加载模板: battle.png 81x37
+2026-04-09 09:51:54,355 - mining_6032138 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-09 09:51:54,460 - mining_6032138 - INFO - 点击 battle: (792, 1063) [scale=1.000]
+2026-04-09 09:51:54,460 - mining_6032138 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 09:51:54,460 - mining_6032138 - INFO - 已完成 1 轮，还需要循环 5 轮
+2026-04-09 09:51:54,725 - mining_6032138 - INFO - OCR 识别结果: '1/5' (置信度: 0.99)
+2026-04-09 09:51:54,726 - mining_6032138 - INFO - OCR 识别到文本: 1/5
+2026-04-09 09:51:54,726 - mining_6032138 - INFO - 解析结果: 当前 1, 总数 5, 剩余 4
+2026-04-09 09:51:54,726 - mining_6032138 - INFO - 设置还需要循环的次数为: 4
+2026-04-09 09:51:54,784 - mining_6032138 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 09:51:54,784 - mining_6032138 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 09:51:54,842 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 09:51:55,235 - mining_6032138 - DEBUG - 未找到: wild.png
+2026-04-09 09:51:55,287 - mining_6032138 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 09:51:55,287 - mining_6032138 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 09:51:55,288 - mining_6032138 - INFO - 找到 town
+2026-04-09 09:51:56,717 - mining_6032138 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.941
+2026-04-09 09:51:56,819 - mining_6032138 - INFO - 点击 search: (398, 806) [scale=1.000]
+2026-04-09 09:51:56,819 - mining_6032138 - INFO - 点击 search 成功
+2026-04-09 09:51:58,189 - mining_6032138 - DEBUG - 加载模板: wood.png 96x57
+2026-04-09 09:51:58,203 - mining_6032138 - DEBUG - [比例匹配] wood.png scale=1.000 conf=0.924
+2026-04-09 09:51:58,305 - mining_6032138 - INFO - 点击 wood: (762, 850) [scale=1.000]
+2026-04-09 09:51:58,305 - mining_6032138 - INFO - 点击资源成功: wood
+2026-04-09 09:51:59,466 - mining_6032138 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-09 09:51:59,568 - mining_6032138 - INFO - 点击 add: (699, 939) [scale=1.000]
+2026-04-09 09:51:59,568 - mining_6032138 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 09:51:59,568 - mining_6032138 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-09 09:51:59,569 - mining_6032138 - INFO - add 坐标在容差范围内，继续流程
+2026-04-09 09:51:59,569 - mining_6032138 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 09:52:01,168 - mining_6032138 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-09 09:52:01,270 - mining_6032138 - INFO - 点击 search_meat: (645, 1067) [scale=1.000]
+2026-04-09 09:52:01,271 - mining_6032138 - INFO - 点击 search_meat 成功
+2026-04-09 09:52:02,562 - mining_6032138 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 09:52:02,615 - mining_6032138 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-09 09:52:02,717 - mining_6032138 - INFO - 点击 gather: (639, 614) [scale=1.000]
+2026-04-09 09:52:02,717 - mining_6032138 - INFO - 点击 gather 成功
+2026-04-09 09:52:04,272 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 09:52:04,722 - mining_6032138 - DEBUG - 未找到: gather.png
+2026-04-09 09:52:04,777 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 09:52:05,062 - mining_6032138 - DEBUG - 未找到: team.png
+2026-04-09 09:52:05,116 - mining_6032138 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-09 09:52:05,219 - mining_6032138 - INFO - 点击 battle: (792, 1063) [scale=1.000]
+2026-04-09 09:52:05,219 - mining_6032138 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 09:52:05,219 - mining_6032138 - INFO - 已完成 2 轮，还需要循环 3 轮
+2026-04-09 09:52:05,789 - mining_6032138 - INFO - OCR 识别结果: '4' (置信度: 0.00)
+2026-04-09 09:52:05,790 - mining_6032138 - INFO - OCR 识别到文本: 4
+2026-04-09 09:52:05,847 - mining_6032138 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 09:52:05,847 - mining_6032138 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 09:52:05,903 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 09:52:06,290 - mining_6032138 - DEBUG - 未找到: wild.png
+2026-04-09 09:52:06,342 - mining_6032138 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 09:52:06,343 - mining_6032138 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 09:52:06,343 - mining_6032138 - INFO - 找到 town
+2026-04-09 09:52:07,517 - mining_6032138 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.933
+2026-04-09 09:52:07,622 - mining_6032138 - INFO - 点击 search: (398, 806) [scale=1.000]
+2026-04-09 09:52:07,622 - mining_6032138 - INFO - 点击 search 成功
+2026-04-09 09:52:08,733 - mining_6032138 - DEBUG - 加载模板: coal mine.png 68x51
+2026-04-09 09:52:08,749 - mining_6032138 - DEBUG - [比例匹配] coal mine.png scale=1.000 conf=0.946
+2026-04-09 09:52:08,851 - mining_6032138 - INFO - 点击 coal: (761, 853) [scale=1.000]
+2026-04-09 09:52:08,851 - mining_6032138 - INFO - 点击资源成功: coal
+2026-04-09 09:52:10,801 - mining_6032138 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-09 09:52:10,903 - mining_6032138 - INFO - 点击 add: (699, 939) [scale=1.000]
+2026-04-09 09:52:10,903 - mining_6032138 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 09:52:10,903 - mining_6032138 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-09 09:52:10,904 - mining_6032138 - INFO - add 坐标在容差范围内，继续流程
+2026-04-09 09:52:10,904 - mining_6032138 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 09:52:11,981 - mining_6032138 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-09 09:52:12,084 - mining_6032138 - INFO - 点击 search_meat: (645, 1067) [scale=1.000]
+2026-04-09 09:52:12,084 - mining_6032138 - INFO - 点击 search_meat 成功
+2026-04-09 09:52:13,951 - mining_6032138 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 09:52:14,001 - mining_6032138 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-09 09:52:14,107 - mining_6032138 - INFO - 点击 gather: (639, 614) [scale=1.000]
+2026-04-09 09:52:14,107 - mining_6032138 - INFO - 点击 gather 成功
+2026-04-09 09:52:16,070 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 09:52:16,438 - mining_6032138 - DEBUG - 未找到: gather.png
+2026-04-09 09:52:16,487 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 09:52:16,745 - mining_6032138 - DEBUG - 未找到: team.png
+2026-04-09 09:52:16,795 - mining_6032138 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-09 09:52:16,899 - mining_6032138 - INFO - 点击 battle: (792, 1063) [scale=1.000]
+2026-04-09 09:52:16,899 - mining_6032138 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 09:52:16,899 - mining_6032138 - INFO - 已完成 3 轮，还需要循环 2 轮
+2026-04-09 09:52:17,094 - mining_6032138 - INFO - OCR 识别结果: '3/5' (置信度: 0.98)
+2026-04-09 09:52:17,095 - mining_6032138 - INFO - OCR 识别到文本: 3/5
+2026-04-09 09:52:17,095 - mining_6032138 - INFO - 解析结果: 当前 3, 总数 5, 剩余 2
+2026-04-09 09:52:17,095 - mining_6032138 - INFO - 设置还需要循环的次数为: 2
+2026-04-09 09:52:17,152 - mining_6032138 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 09:52:17,152 - mining_6032138 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 09:52:17,207 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 09:52:17,602 - mining_6032138 - DEBUG - 未找到: wild.png
+2026-04-09 09:52:17,649 - mining_6032138 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 09:52:17,650 - mining_6032138 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 09:52:17,650 - mining_6032138 - INFO - 找到 town
+2026-04-09 09:52:19,253 - mining_6032138 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.933
+2026-04-09 09:52:19,355 - mining_6032138 - INFO - 点击 search: (398, 806) [scale=1.000]
+2026-04-09 09:52:19,355 - mining_6032138 - INFO - 点击 search 成功
+2026-04-09 09:52:21,232 - mining_6032138 - DEBUG - 加载模板: iron.png 83x81
+2026-04-09 09:52:21,250 - mining_6032138 - DEBUG - [比例匹配] iron.png scale=1.000 conf=0.888
+2026-04-09 09:52:21,352 - mining_6032138 - INFO - 点击 iron: (843, 835) [scale=1.000]
+2026-04-09 09:52:21,352 - mining_6032138 - INFO - 点击资源成功: iron
+2026-04-09 09:52:23,240 - mining_6032138 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-09 09:52:23,341 - mining_6032138 - INFO - 点击 add: (699, 939) [scale=1.000]
+2026-04-09 09:52:23,342 - mining_6032138 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 09:52:23,342 - mining_6032138 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-09 09:52:23,343 - mining_6032138 - INFO - add 坐标在容差范围内，继续流程
+2026-04-09 09:52:23,343 - mining_6032138 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 09:52:25,020 - mining_6032138 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-09 09:52:25,121 - mining_6032138 - INFO - 点击 search_meat: (645, 1067) [scale=1.000]
+2026-04-09 09:52:25,121 - mining_6032138 - INFO - 点击 search_meat 成功
+2026-04-09 09:52:26,198 - mining_6032138 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 09:52:26,250 - mining_6032138 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.868
+2026-04-09 09:52:26,351 - mining_6032138 - INFO - 点击 gather: (639, 614) [scale=1.000]
+2026-04-09 09:52:26,352 - mining_6032138 - INFO - 点击 gather 成功
+2026-04-09 09:52:27,954 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 09:52:28,382 - mining_6032138 - DEBUG - 未找到: gather.png
+2026-04-09 09:52:28,440 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 09:52:28,737 - mining_6032138 - DEBUG - 未找到: team.png
+2026-04-09 09:52:28,791 - mining_6032138 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-09 09:52:28,895 - mining_6032138 - INFO - 点击 battle: (792, 1063) [scale=1.000]
+2026-04-09 09:52:28,895 - mining_6032138 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 09:52:28,895 - mining_6032138 - INFO - 已完成 4 轮，还需要循环 1 轮
+2026-04-09 09:52:29,150 - mining_6032138 - INFO - OCR 识别结果: '4h' (置信度: 0.01)
+2026-04-09 09:52:29,150 - mining_6032138 - INFO - OCR 识别到文本: 4h
+2026-04-09 09:52:29,209 - mining_6032138 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 09:52:29,209 - mining_6032138 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 09:52:29,268 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 09:52:29,688 - mining_6032138 - DEBUG - 未找到: wild.png
+2026-04-09 09:52:29,756 - mining_6032138 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 09:52:29,756 - mining_6032138 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 09:52:29,757 - mining_6032138 - INFO - 找到 town
+2026-04-09 09:52:31,116 - mining_6032138 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.941
+2026-04-09 09:52:31,218 - mining_6032138 - INFO - 点击 search: (398, 806) [scale=1.000]
+2026-04-09 09:52:31,219 - mining_6032138 - INFO - 点击 search 成功
+2026-04-09 09:52:32,345 - mining_6032138 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.889
+2026-04-09 09:52:32,448 - mining_6032138 - INFO - 点击 meat: (486, 832) [scale=1.000]
+2026-04-09 09:52:32,449 - mining_6032138 - INFO - 点击资源成功: meat
+2026-04-09 09:52:33,685 - mining_6032138 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-09 09:52:33,792 - mining_6032138 - INFO - 点击 add: (699, 939) [scale=1.000]
+2026-04-09 09:52:33,792 - mining_6032138 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 09:52:33,793 - mining_6032138 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-09 09:52:33,793 - mining_6032138 - INFO - add 坐标在容差范围内，继续流程
+2026-04-09 09:52:33,793 - mining_6032138 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 09:52:35,304 - mining_6032138 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-09 09:52:35,411 - mining_6032138 - INFO - 点击 search_meat: (645, 1067) [scale=1.000]
+2026-04-09 09:52:35,411 - mining_6032138 - INFO - 点击 search_meat 成功
+2026-04-09 09:52:36,560 - mining_6032138 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 09:52:36,613 - mining_6032138 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-09 09:52:36,715 - mining_6032138 - INFO - 点击 gather: (639, 614) [scale=1.000]
+2026-04-09 09:52:36,715 - mining_6032138 - INFO - 点击 gather 成功
+2026-04-09 09:52:37,880 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 09:52:38,264 - mining_6032138 - DEBUG - 未找到: gather.png
+2026-04-09 09:52:38,318 - mining_6032138 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 09:52:38,597 - mining_6032138 - DEBUG - 未找到: team.png
+2026-04-09 09:52:38,661 - mining_6032138 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-09 09:52:38,763 - mining_6032138 - INFO - 点击 battle: (792, 1063) [scale=1.000]
+2026-04-09 09:52:38,764 - mining_6032138 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 09:52:38,764 - mining_6032138 - INFO - 已完成 5 轮，还需要循环 0 轮
+2026-04-09 09:52:38,764 - mining_6032138 - INFO - 已完成所有循环次数，停止挖矿
+2026-04-09 09:52:38,764 - MultiWindowManager - INFO - 窗口 6032138 挖矿停止
+2026-04-09 09:52:38,818 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (9696) 挖矿完成或停止
+2026-04-09 09:52:38,818 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-09 09:52:38,818 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-09 09:52:39,303 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-09 09:52:39,303 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 09:52:39,303 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-09 09:52:39,303 - ProtectiveCasing - INFO - 检测目标: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:39,303 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 09:52:39,353 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:40,684 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:42,554 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:44,385 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:45,495 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:46,539 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:48,146 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:49,654 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:50,752 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:52,237 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:54,143 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:55,764 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:57,470 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:52:59,497 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:00,774 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:02,412 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:03,569 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:05,149 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:06,395 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:07,774 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:09,755 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:11,637 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:12,708 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:14,570 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:16,545 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:18,336 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:19,583 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:21,297 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:22,589 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:24,459 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:26,155 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:27,826 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:29,236 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:30,384 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:32,163 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:33,305 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:34,951 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:36,921 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:38,055 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:40,009 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:41,664 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:43,032 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:44,087 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:45,567 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:47,318 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:49,266 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:50,340 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:51,814 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:53,188 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:54,331 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:55,536 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:57,383 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:58,512 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:53:59,862 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:54:01,377 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:54:02,583 - ProtectiveCasing - WARNING - 无法读取图片: G:\yang\fish\wujindongri\pic\war.png
+2026-04-09 09:54:02,643 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 10:16:46,665 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 10:16:46,665 - src.main - INFO - 版本: 1.0.0
+2026-04-09 10:16:51,943 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 10:43:59,736 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 10:44:06,318 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 10:44:06,318 - src.main - INFO - 版本: 1.0.0
+2026-04-09 10:44:10,506 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 10:44:20,590 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 10:53:12,235 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 11:02:43,312 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 11:02:43,312 - src.main - INFO - 版本: 1.0.0
+2026-04-09 11:02:47,600 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 11:04:15,555 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 11:04:16,538 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 11:04:16,539 - src.main - INFO - 版本: 1.0.0
+2026-04-09 11:04:20,701 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 11:04:51,967 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 17:40:28,544 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 17:40:28,544 - src.main - INFO - 版本: 1.0.0
+2026-04-09 17:40:35,222 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 17:40:54,760 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 17:56:48,041 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 19:41:01,369 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 19:41:01,369 - src.main - INFO - 版本: 1.0.0
+2026-04-09 19:41:05,556 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 19:41:16,491 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 19:41:18,520 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\pic\\frame_data.json'
+2026-04-09 19:41:18,524 - daily_task_329666 - INFO - ==================================================
+2026-04-09 19:41:18,524 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 19:41:18,525 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 19:41:18,525 - daily_task_329666 - INFO - ==================================================
+2026-04-09 19:41:18,526 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 19:41:18,526 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 19:41:18,586 - daily_task_329666 - ERROR - 每日任务流程执行异常: AdaptiveMatcher.match() got an unexpected keyword argument 'confidence'
+2026-04-09 19:41:18,587 - daily_task_329666 - ERROR - 详细错误: Traceback (most recent call last):
+  File "g:\yang\fish\wujindongri\src\daily_task.py", line 456, in run_daily_task
+    if self._try_match_town():
+       ^^^^^^^^^^^^^^^^^^^^^^
+  File "g:\yang\fish\wujindongri\src\daily_task.py", line 308, in _try_match_town
+    match_result = self._match_image(self.town_path)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "g:\yang\fish\wujindongri\src\daily_task.py", line 199, in _match_image
+    match_result = self.matcher.match(screenshot, image_path, win_w, win_h, confidence=confidence)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AdaptiveMatcher.match() got an unexpected keyword argument 'confidence'
+
+2026-04-09 19:41:40,382 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 19:42:48,335 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 19:42:48,335 - src.main - INFO - 版本: 1.0.0
+2026-04-09 19:42:52,423 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 19:42:59,472 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\pic\\frame_data.json'
+2026-04-09 19:42:59,481 - daily_task_329666 - INFO - ==================================================
+2026-04-09 19:42:59,481 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 19:42:59,482 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 19:42:59,482 - daily_task_329666 - INFO - ==================================================
+2026-04-09 19:42:59,483 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 19:42:59,483 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 19:42:59,545 - daily_task_329666 - WARNING - 无法读取图片: g:\yang\fish\wujindongri\pic\town.png
+2026-04-09 19:42:59,545 - daily_task_329666 - INFO - 未匹配到 g:\yang\fish\wujindongri\pic\town.png
+2026-04-09 19:42:59,546 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 19:42:59,546 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 19:42:59,587 - daily_task_329666 - WARNING - 无法读取图片: g:\yang\fish\wujindongri\pic\wild.png
+2026-04-09 19:42:59,588 - daily_task_329666 - INFO - 未匹配到 g:\yang\fish\wujindongri\pic\wild.png
+2026-04-09 19:42:59,588 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 19:42:59,588 - daily_task_329666 - INFO - 尝试匹配 back...
+2026-04-09 19:42:59,630 - daily_task_329666 - WARNING - 无法读取图片: g:\yang\fish\wujindongri\pic\back.png
+2026-04-09 19:42:59,631 - daily_task_329666 - INFO - 未匹配到 g:\yang\fish\wujindongri\pic\back.png
+2026-04-09 19:42:59,631 - daily_task_329666 - INFO - 未匹配到 back
+2026-04-09 19:42:59,631 - daily_task_329666 - INFO - 尝试匹配 back1...
+2026-04-09 19:42:59,672 - daily_task_329666 - WARNING - 无法读取图片: g:\yang\fish\wujindongri\pic\back1.png
+2026-04-09 19:42:59,672 - daily_task_329666 - INFO - 未匹配到 g:\yang\fish\wujindongri\pic\back1.png
+2026-04-09 19:42:59,673 - daily_task_329666 - INFO - 未匹配到 back1
+2026-04-09 19:42:59,673 - daily_task_329666 - INFO - 尝试匹配 back2...
+2026-04-09 19:42:59,714 - daily_task_329666 - WARNING - 无法读取图片: g:\yang\fish\wujindongri\pic\back2.png
+2026-04-09 19:42:59,714 - daily_task_329666 - INFO - 未匹配到 g:\yang\fish\wujindongri\pic\back2.png
+2026-04-09 19:42:59,715 - daily_task_329666 - INFO - 未匹配到 back2
+2026-04-09 19:42:59,715 - daily_task_329666 - INFO - 尝试匹配 close...
+2026-04-09 19:42:59,756 - daily_task_329666 - WARNING - 无法读取图片: g:\yang\fish\wujindongri\pic\close.png
+2026-04-09 19:42:59,756 - daily_task_329666 - INFO - 未匹配到 g:\yang\fish\wujindongri\pic\close.png
+2026-04-09 19:42:59,757 - daily_task_329666 - INFO - 未匹配到 close
+2026-04-09 19:42:59,757 - daily_task_329666 - WARNING - 所有匹配尝试均失败
+2026-04-09 19:44:32,288 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 19:44:33,240 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 19:44:33,240 - src.main - INFO - 版本: 1.0.0
+2026-04-09 19:44:37,358 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 19:44:52,280 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\pic\\frame_data.json'
+2026-04-09 19:44:52,289 - daily_task_329666 - INFO - ==================================================
+2026-04-09 19:44:52,289 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 19:44:52,290 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 19:44:52,290 - daily_task_329666 - INFO - ==================================================
+2026-04-09 19:44:52,291 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 19:44:52,291 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 19:44:52,349 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 19:44:52,375 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 19:44:52,632 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 19:44:52,632 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 19:44:52,633 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 19:44:52,633 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 19:44:52,678 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 19:44:52,690 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 19:44:52,956 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 19:44:52,957 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 19:44:52,957 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 19:44:52,957 - daily_task_329666 - INFO - 尝试匹配 back...
+2026-04-09 19:44:52,996 - daily_task_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 19:44:53,008 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 19:44:53,232 - daily_task_329666 - INFO - [备选-全范围] back.png scale=0.500 conf=0.868
+2026-04-09 19:44:53,232 - daily_task_329666 - INFO - 匹配 back.png 成功，置信度: 0.868
+2026-04-09 19:44:53,233 - daily_task_329666 - INFO - back 匹配成功
+2026-04-09 19:44:53,441 - daily_task_329666 - INFO - 点击 back @ (515, 673)
+2026-04-09 19:44:53,441 - daily_task_329666 - ERROR - 每日任务流程执行异常: module 'time' has no attribute 'uniform'
+2026-04-09 19:44:53,443 - daily_task_329666 - ERROR - 详细错误: Traceback (most recent call last):
+  File "g:\yang\fish\wujindongri\src\daily_task.py", line 463, in run_daily_task
+    if self._try_match_back():
+       ^^^^^^^^^^^^^^^^^^^^^^
+  File "g:\yang\fish\wujindongri\src\daily_task.py", line 364, in _try_match_back
+    self._wait()
+  File "g:\yang\fish\wujindongri\src\daily_task.py", line 93, in _wait
+    time.sleep(time.uniform(min_sec, max_sec))
+               ^^^^^^^^^^^^
+AttributeError: module 'time' has no attribute 'uniform'
+
+2026-04-09 19:44:57,829 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 19:46:25,611 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 19:46:25,611 - src.main - INFO - 版本: 1.0.0
+2026-04-09 19:46:29,752 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 19:46:38,385 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\pic\\frame_data.json'
+2026-04-09 19:46:38,394 - daily_task_329666 - INFO - ==================================================
+2026-04-09 19:46:38,394 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 19:46:38,394 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 19:46:38,395 - daily_task_329666 - INFO - ==================================================
+2026-04-09 19:46:38,395 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 19:46:38,396 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 19:46:38,454 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 19:46:38,469 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 19:46:38,733 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 19:46:38,734 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 19:46:38,735 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 19:46:38,735 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 19:46:38,776 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 19:46:38,788 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 19:46:39,047 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 19:46:39,047 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 19:46:39,048 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 19:46:39,049 - daily_task_329666 - INFO - 尝试匹配 back...
+2026-04-09 19:46:39,089 - daily_task_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 19:46:39,102 - daily_task_329666 - DEBUG - [比例匹配] back.png scale=1.000 conf=0.771
+2026-04-09 19:46:39,102 - daily_task_329666 - INFO - 匹配 back.png 成功，置信度: 0.771
+2026-04-09 19:46:39,102 - daily_task_329666 - INFO - back 匹配成功
+2026-04-09 19:46:39,311 - daily_task_329666 - INFO - 点击 back @ (761, 666)
+2026-04-09 19:46:40,687 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 19:46:40,738 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 19:46:40,997 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 19:46:40,997 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 19:46:40,999 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 19:46:40,999 - daily_task_329666 - INFO - 尝试匹配 back1...
+2026-04-09 19:46:41,035 - daily_task_329666 - DEBUG - 加载模板: back1.png 57x48
+2026-04-09 19:46:41,047 - daily_task_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.964
+2026-04-09 19:46:41,048 - daily_task_329666 - INFO - 匹配 back1.png 成功，置信度: 0.964
+2026-04-09 19:46:41,048 - daily_task_329666 - INFO - back1 匹配成功
+2026-04-09 19:46:41,250 - daily_task_329666 - INFO - 点击 back1 @ (429, 130)
+2026-04-09 19:46:42,832 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 19:46:42,885 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 19:46:43,141 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 19:46:43,141 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 19:46:43,141 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 19:46:43,141 - daily_task_329666 - INFO - 尝试匹配 back2...
+2026-04-09 19:46:43,183 - daily_task_329666 - DEBUG - 加载模板: back2.png 47x38
+2026-04-09 19:46:43,195 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: back2.png
+2026-04-09 19:46:43,455 - daily_task_329666 - INFO - [备选-全范围] back2.png scale=0.500 conf=0.784
+2026-04-09 19:46:43,455 - daily_task_329666 - INFO - 匹配 back2.png 成功，置信度: 0.784
+2026-04-09 19:46:43,456 - daily_task_329666 - INFO - back2 匹配成功
+2026-04-09 19:46:43,658 - daily_task_329666 - INFO - 点击 back2 @ (464, 428)
+2026-04-09 19:46:45,391 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 19:46:45,444 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 19:46:45,702 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 19:46:45,702 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 19:46:45,704 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 19:46:45,704 - daily_task_329666 - INFO - 尝试匹配 close...
+2026-04-09 19:46:45,742 - daily_task_329666 - DEBUG - 加载模板: close.png 43x33
+2026-04-09 19:46:45,755 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: close.png
+2026-04-09 19:46:46,002 - daily_task_329666 - INFO - [备选-全范围] close.png scale=1.447 conf=0.802
+2026-04-09 19:46:46,002 - daily_task_329666 - INFO - 匹配 close.png 成功，置信度: 0.802
+2026-04-09 19:46:46,002 - daily_task_329666 - INFO - close 匹配成功
+2026-04-09 19:46:46,205 - daily_task_329666 - INFO - 点击 close @ (451, 1028)
+2026-04-09 19:46:47,650 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 19:46:47,697 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 19:46:47,958 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 19:46:47,958 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 19:46:47,959 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 19:46:47,959 - daily_task_329666 - WARNING - 所有匹配尝试均失败
+2026-04-09 20:39:26,954 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 20:39:27,918 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 20:39:27,918 - src.main - INFO - 版本: 1.0.0
+2026-04-09 20:39:32,055 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 20:39:36,911 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 20:39:55,684 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\pic\\frame_data.json'
+2026-04-09 20:39:55,688 - daily_task_329666 - INFO - ==================================================
+2026-04-09 20:39:55,688 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 20:39:55,688 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 20:39:55,689 - daily_task_329666 - INFO - ==================================================
+2026-04-09 20:39:55,689 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 20:39:55,689 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:39:55,746 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 20:39:55,762 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:39:56,029 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:39:56,029 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:39:56,029 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:39:56,029 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:39:56,069 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 20:39:56,081 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 20:39:56,354 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 20:39:56,355 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 20:39:56,356 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 20:39:56,356 - daily_task_329666 - INFO - 尝试匹配 back...
+2026-04-09 20:39:56,399 - daily_task_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 20:39:56,411 - daily_task_329666 - DEBUG - [比例匹配] back.png scale=1.000 conf=0.776
+2026-04-09 20:39:56,412 - daily_task_329666 - INFO - 匹配 back.png 成功，置信度: 0.776
+2026-04-09 20:39:56,412 - daily_task_329666 - INFO - back 匹配成功
+2026-04-09 20:39:56,618 - daily_task_329666 - INFO - 点击 back @ (761, 665)
+2026-04-09 20:39:58,372 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:39:58,426 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:39:58,688 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:39:58,689 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:39:58,690 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:39:58,690 - daily_task_329666 - INFO - 尝试匹配 back1...
+2026-04-09 20:39:58,732 - daily_task_329666 - DEBUG - 加载模板: back1.png 57x48
+2026-04-09 20:39:58,744 - daily_task_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.964
+2026-04-09 20:39:58,744 - daily_task_329666 - INFO - 匹配 back1.png 成功，置信度: 0.964
+2026-04-09 20:39:58,745 - daily_task_329666 - INFO - back1 匹配成功
+2026-04-09 20:39:58,951 - daily_task_329666 - INFO - 点击 back1 @ (429, 130)
+2026-04-09 20:40:00,284 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:40:00,345 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:40:00,644 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:40:00,645 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:40:00,645 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:40:00,645 - daily_task_329666 - INFO - 尝试匹配 back2...
+2026-04-09 20:40:00,684 - daily_task_329666 - DEBUG - 加载模板: back2.png 47x38
+2026-04-09 20:40:00,697 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: back2.png
+2026-04-09 20:40:00,948 - daily_task_329666 - INFO - [备选-全范围] back2.png scale=0.737 conf=0.768
+2026-04-09 20:40:00,949 - daily_task_329666 - INFO - 匹配 back2.png 成功，置信度: 0.768
+2026-04-09 20:40:00,949 - daily_task_329666 - INFO - back2 匹配成功
+2026-04-09 20:40:01,151 - daily_task_329666 - INFO - 点击 back2 @ (633, 1040)
+2026-04-09 20:40:02,553 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:40:02,609 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:40:02,872 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:40:02,872 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:40:02,873 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:40:02,873 - daily_task_329666 - INFO - 尝试匹配 close...
+2026-04-09 20:40:02,916 - daily_task_329666 - DEBUG - 加载模板: close.png 43x33
+2026-04-09 20:40:02,927 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: close.png
+2026-04-09 20:40:03,170 - daily_task_329666 - DEBUG - 未找到: close.png
+2026-04-09 20:40:03,170 - daily_task_329666 - INFO - 未匹配到 close.png
+2026-04-09 20:40:03,171 - daily_task_329666 - INFO - 未匹配到 close
+2026-04-09 20:40:03,172 - daily_task_329666 - WARNING - 所有匹配尝试均失败
+2026-04-09 20:50:05,219 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 20:50:34,090 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 20:50:34,090 - src.main - INFO - 版本: 1.0.0
+2026-04-09 20:50:38,234 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 20:50:43,757 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 20:51:19,728 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\pic\\frame_data.json'
+2026-04-09 20:51:19,732 - daily_task_329666 - INFO - ==================================================
+2026-04-09 20:51:19,732 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 20:51:19,733 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 20:51:19,733 - daily_task_329666 - INFO - ==================================================
+2026-04-09 20:51:19,734 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 20:51:19,734 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:51:19,791 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 20:51:19,806 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:51:20,069 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:51:20,070 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:51:20,071 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:51:20,071 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:51:20,111 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 20:51:20,123 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 20:51:20,385 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 20:51:20,385 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 20:51:20,386 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 20:51:20,386 - daily_task_329666 - INFO - 尝试匹配 back...
+2026-04-09 20:51:20,424 - daily_task_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 20:51:20,435 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 20:51:20,659 - daily_task_329666 - INFO - [备选-全范围] back.png scale=0.500 conf=0.869
+2026-04-09 20:51:20,660 - daily_task_329666 - INFO - 匹配 back.png 成功，置信度: 0.869
+2026-04-09 20:51:20,660 - daily_task_329666 - INFO - back 匹配成功
+2026-04-09 20:51:20,870 - daily_task_329666 - INFO - 点击 back @ (515, 673)
+2026-04-09 20:51:22,761 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:51:22,812 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:51:23,075 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:51:23,076 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:51:23,076 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:51:23,076 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:51:23,126 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 20:51:23,390 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 20:51:23,390 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 20:51:23,391 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 20:51:23,391 - daily_task_329666 - INFO - 尝试匹配 back1...
+2026-04-09 20:51:23,433 - daily_task_329666 - DEBUG - 加载模板: back1.png 57x48
+2026-04-09 20:51:23,445 - daily_task_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.964
+2026-04-09 20:51:23,445 - daily_task_329666 - INFO - 匹配 back1.png 成功，置信度: 0.964
+2026-04-09 20:51:23,446 - daily_task_329666 - INFO - back1 匹配成功
+2026-04-09 20:51:23,649 - daily_task_329666 - INFO - 点击 back1 @ (429, 130)
+2026-04-09 20:51:24,872 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:51:24,923 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:51:25,194 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:51:25,194 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:51:25,194 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:51:25,195 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:51:25,249 - daily_task_329666 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.920
+2026-04-09 20:51:25,250 - daily_task_329666 - INFO - 匹配 wild.png 成功，置信度: 0.920
+2026-04-09 20:51:25,250 - daily_task_329666 - INFO - wild 匹配成功
+2026-04-09 20:51:25,250 - daily_task_329666 - WARNING - 未找到每日任务入口配置
+2026-04-09 20:51:25,250 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 20:52:50,807 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 20:52:54,606 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 20:52:54,606 - src.main - INFO - 版本: 1.0.0
+2026-04-09 20:52:58,767 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 20:53:17,831 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 20:53:22,252 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\frame_data.json'
+2026-04-09 20:53:22,256 - daily_task_329666 - INFO - ==================================================
+2026-04-09 20:53:22,256 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 20:53:22,257 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 20:53:22,257 - daily_task_329666 - INFO - ==================================================
+2026-04-09 20:53:22,257 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 20:53:22,257 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:53:22,312 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 20:53:22,329 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:53:22,594 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:53:22,594 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:53:22,595 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:53:22,595 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:53:22,631 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 20:53:22,644 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 20:53:22,906 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 20:53:22,907 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 20:53:22,907 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 20:53:22,908 - daily_task_329666 - INFO - 尝试匹配 back...
+2026-04-09 20:53:22,947 - daily_task_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 20:53:22,962 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 20:53:23,187 - daily_task_329666 - INFO - [备选-全范围] back.png scale=0.579 conf=0.842
+2026-04-09 20:53:23,187 - daily_task_329666 - INFO - 匹配 back.png 成功，置信度: 0.842
+2026-04-09 20:53:23,188 - daily_task_329666 - INFO - back 匹配成功
+2026-04-09 20:53:23,392 - daily_task_329666 - INFO - 点击 back @ (579, 669)
+2026-04-09 20:53:24,426 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:53:24,476 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:53:24,739 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:53:24,740 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:53:24,740 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:53:24,740 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:53:24,789 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 20:53:25,052 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 20:53:25,052 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 20:53:25,053 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 20:53:25,053 - daily_task_329666 - INFO - 尝试匹配 back1...
+2026-04-09 20:53:25,093 - daily_task_329666 - DEBUG - 加载模板: back1.png 57x48
+2026-04-09 20:53:25,106 - daily_task_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.964
+2026-04-09 20:53:25,107 - daily_task_329666 - INFO - 匹配 back1.png 成功，置信度: 0.964
+2026-04-09 20:53:25,107 - daily_task_329666 - INFO - back1 匹配成功
+2026-04-09 20:53:25,314 - daily_task_329666 - INFO - 点击 back1 @ (429, 130)
+2026-04-09 20:53:27,094 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:53:27,148 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:53:27,415 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:53:27,415 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:53:27,415 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:53:27,416 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:53:27,470 - daily_task_329666 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.920
+2026-04-09 20:53:27,470 - daily_task_329666 - INFO - 匹配 wild.png 成功，置信度: 0.920
+2026-04-09 20:53:27,470 - daily_task_329666 - INFO - wild 匹配成功
+2026-04-09 20:53:27,470 - daily_task_329666 - WARNING - 未找到每日任务入口配置
+2026-04-09 20:53:27,471 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 20:54:19,073 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 20:54:58,548 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 20:54:58,548 - src.main - INFO - 版本: 1.0.0
+2026-04-09 20:55:02,704 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 20:55:10,402 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 20:55:12,197 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\frame_data.json
+2026-04-09 20:55:12,198 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\frame_data.json'
+2026-04-09 20:55:12,201 - daily_task_329666 - INFO - ==================================================
+2026-04-09 20:55:12,202 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 20:55:12,202 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 20:55:12,202 - daily_task_329666 - INFO - ==================================================
+2026-04-09 20:55:12,203 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 20:55:12,203 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:55:12,256 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 20:55:12,270 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:55:12,541 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:55:12,542 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:55:12,542 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:55:12,542 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:55:12,582 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 20:55:12,594 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 20:55:12,859 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 20:55:12,859 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 20:55:12,860 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 20:55:12,860 - daily_task_329666 - INFO - 尝试匹配 back...
+2026-04-09 20:55:12,898 - daily_task_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 20:55:12,910 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 20:55:13,137 - daily_task_329666 - INFO - [备选-全范围] back.png scale=0.500 conf=0.811
+2026-04-09 20:55:13,137 - daily_task_329666 - INFO - 匹配 back.png 成功，置信度: 0.811
+2026-04-09 20:55:13,138 - daily_task_329666 - INFO - back 匹配成功
+2026-04-09 20:55:13,342 - daily_task_329666 - INFO - 点击 back @ (451, 798)
+2026-04-09 20:55:14,631 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:55:14,686 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:55:14,950 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:55:14,950 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:55:14,951 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:55:14,951 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:55:14,998 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 20:55:15,258 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 20:55:15,259 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 20:55:15,259 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 20:55:15,260 - daily_task_329666 - INFO - 尝试匹配 back1...
+2026-04-09 20:55:15,297 - daily_task_329666 - DEBUG - 加载模板: back1.png 57x48
+2026-04-09 20:55:15,308 - daily_task_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.816
+2026-04-09 20:55:15,309 - daily_task_329666 - INFO - 匹配 back1.png 成功，置信度: 0.816
+2026-04-09 20:55:15,309 - daily_task_329666 - INFO - back1 匹配成功
+2026-04-09 20:55:15,512 - daily_task_329666 - INFO - 点击 back1 @ (429, 130)
+2026-04-09 20:55:17,223 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:55:17,274 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:55:17,540 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:55:17,540 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:55:17,541 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:55:17,541 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:55:17,596 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 20:55:17,866 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 20:55:17,866 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 20:55:17,866 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 20:55:17,867 - daily_task_329666 - INFO - 尝试匹配 back2...
+2026-04-09 20:55:17,905 - daily_task_329666 - DEBUG - 加载模板: back2.png 47x38
+2026-04-09 20:55:17,917 - daily_task_329666 - DEBUG - [比例匹配] back2.png scale=1.000 conf=0.966
+2026-04-09 20:55:17,917 - daily_task_329666 - INFO - 匹配 back2.png 成功，置信度: 0.966
+2026-04-09 20:55:17,918 - daily_task_329666 - INFO - back2 匹配成功
+2026-04-09 20:55:18,120 - daily_task_329666 - INFO - 点击 back2 @ (433, 133)
+2026-04-09 20:55:19,569 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:55:19,620 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:55:19,890 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:55:19,890 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:55:19,891 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:55:19,891 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:55:19,942 - daily_task_329666 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.920
+2026-04-09 20:55:19,942 - daily_task_329666 - INFO - 匹配 wild.png 成功，置信度: 0.920
+2026-04-09 20:55:19,943 - daily_task_329666 - INFO - wild 匹配成功
+2026-04-09 20:55:19,943 - daily_task_329666 - WARNING - 未找到每日任务入口配置
+2026-04-09 20:55:19,944 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 20:55:39,022 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 20:57:09,100 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 20:57:09,101 - src.main - INFO - 版本: 1.0.0
+2026-04-09 20:57:13,327 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 20:57:19,156 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 20:57:20,967 - daily_task_329666 - INFO - 开始加载每日任务入口配置...
+2026-04-09 20:57:20,968 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\frame_data.json
+2026-04-09 20:57:20,969 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\frame_data.json'
+2026-04-09 20:57:20,969 - daily_task_329666 - INFO - 每日任务入口配置加载完成: False
+2026-04-09 20:57:20,972 - daily_task_329666 - INFO - ==================================================
+2026-04-09 20:57:20,972 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 20:57:20,973 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 20:57:20,973 - daily_task_329666 - INFO - ==================================================
+2026-04-09 20:57:20,974 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 20:57:20,974 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:57:21,034 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 20:57:21,046 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:57:21,314 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:57:21,314 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:57:21,314 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:57:21,315 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:57:21,355 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 20:57:21,367 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 20:57:21,628 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 20:57:21,629 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 20:57:21,629 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 20:57:21,629 - daily_task_329666 - INFO - 尝试匹配 back...
+2026-04-09 20:57:21,670 - daily_task_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 20:57:21,681 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 20:57:21,903 - daily_task_329666 - INFO - [备选-全范围] back.png scale=0.658 conf=0.819
+2026-04-09 20:57:21,904 - daily_task_329666 - INFO - 匹配 back.png 成功，置信度: 0.819
+2026-04-09 20:57:21,904 - daily_task_329666 - INFO - back 匹配成功
+2026-04-09 20:57:22,110 - daily_task_329666 - INFO - 点击 back @ (903, 275)
+2026-04-09 20:57:23,898 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:57:23,952 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:57:24,217 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:57:24,217 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:57:24,218 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:57:24,218 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:57:24,270 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 20:57:24,524 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 20:57:24,525 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 20:57:24,525 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 20:57:24,525 - daily_task_329666 - INFO - 尝试匹配 back1...
+2026-04-09 20:57:24,562 - daily_task_329666 - DEBUG - 加载模板: back1.png 57x48
+2026-04-09 20:57:24,574 - daily_task_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.817
+2026-04-09 20:57:24,575 - daily_task_329666 - INFO - 匹配 back1.png 成功，置信度: 0.817
+2026-04-09 20:57:24,575 - daily_task_329666 - INFO - back1 匹配成功
+2026-04-09 20:57:24,777 - daily_task_329666 - INFO - 点击 back1 @ (429, 130)
+2026-04-09 20:57:25,862 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:57:25,916 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:57:26,179 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:57:26,179 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:57:26,180 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:57:26,180 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:57:26,230 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 20:57:26,491 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 20:57:26,491 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 20:57:26,492 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 20:57:26,492 - daily_task_329666 - INFO - 尝试匹配 back2...
+2026-04-09 20:57:26,533 - daily_task_329666 - DEBUG - 加载模板: back2.png 47x38
+2026-04-09 20:57:26,545 - daily_task_329666 - DEBUG - [比例匹配] back2.png scale=1.000 conf=0.966
+2026-04-09 20:57:26,546 - daily_task_329666 - INFO - 匹配 back2.png 成功，置信度: 0.966
+2026-04-09 20:57:26,546 - daily_task_329666 - INFO - back2 匹配成功
+2026-04-09 20:57:26,748 - daily_task_329666 - INFO - 点击 back2 @ (433, 133)
+2026-04-09 20:57:28,341 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 20:57:28,397 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 20:57:28,669 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 20:57:28,669 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 20:57:28,669 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 20:57:28,670 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 20:57:28,721 - daily_task_329666 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.920
+2026-04-09 20:57:28,721 - daily_task_329666 - INFO - 匹配 wild.png 成功，置信度: 0.920
+2026-04-09 20:57:28,722 - daily_task_329666 - INFO - wild 匹配成功
+2026-04-09 20:57:28,722 - daily_task_329666 - WARNING - 未找到每日任务入口配置
+2026-04-09 20:57:28,723 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 20:57:46,274 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:00:10,930 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:00:10,930 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:00:15,060 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:00:20,990 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:00:25,110 - daily_task_329666 - INFO - 开始加载每日任务入口配置...
+2026-04-09 21:00:25,111 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\frame_data.json
+2026-04-09 21:00:25,111 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\frame_data.json'
+2026-04-09 21:00:25,112 - daily_task_329666 - INFO - 每日任务入口配置加载完成: False
+2026-04-09 21:00:25,116 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:00:25,116 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:00:25,116 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:00:25,117 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:00:25,117 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 21:00:25,118 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:00:25,172 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:00:25,185 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:00:25,453 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:00:25,453 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:00:25,454 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:00:25,454 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:00:25,492 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:00:25,504 - daily_task_329666 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.920
+2026-04-09 21:00:25,505 - daily_task_329666 - INFO - 匹配 wild.png 成功，置信度: 0.920
+2026-04-09 21:00:25,505 - daily_task_329666 - INFO - wild 匹配成功
+2026-04-09 21:00:25,506 - daily_task_329666 - WARNING - 未找到每日任务入口配置
+2026-04-09 21:00:25,506 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:00:41,300 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:05:39,272 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:05:39,273 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:05:43,442 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:05:48,548 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:05:50,411 - daily_task_329666 - INFO - 开始加载每日任务入口配置...
+2026-04-09 21:05:50,412 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\frame_data.json
+2026-04-09 21:05:50,412 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\frame_data.json'
+2026-04-09 21:05:50,413 - daily_task_329666 - INFO - 每日任务入口配置加载完成: False
+2026-04-09 21:05:50,416 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:05:50,416 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:05:50,416 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:05:50,416 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:05:50,417 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 21:05:50,417 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:05:50,474 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:05:50,487 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:05:50,754 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:05:50,754 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:05:50,754 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:05:50,755 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:05:50,796 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:05:50,808 - daily_task_329666 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.920
+2026-04-09 21:05:50,808 - daily_task_329666 - INFO - 匹配 wild.png 成功，置信度: 0.920
+2026-04-09 21:05:50,808 - daily_task_329666 - INFO - wild 匹配成功
+2026-04-09 21:05:50,809 - daily_task_329666 - WARNING - 未找到每日任务入口配置
+2026-04-09 21:05:50,810 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:12:29,165 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:13:13,408 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:13:13,408 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:13:17,514 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:13:25,951 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\frame_data.json'
+2026-04-09 21:13:25,960 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:13:25,960 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:13:25,960 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:13:25,961 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:13:25,961 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 21:13:25,961 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:13:26,024 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:13:26,038 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:13:26,306 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:13:26,307 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:13:26,307 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:13:26,307 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:13:26,351 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:13:26,363 - daily_task_329666 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.920
+2026-04-09 21:13:26,364 - daily_task_329666 - INFO - 匹配 wild.png 成功，置信度: 0.920
+2026-04-09 21:13:26,364 - daily_task_329666 - INFO - wild 匹配成功
+2026-04-09 21:13:26,365 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:17:55,255 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:17:56,206 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:17:56,206 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:17:57,564 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:17:57,564 - torch._subclasses.fake_tensor - INFO - FakeTensor cache stats:
+2026-04-09 21:17:57,564 - torch._subclasses.fake_tensor - INFO -   cache_hits: 0
+2026-04-09 21:17:57,565 - torch._subclasses.fake_tensor - INFO -   cache_misses: 0
+2026-04-09 21:17:58,231 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:17:58,231 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:18:02,332 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:18:09,128 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:18:12,945 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\frame_data.json
+2026-04-09 21:18:12,945 - daily_task_329666 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\frame_data.json'
+2026-04-09 21:18:12,948 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:18:12,949 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:18:12,949 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:18:12,949 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:18:12,950 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 21:18:12,950 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:18:13,008 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:18:13,023 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:18:13,290 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:18:13,290 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:18:13,290 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:18:13,291 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:18:13,331 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:18:13,343 - daily_task_329666 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.920
+2026-04-09 21:18:13,344 - daily_task_329666 - INFO - 匹配 wild.png 成功，置信度: 0.920
+2026-04-09 21:18:13,344 - daily_task_329666 - INFO - wild 匹配成功
+2026-04-09 21:18:13,345 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:18:27,453 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:20:00,005 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:20:00,005 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:20:04,117 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:20:09,943 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:20:11,624 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-09 21:20:11,625 - daily_task_329666 - INFO - 配置文件加载成功，键名: ['雪域兵器联赛', '冰封的宝藏', '每日任务']
+2026-04-09 21:20:11,625 - daily_task_329666 - INFO - 找到每日任务入口配置
+2026-04-09 21:20:11,629 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:20:11,629 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:20:11,629 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:20:11,630 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:20:11,630 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 21:20:11,630 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:20:11,683 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:20:11,696 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:20:11,964 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:20:11,964 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:20:11,964 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:20:11,964 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:20:12,004 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:20:12,015 - daily_task_329666 - DEBUG - [比例匹配] wild.png scale=1.000 conf=0.920
+2026-04-09 21:20:12,017 - daily_task_329666 - INFO - 匹配 wild.png 成功，置信度: 0.920
+2026-04-09 21:20:12,017 - daily_task_329666 - INFO - wild 匹配成功
+2026-04-09 21:20:12,017 - daily_task_329666 - INFO - 检查红点...
+2026-04-09 21:20:12,065 - daily_task_329666 - INFO - 在区域 [10, 812, 55, 58] 检测到红点
+2026-04-09 21:20:12,066 - daily_task_329666 - INFO - 检测到红点，准备点击...
+2026-04-09 21:20:12,066 - daily_task_329666 - INFO - 点击区域中心...
+2026-04-09 21:20:12,309 - daily_task_329666 - INFO - 点击 区域中心 @ (529, 924)
+2026-04-09 21:20:12,309 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:20:29,152 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-09 21:20:29,153 - daily_task_329666 - INFO - 配置文件加载成功，键名: ['雪域兵器联赛', '冰封的宝藏', '每日任务']
+2026-04-09 21:20:29,153 - daily_task_329666 - INFO - 找到每日任务入口配置
+2026-04-09 21:20:29,157 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:20:29,157 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:20:29,158 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:20:29,158 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:20:29,158 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 21:20:29,159 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:20:29,204 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:20:29,217 - daily_task_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.878
+2026-04-09 21:20:29,217 - daily_task_329666 - INFO - 匹配 town.png 成功，置信度: 0.878
+2026-04-09 21:20:29,218 - daily_task_329666 - INFO - town 匹配成功
+2026-04-09 21:20:29,219 - daily_task_329666 - INFO - 检查红点...
+2026-04-09 21:20:29,259 - daily_task_329666 - INFO - 在区域 [10, 812, 55, 58] 检测到红点
+2026-04-09 21:20:29,260 - daily_task_329666 - INFO - 检测到红点，准备点击...
+2026-04-09 21:20:29,261 - daily_task_329666 - INFO - 点击区域中心...
+2026-04-09 21:20:29,509 - daily_task_329666 - INFO - 点击 区域中心 @ (529, 924)
+2026-04-09 21:20:29,509 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:20:36,233 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-09 21:20:36,234 - daily_task_329666 - INFO - 配置文件加载成功，键名: ['雪域兵器联赛', '冰封的宝藏', '每日任务']
+2026-04-09 21:20:36,235 - daily_task_329666 - INFO - 找到每日任务入口配置
+2026-04-09 21:20:36,239 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:20:36,239 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:20:36,239 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:20:36,239 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:20:36,239 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 21:20:36,240 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:20:36,280 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:20:36,294 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:20:36,561 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:20:36,561 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:20:36,562 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:20:36,562 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:20:36,603 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:20:36,615 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:20:36,878 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:20:36,878 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 21:20:36,879 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 21:20:36,879 - daily_task_329666 - INFO - 尝试匹配 back...
+2026-04-09 21:20:36,921 - daily_task_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 21:20:36,933 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:20:37,159 - daily_task_329666 - INFO - [备选-全范围] back.png scale=0.500 conf=0.809
+2026-04-09 21:20:37,160 - daily_task_329666 - INFO - 匹配 back.png 成功，置信度: 0.809
+2026-04-09 21:20:37,160 - daily_task_329666 - INFO - back 匹配成功
+2026-04-09 21:20:37,366 - daily_task_329666 - INFO - 点击 back @ (549, 819)
+2026-04-09 21:20:38,413 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:20:38,466 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:20:38,727 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:20:38,727 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:20:38,728 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:20:38,728 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:20:38,783 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:20:39,044 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:20:39,045 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 21:20:39,045 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 21:20:39,045 - daily_task_329666 - INFO - 尝试匹配 back1...
+2026-04-09 21:20:39,085 - daily_task_329666 - DEBUG - 加载模板: back1.png 57x48
+2026-04-09 21:20:39,097 - daily_task_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.816
+2026-04-09 21:20:39,097 - daily_task_329666 - INFO - 匹配 back1.png 成功，置信度: 0.816
+2026-04-09 21:20:39,098 - daily_task_329666 - INFO - back1 匹配成功
+2026-04-09 21:20:39,300 - daily_task_329666 - INFO - 点击 back1 @ (527, 151)
+2026-04-09 21:20:41,179 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:20:41,232 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:20:41,495 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:20:41,495 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:20:41,495 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:20:41,495 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:20:41,546 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:20:41,808 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:20:41,808 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 21:20:41,809 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 21:20:41,809 - daily_task_329666 - INFO - 尝试匹配 back2...
+2026-04-09 21:20:41,849 - daily_task_329666 - DEBUG - 加载模板: back2.png 47x38
+2026-04-09 21:20:41,862 - daily_task_329666 - DEBUG - [比例匹配] back2.png scale=1.000 conf=0.966
+2026-04-09 21:20:41,863 - daily_task_329666 - INFO - 匹配 back2.png 成功，置信度: 0.966
+2026-04-09 21:20:41,863 - daily_task_329666 - INFO - back2 匹配成功
+2026-04-09 21:20:42,065 - daily_task_329666 - INFO - 点击 back2 @ (531, 154)
+2026-04-09 21:20:43,146 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:20:43,194 - daily_task_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:20:43,195 - daily_task_329666 - INFO - 匹配 town.png 成功，置信度: 0.871
+2026-04-09 21:20:43,195 - daily_task_329666 - INFO - town 匹配成功
+2026-04-09 21:20:43,195 - daily_task_329666 - INFO - 检查红点...
+2026-04-09 21:20:43,238 - daily_task_329666 - INFO - 在区域 [10, 812, 55, 58] 检测到红点
+2026-04-09 21:20:43,238 - daily_task_329666 - INFO - 检测到红点，准备点击...
+2026-04-09 21:20:43,239 - daily_task_329666 - INFO - 点击区域中心...
+2026-04-09 21:20:43,481 - daily_task_329666 - INFO - 点击 区域中心 @ (529, 924)
+2026-04-09 21:20:43,481 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:20:54,416 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-09 21:20:54,416 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-09 21:20:54,426 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25436) (hwnd=329666)
+2026-04-09 21:20:54,428 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25436)
+2026-04-09 21:20:54,429 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-09 21:20:54,429 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-09 21:20:54,429 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25436) 挖矿
+2026-04-09 21:20:54,429 - MultiWindowManager - INFO - 激活窗口: 329666 (MuMu安卓设备 (25436))
+2026-04-09 21:20:54,432 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 21:20:54,530 - mining_329666 - INFO - ==================================================
+2026-04-09 21:20:54,530 - mining_329666 - INFO - 挖矿开始
+2026-04-09 21:20:54,530 - mining_329666 - INFO - 基准尺寸: 558x1021
+2026-04-09 21:20:54,531 - mining_329666 - INFO - ==================================================
+2026-04-09 21:20:54,531 - mining_329666 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-09 21:20:54,532 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25436) 挖矿完成...
+2026-04-09 21:20:54,533 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:20:56,598 - mining_329666 - INFO - OCR 初始化成功
+2026-04-09 21:20:56,598 - mining_329666 - INFO - 开始执行挖矿初始化流程...
+2026-04-09 21:20:56,598 - mining_329666 - INFO - 执行挖矿初始化流程...
+2026-04-09 21:22:21,532 - mining_329666 - INFO - 挖矿结束，标记窗口为已挖矿
+2026-04-09 21:22:21,533 - MultiWindowManager - INFO - 停止挖矿队列
+2026-04-09 21:22:21,556 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:22:25,294 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:22:25,294 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:22:29,398 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:22:38,760 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:22:40,500 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-09 21:22:40,500 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-09 21:22:40,502 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25436) (hwnd=329666)
+2026-04-09 21:22:40,504 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25436)
+2026-04-09 21:22:40,504 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-09 21:22:40,505 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-09 21:22:40,505 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25436) 挖矿
+2026-04-09 21:22:40,505 - MultiWindowManager - INFO - 激活窗口: 329666 (MuMu安卓设备 (25436))
+2026-04-09 21:22:40,508 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 21:22:58,045 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:23:27,519 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:23:27,519 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:23:31,644 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:23:36,454 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:23:38,750 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-09 21:23:38,750 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-09 21:23:38,753 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25436) (hwnd=329666)
+2026-04-09 21:23:38,754 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25436)
+2026-04-09 21:23:38,754 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-09 21:23:38,754 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-09 21:23:38,755 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25436) 挖矿
+2026-04-09 21:23:38,755 - MultiWindowManager - INFO - 激活窗口: 329666 (MuMu安卓设备 (25436))
+2026-04-09 21:23:38,759 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 21:23:38,856 - mining_329666 - INFO - ==================================================
+2026-04-09 21:23:38,856 - mining_329666 - INFO - 挖矿开始
+2026-04-09 21:23:38,856 - mining_329666 - INFO - 基准尺寸: 558x1021
+2026-04-09 21:23:38,856 - mining_329666 - INFO - ==================================================
+2026-04-09 21:23:38,857 - mining_329666 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-09 21:23:38,857 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25436) 挖矿完成...
+2026-04-09 21:23:38,858 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:23:40,936 - mining_329666 - INFO - OCR 初始化成功
+2026-04-09 21:23:40,937 - mining_329666 - INFO - 开始执行挖矿初始化流程...
+2026-04-09 21:23:40,938 - mining_329666 - INFO - 执行挖矿初始化流程...
+2026-04-09 21:23:41,005 - mining_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:23:41,022 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:23:41,022 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:23:41,022 - mining_329666 - INFO - 找到 town，开始挖矿流程
+2026-04-09 21:23:41,023 - mining_329666 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-09 21:23:41,158 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:23:41,158 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:23:41,201 - mining_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:23:41,218 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:23:41,498 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:23:41,548 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:23:41,548 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:23:41,549 - mining_329666 - INFO - 找到 town
+2026-04-09 21:23:42,784 - mining_329666 - DEBUG - 加载模板: search.png 40x37
+2026-04-09 21:23:42,797 - mining_329666 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.923
+2026-04-09 21:23:42,904 - mining_329666 - INFO - 点击 search: (414, 774) [scale=1.000]
+2026-04-09 21:23:42,904 - mining_329666 - INFO - 点击 search 成功
+2026-04-09 21:23:44,501 - mining_329666 - DEBUG - 加载模板: meat.png 106x81
+2026-04-09 21:23:44,516 - mining_329666 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.888
+2026-04-09 21:23:44,618 - mining_329666 - INFO - 点击 meat: (808, 800) [scale=1.000]
+2026-04-09 21:23:44,618 - mining_329666 - INFO - 点击资源成功: meat
+2026-04-09 21:23:45,956 - mining_329666 - DEBUG - 加载模板: add.png 20x31
+2026-04-09 21:23:45,968 - mining_329666 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-09 21:23:46,069 - mining_329666 - INFO - 点击 add: (715, 907) [scale=1.000]
+2026-04-09 21:23:46,070 - mining_329666 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 21:23:46,070 - mining_329666 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-09 21:23:46,070 - mining_329666 - INFO - add 坐标在容差范围内，继续流程
+2026-04-09 21:23:46,071 - mining_329666 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 21:23:47,322 - mining_329666 - DEBUG - 加载模板: search_meat.png 78x34
+2026-04-09 21:23:47,336 - mining_329666 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-09 21:23:47,437 - mining_329666 - INFO - 点击 search_meat: (661, 1035) [scale=1.000]
+2026-04-09 21:23:47,438 - mining_329666 - INFO - 点击 search_meat 成功
+2026-04-09 21:23:48,856 - mining_329666 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 21:23:48,895 - mining_329666 - DEBUG - 加载模板: gather.png 63x36
+2026-04-09 21:23:48,908 - mining_329666 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.868
+2026-04-09 21:23:49,014 - mining_329666 - INFO - 点击 gather: (655, 582) [scale=1.000]
+2026-04-09 21:23:49,014 - mining_329666 - INFO - 点击 gather 成功
+2026-04-09 21:23:50,300 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:23:50,671 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:23:50,710 - mining_329666 - DEBUG - 加载模板: team.png 139x43
+2026-04-09 21:23:50,726 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 21:23:50,988 - mining_329666 - DEBUG - 未找到: team.png
+2026-04-09 21:23:51,026 - mining_329666 - DEBUG - 加载模板: battle.png 81x37
+2026-04-09 21:23:51,040 - mining_329666 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-09 21:23:51,141 - mining_329666 - INFO - 点击 battle: (808, 1031) [scale=1.000]
+2026-04-09 21:23:51,141 - mining_329666 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 21:23:51,141 - mining_329666 - INFO - 已完成 1 轮，还需要循环 5 轮
+2026-04-09 21:23:51,384 - mining_329666 - INFO - OCR 识别结果: '1/5' (置信度: 0.99)
+2026-04-09 21:23:51,385 - mining_329666 - INFO - OCR 识别到文本: 1/5
+2026-04-09 21:23:51,386 - mining_329666 - INFO - 解析结果: 当前 1, 总数 5, 剩余 4
+2026-04-09 21:23:51,386 - mining_329666 - INFO - 设置还需要循环的次数为: 4
+2026-04-09 21:23:51,445 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:23:51,445 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:23:51,502 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:23:51,781 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:23:51,830 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:23:51,831 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:23:51,831 - mining_329666 - INFO - 找到 town
+2026-04-09 21:23:53,159 - mining_329666 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.927
+2026-04-09 21:23:53,264 - mining_329666 - INFO - 点击 search: (413, 774) [scale=1.000]
+2026-04-09 21:23:53,265 - mining_329666 - INFO - 点击 search 成功
+2026-04-09 21:23:54,633 - mining_329666 - DEBUG - 加载模板: wood.png 96x57
+2026-04-09 21:23:54,646 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wood.png
+2026-04-09 21:23:54,907 - mining_329666 - DEBUG - 未找到: wood.png
+2026-04-09 21:23:54,908 - mining_329666 - INFO - 点击资源成功: wood
+2026-04-09 21:23:56,353 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: add.png
+2026-04-09 21:23:56,462 - mining_329666 - INFO - [备选-近邻] add.png scale=0.800 conf=0.665
+2026-04-09 21:23:56,564 - mining_329666 - INFO - 点击 add: (702, 1024) [scale=0.800]
+2026-04-09 21:23:56,564 - mining_329666 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 21:23:56,565 - mining_329666 - INFO - add 当前坐标: (326, 961), 目标坐标: (339, 844)
+2026-04-09 21:23:56,565 - mining_329666 - INFO - 拖动 add 到目标位置: dx=13, dy=-117
+2026-04-09 21:23:57,425 - mining_329666 - INFO - 拖动完成: dx=13, dy=-117 [scale=1.000]
+2026-04-09 21:23:57,425 - mining_329666 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 21:23:58,886 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: search_meat.png
+2026-04-09 21:23:59,268 - mining_329666 - DEBUG - 未找到: search_meat.png
+2026-04-09 21:23:59,268 - mining_329666 - INFO - 点击 search_meat 成功
+2026-04-09 21:24:00,676 - mining_329666 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 21:24:00,729 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:24:01,104 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:24:01,104 - mining_329666 - INFO - 点击 gather 成功
+2026-04-09 21:24:03,113 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:24:03,484 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:24:03,538 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 21:24:03,797 - mining_329666 - INFO - [备选-全范围] team.png scale=0.658 conf=0.699
+2026-04-09 21:24:03,797 - mining_329666 - DEBUG - 找到 team [scale=0.658]
+2026-04-09 21:24:03,798 - mining_329666 - INFO - 找到 team，队列已满，停止挖矿
+2026-04-09 21:24:04,954 - mining_329666 - DEBUG - 加载模板: close.png 43x33
+2026-04-09 21:24:04,967 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: close.png
+2026-04-09 21:24:05,209 - mining_329666 - DEBUG - 未找到: close.png
+2026-04-09 21:24:05,210 - mining_329666 - INFO - 点击 close 成功
+2026-04-09 21:24:05,210 - MultiWindowManager - INFO - 窗口 329666 挖矿停止
+2026-04-09 21:24:05,446 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25436) 挖矿完成或停止
+2026-04-09 21:24:05,446 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-09 21:24:05,447 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-09 21:24:05,835 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-09 21:24:05,835 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:24:05,836 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-09 21:24:05,836 - ProtectiveCasing - INFO - 检测目标: g:\yang\fish\wujindongri\pic\war.png
+2026-04-09 21:24:05,836 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:24:05,885 - ProtectiveCasing - WARNING - 无法读取图片: g:\yang\fish\wujindongri\pic\war.png
+2026-04-09 21:24:06,980 - ProtectiveCasing - WARNING - 无法读取图片: g:\yang\fish\wujindongri\pic\war.png
+2026-04-09 21:24:09,018 - ProtectiveCasing - WARNING - 无法读取图片: g:\yang\fish\wujindongri\pic\war.png
+2026-04-09 21:24:10,277 - ProtectiveCasing - WARNING - 无法读取图片: g:\yang\fish\wujindongri\pic\war.png
+2026-04-09 21:24:12,005 - ProtectiveCasing - WARNING - 无法读取图片: g:\yang\fish\wujindongri\pic\war.png
+2026-04-09 21:24:13,207 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:28:00,275 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:28:00,275 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:28:04,414 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:28:14,497 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:28:17,029 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-09 21:28:17,029 - daily_task_329666 - INFO - 配置文件加载成功，键名: ['雪域兵器联赛', '冰封的宝藏', '每日任务']
+2026-04-09 21:28:17,030 - daily_task_329666 - INFO - 找到每日任务入口配置
+2026-04-09 21:28:17,033 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:28:17,033 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:28:17,033 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:28:17,033 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:28:17,034 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 21:28:17,034 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:28:17,083 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:28:17,099 - daily_task_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:28:17,099 - daily_task_329666 - INFO - 匹配 town.png 成功，置信度: 0.871
+2026-04-09 21:28:17,100 - daily_task_329666 - INFO - town 匹配成功
+2026-04-09 21:28:17,100 - daily_task_329666 - INFO - 检查红点...
+2026-04-09 21:28:17,138 - daily_task_329666 - INFO - 在区域 [10, 812, 55, 58] 检测到红点
+2026-04-09 21:28:17,139 - daily_task_329666 - INFO - 检测到红点，准备点击...
+2026-04-09 21:28:17,139 - daily_task_329666 - INFO - 点击区域中心...
+2026-04-09 21:28:17,389 - daily_task_329666 - INFO - 点击 区域中心 @ (413, 904)
+2026-04-09 21:28:17,389 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:28:21,369 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-09 21:28:21,369 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-09 21:28:21,371 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25436) (hwnd=329666)
+2026-04-09 21:28:21,373 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25436)
+2026-04-09 21:28:21,374 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-09 21:28:21,374 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-09 21:28:21,374 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25436) 挖矿
+2026-04-09 21:28:21,374 - MultiWindowManager - INFO - 激活窗口: 329666 (MuMu安卓设备 (25436))
+2026-04-09 21:28:21,380 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 21:28:21,476 - mining_329666 - INFO - ==================================================
+2026-04-09 21:28:21,476 - mining_329666 - INFO - 挖矿开始
+2026-04-09 21:28:21,476 - mining_329666 - INFO - 基准尺寸: 558x1021
+2026-04-09 21:28:21,476 - mining_329666 - INFO - ==================================================
+2026-04-09 21:28:21,476 - mining_329666 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-09 21:28:21,478 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25436) 挖矿完成...
+2026-04-09 21:28:21,478 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:28:23,576 - mining_329666 - INFO - OCR 初始化成功
+2026-04-09 21:28:23,576 - mining_329666 - INFO - 开始执行挖矿初始化流程...
+2026-04-09 21:28:23,577 - mining_329666 - INFO - 执行挖矿初始化流程...
+2026-04-09 21:28:23,629 - mining_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:28:23,644 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:28:23,644 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:28:23,645 - mining_329666 - INFO - 找到 town，开始挖矿流程
+2026-04-09 21:28:23,645 - mining_329666 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-09 21:28:23,724 - mining_329666 - INFO - OCR 识别结果: '1/5' (置信度: 0.99)
+2026-04-09 21:28:23,725 - mining_329666 - INFO - OCR 识别到文本: 1/5
+2026-04-09 21:28:23,725 - mining_329666 - INFO - 解析结果: 当前 1, 总数 5, 剩余 4
+2026-04-09 21:28:23,726 - mining_329666 - INFO - 设置还需要循环的次数为: 4
+2026-04-09 21:28:23,792 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:28:23,792 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:28:23,837 - mining_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:28:23,855 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:28:24,156 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:28:24,207 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:28:24,208 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:28:24,208 - mining_329666 - INFO - 找到 town
+2026-04-09 21:28:25,838 - mining_329666 - DEBUG - 加载模板: search.png 40x37
+2026-04-09 21:28:25,850 - mining_329666 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.931
+2026-04-09 21:28:25,956 - mining_329666 - INFO - 点击 search: (413, 774) [scale=1.000]
+2026-04-09 21:28:25,956 - mining_329666 - INFO - 点击 search 成功
+2026-04-09 21:28:26,236 - mining_329666 - INFO - 挖矿结束，标记窗口为已挖矿
+2026-04-09 21:28:26,236 - MultiWindowManager - INFO - 停止挖矿队列
+2026-04-09 21:28:26,482 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25436) 挖矿完成或停止
+2026-04-09 21:28:26,482 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-09 21:28:26,483 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-09 21:28:27,240 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-09 21:28:27,241 - daily_task_329666 - INFO - 配置文件加载成功，键名: ['雪域兵器联赛', '冰封的宝藏', '每日任务']
+2026-04-09 21:28:27,241 - daily_task_329666 - INFO - 找到每日任务入口配置
+2026-04-09 21:28:27,245 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:28:27,245 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:28:27,245 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:28:27,246 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:28:27,246 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 21:28:27,247 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:28:27,278 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-09 21:28:27,279 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:28:27,280 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-09 21:28:27,280 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-09 21:28:27,280 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:28:27,342 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:28:27,352 - mining_329666 - DEBUG - 加载模板: meat.png 106x81
+2026-04-09 21:28:27,358 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:28:27,367 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:27,371 - mining_329666 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.849
+2026-04-09 21:28:27,478 - mining_329666 - INFO - 点击 meat: (655, 800) [scale=1.000]
+2026-04-09 21:28:27,478 - mining_329666 - INFO - 点击资源成功: meat
+2026-04-09 21:28:27,648 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:28:27,648 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:28:27,648 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:28:27,648 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:28:27,688 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:28:27,699 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:28:27,962 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:28:27,962 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 21:28:27,963 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 21:28:27,963 - daily_task_329666 - INFO - 尝试匹配 back...
+2026-04-09 21:28:28,005 - daily_task_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 21:28:28,018 - daily_task_329666 - DEBUG - [比例匹配] back.png scale=1.000 conf=0.999
+2026-04-09 21:28:28,018 - daily_task_329666 - INFO - 匹配 back.png 成功，置信度: 0.999
+2026-04-09 21:28:28,018 - daily_task_329666 - INFO - back 匹配成功
+2026-04-09 21:28:28,222 - daily_task_329666 - INFO - 点击 back @ (406, 194)
+2026-04-09 21:28:28,922 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:29,075 - mining_329666 - DEBUG - 加载模板: add.png 20x31
+2026-04-09 21:28:29,087 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: add.png
+2026-04-09 21:28:29,312 - mining_329666 - INFO - [备选-全范围] add.png scale=0.737 conf=0.686
+2026-04-09 21:28:29,413 - mining_329666 - INFO - 点击 add: (840, 134) [scale=0.737]
+2026-04-09 21:28:29,413 - mining_329666 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 21:28:29,414 - mining_329666 - INFO - add 当前坐标: (464, 71), 目标坐标: (339, 844)
+2026-04-09 21:28:29,414 - mining_329666 - INFO - 拖动 add 到目标位置: dx=-125, dy=773
+2026-04-09 21:28:29,749 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:28:29,803 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:28:30,070 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:28:30,070 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:28:30,071 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:28:30,071 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:28:30,123 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:28:30,304 - mining_329666 - INFO - 拖动完成: dx=-125, dy=773 [scale=1.000]
+2026-04-09 21:28:30,304 - mining_329666 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 21:28:30,387 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:28:30,388 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 21:28:30,388 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 21:28:30,388 - daily_task_329666 - INFO - 尝试匹配 back1...
+2026-04-09 21:28:30,428 - daily_task_329666 - DEBUG - 加载模板: back1.png 57x48
+2026-04-09 21:28:30,440 - daily_task_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.789
+2026-04-09 21:28:30,441 - daily_task_329666 - INFO - 匹配 back1.png 成功，置信度: 0.789
+2026-04-09 21:28:30,441 - daily_task_329666 - INFO - back1 匹配成功
+2026-04-09 21:28:30,648 - daily_task_329666 - INFO - 点击 back1 @ (411, 131)
+2026-04-09 21:28:30,772 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:31,361 - mining_329666 - DEBUG - 加载模板: search_meat.png 78x34
+2026-04-09 21:28:31,375 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: search_meat.png
+2026-04-09 21:28:31,627 - mining_329666 - INFO - [备选-全范围] search_meat.png scale=0.816 conf=0.695
+2026-04-09 21:28:31,730 - mining_329666 - INFO - 点击 search_meat: (790, 198) [scale=0.816]
+2026-04-09 21:28:31,730 - mining_329666 - INFO - 点击 search_meat 成功
+2026-04-09 21:28:31,880 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:28:31,929 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:28:32,186 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:28:32,186 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:28:32,187 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:28:32,188 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:28:32,239 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:28:32,490 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:32,517 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:28:32,518 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 21:28:32,518 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 21:28:32,519 - daily_task_329666 - INFO - 尝试匹配 back2...
+2026-04-09 21:28:32,561 - daily_task_329666 - DEBUG - 加载模板: back2.png 47x38
+2026-04-09 21:28:32,574 - daily_task_329666 - DEBUG - [比例匹配] back2.png scale=1.000 conf=0.963
+2026-04-09 21:28:32,574 - daily_task_329666 - INFO - 匹配 back2.png 成功，置信度: 0.963
+2026-04-09 21:28:32,575 - daily_task_329666 - INFO - back2 匹配成功
+2026-04-09 21:28:32,777 - daily_task_329666 - INFO - 点击 back2 @ (415, 134)
+2026-04-09 21:28:33,625 - mining_329666 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 21:28:33,667 - mining_329666 - DEBUG - 加载模板: gather.png 63x36
+2026-04-09 21:28:33,680 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:28:33,896 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:33,966 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:28:33,966 - mining_329666 - INFO - 点击 gather 成功
+2026-04-09 21:28:34,661 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:28:34,712 - daily_task_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:28:34,712 - daily_task_329666 - INFO - 匹配 town.png 成功，置信度: 0.871
+2026-04-09 21:28:34,713 - daily_task_329666 - INFO - town 匹配成功
+2026-04-09 21:28:34,713 - daily_task_329666 - INFO - 检查红点...
+2026-04-09 21:28:34,754 - daily_task_329666 - INFO - 在区域 [10, 812, 55, 58] 检测到红点
+2026-04-09 21:28:34,754 - daily_task_329666 - INFO - 检测到红点，准备点击...
+2026-04-09 21:28:34,755 - daily_task_329666 - INFO - 点击区域中心...
+2026-04-09 21:28:34,994 - daily_task_329666 - INFO - 点击 区域中心 @ (413, 904)
+2026-04-09 21:28:34,994 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:28:35,010 - MultiWindowManager - INFO - 没有需要挖矿的窗口
+2026-04-09 21:28:35,244 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:28:35,357 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:35,532 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:28:35,575 - mining_329666 - DEBUG - 加载模板: team.png 139x43
+2026-04-09 21:28:35,590 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 21:28:35,854 - mining_329666 - DEBUG - 未找到: team.png
+2026-04-09 21:28:35,897 - mining_329666 - DEBUG - 加载模板: battle.png 81x37
+2026-04-09 21:28:35,911 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: battle.png
+2026-04-09 21:28:36,172 - mining_329666 - DEBUG - 未找到: battle.png
+2026-04-09 21:28:36,172 - mining_329666 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 21:28:36,173 - mining_329666 - INFO - 已完成 1 轮，还需要循环 3 轮
+2026-04-09 21:28:37,615 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:39,634 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:41,586 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:43,097 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:45,381 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:47,006 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:49,127 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:51,207 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:53,324 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:55,227 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:57,380 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:28:59,540 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:01,878 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:03,733 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:05,043 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:06,850 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:08,331 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:09,741 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:11,608 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:13,415 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:15,078 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:16,563 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:18,313 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:19,392 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:20,657 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:21,709 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:23,646 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:24,755 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:26,397 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:28,344 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:29,546 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:29:29,966 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:34:54,935 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:34:54,935 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:34:59,080 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:35:04,499 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:35:05,647 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-09 21:35:05,647 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-09 21:35:05,649 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25436) (hwnd=329666)
+2026-04-09 21:35:05,651 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25436)
+2026-04-09 21:35:05,651 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-09 21:35:05,651 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-09 21:35:05,651 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25436) 挖矿
+2026-04-09 21:35:05,652 - MultiWindowManager - INFO - 激活窗口: 329666 (MuMu安卓设备 (25436))
+2026-04-09 21:35:05,655 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 21:35:05,753 - mining_329666 - INFO - ==================================================
+2026-04-09 21:35:05,753 - mining_329666 - INFO - 挖矿开始
+2026-04-09 21:35:05,753 - mining_329666 - INFO - 基准尺寸: 558x1021
+2026-04-09 21:35:05,753 - mining_329666 - INFO - ==================================================
+2026-04-09 21:35:05,753 - mining_329666 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-09 21:35:05,754 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25436) 挖矿完成...
+2026-04-09 21:35:05,755 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:35:07,847 - mining_329666 - INFO - OCR 初始化成功
+2026-04-09 21:35:07,848 - mining_329666 - INFO - 开始执行挖矿初始化流程...
+2026-04-09 21:35:07,848 - mining_329666 - INFO - 执行挖矿初始化流程...
+2026-04-09 21:35:07,908 - mining_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:35:07,926 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:35:07,926 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:35:07,927 - mining_329666 - INFO - 找到 town，开始挖矿流程
+2026-04-09 21:35:07,927 - mining_329666 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-09 21:35:08,010 - mining_329666 - INFO - OCR 识别结果: '1/5' (置信度: 0.99)
+2026-04-09 21:35:08,010 - mining_329666 - INFO - OCR 识别到文本: 1/5
+2026-04-09 21:35:08,011 - mining_329666 - INFO - 解析结果: 当前 1, 总数 5, 剩余 4
+2026-04-09 21:35:08,011 - mining_329666 - INFO - 设置还需要循环的次数为: 4
+2026-04-09 21:35:08,074 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:35:08,074 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:35:08,121 - mining_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:35:08,136 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:35:08,422 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:35:08,472 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:35:08,473 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:35:08,473 - mining_329666 - INFO - 找到 town
+2026-04-09 21:35:09,751 - mining_329666 - DEBUG - 加载模板: search.png 40x37
+2026-04-09 21:35:09,764 - mining_329666 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.927
+2026-04-09 21:35:09,870 - mining_329666 - INFO - 点击 search: (413, 774) [scale=1.000]
+2026-04-09 21:35:09,871 - mining_329666 - INFO - 点击 search 成功
+2026-04-09 21:35:11,121 - mining_329666 - DEBUG - 加载模板: meat.png 106x81
+2026-04-09 21:35:11,137 - mining_329666 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.888
+2026-04-09 21:35:11,238 - mining_329666 - INFO - 点击 meat: (655, 800) [scale=1.000]
+2026-04-09 21:35:11,239 - mining_329666 - INFO - 点击资源成功: meat
+2026-04-09 21:35:12,486 - mining_329666 - DEBUG - 加载模板: add.png 20x31
+2026-04-09 21:35:12,498 - mining_329666 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-09 21:35:12,599 - mining_329666 - INFO - 点击 add: (715, 907) [scale=1.000]
+2026-04-09 21:35:12,599 - mining_329666 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 21:35:12,600 - mining_329666 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-09 21:35:12,600 - mining_329666 - INFO - add 坐标在容差范围内，继续流程
+2026-04-09 21:35:12,600 - mining_329666 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 21:35:13,804 - mining_329666 - DEBUG - 加载模板: search_meat.png 78x34
+2026-04-09 21:35:13,817 - mining_329666 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-09 21:35:13,919 - mining_329666 - INFO - 点击 search_meat: (661, 1035) [scale=1.000]
+2026-04-09 21:35:13,919 - mining_329666 - INFO - 点击 search_meat 成功
+2026-04-09 21:35:15,631 - mining_329666 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 21:35:15,672 - mining_329666 - DEBUG - 加载模板: gather.png 63x36
+2026-04-09 21:35:15,685 - mining_329666 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-09 21:35:15,793 - mining_329666 - INFO - 点击 gather: (655, 582) [scale=1.000]
+2026-04-09 21:35:15,794 - mining_329666 - INFO - 点击 gather 成功
+2026-04-09 21:35:17,699 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:35:18,080 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:35:18,119 - mining_329666 - DEBUG - 加载模板: team.png 139x43
+2026-04-09 21:35:18,132 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 21:35:18,389 - mining_329666 - DEBUG - 未找到: team.png
+2026-04-09 21:35:18,428 - mining_329666 - DEBUG - 加载模板: battle.png 81x37
+2026-04-09 21:35:18,441 - mining_329666 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-09 21:35:18,543 - mining_329666 - INFO - 点击 battle: (808, 1031) [scale=1.000]
+2026-04-09 21:35:18,543 - mining_329666 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 21:35:18,544 - mining_329666 - INFO - 已完成 1 轮，还需要循环 3 轮
+2026-04-09 21:35:18,747 - mining_329666 - INFO - OCR 识别结果: '2/5' (置信度: 0.93)
+2026-04-09 21:35:18,747 - mining_329666 - INFO - OCR 识别到文本: 2/5
+2026-04-09 21:35:18,747 - mining_329666 - INFO - 解析结果: 当前 2, 总数 5, 剩余 3
+2026-04-09 21:35:18,747 - mining_329666 - INFO - 设置还需要循环的次数为: 3
+2026-04-09 21:35:18,805 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:35:18,805 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:35:18,867 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:35:19,154 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:35:19,203 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:35:19,203 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:35:19,204 - mining_329666 - INFO - 找到 town
+2026-04-09 21:35:20,338 - mining_329666 - INFO - 挖矿结束，标记窗口为已挖矿
+2026-04-09 21:35:20,339 - MultiWindowManager - INFO - 停止挖矿队列
+2026-04-09 21:35:20,714 - mining_329666 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.939
+2026-04-09 21:35:20,781 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25436) 挖矿完成或停止
+2026-04-09 21:35:20,781 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-09 21:35:20,781 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-09 21:35:20,820 - mining_329666 - INFO - 点击 search: (414, 774) [scale=1.000]
+2026-04-09 21:35:20,820 - mining_329666 - INFO - 点击 search 成功
+2026-04-09 21:35:21,345 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:35:21,345 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:35:21,345 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:35:21,346 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:35:21,346 - daily_task_329666 - INFO - 加载每日任务入口配置...
+2026-04-09 21:35:21,347 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-09 21:35:21,347 - daily_task_329666 - INFO - 配置文件加载成功，键名: ['雪域兵器联赛', '冰封的宝藏', '每日任务']
+2026-04-09 21:35:21,347 - daily_task_329666 - INFO - 找到每日任务入口配置
+2026-04-09 21:35:21,347 - daily_task_329666 - INFO - 未检测到挖矿
+2026-04-09 21:35:21,347 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:35:21,378 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-09 21:35:21,379 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:35:21,379 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-09 21:35:21,379 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-09 21:35:21,380 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:35:21,414 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:35:21,429 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:35:21,430 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:21,723 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:35:21,723 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:35:21,723 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:35:21,724 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:35:21,762 - daily_task_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:35:21,774 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:35:22,045 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:35:22,045 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 21:35:22,046 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 21:35:22,046 - daily_task_329666 - INFO - 尝试匹配 back...
+2026-04-09 21:35:22,083 - daily_task_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 21:35:22,095 - daily_task_329666 - DEBUG - [比例匹配] back.png scale=1.000 conf=0.999
+2026-04-09 21:35:22,096 - daily_task_329666 - INFO - 匹配 back.png 成功，置信度: 0.999
+2026-04-09 21:35:22,096 - daily_task_329666 - INFO - back 匹配成功
+2026-04-09 21:35:22,304 - daily_task_329666 - INFO - 点击 back @ (406, 194)
+2026-04-09 21:35:22,580 - mining_329666 - DEBUG - 加载模板: wood.png 96x57
+2026-04-09 21:35:22,595 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wood.png
+2026-04-09 21:35:22,861 - mining_329666 - DEBUG - 未找到: wood.png
+2026-04-09 21:35:22,861 - mining_329666 - INFO - 点击资源成功: wood
+2026-04-09 21:35:23,306 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:23,836 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:35:23,892 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:35:24,155 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:35:24,155 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:35:24,156 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:35:24,156 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:35:24,208 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:35:24,468 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:35:24,469 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 21:35:24,469 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 21:35:24,469 - daily_task_329666 - INFO - 尝试匹配 back1...
+2026-04-09 21:35:24,512 - daily_task_329666 - DEBUG - 加载模板: back1.png 57x48
+2026-04-09 21:35:24,523 - daily_task_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.999
+2026-04-09 21:35:24,524 - daily_task_329666 - INFO - 匹配 back1.png 成功，置信度: 0.999
+2026-04-09 21:35:24,525 - daily_task_329666 - INFO - back1 匹配成功
+2026-04-09 21:35:24,680 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:24,727 - daily_task_329666 - INFO - 点击 back1 @ (411, 131)
+2026-04-09 21:35:24,826 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: add.png
+2026-04-09 21:35:24,950 - mining_329666 - INFO - [备选-近邻] add.png scale=0.800 conf=0.665
+2026-04-09 21:35:25,052 - mining_329666 - INFO - 点击 add: (702, 1024) [scale=0.800]
+2026-04-09 21:35:25,052 - mining_329666 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 21:35:25,053 - mining_329666 - INFO - add 当前坐标: (326, 961), 目标坐标: (339, 844)
+2026-04-09 21:35:25,053 - mining_329666 - INFO - 拖动 add 到目标位置: dx=13, dy=-117
+2026-04-09 21:35:25,910 - mining_329666 - INFO - 拖动完成: dx=13, dy=-117 [scale=1.000]
+2026-04-09 21:35:25,910 - mining_329666 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 21:35:26,064 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:26,691 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:35:26,745 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:35:27,007 - daily_task_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:35:27,007 - daily_task_329666 - INFO - 未匹配到 town.png
+2026-04-09 21:35:27,008 - daily_task_329666 - INFO - 未匹配到 town
+2026-04-09 21:35:27,008 - daily_task_329666 - INFO - 尝试匹配 wild...
+2026-04-09 21:35:27,061 - daily_task_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:35:27,322 - daily_task_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:35:27,323 - daily_task_329666 - INFO - 未匹配到 wild.png
+2026-04-09 21:35:27,323 - daily_task_329666 - INFO - 未匹配到 wild
+2026-04-09 21:35:27,324 - daily_task_329666 - INFO - 尝试匹配 back2...
+2026-04-09 21:35:27,365 - daily_task_329666 - DEBUG - 加载模板: back2.png 47x38
+2026-04-09 21:35:27,376 - daily_task_329666 - DEBUG - [比例匹配] back2.png scale=1.000 conf=0.931
+2026-04-09 21:35:27,377 - daily_task_329666 - INFO - 匹配 back2.png 成功，置信度: 0.931
+2026-04-09 21:35:27,377 - daily_task_329666 - INFO - back2 匹配成功
+2026-04-09 21:35:27,509 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:27,591 - daily_task_329666 - INFO - 点击 back2 @ (415, 134)
+2026-04-09 21:35:27,596 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: search_meat.png
+2026-04-09 21:35:28,012 - mining_329666 - DEBUG - 未找到: search_meat.png
+2026-04-09 21:35:28,013 - mining_329666 - INFO - 点击 search_meat 成功
+2026-04-09 21:35:29,059 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:29,419 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:35:29,472 - daily_task_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:35:29,473 - daily_task_329666 - INFO - 匹配 town.png 成功，置信度: 0.871
+2026-04-09 21:35:29,473 - daily_task_329666 - INFO - town 匹配成功
+2026-04-09 21:35:29,474 - daily_task_329666 - INFO - 检查红点...
+2026-04-09 21:35:29,509 - daily_task_329666 - INFO - 在区域 [10, 812, 55, 58] 检测到红点
+2026-04-09 21:35:29,510 - daily_task_329666 - INFO - 检测到红点，准备点击...
+2026-04-09 21:35:29,510 - daily_task_329666 - INFO - 点击区域中心...
+2026-04-09 21:35:29,753 - daily_task_329666 - INFO - 点击 区域中心 @ (413, 904)
+2026-04-09 21:35:29,753 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:35:29,777 - MultiWindowManager - INFO - 没有需要挖矿的窗口
+2026-04-09 21:35:29,849 - mining_329666 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 21:35:29,897 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:35:30,273 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:35:30,273 - mining_329666 - INFO - 点击 gather 成功
+2026-04-09 21:35:31,273 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:31,606 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:35:31,981 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:35:32,032 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 21:35:32,290 - mining_329666 - DEBUG - 未找到: team.png
+2026-04-09 21:35:32,342 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: battle.png
+2026-04-09 21:35:32,734 - mining_329666 - DEBUG - 未找到: battle.png
+2026-04-09 21:35:32,734 - mining_329666 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 21:35:32,735 - mining_329666 - INFO - 已完成 2 轮，还需要循环 2 轮
+2026-04-09 21:35:33,461 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:35,108 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:36,779 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:38,360 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:40,530 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:42,769 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:35:43,135 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:41:24,090 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:41:24,090 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:41:28,265 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:41:33,100 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:41:34,564 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-09 21:41:34,564 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-09 21:41:34,566 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25436) (hwnd=329666)
+2026-04-09 21:41:34,568 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25436)
+2026-04-09 21:41:34,568 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-09 21:41:34,568 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-09 21:41:34,569 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25436) 挖矿
+2026-04-09 21:41:34,569 - MultiWindowManager - INFO - 激活窗口: 329666 (MuMu安卓设备 (25436))
+2026-04-09 21:41:34,571 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 21:41:34,670 - mining_329666 - INFO - ==================================================
+2026-04-09 21:41:34,670 - mining_329666 - INFO - 挖矿开始
+2026-04-09 21:41:34,670 - mining_329666 - INFO - 基准尺寸: 558x1021
+2026-04-09 21:41:34,671 - mining_329666 - INFO - ==================================================
+2026-04-09 21:41:34,671 - mining_329666 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-09 21:41:34,671 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25436) 挖矿完成...
+2026-04-09 21:41:34,672 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:41:36,757 - mining_329666 - INFO - OCR 初始化成功
+2026-04-09 21:41:36,757 - mining_329666 - INFO - 开始执行挖矿初始化流程...
+2026-04-09 21:41:36,757 - mining_329666 - INFO - 执行挖矿初始化流程...
+2026-04-09 21:41:36,816 - mining_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:41:36,834 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:41:36,834 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:41:36,834 - mining_329666 - INFO - 找到 town，开始挖矿流程
+2026-04-09 21:41:36,835 - mining_329666 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-09 21:41:36,920 - mining_329666 - INFO - OCR 识别结果: '2/5' (置信度: 0.87)
+2026-04-09 21:41:36,921 - mining_329666 - INFO - OCR 识别到文本: 2/5
+2026-04-09 21:41:36,921 - mining_329666 - INFO - 解析结果: 当前 2, 总数 5, 剩余 3
+2026-04-09 21:41:36,922 - mining_329666 - INFO - 设置还需要循环的次数为: 3
+2026-04-09 21:41:36,993 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:41:36,993 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:41:37,051 - mining_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:41:37,070 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:41:37,348 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:41:37,403 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:41:37,403 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:41:37,403 - mining_329666 - INFO - 找到 town
+2026-04-09 21:41:37,887 - mining_329666 - INFO - 挖矿结束，标记窗口为已挖矿
+2026-04-09 21:41:37,887 - MultiWindowManager - INFO - 停止挖矿队列
+2026-04-09 21:41:38,174 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25436) 挖矿完成或停止
+2026-04-09 21:41:38,174 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-09 21:41:38,174 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-09 21:41:38,893 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:41:38,893 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:41:38,893 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:41:38,894 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:41:38,895 - daily_task_329666 - INFO - 加载每日任务入口配置...
+2026-04-09 21:41:38,895 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-09 21:41:38,895 - daily_task_329666 - INFO - 配置文件加载成功，键名: ['雪域兵器联赛', '冰封的宝藏', '每日任务']
+2026-04-09 21:41:38,895 - daily_task_329666 - INFO - 找到每日任务入口配置
+2026-04-09 21:41:38,896 - daily_task_329666 - INFO - 挖矿状态: 2 (0:未开始, 1:挖矿中, 2:挖矿结束)
+2026-04-09 21:41:38,897 - daily_task_329666 - INFO - 挖矿已结束
+2026-04-09 21:41:38,897 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:41:38,897 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-09 21:41:38,929 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:41:38,929 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-09 21:41:38,929 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-09 21:41:38,929 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:41:38,967 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:41:38,983 - daily_task_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:41:38,984 - daily_task_329666 - INFO - 匹配 town.png 成功，置信度: 0.871
+2026-04-09 21:41:38,984 - daily_task_329666 - INFO - town 匹配成功
+2026-04-09 21:41:38,984 - daily_task_329666 - INFO - 检查红点...
+2026-04-09 21:41:39,015 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:41:39,026 - daily_task_329666 - INFO - 在区域 [10, 812, 55, 58] 检测到红点
+2026-04-09 21:41:39,027 - daily_task_329666 - INFO - 检测到红点，准备点击...
+2026-04-09 21:41:39,028 - daily_task_329666 - INFO - 点击区域中心...
+2026-04-09 21:41:39,271 - daily_task_329666 - INFO - 点击 区域中心 @ (413, 904)
+2026-04-09 21:41:39,271 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:41:39,314 - mining_329666 - DEBUG - 加载模板: search.png 40x37
+2026-04-09 21:41:39,327 - mining_329666 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.941
+2026-04-09 21:41:39,332 - MultiWindowManager - INFO - 没有需要挖矿的窗口
+2026-04-09 21:41:39,435 - mining_329666 - INFO - 点击 search: (414, 774) [scale=1.000]
+2026-04-09 21:41:39,435 - mining_329666 - INFO - 点击 search 成功
+2026-04-09 21:41:40,955 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:41:41,043 - mining_329666 - DEBUG - 加载模板: meat.png 106x81
+2026-04-09 21:41:41,058 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: meat.png
+2026-04-09 21:41:41,335 - mining_329666 - DEBUG - 未找到: meat.png
+2026-04-09 21:41:41,336 - mining_329666 - INFO - 点击资源成功: meat
+2026-04-09 21:41:42,528 - mining_329666 - DEBUG - 加载模板: add.png 20x31
+2026-04-09 21:41:42,540 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: add.png
+2026-04-09 21:41:42,759 - mining_329666 - INFO - [备选-全范围] add.png scale=0.658 conf=0.725
+2026-04-09 21:41:42,820 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:41:42,866 - mining_329666 - INFO - 点击 add: (542, 249) [scale=0.658]
+2026-04-09 21:41:42,867 - mining_329666 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 21:41:42,867 - mining_329666 - INFO - add 当前坐标: (166, 186), 目标坐标: (339, 844)
+2026-04-09 21:41:42,868 - mining_329666 - INFO - 拖动 add 到目标位置: dx=173, dy=658
+2026-04-09 21:41:43,725 - mining_329666 - INFO - 拖动完成: dx=173, dy=658 [scale=1.000]
+2026-04-09 21:41:43,725 - mining_329666 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 21:41:44,177 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:41:44,833 - mining_329666 - DEBUG - 加载模板: search_meat.png 78x34
+2026-04-09 21:41:44,849 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: search_meat.png
+2026-04-09 21:41:45,103 - mining_329666 - DEBUG - 未找到: search_meat.png
+2026-04-09 21:41:45,103 - mining_329666 - INFO - 点击 search_meat 成功
+2026-04-09 21:41:45,883 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:41:46,560 - mining_329666 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 21:41:46,598 - mining_329666 - DEBUG - 加载模板: gather.png 63x36
+2026-04-09 21:41:46,610 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:41:46,861 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:41:46,861 - mining_329666 - INFO - 点击 gather 成功
+2026-04-09 21:41:47,893 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:41:48,204 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:41:48,456 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:41:48,497 - mining_329666 - DEBUG - 加载模板: team.png 139x43
+2026-04-09 21:41:48,510 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 21:41:48,771 - mining_329666 - DEBUG - 未找到: team.png
+2026-04-09 21:41:48,812 - mining_329666 - DEBUG - 加载模板: battle.png 81x37
+2026-04-09 21:41:48,826 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: battle.png
+2026-04-09 21:41:49,087 - mining_329666 - DEBUG - 未找到: battle.png
+2026-04-09 21:41:49,087 - mining_329666 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 21:41:49,089 - mining_329666 - INFO - 已完成 1 轮，还需要循环 2 轮
+2026-04-09 21:41:49,831 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:41:51,252 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:41:53,331 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:41:54,691 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:46:23,153 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:46:23,153 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:46:27,240 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:46:33,840 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:46:34,827 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-09 21:46:34,827 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-09 21:46:34,828 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25436) (hwnd=329666)
+2026-04-09 21:46:34,830 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25436)
+2026-04-09 21:46:34,831 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-09 21:46:34,831 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-09 21:46:34,831 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25436) 挖矿
+2026-04-09 21:46:34,831 - MultiWindowManager - INFO - 激活窗口: 329666 (MuMu安卓设备 (25436))
+2026-04-09 21:46:34,834 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 21:46:34,932 - mining_329666 - INFO - ==================================================
+2026-04-09 21:46:34,933 - mining_329666 - INFO - 挖矿开始
+2026-04-09 21:46:34,933 - mining_329666 - INFO - 基准尺寸: 558x1021
+2026-04-09 21:46:34,933 - mining_329666 - INFO - ==================================================
+2026-04-09 21:46:34,934 - mining_329666 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-09 21:46:34,934 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25436) 挖矿完成...
+2026-04-09 21:46:34,935 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:46:37,103 - mining_329666 - INFO - OCR 初始化成功
+2026-04-09 21:46:37,104 - mining_329666 - INFO - 开始执行挖矿初始化流程...
+2026-04-09 21:46:37,104 - mining_329666 - INFO - 执行挖矿初始化流程...
+2026-04-09 21:46:37,157 - mining_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:46:37,176 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:46:37,177 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:46:37,177 - mining_329666 - INFO - 找到 town，开始挖矿流程
+2026-04-09 21:46:37,177 - mining_329666 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-09 21:46:37,259 - mining_329666 - INFO - OCR 识别结果: '2/5' (置信度: 0.93)
+2026-04-09 21:46:37,259 - mining_329666 - INFO - OCR 识别到文本: 2/5
+2026-04-09 21:46:37,260 - mining_329666 - INFO - 解析结果: 当前 2, 总数 5, 剩余 3
+2026-04-09 21:46:37,260 - mining_329666 - INFO - 设置还需要循环的次数为: 3
+2026-04-09 21:46:37,320 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:46:37,320 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:46:37,366 - mining_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:46:37,382 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:46:37,662 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:46:37,714 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:46:37,714 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:46:37,715 - mining_329666 - INFO - 找到 town
+2026-04-09 21:46:38,821 - mining_329666 - DEBUG - 加载模板: search.png 40x37
+2026-04-09 21:46:38,834 - mining_329666 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.939
+2026-04-09 21:46:38,941 - mining_329666 - INFO - 点击 search: (414, 774) [scale=1.000]
+2026-04-09 21:46:38,942 - mining_329666 - INFO - 点击 search 成功
+2026-04-09 21:46:40,260 - mining_329666 - DEBUG - 加载模板: meat.png 106x81
+2026-04-09 21:46:40,274 - mining_329666 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.849
+2026-04-09 21:46:40,376 - mining_329666 - INFO - 点击 meat: (655, 800) [scale=1.000]
+2026-04-09 21:46:40,377 - mining_329666 - INFO - 点击资源成功: meat
+2026-04-09 21:46:41,679 - mining_329666 - DEBUG - 加载模板: add.png 20x31
+2026-04-09 21:46:41,690 - mining_329666 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-09 21:46:41,796 - mining_329666 - INFO - 点击 add: (715, 907) [scale=1.000]
+2026-04-09 21:46:41,797 - mining_329666 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 21:46:41,797 - mining_329666 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-09 21:46:41,798 - mining_329666 - INFO - add 坐标在容差范围内，继续流程
+2026-04-09 21:46:41,798 - mining_329666 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 21:46:42,887 - mining_329666 - DEBUG - 加载模板: search_meat.png 78x34
+2026-04-09 21:46:42,900 - mining_329666 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-09 21:46:43,002 - mining_329666 - INFO - 点击 search_meat: (661, 1035) [scale=1.000]
+2026-04-09 21:46:43,003 - mining_329666 - INFO - 点击 search_meat 成功
+2026-04-09 21:46:44,600 - mining_329666 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 21:46:44,636 - mining_329666 - DEBUG - 加载模板: gather.png 63x36
+2026-04-09 21:46:44,648 - mining_329666 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.868
+2026-04-09 21:46:44,755 - mining_329666 - INFO - 点击 gather: (655, 582) [scale=1.000]
+2026-04-09 21:46:44,755 - mining_329666 - INFO - 点击 gather 成功
+2026-04-09 21:46:46,805 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:46:47,176 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:46:47,213 - mining_329666 - DEBUG - 加载模板: team.png 139x43
+2026-04-09 21:46:47,227 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 21:46:47,484 - mining_329666 - DEBUG - 未找到: team.png
+2026-04-09 21:46:47,522 - mining_329666 - DEBUG - 加载模板: battle.png 81x37
+2026-04-09 21:46:47,537 - mining_329666 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-09 21:46:47,649 - mining_329666 - INFO - 点击 battle: (808, 1031) [scale=1.000]
+2026-04-09 21:46:47,649 - mining_329666 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 21:46:47,650 - mining_329666 - INFO - 已完成 1 轮，还需要循环 2 轮
+2026-04-09 21:46:47,852 - mining_329666 - INFO - OCR 识别结果: '362' (置信度: 0.44)
+2026-04-09 21:46:47,853 - mining_329666 - INFO - OCR 识别到文本: 362
+2026-04-09 21:46:47,913 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:46:48,315 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:46:48,363 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:46:48,619 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:46:48,620 - mining_329666 - INFO - 未找到 town 和 wild，执行初始化流程
+2026-04-09 21:46:48,658 - mining_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 21:46:48,669 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:46:48,888 - mining_329666 - INFO - [备选-全范围] back.png scale=0.579 conf=0.816
+2026-04-09 21:46:48,888 - mining_329666 - DEBUG - 找到 back [scale=0.579]
+2026-04-09 21:46:48,888 - mining_329666 - INFO - 找到 back
+2026-04-09 21:46:50,214 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:46:50,313 - mining_329666 - INFO - [备选-近邻] back.png scale=0.562 conf=0.839
+2026-04-09 21:46:50,417 - mining_329666 - INFO - 点击 back: (597, 249) [scale=0.562]
+2026-04-09 21:46:50,417 - mining_329666 - INFO - 点击 back 成功
+2026-04-09 21:46:52,103 - mining_329666 - DEBUG - 加载模板: back1.png 57x48
+2026-04-09 21:46:52,120 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:46:52,120 - mining_329666 - DEBUG - 找到 back1 [scale=1.000]
+2026-04-09 21:46:52,120 - mining_329666 - INFO - 找到 back1
+2026-04-09 21:46:53,176 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:46:53,285 - mining_329666 - INFO - 点击 back1: (411, 131) [scale=1.000]
+2026-04-09 21:46:53,285 - mining_329666 - INFO - 点击 back1 成功
+2026-04-09 21:46:54,680 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:46:55,061 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:46:55,062 - mining_329666 - DEBUG - 未找到 town，尝试 wild
+2026-04-09 21:46:56,110 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:46:56,368 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:46:56,368 - mining_329666 - INFO - 点击 wild 成功
+2026-04-09 21:46:58,324 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:46:58,703 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:46:58,703 - mining_329666 - DEBUG - 点击 wild 后仍未找到 town
+2026-04-09 21:46:58,905 - mining_329666 - INFO - OCR 识别结果: '362' (置信度: 0.44)
+2026-04-09 21:46:58,906 - mining_329666 - INFO - OCR 识别到文本: 362
+2026-04-09 21:46:58,963 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:46:59,381 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:46:59,429 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:46:59,688 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:46:59,688 - mining_329666 - INFO - 未找到 town 和 wild，执行初始化流程
+2026-04-09 21:46:59,738 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:46:59,842 - mining_329666 - INFO - [备选-近邻] back.png scale=0.558 conf=0.839
+2026-04-09 21:46:59,842 - mining_329666 - DEBUG - 找到 back [scale=0.558]
+2026-04-09 21:46:59,842 - mining_329666 - INFO - 找到 back
+2026-04-09 21:47:01,061 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:47:01,163 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:47:01,269 - mining_329666 - INFO - 点击 back: (597, 249) [scale=0.557]
+2026-04-09 21:47:01,269 - mining_329666 - INFO - 点击 back 成功
+2026-04-09 21:47:02,566 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:47:02,566 - mining_329666 - DEBUG - 找到 back1 [scale=1.000]
+2026-04-09 21:47:02,566 - mining_329666 - INFO - 找到 back1
+2026-04-09 21:47:04,215 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:47:04,317 - mining_329666 - INFO - 点击 back1: (411, 131) [scale=1.000]
+2026-04-09 21:47:04,318 - mining_329666 - INFO - 点击 back1 成功
+2026-04-09 21:47:05,938 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:06,313 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:06,313 - mining_329666 - DEBUG - 未找到 town，尝试 wild
+2026-04-09 21:47:07,364 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:47:07,617 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:47:07,618 - mining_329666 - INFO - 点击 wild 成功
+2026-04-09 21:47:08,857 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:09,236 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:09,237 - mining_329666 - DEBUG - 点击 wild 后仍未找到 town
+2026-04-09 21:47:09,445 - mining_329666 - INFO - OCR 识别结果: '362' (置信度: 0.44)
+2026-04-09 21:47:09,446 - mining_329666 - INFO - OCR 识别到文本: 362
+2026-04-09 21:47:09,510 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:09,931 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:09,987 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:47:10,251 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:47:10,251 - mining_329666 - INFO - 未找到 town 和 wild，执行初始化流程
+2026-04-09 21:47:10,300 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:47:10,401 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:47:10,402 - mining_329666 - DEBUG - 找到 back [scale=0.557]
+2026-04-09 21:47:10,402 - mining_329666 - INFO - 找到 back
+2026-04-09 21:47:11,788 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:47:11,890 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:47:11,991 - mining_329666 - INFO - 点击 back: (597, 249) [scale=0.557]
+2026-04-09 21:47:11,991 - mining_329666 - INFO - 点击 back 成功
+2026-04-09 21:47:13,863 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:47:13,863 - mining_329666 - DEBUG - 找到 back1 [scale=1.000]
+2026-04-09 21:47:13,865 - mining_329666 - INFO - 找到 back1
+2026-04-09 21:47:15,342 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:47:15,443 - mining_329666 - INFO - 点击 back1: (411, 131) [scale=1.000]
+2026-04-09 21:47:15,443 - mining_329666 - INFO - 点击 back1 成功
+2026-04-09 21:47:16,843 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:17,222 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:17,222 - mining_329666 - DEBUG - 未找到 town，尝试 wild
+2026-04-09 21:47:18,269 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:47:18,526 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:47:18,526 - mining_329666 - INFO - 点击 wild 成功
+2026-04-09 21:47:19,846 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:20,222 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:20,222 - mining_329666 - DEBUG - 点击 wild 后仍未找到 town
+2026-04-09 21:47:20,428 - mining_329666 - INFO - OCR 识别结果: '362' (置信度: 0.44)
+2026-04-09 21:47:20,428 - mining_329666 - INFO - OCR 识别到文本: 362
+2026-04-09 21:47:20,485 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:20,903 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:20,951 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:47:21,212 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:47:21,213 - mining_329666 - INFO - 未找到 town 和 wild，执行初始化流程
+2026-04-09 21:47:21,265 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:47:21,367 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:47:21,367 - mining_329666 - DEBUG - 找到 back [scale=0.557]
+2026-04-09 21:47:21,367 - mining_329666 - INFO - 找到 back
+2026-04-09 21:47:23,210 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:47:23,311 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:47:23,412 - mining_329666 - INFO - 点击 back: (597, 249) [scale=0.557]
+2026-04-09 21:47:23,413 - mining_329666 - INFO - 点击 back 成功
+2026-04-09 21:47:25,312 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:47:25,313 - mining_329666 - DEBUG - 找到 back1 [scale=1.000]
+2026-04-09 21:47:25,314 - mining_329666 - INFO - 找到 back1
+2026-04-09 21:47:26,574 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:47:26,677 - mining_329666 - INFO - 点击 back1: (411, 131) [scale=1.000]
+2026-04-09 21:47:26,677 - mining_329666 - INFO - 点击 back1 成功
+2026-04-09 21:47:27,738 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:28,122 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:28,122 - mining_329666 - DEBUG - 未找到 town，尝试 wild
+2026-04-09 21:47:29,170 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:47:29,422 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:47:29,423 - mining_329666 - INFO - 点击 wild 成功
+2026-04-09 21:47:30,649 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:31,040 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:31,041 - mining_329666 - DEBUG - 点击 wild 后仍未找到 town
+2026-04-09 21:47:31,254 - mining_329666 - INFO - OCR 识别结果: '362' (置信度: 0.44)
+2026-04-09 21:47:31,255 - mining_329666 - INFO - OCR 识别到文本: 362
+2026-04-09 21:47:31,313 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:31,736 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:31,784 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:47:32,051 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:47:32,051 - mining_329666 - INFO - 未找到 town 和 wild，执行初始化流程
+2026-04-09 21:47:32,099 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:47:32,200 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:47:32,200 - mining_329666 - DEBUG - 找到 back [scale=0.557]
+2026-04-09 21:47:32,200 - mining_329666 - INFO - 找到 back
+2026-04-09 21:47:33,392 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:47:33,491 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:47:33,594 - mining_329666 - INFO - 点击 back: (597, 249) [scale=0.557]
+2026-04-09 21:47:33,595 - mining_329666 - INFO - 点击 back 成功
+2026-04-09 21:47:34,852 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:47:34,853 - mining_329666 - DEBUG - 找到 back1 [scale=1.000]
+2026-04-09 21:47:34,853 - mining_329666 - INFO - 找到 back1
+2026-04-09 21:47:36,584 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:47:36,686 - mining_329666 - INFO - 点击 back1: (411, 131) [scale=1.000]
+2026-04-09 21:47:36,686 - mining_329666 - INFO - 点击 back1 成功
+2026-04-09 21:47:38,682 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:39,062 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:39,062 - mining_329666 - DEBUG - 未找到 town，尝试 wild
+2026-04-09 21:47:40,114 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:47:40,373 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:47:40,374 - mining_329666 - INFO - 点击 wild 成功
+2026-04-09 21:47:42,258 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:42,638 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:42,638 - mining_329666 - DEBUG - 点击 wild 后仍未找到 town
+2026-04-09 21:47:42,842 - mining_329666 - INFO - OCR 识别结果: '362' (置信度: 0.44)
+2026-04-09 21:47:42,843 - mining_329666 - INFO - OCR 识别到文本: 362
+2026-04-09 21:47:42,907 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:47:43,325 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:47:43,375 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:47:43,635 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:47:43,636 - mining_329666 - INFO - 未找到 town 和 wild，执行初始化流程
+2026-04-09 21:47:43,685 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:47:43,787 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:47:43,788 - mining_329666 - DEBUG - 找到 back [scale=0.557]
+2026-04-09 21:47:43,788 - mining_329666 - INFO - 找到 back
+2026-04-09 21:47:45,696 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:47:45,795 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:47:45,897 - mining_329666 - INFO - 点击 back: (597, 249) [scale=0.557]
+2026-04-09 21:47:45,897 - mining_329666 - INFO - 点击 back 成功
+2026-04-09 21:47:47,457 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:47:47,457 - mining_329666 - DEBUG - 找到 back1 [scale=1.000]
+2026-04-09 21:47:47,457 - mining_329666 - INFO - 找到 back1
+2026-04-09 21:47:48,022 - mining_329666 - INFO - 用户手动停止挖矿
+2026-04-09 21:47:48,022 - MultiWindowManager - INFO - 用户手动停止挖矿队列
+2026-04-09 21:47:48,515 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25436) 挖矿完成或停止
+2026-04-09 21:47:48,515 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-09 21:47:49,497 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:47:49,606 - mining_329666 - INFO - 点击 back1: (411, 131) [scale=1.000]
+2026-04-09 21:47:49,606 - mining_329666 - INFO - 点击 back1 成功
+2026-04-09 21:47:49,606 - mining_329666 - INFO - 用户手动停止，退出挖矿流程
+2026-04-09 21:50:40,382 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-09 21:50:40,383 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-09 21:50:40,384 - MultiWindowManager - WARNING - 窗口 329666 已存在
+2026-04-09 21:50:40,385 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25436)
+2026-04-09 21:50:40,386 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-09 21:50:40,386 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-09 21:50:40,387 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25436) 挖矿
+2026-04-09 21:50:40,387 - mining_329666 - INFO - ==================================================
+2026-04-09 21:50:40,387 - mining_329666 - INFO - 挖矿开始
+2026-04-09 21:50:40,387 - mining_329666 - INFO - 基准尺寸: 558x1021
+2026-04-09 21:50:40,388 - mining_329666 - INFO - ==================================================
+2026-04-09 21:50:40,388 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 21:50:40,388 - mining_329666 - INFO - 开始执行 OCR 检查...
+2026-04-09 21:50:40,499 - mining_329666 - INFO - OCR 识别结果: '362' (置信度: 0.44)
+2026-04-09 21:50:40,500 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25436) 挖矿完成...
+2026-04-09 21:50:40,500 - mining_329666 - INFO - 开始执行挖矿初始化流程...
+2026-04-09 21:50:40,501 - mining_329666 - INFO - 执行挖矿初始化流程...
+2026-04-09 21:50:40,554 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:50:40,962 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:50:41,013 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:50:41,269 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:50:41,270 - mining_329666 - INFO - 未找到 town 和 wild，开始搜索 close 流程
+2026-04-09 21:50:41,311 - mining_329666 - DEBUG - 加载模板: close.png 43x33
+2026-04-09 21:50:41,323 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: close.png
+2026-04-09 21:50:41,560 - mining_329666 - DEBUG - 未找到: close.png
+2026-04-09 21:50:41,607 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:50:41,710 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:50:41,710 - mining_329666 - DEBUG - 找到 back [scale=0.557]
+2026-04-09 21:50:41,711 - mining_329666 - INFO - 找到 back
+2026-04-09 21:50:42,532 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:50:42,630 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:50:42,733 - mining_329666 - INFO - 点击 back: (597, 249) [scale=0.557]
+2026-04-09 21:50:42,733 - mining_329666 - INFO - 点击 back 成功
+2026-04-09 21:50:44,270 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:50:44,270 - mining_329666 - DEBUG - 找到 back1 [scale=1.000]
+2026-04-09 21:50:44,271 - mining_329666 - INFO - 找到 back1
+2026-04-09 21:50:45,056 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:50:45,164 - mining_329666 - INFO - 点击 back1: (411, 131) [scale=1.000]
+2026-04-09 21:50:45,164 - mining_329666 - INFO - 点击 back1 成功，开始挖矿流程
+2026-04-09 21:50:47,992 - mining_329666 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-09 21:50:48,111 - mining_329666 - INFO - OCR 识别结果: '362' (置信度: 0.44)
+2026-04-09 21:50:48,112 - mining_329666 - INFO - OCR 识别到文本: 362
+2026-04-09 21:50:48,170 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:50:48,643 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:50:48,696 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:50:48,955 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:50:48,956 - mining_329666 - INFO - 未找到 town 和 wild，执行初始化流程
+2026-04-09 21:50:49,009 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:50:49,117 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:50:49,117 - mining_329666 - DEBUG - 找到 back [scale=0.557]
+2026-04-09 21:50:49,117 - mining_329666 - INFO - 找到 back
+2026-04-09 21:50:50,700 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:50:50,800 - mining_329666 - INFO - [备选-近邻] back.png scale=0.557 conf=0.839
+2026-04-09 21:50:50,903 - mining_329666 - INFO - 点击 back: (597, 249) [scale=0.557]
+2026-04-09 21:50:50,903 - mining_329666 - INFO - 点击 back 成功
+2026-04-09 21:50:52,518 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:50:52,518 - mining_329666 - DEBUG - 找到 back1 [scale=1.000]
+2026-04-09 21:50:52,519 - mining_329666 - INFO - 找到 back1
+2026-04-09 21:50:52,972 - mining_329666 - INFO - 用户手动停止挖矿
+2026-04-09 21:50:52,972 - MultiWindowManager - INFO - 用户手动停止挖矿队列
+2026-04-09 21:50:53,042 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25436) 挖矿完成或停止
+2026-04-09 21:50:53,042 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-09 21:50:54,553 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.814
+2026-04-09 21:50:54,657 - mining_329666 - INFO - 点击 back1: (411, 131) [scale=1.000]
+2026-04-09 21:50:54,657 - mining_329666 - INFO - 点击 back1 成功
+2026-04-09 21:50:54,658 - mining_329666 - INFO - 用户手动停止，退出挖矿流程
+2026-04-09 21:52:43,454 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:52:45,821 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:52:45,821 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:52:49,913 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:53:04,418 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:53:05,891 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-09 21:53:05,891 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-09 21:53:05,893 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25436) (hwnd=329666)
+2026-04-09 21:53:05,894 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25436)
+2026-04-09 21:53:05,894 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-09 21:53:05,896 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-09 21:53:05,896 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25436) 挖矿
+2026-04-09 21:53:05,896 - MultiWindowManager - INFO - 激活窗口: 329666 (MuMu安卓设备 (25436))
+2026-04-09 21:53:05,900 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 21:53:05,997 - mining_329666 - INFO - ==================================================
+2026-04-09 21:53:05,997 - mining_329666 - INFO - 挖矿开始
+2026-04-09 21:53:05,997 - mining_329666 - INFO - 基准尺寸: 558x1021
+2026-04-09 21:53:05,998 - mining_329666 - INFO - ==================================================
+2026-04-09 21:53:05,998 - mining_329666 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-09 21:53:05,999 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25436) 挖矿完成...
+2026-04-09 21:53:05,999 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:53:08,047 - mining_329666 - INFO - OCR 初始化成功
+2026-04-09 21:53:08,047 - mining_329666 - INFO - 开始执行挖矿初始化流程...
+2026-04-09 21:53:08,048 - mining_329666 - INFO - 执行挖矿初始化流程...
+2026-04-09 21:53:08,105 - mining_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:53:08,122 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: town.png
+2026-04-09 21:53:08,412 - mining_329666 - DEBUG - 未找到: town.png
+2026-04-09 21:53:08,448 - mining_329666 - DEBUG - 加载模板: wild.png 60x52
+2026-04-09 21:53:08,460 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:53:08,720 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:53:08,720 - mining_329666 - INFO - 未找到 town 和 wild，开始搜索 close 流程
+2026-04-09 21:53:08,757 - mining_329666 - DEBUG - 加载模板: close.png 43x33
+2026-04-09 21:53:08,770 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: close.png
+2026-04-09 21:53:09,009 - mining_329666 - DEBUG - 未找到: close.png
+2026-04-09 21:53:09,052 - mining_329666 - DEBUG - 加载模板: back.png 29x23
+2026-04-09 21:53:09,064 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: back.png
+2026-04-09 21:53:09,282 - mining_329666 - DEBUG - 未找到: back.png
+2026-04-09 21:53:09,321 - mining_329666 - DEBUG - 加载模板: back1.png 57x48
+2026-04-09 21:53:09,334 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.999
+2026-04-09 21:53:09,334 - mining_329666 - DEBUG - 找到 back1 [scale=1.000]
+2026-04-09 21:53:09,335 - mining_329666 - INFO - 找到 back1
+2026-04-09 21:53:10,112 - mining_329666 - DEBUG - [比例匹配] back1.png scale=1.000 conf=0.999
+2026-04-09 21:53:10,216 - mining_329666 - INFO - 点击 back1: (411, 131) [scale=1.000]
+2026-04-09 21:53:10,217 - mining_329666 - INFO - 点击 back1 成功，开始挖矿流程
+2026-04-09 21:53:11,856 - mining_329666 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-09 21:53:11,974 - mining_329666 - INFO - OCR 识别结果: '2/5' (置信度: 0.88)
+2026-04-09 21:53:11,975 - mining_329666 - INFO - OCR 识别到文本: 2/5
+2026-04-09 21:53:11,975 - mining_329666 - INFO - 解析结果: 当前 2, 总数 5, 剩余 3
+2026-04-09 21:53:11,975 - mining_329666 - INFO - 设置还需要循环的次数为: 3
+2026-04-09 21:53:12,038 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:53:12,038 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:53:12,093 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:53:12,377 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:53:12,431 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:53:12,431 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:53:12,432 - mining_329666 - INFO - 找到 town
+2026-04-09 21:53:14,184 - mining_329666 - DEBUG - 加载模板: search.png 40x37
+2026-04-09 21:53:14,196 - mining_329666 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.941
+2026-04-09 21:53:14,298 - mining_329666 - INFO - 点击 search: (414, 774) [scale=1.000]
+2026-04-09 21:53:14,298 - mining_329666 - INFO - 点击 search 成功
+2026-04-09 21:53:16,232 - mining_329666 - DEBUG - 加载模板: meat.png 106x81
+2026-04-09 21:53:16,246 - mining_329666 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.849
+2026-04-09 21:53:16,352 - mining_329666 - INFO - 点击 meat: (655, 800) [scale=1.000]
+2026-04-09 21:53:16,352 - mining_329666 - INFO - 点击资源成功: meat
+2026-04-09 21:53:18,231 - mining_329666 - DEBUG - 加载模板: add.png 20x31
+2026-04-09 21:53:18,243 - mining_329666 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-09 21:53:18,352 - mining_329666 - INFO - 点击 add: (715, 907) [scale=1.000]
+2026-04-09 21:53:18,353 - mining_329666 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 21:53:18,353 - mining_329666 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-09 21:53:18,353 - mining_329666 - INFO - add 坐标在容差范围内，继续流程
+2026-04-09 21:53:18,353 - mining_329666 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 21:53:19,577 - mining_329666 - DEBUG - 加载模板: search_meat.png 78x34
+2026-04-09 21:53:19,593 - mining_329666 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-09 21:53:19,697 - mining_329666 - INFO - 点击 search_meat: (661, 1035) [scale=1.000]
+2026-04-09 21:53:19,697 - mining_329666 - INFO - 点击 search_meat 成功
+2026-04-09 21:53:20,873 - mining_329666 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 21:53:20,912 - mining_329666 - DEBUG - 加载模板: gather.png 63x36
+2026-04-09 21:53:20,924 - mining_329666 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.870
+2026-04-09 21:53:21,031 - mining_329666 - INFO - 点击 gather: (655, 582) [scale=1.000]
+2026-04-09 21:53:21,031 - mining_329666 - INFO - 点击 gather 成功
+2026-04-09 21:53:22,365 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:53:22,738 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:53:22,781 - mining_329666 - DEBUG - 加载模板: team.png 139x43
+2026-04-09 21:53:22,795 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 21:53:23,055 - mining_329666 - DEBUG - 未找到: team.png
+2026-04-09 21:53:23,095 - mining_329666 - DEBUG - 加载模板: battle.png 81x37
+2026-04-09 21:53:23,108 - mining_329666 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-09 21:53:23,210 - mining_329666 - INFO - 点击 battle: (808, 1031) [scale=1.000]
+2026-04-09 21:53:23,210 - mining_329666 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 21:53:23,211 - mining_329666 - INFO - 已完成 1 轮，还需要循环 2 轮
+2026-04-09 21:53:23,404 - mining_329666 - INFO - OCR 识别结果: '3/5' (置信度: 0.98)
+2026-04-09 21:53:23,405 - mining_329666 - INFO - OCR 识别到文本: 3/5
+2026-04-09 21:53:23,405 - mining_329666 - INFO - 解析结果: 当前 3, 总数 5, 剩余 2
+2026-04-09 21:53:23,406 - mining_329666 - INFO - 设置还需要循环的次数为: 2
+2026-04-09 21:53:23,465 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:53:23,466 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:53:23,530 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:53:23,859 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:53:23,914 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:53:23,914 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:53:23,915 - mining_329666 - INFO - 找到 town
+2026-04-09 21:53:25,230 - mining_329666 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.941
+2026-04-09 21:53:25,331 - mining_329666 - INFO - 点击 search: (414, 774) [scale=1.000]
+2026-04-09 21:53:25,332 - mining_329666 - INFO - 点击 search 成功
+2026-04-09 21:53:26,563 - mining_329666 - DEBUG - 加载模板: wood.png 96x57
+2026-04-09 21:53:26,576 - mining_329666 - DEBUG - [比例匹配] wood.png scale=1.000 conf=0.924
+2026-04-09 21:53:26,679 - mining_329666 - INFO - 点击 wood: (778, 818) [scale=1.000]
+2026-04-09 21:53:26,679 - mining_329666 - INFO - 点击资源成功: wood
+2026-04-09 21:53:28,031 - mining_329666 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-09 21:53:28,132 - mining_329666 - INFO - 点击 add: (715, 907) [scale=1.000]
+2026-04-09 21:53:28,132 - mining_329666 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 21:53:28,133 - mining_329666 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-09 21:53:28,133 - mining_329666 - INFO - add 坐标在容差范围内，继续流程
+2026-04-09 21:53:28,133 - mining_329666 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 21:53:30,176 - mining_329666 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-09 21:53:30,282 - mining_329666 - INFO - 点击 search_meat: (661, 1035) [scale=1.000]
+2026-04-09 21:53:30,282 - mining_329666 - INFO - 点击 search_meat 成功
+2026-04-09 21:53:31,991 - mining_329666 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 21:53:32,045 - mining_329666 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.868
+2026-04-09 21:53:32,149 - mining_329666 - INFO - 点击 gather: (655, 582) [scale=1.000]
+2026-04-09 21:53:32,150 - mining_329666 - INFO - 点击 gather 成功
+2026-04-09 21:53:34,103 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:53:34,477 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:53:34,531 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 21:53:34,790 - mining_329666 - DEBUG - 未找到: team.png
+2026-04-09 21:53:34,849 - mining_329666 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-09 21:53:34,950 - mining_329666 - INFO - 点击 battle: (808, 1031) [scale=1.000]
+2026-04-09 21:53:34,950 - mining_329666 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 21:53:34,950 - mining_329666 - INFO - 已完成 2 轮，还需要循环 1 轮
+2026-04-09 21:53:35,199 - mining_329666 - INFO - OCR 识别结果: 'L' (置信度: 0.01)
+2026-04-09 21:53:35,200 - mining_329666 - INFO - OCR 识别到文本: L
+2026-04-09 21:53:35,257 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:53:35,257 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:53:35,316 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-09 21:53:35,606 - mining_329666 - DEBUG - 未找到: wild.png
+2026-04-09 21:53:35,657 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:53:35,658 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:53:35,658 - mining_329666 - INFO - 找到 town
+2026-04-09 21:53:37,280 - mining_329666 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.940
+2026-04-09 21:53:37,381 - mining_329666 - INFO - 点击 search: (414, 774) [scale=1.000]
+2026-04-09 21:53:37,381 - mining_329666 - INFO - 点击 search 成功
+2026-04-09 21:53:39,138 - mining_329666 - DEBUG - 加载模板: coal mine.png 68x51
+2026-04-09 21:53:39,151 - mining_329666 - DEBUG - [比例匹配] coal mine.png scale=1.000 conf=0.946
+2026-04-09 21:53:39,253 - mining_329666 - INFO - 点击 coal: (777, 821) [scale=1.000]
+2026-04-09 21:53:39,253 - mining_329666 - INFO - 点击资源成功: coal
+2026-04-09 21:53:41,141 - mining_329666 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-09 21:53:41,242 - mining_329666 - INFO - 点击 add: (715, 907) [scale=1.000]
+2026-04-09 21:53:41,243 - mining_329666 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-09 21:53:41,243 - mining_329666 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-09 21:53:41,243 - mining_329666 - INFO - add 坐标在容差范围内，继续流程
+2026-04-09 21:53:41,244 - mining_329666 - INFO - 点击 add 成功且坐标校准完成
+2026-04-09 21:53:43,234 - mining_329666 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-09 21:53:43,336 - mining_329666 - INFO - 点击 search_meat: (661, 1035) [scale=1.000]
+2026-04-09 21:53:43,337 - mining_329666 - INFO - 点击 search_meat 成功
+2026-04-09 21:53:44,924 - mining_329666 - INFO - 尝试寻找 gather (1/7)
+2026-04-09 21:53:44,974 - mining_329666 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-09 21:53:45,076 - mining_329666 - INFO - 点击 gather: (655, 582) [scale=1.000]
+2026-04-09 21:53:45,076 - mining_329666 - INFO - 点击 gather 成功
+2026-04-09 21:53:46,741 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-09 21:53:47,113 - mining_329666 - DEBUG - 未找到: gather.png
+2026-04-09 21:53:47,165 - mining_329666 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-09 21:53:47,424 - mining_329666 - DEBUG - 未找到: team.png
+2026-04-09 21:53:47,482 - mining_329666 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-09 21:53:47,584 - mining_329666 - INFO - 点击 battle: (808, 1031) [scale=1.000]
+2026-04-09 21:53:47,584 - mining_329666 - INFO - 点击 battle 成功，完成一轮
+2026-04-09 21:53:47,585 - mining_329666 - INFO - 已完成 3 轮，还需要循环 0 轮
+2026-04-09 21:53:47,585 - mining_329666 - INFO - 已完成所有循环次数，停止挖矿
+2026-04-09 21:53:47,585 - MultiWindowManager - INFO - 窗口 329666 挖矿停止
+2026-04-09 21:53:48,043 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25436) 挖矿完成或停止
+2026-04-09 21:53:48,043 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-09 21:53:48,043 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-09 21:53:48,264 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-09 21:53:48,264 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:53:48,264 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-09 21:53:48,264 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-09 21:53:48,264 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:53:48,314 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:53:50,059 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:53:51,805 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:53:53,852 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:53:55,705 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:53:57,593 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:53:59,677 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:54:01,083 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:54:02,603 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:54:04,338 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:54:06,164 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:54:08,127 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:54:08,852 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-09 21:56:34,000 - src.main - INFO - 无尽冬日程序启动
+2026-04-09 21:56:34,000 - src.main - INFO - 版本: 1.0.0
+2026-04-09 21:56:38,168 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:56:45,157 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-09 21:56:48,106 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-09 21:56:48,106 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-09 21:56:48,108 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25436) (hwnd=329666)
+2026-04-09 21:56:48,110 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25436)
+2026-04-09 21:56:48,111 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-09 21:56:48,111 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-09 21:56:48,111 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25436) 挖矿
+2026-04-09 21:56:48,111 - MultiWindowManager - INFO - 激活窗口: 329666 (MuMu安卓设备 (25436))
+2026-04-09 21:56:48,115 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 21:56:48,213 - mining_329666 - INFO - ==================================================
+2026-04-09 21:56:48,213 - mining_329666 - INFO - 挖矿开始
+2026-04-09 21:56:48,213 - mining_329666 - INFO - 基准尺寸: 558x1021
+2026-04-09 21:56:48,213 - mining_329666 - INFO - ==================================================
+2026-04-09 21:56:48,214 - mining_329666 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-09 21:56:48,214 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25436) 挖矿完成...
+2026-04-09 21:56:48,215 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-09 21:56:50,333 - mining_329666 - INFO - OCR 初始化成功
+2026-04-09 21:56:50,334 - mining_329666 - INFO - 开始执行挖矿初始化流程...
+2026-04-09 21:56:50,334 - mining_329666 - INFO - 执行挖矿初始化流程...
+2026-04-09 21:56:50,387 - mining_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:56:50,402 - mining_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:56:50,403 - mining_329666 - DEBUG - 找到 town [scale=1.000]
+2026-04-09 21:56:50,403 - mining_329666 - INFO - 找到 town，开始挖矿流程
+2026-04-09 21:56:50,404 - mining_329666 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-09 21:56:50,480 - mining_329666 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-09 21:56:50,480 - mining_329666 - INFO - OCR 识别到文本: 5/5
+2026-04-09 21:56:50,481 - mining_329666 - INFO - 解析结果: 当前 5, 总数 5, 剩余 0
+2026-04-09 21:56:50,481 - mining_329666 - INFO - 剩余次数为0，跳过挖矿流程
+2026-04-09 21:56:50,482 - mining_329666 - INFO - 开启保护性外壳自动化脚本
+2026-04-09 21:56:50,482 - MultiWindowManager - INFO - 窗口 329666 挖矿停止
+2026-04-09 21:56:50,717 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25436) 挖矿完成或停止
+2026-04-09 21:56:50,717 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-09 21:56:50,717 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-09 21:56:50,717 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25436) 挖矿状态设置为 2（挖矿结束）
+2026-04-09 21:56:51,373 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-09 21:56:51,375 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:56:51,375 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-09 21:56:51,375 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-09 21:56:51,376 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:56:51,430 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:56:52,821 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:56:55,032 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:56:56,707 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:56:57,094 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-09 21:56:58,100 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:56:58,100 - daily_task_329666 - INFO - 每日任务流程已在后台启动
+2026-04-09 21:56:58,100 - daily_task_329666 - INFO - 开始每日任务流程
+2026-04-09 21:56:58,101 - daily_task_329666 - INFO - ==================================================
+2026-04-09 21:56:58,101 - daily_task_329666 - INFO - 加载每日任务入口配置...
+2026-04-09 21:56:58,102 - daily_task_329666 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-09 21:56:58,102 - daily_task_329666 - INFO - 配置文件加载成功，键名: ['雪域兵器联赛', '冰封的宝藏', '每日任务']
+2026-04-09 21:56:58,102 - daily_task_329666 - INFO - 找到每日任务入口配置
+2026-04-09 21:56:58,103 - daily_task_329666 - INFO - 挖矿状态: 2 (0:未开始, 1:挖矿中, 2:挖矿结束)
+2026-04-09 21:56:58,103 - daily_task_329666 - INFO - 挖矿已结束
+2026-04-09 21:56:58,104 - daily_task_329666 - INFO - 尝试匹配 town...
+2026-04-09 21:56:58,146 - daily_task_329666 - DEBUG - 加载模板: town.png 60x56
+2026-04-09 21:56:58,157 - daily_task_329666 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-09 21:56:58,158 - daily_task_329666 - INFO - 匹配 town.png 成功，置信度: 0.871
+2026-04-09 21:56:58,159 - daily_task_329666 - INFO - town 匹配成功
+2026-04-09 21:56:58,160 - daily_task_329666 - INFO - 检查红点...
+2026-04-09 21:56:58,197 - daily_task_329666 - INFO - 在区域 [10, 812, 55, 58] 检测到红点
+2026-04-09 21:56:58,197 - daily_task_329666 - INFO - 检测到红点，准备点击...
+2026-04-09 21:56:58,198 - daily_task_329666 - INFO - 点击区域中心...
+2026-04-09 21:56:58,438 - daily_task_329666 - INFO - 点击 区域中心 @ (413, 904)
+2026-04-09 21:56:58,439 - daily_task_329666 - INFO - 结束每日任务流程
+2026-04-09 21:56:58,456 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:56:58,456 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-09 21:56:58,456 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-09 21:56:58,456 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-09 21:56:58,456 - ProtectiveCasing - INFO - ==================================================
+2026-04-09 21:56:58,508 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:00,677 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:02,717 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:04,407 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:05,729 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:07,828 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:09,522 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:10,936 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:12,817 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:14,282 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:15,495 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:16,846 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:18,852 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:20,284 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:22,284 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:24,298 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:25,595 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:27,459 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:28,890 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:30,882 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:32,048 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:33,224 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:35,099 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:36,761 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:38,677 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:39,857 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:41,144 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:42,475 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:43,833 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:45,316 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:46,531 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:47,880 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:49,541 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:50,650 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:52,263 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:53,568 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:54,750 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:55,925 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:57,307 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:58,456 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:57:59,777 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:01,335 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:02,753 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:04,663 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:05,809 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:07,166 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:08,560 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:10,191 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:11,919 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:13,074 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:14,896 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:16,691 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:17,733 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:19,269 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:20,486 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:22,320 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:23,613 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:25,420 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:26,906 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:28,444 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:29,956 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:31,554 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:33,016 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:34,142 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:35,222 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:36,607 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:37,678 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:38,957 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:40,474 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:42,467 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:44,181 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:45,389 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:47,426 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:49,106 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:50,663 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:52,216 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:53,787 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:55,497 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:57,460 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:58:59,092 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:00,728 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:02,073 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:03,564 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:05,192 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:07,173 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:08,410 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:09,555 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:11,465 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:13,203 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:15,011 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:16,070 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:17,170 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:18,849 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:19,988 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:21,449 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:22,916 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:24,117 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:25,828 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:27,844 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:29,350 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:30,708 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:32,114 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:34,121 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:35,620 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:37,624 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:38,848 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:40,486 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:42,303 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:43,846 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:45,083 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:46,924 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:48,046 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:49,714 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:50,986 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:52,757 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:54,042 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:55,748 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:57,608 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 21:59:59,491 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:00,982 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:02,089 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:03,711 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:05,408 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:06,473 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:07,533 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:08,658 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:10,124 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:11,368 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:12,823 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:14,693 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:15,830 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:17,764 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:19,638 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:21,171 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:22,292 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:23,845 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:25,010 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:26,942 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:28,573 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:29,851 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:31,588 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:33,229 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:34,786 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:36,460 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:37,740 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:39,460 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:41,391 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:42,966 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:44,620 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:46,610 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:48,610 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:50,550 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:52,329 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:54,368 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:56,096 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:57,920 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:00:59,877 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:01:01,322 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:01:02,955 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:01:04,142 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:01:05,493 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:01:07,003 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:01:08,268 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:01:10,206 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:01:11,776 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:01:13,253 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:01:14,812 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-09 22:01:15,496 - src.main - INFO - 无尽冬日程序正常退出

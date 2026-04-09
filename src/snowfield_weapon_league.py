@@ -20,48 +20,58 @@ from typing import Optional, Dict, Any, Tuple
 from src.utils.adaptive_matcher import AdaptiveMatcher
 from src.utils.window_utils import set_dpi_aware, capture_window, get_window_size, get_window_rect
 from src.utils.resource_path import get_pic_path
+from src.utils.red_dot_detector import detect_red_dots, detect_red_dot_presence, get_red_dot_positions_with_offset
 
 
 set_dpi_aware()
 
 
 class SnowfieldWeaponLeague:
-    """雪域兵器联赛功能模块"""
+    """雪域兵器联赛功能模块，实现游戏中该功能的自动化操作"""
     
     def __init__(self, hwnd: int, window_name: str = "", matcher: Optional[AdaptiveMatcher] = None):
+        """初始化模块
+        
+        Args:
+            hwnd: 游戏窗口句柄
+            window_name: 窗口名称（可选）
+            matcher: 自适应匹配器实例（可选）
+        """
         self.hwnd = hwnd
         self.window_name = window_name or f"Snowfield_{hwnd}"
         self.logger = self._setup_logger()
         
+        # 初始化匹配器
         if matcher is None:
             self.matcher = AdaptiveMatcher(confidence=0.85, logger=self.logger)
         else:
             self.matcher = matcher
         
+        # 图像路径配置
         self.image_paths = {
-            "snowfield": "snowfield.png",
-            "back": "back.png",
-            "back1": "back1.png",
-            "back2": "back2.png",
-            "close": "close.png",
+            "snowfield": "snowfield.png",  # 雪域兵器联赛入口
+            "back": "back.png",          # 返回按钮1
+            "back1": "back1.png",        # 返回按钮2
+            "back2": "back2.png",        # 返回按钮3
+            "close": "close.png",        # 关闭按钮
         }
         
-        self.last_window_size = None
-        self.frame_data = self._load_frame_data()
+        self.last_window_size = None  # 窗口大小缓存
+        self.frame_data = self._load_frame_data()  # 加载画框数据
     
     def _setup_logger(self) -> logging.Logger:
-        """设置日志"""
+        """设置日志记录器"""
         logger = logging.getLogger(f"SnowfieldWeaponLeague_{self.hwnd}")
         if not logger.handlers:
             logger.setLevel(logging.INFO)
             handler = logging.StreamHandler()
             handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
             logger.addHandler(handler)
-            logger.propagate = False
+            logger.propagate = False  # 防止日志重复传播
         return logger
     
     def _load_frame_data(self) -> Dict[str, Any]:
-        """加载frame_data.json中的画框数据"""
+        """加载画框数据"""
         try:
             json_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "frame_data.json")
             if os.path.exists(json_path):
@@ -104,7 +114,12 @@ class SnowfieldWeaponLeague:
         return None
     
     def _find(self, name: str, confidence: Optional[float] = None) -> Optional[Tuple[float, float]]:
-        """查找图像"""
+        """查找图像
+        
+        Args:
+            name: 图像名称
+            confidence: 匹配置信度（可选）
+        """
         try:
             screenshot = self._screenshot()
             if screenshot is None:
@@ -114,15 +129,18 @@ class SnowfieldWeaponLeague:
             if win_w is None or win_h is None:
                 return None
             
+            # 如果窗口大小改变，清除匹配器缓存
             if self.last_window_size != (win_w, win_h):
                 self.matcher.clear_cache()
                 self.last_window_size = (win_w, win_h)
             
+            # 获取图像路径
             path = self.image_paths.get(name)
             if path is None:
                 self.logger.error(f"未找到图像路径: {name}")
                 return None
             
+            # 使用自适应匹配器查找图像
             result = self.matcher.match(screenshot, path, win_w, win_h)
             if result is not None:
                 x, y = result.get("location", (0, 0))
@@ -133,16 +151,25 @@ class SnowfieldWeaponLeague:
             return None
     
     def _click(self, name: str, confidence: Optional[float] = None) -> bool:
-        """查找并点击图像"""
+        """查找并点击图像
+        
+        Args:
+            name: 图像名称
+            confidence: 匹配置信度（可选）
+        """
         try:
+            # 查找图像
             result = self._find(name, confidence)
             if result is not None:
                 x, y = result
+                # 获取窗口位置
                 window_pos = self._get_window_position()
                 if window_pos is not None:
+                    # 计算屏幕坐标
                     screen_x = window_pos[0] + int(x)
                     screen_y = window_pos[1] + int(y)
                     self.logger.info(f"点击 {name}: 窗口内({x}, {y}), 屏幕({screen_x}, {screen_y})")
+                    # 执行点击
                     pyautogui.click(screen_x, screen_y)
                 else:
                     self.logger.warning(f"无法获取窗口位置,点击失败")
@@ -154,28 +181,33 @@ class SnowfieldWeaponLeague:
             return False
     
     def _click_back_sequence(self) -> bool:
-        """点击back/back1/back2/close的序列流程"""
+        """点击返回按钮序列"""
         self.logger.info("开始点击back序列流程...")
         
+        # 尝试点击 back
         if self._click("back"):
             self.logger.info("✓ 成功点击back")
             time.sleep(random.uniform(1, 2))
+            # 点击 back 后尝试点击 back1
             if self._click("back1"):
                 self.logger.info("✓ 成功点击back1")
                 time.sleep(random.uniform(1, 2))
                 return True
             return False
         
+        # 尝试点击 back1
         if self._click("back1"):
             self.logger.info("✓ 成功点击back1")
             time.sleep(random.uniform(1, 2))
             return True
         
+        # 尝试点击 back2
         if self._click("back2"):
             self.logger.info("✓ 成功点击back2")
             time.sleep(random.uniform(1, 2))
             return True
         
+        # 尝试点击 close
         if self._click("close"):
             self.logger.info("✓ 成功点击close")
             time.sleep(random.uniform(1, 2))
@@ -185,20 +217,24 @@ class SnowfieldWeaponLeague:
         return False
     
     def _click_snowfield_with_back_sequence(self) -> bool:
-        """点击snowfield,如果不存在则按顺序匹配back/back1/back2/close"""
+        """点击雪域兵器联赛入口"""
         self.logger.info("开始点击snowfield...")
         
+        # 最多尝试10次
         for attempt in range(10):
+            # 查找 snowfield 图像
             snowfield_result = self._find("snowfield")
             
             if snowfield_result is not None:
                 self.logger.info("✓ 检测到snowfield,不点击,先检测入口区域红点...")
                 
+                # 检查入口区域红点
                 if not self._check_red_dot_in_entry_region():
                     self.logger.warning("入口区域红点检测失败")
                     return False
                 
                 self.logger.info("✓ 入口区域红点检测通过,点击snowfield...")
+                # 点击 snowfield
                 if self._click("snowfield"):
                     self.logger.info("✓ 成功点击snowfield")
                     time.sleep(random.uniform(1, 2))
@@ -206,6 +242,7 @@ class SnowfieldWeaponLeague:
             else:
                 self.logger.info("未找到snowfield,尝试点击back/back1/back2/close...")
                 
+                # 尝试点击返回按钮
                 if self._click_back_sequence():
                     self.logger.info("等待1-2秒后继续搜索snowfield...")
                     time.sleep(random.uniform(1, 2))
@@ -239,14 +276,25 @@ class SnowfieldWeaponLeague:
                 self.matcher.clear_cache()
                 self.last_window_size = (win_w, win_h)
             
-            region = daily_task_info.get("region", [0, 0, 0, 0])
-            
-            x1, y1, width, height = region
-            
-            abs_x = int(x1)
-            abs_y = int(y1)
-            abs_width = int(width)
-            abs_height = int(height)
+            # 优先使用相对坐标计算区域
+            relative = daily_task_info.get("relative")
+            if relative:
+                rel_x = relative.get("x", 0)
+                rel_y = relative.get("y", 0)
+                rel_width = relative.get("width", 0)
+                rel_height = relative.get("height", 0)
+                
+                abs_x = int(rel_x * win_w)
+                abs_y = int(rel_y * win_h)
+                abs_width = int(rel_width * win_w)
+                abs_height = int(rel_height * win_h)
+            else:
+                region = daily_task_info.get("region", [0, 0, 0, 0])
+                x1, y1, width, height = region
+                abs_x = int(x1)
+                abs_y = int(y1)
+                abs_width = int(width)
+                abs_height = int(height)
             
             if abs_x >= 0 and abs_y >= 0 and abs_x + abs_width <= screenshot.shape[1] and abs_y + abs_height <= screenshot.shape[0]:
                 region_screenshot = screenshot[abs_y:abs_y + abs_height, abs_x:abs_x + abs_width]
@@ -254,8 +302,8 @@ class SnowfieldWeaponLeague:
                 self.logger.warning("指定区域超出截图范围")
                 return False
             
-            center_x = int(x1 + width / 2)
-            center_y = int(y1 + height / 2)
+            center_x = abs_x + int(abs_width / 2)
+            center_y = abs_y + int(abs_height / 2)
             
             red_dot_found = self._detect_red_dot_in_region(region_screenshot)
             
@@ -305,14 +353,25 @@ class SnowfieldWeaponLeague:
                 self.matcher.clear_cache()
                 self.last_window_size = (win_w, win_h)
             
-            region = entry_info.get("region", [0, 0, 0, 0])
-            
-            x1, y1, width, height = region
-            
-            abs_x = int(x1)
-            abs_y = int(y1)
-            abs_width = int(width)
-            abs_height = int(height)
+            # 优先使用相对坐标计算区域
+            relative = entry_info.get("relative")
+            if relative:
+                rel_x = relative.get("x", 0)
+                rel_y = relative.get("y", 0)
+                rel_width = relative.get("width", 0)
+                rel_height = relative.get("height", 0)
+                
+                abs_x = int(rel_x * win_w)
+                abs_y = int(rel_y * win_h)
+                abs_width = int(rel_width * win_w)
+                abs_height = int(rel_height * win_h)
+            else:
+                region = entry_info.get("region", [0, 0, 0, 0])
+                x1, y1, width, height = region
+                abs_x = int(x1)
+                abs_y = int(y1)
+                abs_width = int(width)
+                abs_height = int(height)
             
             if abs_x >= 0 and abs_y >= 0 and abs_x + abs_width <= screenshot.shape[1] and abs_y + abs_height <= screenshot.shape[0]:
                 region_screenshot = screenshot[abs_y:abs_y + abs_height, abs_x:abs_x + abs_width]
@@ -358,14 +417,25 @@ class SnowfieldWeaponLeague:
                 self.matcher.clear_cache()
                 self.last_window_size = (win_w, win_h)
             
-            region = reward_info.get("region", [0, 0, 0, 0])
-            
-            x1, y1, width, height = region
-            
-            abs_x = int(x1)
-            abs_y = int(y1)
-            abs_width = int(width)
-            abs_height = int(height)
+            # 优先使用相对坐标计算区域
+            relative = reward_info.get("relative")
+            if relative:
+                rel_x = relative.get("x", 0)
+                rel_y = relative.get("y", 0)
+                rel_width = relative.get("width", 0)
+                rel_height = relative.get("height", 0)
+                
+                abs_x = int(rel_x * win_w)
+                abs_y = int(rel_y * win_h)
+                abs_width = int(rel_width * win_w)
+                abs_height = int(rel_height * win_h)
+            else:
+                region = reward_info.get("region", [0, 0, 0, 0])
+                x1, y1, width, height = region
+                abs_x = int(x1)
+                abs_y = int(y1)
+                abs_width = int(width)
+                abs_height = int(height)
             
             if abs_x >= 0 and abs_y >= 0 and abs_x + abs_width <= screenshot.shape[1] and abs_y + abs_height <= screenshot.shape[0]:
                 region_screenshot = screenshot[abs_y:abs_y + abs_height, abs_x:abs_x + abs_width]
@@ -410,7 +480,7 @@ class SnowfieldWeaponLeague:
             return False
     
     def _swipe_up_from_center(self):
-        """从窗口中心向上滑动100像素"""
+        """从窗口中心向上滑动"""
         try:
             window_pos = self._get_window_position()
             window_size = self._get_window_size()
@@ -444,60 +514,24 @@ class SnowfieldWeaponLeague:
             region_screenshot: 区域截图
             offset_x: 区域在截图中的x偏移
             offset_y: 区域在截图中的y偏移
-            
-        Returns:
-            红点位置列表 [(x1, y1), (x2, y2), ...]
         """
         try:
             if region_screenshot is None or len(region_screenshot.shape) < 3:
                 return []
             
-            hsv = cv2.cvtColor(region_screenshot, cv2.COLOR_BGR2HSV)
-            
-            lower_red1 = np.array([0, 150, 150])
-            upper_red1 = np.array([10, 255, 255])
-            lower_red2 = np.array([160, 150, 150])
-            upper_red2 = np.array([180, 255, 255])
-            
-            mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
-            mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
-            red_mask = cv2.bitwise_or(mask1, mask2)
-            
-            kernel = np.ones((3, 3), np.uint8)
-            red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, kernel)
-            red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, kernel)
-            
-            contours, _ = cv2.findContours(red_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-            
-            red_dot_positions = []
-            min_contour_area = 50
-            
-            for contour in contours:
-                area = cv2.contourArea(contour)
-                if area >= min_contour_area:
-                    perimeter = cv2.arcLength(contour, True)
-                    approx = cv2.approxPolyDP(contour, 0.04 * perimeter, True)
-                    circularity = 4 * np.pi * area / (perimeter * perimeter)
-                    
-                    if circularity > 0.5:
-                        M = cv2.moments(contour)
-                        if M["m00"] != 0:
-                            cx = int(M["m10"] / M["m00"])
-                            cy = int(M["m01"] / M["m00"])
-                            abs_x = offset_x + cx
-                            abs_y = offset_y + cy
-                            red_dot_positions.append((abs_x, abs_y))
-            
+            # 使用红点检测模块获取带偏移的红点位置
+            red_dot_positions = get_red_dot_positions_with_offset(region_screenshot, offset_x, offset_y)
+            self.logger.debug(f"检测到 {len(red_dot_positions)} 个红点")
             return red_dot_positions
-        except (cv2.error, ValueError) as e:
+        except Exception as e:
             self.logger.warning(f"查找红点失败: {e}")
             return []
     
     def run_full_cycle_async(self, callback=None):
-        """异步运行完整流程(在后台线程中执行)
+        """异步运行完整流程
         
         Args:
-            callback: 可选的回调函数,接收一个布尔参数表示成功与否
+            callback: 可选的回调函数
         """
         def run():
             try:
@@ -519,37 +553,16 @@ class SnowfieldWeaponLeague:
         
         Args:
             region_screenshot: 区域截图
-            
-        Returns:
-            是否检测到红点
         """
         try:
             if region_screenshot is None or len(region_screenshot.shape) < 3:
                 return False
             
-            hsv = cv2.cvtColor(region_screenshot, cv2.COLOR_BGR2HSV)
-            
-            lower_red1 = np.array([0, 100, 100])
-            upper_red1 = np.array([10, 255, 255])
-            lower_red2 = np.array([160, 100, 100])
-            upper_red2 = np.array([180, 255, 255])
-            
-            mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
-            mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
-            red_mask = cv2.bitwise_or(mask1, mask2)
-            
-            kernel = np.ones((3, 3), np.uint8)
-            red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, kernel)
-            red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, kernel)
-            
-            red_pixels = np.sum(red_mask > 0)
-            total_pixels = red_mask.size
-            red_ratio = red_pixels / total_pixels
-            
-            if red_ratio > 0.01:
-                return True
-            return False
-        except (cv2.error, ValueError) as e:
+            # 使用红点检测模块检测红点存在
+            red_dot_found = detect_red_dot_presence(region_screenshot)
+            self.logger.debug(f"红点存在检测结果: {red_dot_found}")
+            return red_dot_found
+        except Exception as e:
             self.logger.warning(f"检测红点失败: {e}")
             return False
     
@@ -569,5 +582,5 @@ class SnowfieldWeaponLeague:
         return True
     
     def run_full_cycle(self) -> bool:
-        """运行完整流程(同步版本,不推荐用于GUI)"""
+        """运行完整流程(同步版本)"""
         return self._run_full_cycle_internal()

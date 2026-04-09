@@ -42,12 +42,13 @@ class AdaptiveMatcher:
         """加载模板图片（带缓存）"""
         if image_path not in self._template_cache:
             # 从资源池获取图像
-            img = get_image(image_path)
+            image_name = os.path.basename(image_path)
+            img = get_image(image_name)
             if img is None:
                 self.log("warning", f"无法读取图片: {image_path}")
                 return None
             self._template_cache[image_path] = img
-            self.log("debug", f"加载模板: {os.path.basename(image_path)} {img.shape[1]}x{img.shape[0]}")
+            self.log("debug", f"加载模板: {image_name} {img.shape[1]}x{img.shape[0]}")
         return self._template_cache.get(image_path)
     
     def get_scale_factor(self, current_width: int, current_height: int) -> float:

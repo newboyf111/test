@@ -29,6 +29,7 @@ from typing import Optional, List, Tuple, Dict
 from src.utils.adaptive_matcher import AdaptiveMatcher
 from src.utils.window_utils import set_dpi_aware, capture_window
 from src.utils.resource_path import get_pic_path
+from src.utils import ScreenshotCache
 
 
 set_dpi_aware()
@@ -49,19 +50,19 @@ class ProtectiveCasing:
         self.running = False
         self.matcher = AdaptiveMatcher(confidence=0.75, logger=self.logger)
         
-        self.war_image_path = get_pic_path("war.png")
-        self.shield_image_path = get_pic_path("Shield.png")
-        self.buy_image_path = get_pic_path("buy.png")
-        self.buy1_image_path = get_pic_path("buy1.png")
-        self.town_image_path = get_pic_path("town.png")
-        self.six_image_path = get_pic_path("six.png")
-        self.sure_image_path = get_pic_path("sure.png")
+        self.war_image_name = "war.png"
+        self.shield_image_name = "Shield.png"
+        self.buy_image_name = "buy.png"
+        self.buy1_image_name = "buy1.png"
+        self.town_image_name = "town.png"
+        self.six_image_name = "six.png"
+        self.sure_image_name = "sure.png"
         
         self.check_interval = 5
         self.target_windows: List[Tuple[int, str]] = window_list or []
         self.mining_manager = mining_manager
-        self._screenshot_cache: Dict[int, Tuple[np.ndarray, int, int, float]] = {}
-        self._screenshot_ttl = 2.0  # 修复：增加截图缓存时间
+        # 使用统一的缓存管理器，TTL 调整为 0.5 秒以保持一致性
+        self._screenshot_cache = ScreenshotCache(ttl=0.5, logger=self.logger)
 
     def set_windows(self, window_list: List[Tuple[int, str]]):
         self.target_windows = window_list
@@ -127,23 +128,14 @@ class ProtectiveCasing:
 
     def _get_screenshot(self, hwnd: int) -> Optional[Tuple[np.ndarray, int, int]]:
         """获取窗口截图（带缓存）"""
-        current_time = time.time()
+        def capture_func():
+            return capture_window(hwnd)
         
-        if hwnd in self._screenshot_cache:
-            cached = self._screenshot_cache[hwnd]
-            if current_time - cached[3] < self._screenshot_ttl:
-                return cached[0], cached[1], cached[2]
-        
-        screenshot, win_w, win_h = capture_window(hwnd)
-        if screenshot is None:
-            return None
-        self._screenshot_cache[hwnd] = (screenshot, win_w, win_h, current_time)
-        return screenshot, win_w, win_h
+        return self._screenshot_cache.get(hwnd, capture_func)
 
     def _invalidate_screenshot(self, hwnd: int):
         """清除截图缓存"""
-        if hwnd in self._screenshot_cache:
-            del self._screenshot_cache[hwnd]
+        self._screenshot_cache.invalidate(hwnd)
 
     # ==================== 业务方法 ====================
 
@@ -154,7 +146,7 @@ class ProtectiveCasing:
             return False
         
         screenshot, win_w, win_h = result
-        match_result = self.matcher.match(screenshot, self.war_image_path, win_w, win_h)
+        match_result = self.matcher.match(screenshot, self.war_image_name, win_w, win_h)
         
         if match_result:
             self.logger.info(f"[{window_name}] 发现 war! 置信度: {match_result['confidence']:.3f}")
@@ -170,19 +162,19 @@ class ProtectiveCasing:
         screenshot, win_w, win_h = result
         
         # 检测 town
-        town_result = self.matcher.match(screenshot, self.town_image_path, win_w, win_h)
+        town_result = self.matcher.match(screenshot, self.town_image_name, win_w, win_h)
         if not town_result:
             self.logger.info(f"[{window_name}] 未找到 town，跳过 six 检测")
             return []
         
         # 检测 six
-        six_result = self.matcher.match(screenshot, self.six_image_path, win_w, win_h)
+        six_result = self.matcher.match(screenshot, self.six_image_name, win_w, win_h)
         if not six_result:
             self.logger.info(f"[{window_name}] 未找到 six 模板")
             return []
         
         # 找到所有 six 位置
-        six_template = self.matcher.load_template(self.six_image_path)
+        six_template = self.matcher.load_template(self.six_image_name)
         if six_template is None:
             return []
         
@@ -356,13 +348,13 @@ class ProtectiveCasing:
                         self._wait(1.0, 2.0)
                         self._click_at(hwnd, six_pos["x"], six_pos["center_y"], f"six #{i+1} 原始")
                         # 等待 sure 出现并点击
-                        self.find_and_click(hwnd, self.sure_image_path, "sure")
+                        self.find_and_click(hwnd, self.sure_image_name, "sure")
                     else:
                         # 没有红心，等待2-3秒后点击 six 原始坐标
                         self._wait(2.0, 3.0)
                         self._click_at(hwnd, six_pos["x"], six_pos["center_y"], f"six #{i+1} 原始")
                         # 等待 sure 出现并点击
-                        self.find_and_click(hwnd, self.sure_image_path, "sure")
+                        self.find_and_click(hwnd, self.sure_image_name, "sure")
                 finally:
                     if tmp_path and os.path.exists(tmp_path):
                         os.unlink(tmp_path)
@@ -373,10 +365,17 @@ class ProtectiveCasing:
         """启动自动化脚本"""
         self.logger.info("=" * 50)
         self.logger.info("启动保护性外壳自动化脚本")
-        self.logger.info(f"检测目标: {self.war_image_path}")
+        self.logger.info(f"检测目标: {self.war_image_name}")
         self.logger.info("=" * 50)
         
         self.running = True
+        
+        # 如果挖矿正在进行，等待挖矿结束
+        if self.mining_manager and self.mining_manager.get_mining_status():
+            self.logger.info("检测到挖矿进行中，等待挖矿结束...")
+            while self.running and self.mining_manager.get_mining_status():
+                time.sleep(1)
+            self.logger.info("挖矿结束，开始保护性外壳自动化")
         
         while self.running:
             try:
@@ -403,13 +402,13 @@ class ProtectiveCasing:
                     self.click_deploy(hwnd, window_name)
                     self._wait()
                     
-                    self.find_and_click(hwnd, self.shield_image_path, "Shield")
+                    self.find_and_click(hwnd, self.shield_image_name, "Shield")
                     self._wait()
                     
                     self.click_buy_2(hwnd, window_name)
                     self._wait()
                     
-                    self.find_and_click(hwnd, self.buy_image_path, "buy")
+                    self.find_and_click(hwnd, self.buy_image_name, "buy")
                     self._wait()
                     
                     # 再处理 six
@@ -444,7 +443,7 @@ class ProtectiveCasing:
         self.logger.info(f"[{window_name}] 等待后等待 Shield 出现...")
         
         # 等待 Shield 出现后点击
-        self.find_and_click(hwnd, self.shield_image_path, "Shield")
+        self.find_and_click(hwnd, self.shield_image_name, "Shield")
         
         # 等待 1-2 秒
         self._wait(1.0, 2.0)
@@ -458,7 +457,7 @@ class ProtectiveCasing:
         self.logger.info(f"[{window_name}] 等待后等待 buy 出现...")
         
         # 等待 buy 出现后点击
-        self.find_and_click(hwnd, self.buy_image_path, "buy")
+        self.find_and_click(hwnd, self.buy_image_name, "buy")
         
         # 等待 1-2 秒
         self._wait(1.0, 2.0)
@@ -489,3 +488,32 @@ class ProtectiveCasing:
             self.running = True
             threading.Thread(target=self.start, daemon=True).start()
             self.logger.info("启动保护性外壳自动化脚本")
+    
+    def should_start_after_mining(self) -> bool:
+        """检查是否应该在挖矿结束后启动
+        
+        Returns:
+            bool: 是否应该在挖矿结束后启动
+        """
+        # 如果挖矿管理器不可用，返回 False
+        if not self.mining_manager:
+            return False
+        
+        try:
+            # 检查是否有窗口正在挖矿
+            if self.mining_manager.get_mining_status():
+                return False
+            
+            # 检查所有窗口的挖矿状态
+            states = self.mining_manager.get_all_mining_states()
+            
+            # 如果没有任何窗口，或者所有窗口都已完成挖矿，返回 True
+            if not states:
+                return False
+            
+            # 检查是否所有窗口都已完成挖矿
+            all_mined = all(state == 2 for state in states.values())
+            return all_mined
+        except (AttributeError, RuntimeError) as e:
+            self.logger.error(f"检查挖矿状态失败: {e}")
+            return False

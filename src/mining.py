@@ -33,6 +33,7 @@ from collections import defaultdict, deque
 from src.utils.adaptive_matcher import AdaptiveMatcher
 from src.utils.window_utils import set_dpi_aware, capture_window
 from src.utils.resource_path import get_pic_path
+from src.utils import ScreenshotCache
 
 
 set_dpi_aware()
@@ -80,13 +81,12 @@ class SingleWindowMiner:
         self.completed_cycles = 0
         self.max_cycles = 6
 
-        self._screenshot_cache = None
-        self._screenshot_time = 0
-        self._screenshot_ttl = 0.5
+        # 使用统一的缓存管理器，TTL 保持 0.5 秒
+        self._screenshot_cache = ScreenshotCache(ttl=0.5, logger=self.logger)
 
         self.image_confidence = {
-            "back":  0.75,
-            "back1": 0.75,
+            "back":  0.85,
+            "back1": 0.85,
             "gather": 0.85,
             "town": 0.75,  # 提高 town 的阈值，防止误匹配
             "close": 0.85,  # 提高 close 的阈值，防止错误识别
@@ -96,6 +96,9 @@ class SingleWindowMiner:
 
         # 挖矿标记（True 表示已完成挖矿）
         self.mined = False
+        
+        # 挖矿状态（0: 未开始, 1: 挖矿中, 2: 挖矿结束）
+        self.mining_state = 0
         
         # 是否需要执行初始化流程
         self._need_init = True
@@ -156,20 +159,14 @@ class SingleWindowMiner:
 
     def _get_screenshot(self) -> Tuple[Optional[np.ndarray], int, int]:
         """获取截图（带缓存）"""
-        current_time = time.time()
-
-        if (self._screenshot_cache is not None and
-                current_time - self._screenshot_time < self._screenshot_ttl):
-            return self._screenshot_cache, self.last_window_size[0], self.last_window_size[1]
-
         if not win32gui.IsWindow(self.hwnd):
             self.logger.warning("窗口无效")
             return None, 0, 0
 
-        screenshot, win_w, win_h = capture_window(self.hwnd)
-        self._screenshot_cache = screenshot
-        self._screenshot_time = current_time
-        return screenshot, win_w, win_h
+        def capture_func():
+            return capture_window(self.hwnd)
+
+        return self._screenshot_cache.get(self.hwnd, capture_func)
     
     def _screenshot(self) -> Optional[np.ndarray]:
         """获取截图（简化版本，兼容旧代码）"""
@@ -178,8 +175,7 @@ class SingleWindowMiner:
 
     def _invalidate_screenshot(self):
         """清除截图缓存"""
-        self._screenshot_cache = None
-        self._screenshot_time = 0
+        self._screenshot_cache.invalidate(self.hwnd)
 
     def _get_window_size(self) -> Optional[Tuple[int, int]]:
         """获取窗口尺寸"""
@@ -259,11 +255,12 @@ class SingleWindowMiner:
         """开始挖矿"""
         if not self.is_mining:
             # 清除缓存
-            self._screenshot_cache = None
+            self._screenshot_cache.clear_all()
             self._screenshot_time = 0
             self.matcher.clear_cache()
             
             self.is_mining = True
+            self.mining_state = 1  # 设置为挖矿中
             self._user_stopped = False  # 重置用户停止标志
             self.completed_cycles = 0
             self._need_init = True  # 开始时需要执行初始化流程
@@ -279,6 +276,7 @@ class SingleWindowMiner:
             if not self._check_ocr_before_mining():
                 self.logger.info("OCR 检查未通过，跳过挖矿流程")
                 self.mined = True
+                self.mining_state = 2  # 设置为挖矿结束
                 if self.mining_manager is not None:
                     self.mining_manager._on_window_mining_stopped(self.hwnd)
                 return False
@@ -357,6 +355,7 @@ class SingleWindowMiner:
             else:
                 self.mined = True
                 self.logger.info(f"挖矿结束，标记窗口为已挖矿")
+            self.mining_state = 2  # 设置为挖矿结束
             return True
         return False
 
@@ -366,6 +365,14 @@ class SingleWindowMiner:
 
     def get_mining_status(self) -> bool:
         return self.is_mining
+    
+    def get_mining_state(self) -> int:
+        """获取挖矿状态
+        
+        Returns:
+            int: 挖矿状态（0: 未开始, 1: 挖矿中, 2: 挖矿结束）
+        """
+        return self.mining_state
     
     def set_timer(self, seconds: int):
         """设置倒计时（秒）"""
@@ -1358,6 +1365,13 @@ class MultiWindowMiningManager:
         
         self.logger.info("挖矿调度器停止")
         self._scheduler_running = False
+        
+        # 将所有窗口的挖矿状态设置为 2（挖矿结束）
+        with self._lock:
+            for miner in self.miners.values():
+                if miner.mining_state == 1:
+                    miner.mining_state = 2
+                    self.logger.info(f"窗口 {miner.window_name} 挖矿状态设置为 2（挖矿结束）")
     
     def start_mining_queue(self) -> bool:
         """
@@ -1497,6 +1511,15 @@ class MultiWindowMiningManager:
                 if miner.is_mining:
                     return True
             return False
+    
+    def get_all_mining_states(self) -> Dict[int, int]:
+        """获取所有窗口的挖矿状态
+        
+        Returns:
+            Dict[int, int]: 窗口句柄到挖矿状态的映射
+        """
+        with self._lock:
+            return {hwnd: miner.get_mining_state() for hwnd, miner in self.miners.items()}
 
 
 # ─────────────────────────────────────────────

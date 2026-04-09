@@ -15,6 +15,7 @@ from src.window_manager import WindowManager
 from src.recording import RecordingModule
 from src.Protective_casing import ProtectiveCasing
 from src.snowfield_weapon_league import SnowfieldWeaponLeague
+from src.daily_task import DailyTaskModule
 
 try:
     from PIL import ImageTk
@@ -47,6 +48,7 @@ class WujindongriGUI:
         self.recording_module = RecordingModule(self)
         self.protective_casing = ProtectiveCasing(mining_manager=self.mining_manager)
         self.snowfield_league = None  # 雪域兵器联赛模块
+        self.daily_task_module = None  # 每日任务模块
         self.selected_window = None
         self.timer_minutes = 0
         self.countdown_running = False
@@ -269,6 +271,15 @@ class WujindongriGUI:
             width=15
         )
         self.snowfield_button.pack(side="left", padx=5)
+        
+        # 每日任务按钮
+        self.daily_task_button = ttk.Button(
+            other_frame,
+            text="每日任务",
+            command=self.start_daily_task,
+            width=12
+        )
+        self.daily_task_button.pack(side="left", padx=5)
         
         # 画框结果显示
         self.draw_frame_result = ttk.Label(
@@ -875,7 +886,8 @@ class WujindongriGUI:
         status = {
             'mining': self.mining_manager.get_mining_status(),
             'protective': self.protective_casing.is_protecting(),
-            'recording': self.recording_module.get_recording_status()
+            'recording': self.recording_module.get_recording_status(),
+            'daily_task': self.daily_task_module is not None and self.daily_task_module.is_running()
         }
         
         if any(status.values()):
@@ -892,6 +904,11 @@ class WujindongriGUI:
             if status['recording']:
                 self.stop_recording()
                 self.log("已暂停录制系统")
+            
+            if status['daily_task']:
+                if self.daily_task_module:
+                    self.daily_task_module.stop()
+                self.log("已暂停每日任务系统")
             
             time.sleep(1)
         
@@ -910,6 +927,9 @@ class WujindongriGUI:
         if status['recording']:
             self.log("恢复录制系统...")
             self.toggle_recording()
+        
+        if status['daily_task']:
+            self.log("每日任务系统已在后台运行，无需恢复")
     
     def start_snowfield_league(self):
         """启动雪域兵器联赛模块"""
@@ -965,6 +985,78 @@ class WujindongriGUI:
 
         except (RuntimeError, OSError) as e:
             self.log(f"✗ 雪域兵器联赛初始化失败: {e}")
+            import traceback
+            self.log(f"详细错误: {traceback.format_exc()}")
+            
+            self._resume_systems(system_status)
+    
+    def start_daily_task(self):
+        """启动每日任务模块"""
+        selected_indices = self.window_listbox.curselection()
+        if not selected_indices:
+            messagebox.showwarning("警告", "请先选择一个窗口")
+            return
+        
+        index = selected_indices[0]
+        if index not in self.window_listbox_hwnd_map:
+            messagebox.showwarning("警告", "无法获取窗口信息")
+            return
+        
+        hwnd = self.window_listbox_hwnd_map[index]
+        
+        # 获取窗口信息
+        window_info = self.window_manager.get_window_info(hwnd)
+        if not window_info:
+            messagebox.showwarning("警告", "无法获取窗口信息")
+            return
+        
+        window_title = window_info['title']
+        self.log(f"选择窗口: {window_title}")
+        
+        # 检查挖矿状态
+        if self.mining_manager:
+            try:
+                mining_states = self.mining_manager.get_all_mining_states()
+                if mining_states:
+                    first_state = list(mining_states.values())[0]
+                    if first_state == 1:
+                        messagebox.showwarning("警告", "挖矿正在进行中，请等待挖矿彻底结束后再执行每日任务")
+                        self.log("✗ 挖矿进行中，拒绝启动每日任务")
+                        return
+            except (AttributeError, RuntimeError) as e:
+                self.log(f"检查挖矿状态失败: {e}")
+        
+        # 激活窗口
+        win32gui.ShowWindow(hwnd, 5)
+        win32gui.SetForegroundWindow(hwnd)
+        time.sleep(0.5)
+        
+        # 暂停其他系统
+        system_status = self._pause_other_systems()
+        
+        # 初始化每日任务模块
+        self.log(f"开始初始化每日任务模块...")
+        
+        try:
+            self.daily_task_module = DailyTaskModule(hwnd=hwnd, mining_manager=self.mining_manager, protective_casing=self.protective_casing)
+            self.log(f"✓ 每日任务模块初始化成功")
+            
+            # 运行每日任务流程(异步,不阻塞GUI)
+            self.log(f"开始执行每日任务流程...")
+            
+            def on_task_complete(success):
+                """流程完成后的回调"""
+                if success:
+                    self.log(f"✓ 每日任务流程执行完成")
+                else:
+                    self.log(f"✗ 每日任务流程执行失败")
+                
+                self._resume_systems(system_status)
+            
+            self.daily_task_module.run_daily_task_async(callback=on_task_complete)
+
+        except (RuntimeError, OSError) as e:
+            self.log(f"✗ 每日任务模块初始化失败: {e}")
             import traceback
             self.log(f"详细错误: {traceback.format_exc()}")
             
