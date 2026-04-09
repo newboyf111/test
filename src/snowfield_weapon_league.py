@@ -67,7 +67,7 @@ class SnowfieldWeaponLeague:
             if os.path.exists(json_path):
                 with open(json_path, "r", encoding="utf-8") as f:
                     return json.load(f)
-        except Exception as e:
+        except (json.JSONDecodeError, IOError) as e:
             self.logger.warning(f"加载frame_data.json失败: {e}")
         return {}
     
@@ -79,7 +79,7 @@ class SnowfieldWeaponLeague:
                 width = rect[2] - rect[0]
                 height = rect[3] - rect[1]
                 return (width, height)
-        except Exception as e:
+        except (win32gui.error, TypeError) as e:
             self.logger.warning(f"获取窗口尺寸失败: {e}")
         return None
     
@@ -89,7 +89,7 @@ class SnowfieldWeaponLeague:
             rect = win32gui.GetWindowRect(self.hwnd)
             if rect:
                 return (rect[0], rect[1])
-        except Exception as e:
+        except (win32gui.error, TypeError) as e:
             self.logger.warning(f"获取窗口位置失败: {e}")
         return None
     
@@ -99,7 +99,7 @@ class SnowfieldWeaponLeague:
             result = capture_window(self.hwnd)
             if result is not None and result[0] is not None:
                 return result[0]
-        except Exception as e:
+        except (OSError, ValueError) as e:
             self.logger.warning(f"截取截图失败: {e}")
         return None
     
@@ -128,7 +128,7 @@ class SnowfieldWeaponLeague:
                 x, y = result.get("location", (0, 0))
                 return (float(x), float(y))
             return None
-        except Exception as e:
+        except (OSError, ValueError) as e:
             self.logger.warning(f"查找图像失败: {e}")
             return None
     
@@ -149,7 +149,7 @@ class SnowfieldWeaponLeague:
                     return False
                 return True
             return False
-        except Exception as e:
+        except (OSError, RuntimeError) as e:
             self.logger.warning(f"点击图像失败: {e}")
             return False
     
@@ -278,7 +278,7 @@ class SnowfieldWeaponLeague:
                     self.logger.info(f"点击区域中心: 窗口内({center_x}, {center_y}), 屏幕({screen_x}, {screen_y})")
                     pyautogui.click(screen_x, screen_y)
                 return True
-        except Exception as e:
+        except (OSError, ValueError) as e:
             self.logger.warning(f"检测每日任务红点失败: {e}")
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
@@ -331,7 +331,7 @@ class SnowfieldWeaponLeague:
             else:
                 self.logger.warning(f"检测到{len(red_dot_positions)}个红点(期望1个),结束流程")
                 return False
-        except Exception as e:
+        except (OSError, ValueError) as e:
             self.logger.warning(f"检测入口区域红点失败: {e}")
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
@@ -404,7 +404,7 @@ class SnowfieldWeaponLeague:
                     self._swipe_up_from_center()
             
             return True
-        except Exception as e:
+        except (OSError, ValueError) as e:
             self.logger.warning(f"检测领奖区域红点失败: {e}")
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
             return False
@@ -433,7 +433,7 @@ class SnowfieldWeaponLeague:
             pyautogui.dragTo(end_x, end_y, duration=0.5, button='left')
             
             self.logger.info("✓ 滑动完成")
-        except Exception as e:
+        except (OSError, ValueError) as e:
             self.logger.warning(f"滑动操作失败: {e}")
             self.logger.warning(f"详细错误: {traceback.format_exc()}")
     
@@ -489,7 +489,7 @@ class SnowfieldWeaponLeague:
                             red_dot_positions.append((abs_x, abs_y))
             
             return red_dot_positions
-        except Exception as e:
+        except (cv2.error, ValueError) as e:
             self.logger.warning(f"查找红点失败: {e}")
             return []
     
@@ -504,7 +504,7 @@ class SnowfieldWeaponLeague:
                 success = self._run_full_cycle_internal()
                 if callback:
                     callback(success)
-            except Exception as e:
+            except (RuntimeError, OSError) as e:
                 self.logger.error(f"异步执行失败: {e}")
                 self.logger.error(f"详细错误: {traceback.format_exc()}")
                 if callback:
@@ -549,7 +549,7 @@ class SnowfieldWeaponLeague:
             if red_ratio > 0.01:
                 return True
             return False
-        except Exception as e:
+        except (cv2.error, ValueError) as e:
             self.logger.warning(f"检测红点失败: {e}")
             return False
     

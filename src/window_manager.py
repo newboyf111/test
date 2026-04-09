@@ -71,7 +71,7 @@ class WindowManager:
             try:
                 fg_result = win32gui.SetForegroundWindow(hwnd)
                 self.logger.debug(f"[resize_window] SetForegroundWindow 返回: {fg_result}")
-            except Exception as fg_e:
+            except (win32gui.error, OSError) as fg_e:
                 self.logger.warning(f"[resize_window] SetForegroundWindow 失败: {fg_e}")
             
             time.sleep(0.2)
@@ -115,7 +115,7 @@ class WindowManager:
                 # 注意：SetWindowPos 在某些情况下可能返回 None，但窗口调整仍然成功
                 # 所以我们不依赖返回值，而是通过后续的尺寸验证来判断
                 
-            except Exception as swp_e:
+            except (win32gui.error, OSError) as swp_e:
                 self.logger.error(f"[resize_window] SetWindowPos 异常: {swp_e}")
                 import traceback
                 self.logger.error(traceback.format_exc())
@@ -130,7 +130,7 @@ class WindowManager:
                 new_height = bottom2 - top2
                 self.logger.debug(f"[resize_window] 调整后窗口尺寸: {new_width}x{new_height}")
                 self.logger.debug(f"[resize_window] 调整后窗口位置: ({left2}, {top2}, {right2}, {bottom2})")
-            except Exception as rect_e:
+            except (win32gui.error, OSError) as rect_e:
                 self.logger.warning(f"[resize_window] GetWindowRect 异常: {rect_e}")
                 new_width, new_height = 0, 0
 
@@ -141,8 +141,8 @@ class WindowManager:
             self.logger.warning(f"[resize_window] 失败: 期望 {client_width}x{client_height}, 实际 {new_width}x{new_height}")
             return False
 
-        except Exception as e:
-            self.logger.error(f"[resize_window] 调整窗口尺寸失败: {e}")
+        except (win32gui.error, OSError) as e:
+            self.logger.error(f"[resize_window] 调整窗口尺寸时发生异常: {e}")
             import traceback
             self.logger.error(traceback.format_exc())
             return False
@@ -169,7 +169,7 @@ class WindowManager:
             self.logger.info(f"使用 SetWindowPos 方法激活窗口成功（保持置顶）")
             return True
 
-        except Exception as e:
+        except (win32gui.error, OSError) as e:
             self.logger.error(f"激活窗口失败: {e}")
             return False
 
@@ -179,7 +179,7 @@ class WindowManager:
             _, process_id = win32process.GetWindowThreadProcessId(hwnd)
             process = psutil.Process(process_id)
             return process.name()
-        except Exception as e:
+        except (psutil.NoSuchProcess, OSError) as e:
             self.logger.warning(f"获取进程名失败: {e}")
             return "未知进程"
 
@@ -188,7 +188,7 @@ class WindowManager:
         try:
             _, process_id = win32process.GetWindowThreadProcessId(hwnd)
             return process_id
-        except Exception as e:
+        except (win32gui.error, OSError) as e:
             self.logger.warning(f"获取进程ID失败: {e}")
             return None
 
@@ -233,7 +233,7 @@ class WindowManager:
             _, process_id = win32process.GetWindowThreadProcessId(hwnd)
             info["process_id"] = process_id
             info["process_name"] = psutil.Process(process_id).name()
-        except Exception as e:
+        except (win32gui.error, OSError, psutil.NoSuchProcess) as e:
             info["process_id"] = None
             info["process_name"] = "未知"
 

@@ -75,7 +75,7 @@ class ProtectiveCasing:
         if self.mining_manager:
             try:
                 return self.mining_manager.get_mining_status()
-            except Exception as e:
+            except (AttributeError, RuntimeError) as e:
                 self.logger.error(f"获取挖矿状态失败: {e}")
                 return False
         return False
@@ -101,7 +101,7 @@ class ProtectiveCasing:
         try:
             win32gui.SetForegroundWindow(hwnd)
             time.sleep(0.1)
-        except Exception as e:
+        except (win32gui.error, OSError) as e:
             self.logger.warning(f"激活窗口失败: {e}")
 
     def _click_at(self, hwnd: int, rel_x: int, rel_y: int, action_name: str = "按钮"):
@@ -424,7 +424,7 @@ class ProtectiveCasing:
                 
             except KeyboardInterrupt:
                 self.running = False
-            except Exception as e:
+            except (OSError, RuntimeError) as e:
                 self.logger.error(f"运行错误: {e}", exc_info=True)
                 self._wait(5)
 

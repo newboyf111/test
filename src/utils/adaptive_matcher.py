@@ -102,7 +102,7 @@ class AdaptiveMatcher:
                     "confidence": max_val,
                     "size": (tmpl_w, tmpl_h)
                 }
-        except Exception as e:
+        except cv2.error as e:
             self.log("error", f"匹配错误: {e}")
         return None
     
@@ -139,7 +139,7 @@ class AdaptiveMatcher:
                 best_result["found"] = True
                 best_result["confidence"] = best_score
                 return best_result
-        except Exception as e:
+        except cv2.error as e:
             self.log("error", f"多尺度匹配错误: {e}")
         return None
     

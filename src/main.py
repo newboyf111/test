@@ -46,7 +46,7 @@ def main():
         
         logger.info("无尽冬日程序正常退出")
         
-    except Exception as e:
+    except (OSError, RuntimeError, ImportError) as e:
         logger.error(f"程序运行出错: {e}", exc_info=True)
         sys.exit(1)
 

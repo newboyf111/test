@@ -17,13 +17,13 @@ def set_dpi_aware():
     """设置进程为DPI感知，确保坐标和像素一致"""
     try:
         ctypes.windll.shcore.SetProcessDpiAwareness(2)
-    except Exception:
+    except (AttributeError, OSError):
         try:
             ctypes.windll.shcore.SetProcessDpiAwareness(1)
-        except Exception:
+        except (AttributeError, OSError):
             try:
                 ctypes.windll.user32.SetProcessDPIAware()
-            except Exception:
+            except (AttributeError, OSError):
                 pass
 
 
@@ -56,7 +56,7 @@ def capture_window(hwnd: int) -> Tuple[Optional[np.ndarray], int, int]:
 
         return img_bgr, logic_width, logic_height
 
-    except Exception as e:
+    except (OSError, ValueError) as e:
         logging.getLogger(__name__).error(f"截图失败: {e}")
         return None, 0, 0
 
@@ -72,7 +72,7 @@ def get_window_rect(hwnd: int) -> Optional[Tuple[int, int, int, int]]:
     """
     try:
         return win32gui.GetWindowRect(hwnd)
-    except Exception:
+    except (win32gui.error, TypeError):
         return None
 
 
@@ -88,7 +88,7 @@ def get_window_size(hwnd: int) -> Optional[Tuple[int, int]]:
     try:
         left, top, right, bottom = win32gui.GetWindowRect(hwnd)
         return (right - left, bottom - top)
-    except Exception:
+    except (win32gui.error, TypeError):
         return None
 
 
@@ -103,5 +103,5 @@ def is_window_valid(hwnd: int) -> bool:
     """
     try:
         return win32gui.IsWindow(hwnd)
-    except Exception:
+    except (win32gui.error, TypeError):
         return False

@@ -160,7 +160,7 @@ class RecordingModule:
                         
                         # 将点击事件放入队列
                         self.click_queue.put((x, y))
-                except Exception as e:
+                except (OSError, ValueError) as e:
                     self.gui.log(f"鼠标钩子回调错误: {e}")
                 
                 # 调用下一个钩子
@@ -207,7 +207,7 @@ class RecordingModule:
                 }
                 if error_code in error_messages:
                     self.gui.log(f"错误详情: {error_messages[error_code]}")
-        except Exception as e:
+        except (OSError, RuntimeError) as e:
             self.gui.log(f"设置鼠标钩子异常: {e}")
             import traceback
             self.gui.log(f"异常堆栈: {traceback.format_exc()}")
@@ -223,7 +223,7 @@ class RecordingModule:
                     pass
                 self.gui.root.after(10, self.process_clicks)
                 break
-        except Exception as e:
+        except (OSError, RuntimeError) as e:
             self.gui.log(f"处理点击事件异常: {e}")
     
     def hook_message_loop(self):
@@ -236,7 +236,7 @@ class RecordingModule:
                     break
                 user32.TranslateMessage(ctypes.byref(msg))
                 user32.DispatchMessageW(ctypes.byref(msg))
-        except Exception as e:
+        except (OSError, RuntimeError) as e:
             self.gui.log(f"钩子消息循环异常: {e}")
         finally:
             self.gui.log("钩子消息循环已结束")
@@ -253,7 +253,7 @@ class RecordingModule:
                 else:
                     error_code = ctypes.get_last_error()
                     self.gui.log(f"移除鼠标钩子失败，错误代码: {error_code}")
-        except Exception as e:
+        except (OSError, RuntimeError) as e:
             self.gui.log(f"移除鼠标钩子异常: {e}")
     
     def on_global_mouse_click(self, x, y):
@@ -287,7 +287,7 @@ class RecordingModule:
                     # 弹出输入框，输入位置名称
                     self.show_coordinate_input(relative_x, relative_y, x, y, title)
                     return
-            except Exception as e:
+            except (win32gui.error, OSError) as e:
                 self.gui.log(f"检查窗口 {hwnd} 时出错: {e}")
                 continue
         
@@ -432,7 +432,7 @@ class RecordingModule:
             with open(record_file, 'w', encoding='utf-8') as f:
                 json.dump(existing_records, f, ensure_ascii=False, indent=2)
             self.gui.log(f"坐标已保存到 {record_file}")
-        except Exception as e:
+        except (IOError, OSError) as e:
             self.gui.log(f"保存坐标失败: {e}")
     
     def get_current_time(self):

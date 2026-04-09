@@ -704,7 +704,7 @@ class WujindongriGUI:
                         self.log(f"[{window_name}] 未检测到 war")
                 
                 self.log("开盾流程完成")
-            except Exception as e:
+            except (RuntimeError, OSError) as e:
                 self.log(f"开盾流程错误: {e}")
             finally:
                 self.protective_casing.running = False
@@ -962,8 +962,8 @@ class WujindongriGUI:
                 self._resume_systems(system_status)
             
             self.snowfield_league.run_full_cycle_async(callback=on_league_complete)
-            
-        except Exception as e:
+
+        except (RuntimeError, OSError) as e:
             self.log(f"✗ 雪域兵器联赛初始化失败: {e}")
             import traceback
             self.log(f"详细错误: {traceback.format_exc()}")
@@ -1030,7 +1030,7 @@ class WujindongriGUI:
         # 截取游戏窗口的屏幕截图
         try:
             screenshot = pyautogui.screenshot(region=(win_x, win_y, window_width, window_height))
-        except Exception as e:
+        except (OSError, ValueError) as e:
             messagebox.showwarning("警告", f"无法截取屏幕: {e}")
             draw_window.destroy()
             return
@@ -1049,7 +1049,7 @@ class WujindongriGUI:
         try:
             photo = ImageTk.PhotoImage(image=screenshot)
             canvas.create_image(0, 0, anchor="nw", image=photo)
-        except Exception as e:
+        except (tk.TclError, ValueError) as e:
             messagebox.showwarning("警告", f"无法显示截图: {e}")
             draw_window.destroy()
             return
@@ -1244,7 +1244,7 @@ class WujindongriGUI:
             with open(json_path, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
             self.log(f"✓ 已保存画框信息: {module_name} -> {function_name}")
-        except Exception as e:
+        except (IOError, OSError) as e:
             self.log(f"✗ 保存画框信息失败: {e}")
     
     def _update_active_windows_label(self, titles):
@@ -1275,7 +1275,7 @@ class WujindongriGUI:
             self.log("✓ OCR 提前初始化完成")
         except ImportError:
             self.log("⚠ easyocr 未安装，跳过 OCR 初始化")
-        except Exception as e:
+        except (RuntimeError, OSError) as e:
             self.log(f"⚠ OCR 初始化失败: {e}")
     
     def _create_loading_screen(self):
@@ -1362,7 +1362,7 @@ class WujindongriGUI:
         except ImportError:
             self.root.after(0, lambda: self.update_loading_progress(100, "easyocr 未安装"))
             self.root.after(0, self._on_ocr_loaded)
-        except Exception as e:
+        except (RuntimeError, OSError) as e:
             self.root.after(0, lambda: self.update_loading_progress(100, f"OCR 加载失败: {e}"))
             self.root.after(0, self._on_ocr_loaded)
     

@@ -150,7 +150,7 @@ class SingleWindowMiner:
         except ImportError:
             self.ocr_enabled = False
             self.logger.warning("easyocr 未安装，跳过 OCR 识别")
-        except Exception as e:
+        except (RuntimeError, OSError) as e:
             self.ocr_enabled = False
             self.logger.warning(f"OCR 初始化失败: {e}")
 
@@ -251,7 +251,7 @@ class SingleWindowMiner:
                 return text
             
             return None
-        except Exception as e:
+        except (RuntimeError, ValueError) as e:
             self.logger.warning(f"OCR 识别失败: {e}")
             return None
 
@@ -430,7 +430,7 @@ class SingleWindowMiner:
             try:
                 self._run_cycle()
                 consecutive_failures = 0
-            except Exception as e:
+            except (RuntimeError, OSError) as e:
                 self.logger.error(f"循环异常: {e}", exc_info=True)
                 consecutive_failures += 1
                 if consecutive_failures >= max_consecutive_failures:
@@ -1008,7 +1008,7 @@ class SingleWindowMiner:
             pyautogui.mouseUp()
             self.logger.info(f"拖动完成: dx={dx_scaled}, dy={dy_scaled} [scale={scale:.3f}]")
             self._invalidate_screenshot()
-        except Exception as e:
+        except (RuntimeError, OSError) as e:
             self.logger.error(f"拖动失败: {e}")
             return False
         
@@ -1039,7 +1039,7 @@ class SingleWindowMiner:
             pyautogui.mouseUp()
             self.logger.info(f"拖动: dx={dx_scaled}, dy={dy_scaled} [scale={scale:.3f}]")
             self._invalidate_screenshot()
-        except Exception as e:
+        except (RuntimeError, OSError) as e:
             self.logger.error(f"拖动失败: {e}")
 
 
@@ -1352,7 +1352,7 @@ class MultiWindowMiningManager:
                         self.logger.info("所有窗口挖矿完成，调度器结束")
                         break
                 
-            except Exception as e:
+            except (RuntimeError, OSError) as e:
                 self.logger.error(f"调度器异常: {e}", exc_info=True)
                 time.sleep(1)
         
