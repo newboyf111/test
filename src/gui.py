@@ -37,7 +37,8 @@ class WujindongriGUI:
         # 设置窗口图标（可选）
         try:
             self.root.iconbitmap(default='icon.ico')
-        except Exception:
+        except tk.TclError:
+            # 图标文件不存在时静默忽略
             pass
         
         # 初始化模块
@@ -331,7 +332,7 @@ class WujindongriGUI:
                     display_text = f"{title} ({process_id})"
                 else:
                     display_text = title
-            except Exception:
+            except (AttributeError, TypeError):
                 display_text = title
             self.window_listbox.insert(tk.END, display_text)
             self.window_listbox_hwnd_map[i] = hwnd  # 存储映射
@@ -411,7 +412,7 @@ class WujindongriGUI:
                     full_title = f"{selected_titles[i]} ({process_id})"
                 else:
                     full_title = selected_titles[i]
-            except Exception:
+            except (AttributeError, TypeError):
                 full_title = selected_titles[i]
             
             if self.window_manager.activate_window(hwnd):
@@ -475,7 +476,7 @@ class WujindongriGUI:
                     full_title = f"{selected_titles[i]} ({process_id})"
                 else:
                     full_title = selected_titles[i]
-            except Exception:
+            except (AttributeError, TypeError):
                 full_title = selected_titles[i]
             
             if self.window_manager.resize_window_by_script(hwnd, 558, 1021):
@@ -590,7 +591,7 @@ class WujindongriGUI:
                     full_title = f"{selected_titles[i]} ({process_id})"
                 else:
                     full_title = selected_titles[i]
-            except Exception:
+            except (AttributeError, TypeError):
                 full_title = selected_titles[i]
             
             # 添加窗口到管理器
@@ -1228,7 +1229,7 @@ class WujindongriGUI:
             try:
                 with open(json_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
-            except Exception:
+            except (json.JSONDecodeError, IOError):
                 data = {}
         else:
             data = {}

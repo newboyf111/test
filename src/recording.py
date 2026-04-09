@@ -68,12 +68,12 @@ mouse_callback = None
 class RecordingModule:
     """记录模块"""
     
-    def __init__(self, gui):
+    def __init__(self, gui) -> None:
         """
         初始化记录模块
         
         参数:
-            gui: GUI对象，用于日志输出和窗口引用
+            gui: GUI 对象，用于日志输出和窗口引用
         """
         self.gui = gui
         self.is_recording = False
@@ -84,6 +84,15 @@ class RecordingModule:
         self.click_queue = None
         self.hook_thread = None
         self.input_dialog = None
+    
+    def __del__(self) -> None:
+        """析构函数，确保资源被清理"""
+        self._cleanup_resources()
+    
+    def _cleanup_resources(self) -> None:
+        """清理所有资源"""
+        if self.is_recording:
+            self.stop_recording()
         
     def set_window_listbox(self, listbox):
         """设置窗口列表框"""

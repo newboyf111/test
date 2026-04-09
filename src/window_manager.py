@@ -11,6 +11,7 @@ import win32api
 import psutil
 import time
 import logging
+from typing import List, Tuple, Optional, Dict
 
 from src.utils.window_utils import set_dpi_aware
 
@@ -20,30 +21,30 @@ set_dpi_aware()
 
 class WindowManager:
     """窗口管理类"""
-
-    def __init__(self):
+    
+    def __init__(self) -> None:
         """初始化窗口管理器"""
-        self.window_list = []
-        self.logger = logging.getLogger(__name__)
-
-    def get_window_list(self):
+        self.window_list: List[Tuple[int, str]] = []
+        self.logger: logging.Logger = logging.getLogger(__name__)
+    
+    def get_window_list(self) -> List[Tuple[int, str]]:
         """获取所有可见窗口列表"""
         self.window_list = []
-
-        def callback(hwnd, extra):
+        
+        def callback(hwnd: int, extra: None) -> None:
             if win32gui.IsWindowVisible(hwnd):
                 title = win32gui.GetWindowText(hwnd)
                 if title:
                     self.window_list.append((hwnd, title))
-
+        
         win32gui.EnumWindows(callback, None)
         return self.window_list
-
-    def get_window_title(self, hwnd):
+    
+    def get_window_title(self, hwnd: int) -> str:
         """获取窗口标题"""
         return win32gui.GetWindowText(hwnd)
-
-    def get_client_rect(self, hwnd):
+    
+    def get_client_rect(self, hwnd: int) -> Tuple[int, int]:
         """获取窗口客户区尺寸"""
         left, top, right, bottom = win32gui.GetClientRect(hwnd)
         return right - left, bottom - top

@@ -186,7 +186,7 @@ class SingleWindowMiner:
         try:
             left, top, right, bottom = win32gui.GetWindowRect(self.hwnd)
             return (right - left, bottom - top)
-        except Exception:
+        except (win32gui.error, AttributeError):
             return None
 
     def _capture_ocr_region(self, screenshot: np.ndarray, win_w: int, win_h: int) -> Optional[np.ndarray]:
