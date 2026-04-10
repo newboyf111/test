@@ -49883,3 +49883,7 @@ AttributeError: module 'time' has no attribute 'uniform'
 2026-04-09 22:01:13,253 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
 2026-04-09 22:01:14,812 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
 2026-04-09 22:01:15,496 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-10 18:23:16,786 - src.main - INFO - 无尽冬日程序启动
+2026-04-10 18:23:16,786 - src.main - INFO - 版本: 1.0.0
+2026-04-10 18:23:21,913 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-10 18:25:58,060 - src.main - INFO - 无尽冬日程序正常退出
