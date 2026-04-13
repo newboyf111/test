@@ -276,6 +276,7 @@ class SingleWindowMiner:
             if not self._check_ocr_before_mining():
                 self.logger.info("OCR 检查未通过，跳过挖矿流程")
                 # 注意：_check_ocr_before_mining 已经设置了 mined=True, mining_state=2, 并调用了 _on_window_mining_stopped
+                self.is_mining = False
                 return False
             
             self.mining_thread = threading.Thread(target=self._mining_loop, daemon=True)
