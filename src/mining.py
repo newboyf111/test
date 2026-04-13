@@ -777,7 +777,6 @@ class SingleWindowMiner:
             return
 
         # 尝试在3秒内寻找并点击 gather
-        import time
         start_time = time.time()
         timeout = 3.0
         gather_found = False
