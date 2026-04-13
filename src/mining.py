@@ -776,61 +776,61 @@ class SingleWindowMiner:
             self.logger.info("用户手动停止，退出挖矿流程")
             return
 
-        # 尝试最多3次寻找并点击 gather
+        # 尝试在3秒内寻找并点击 gather
+        import time
+        start_time = time.time()
+        timeout = 3.0
         gather_found = False
-        max_attempts = 1
-        for attempt in range(max_attempts):
+        
+        while time.time() - start_time < timeout:
             if self._user_stopped:
                 self.logger.info("用户手动停止，退出挖矿流程")
                 return
-            self.logger.info(f"尝试寻找 gather ({attempt+1}/{max_attempts})")
+            self.logger.info("尝试寻找 gather...")
             
             if self._click("gather"):
                 self.logger.info("点击 gather 成功")
                 gather_found = True
                 break
             
-            self.logger.warning(f"第 {attempt+1} 次未找到 gather")
+            self.logger.warning("未找到 gather")
             
-            # 执行备选方案
-            if attempt < max_attempts - 1:  # 最后一次尝试不需要执行备选方案
-                self.logger.info("执行备选方案：向左移动并重新点击 search_meat")
+            # 执行备选方案：向左移动并重新点击 search_meat
+            self.logger.info("执行备选方案：向左移动并重新点击 search_meat")
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return
+            time.sleep(random.uniform(1, 2))
+            
+            # 向左移动（自适应窗口大小，基准30像素）
+            window_size = self._get_window_size()
+            if window_size:
+                win_w, _ = window_size
+                scale = win_w / 558
+                drag_distance = int(30 * scale)
+                self.logger.info(f"窗口宽度: {win_w}, 缩放比例: {scale:.3f}, 拖动距离: {drag_distance} 像素")
+            else:
+                drag_distance = 30
+                self.logger.warning("无法获取窗口尺寸，使用原始拖动距离 30 像素")
+            
+            self._drag(-drag_distance, 0, 0.05)
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return
+            time.sleep(random.uniform(1, 2))
+            
+            # 重新点击 search_meat
+            if self._click("search_meat"):
+                self.logger.info("重新点击 search_meat 成功")
                 if self._user_stopped:
                     self.logger.info("用户手动停止，退出挖矿流程")
                     return
                 time.sleep(random.uniform(1, 2))
-                
-                # 向左移动（自适应窗口大小，基准30像素）
-                window_size = self._get_window_size()
-                if window_size:
-                    win_w, _ = window_size
-                    scale = win_w / 558
-                    drag_distance = int(30 * scale)
-                    self.logger.info(f"窗口宽度: {win_w}, 缩放比例: {scale:.3f}, 拖动距离: {drag_distance} 像素")
-                else:
-                    drag_distance = 30
-                    self.logger.warning("无法获取窗口尺寸，使用原始拖动距离 30 像素")
-                
-                self._drag(-drag_distance, 0, 0.05)
-                if self._user_stopped:
-                    self.logger.info("用户手动停止，退出挖矿流程")
-                    return
-                time.sleep(random.uniform(1, 2))
-                
-                # 重新点击 search_meat
-                if self._click("search_meat"):
-                    self.logger.info("重新点击 search_meat 成功")
-                    if self._user_stopped:
-                        self.logger.info("用户手动停止，退出挖矿流程")
-                        return
-                    time.sleep(random.uniform(1, 2))
-                else:
-                    self.logger.warning("重新查找 search_meat 失败")
-                    # 继续下一次尝试
-                    continue
-
+            else:
+                self.logger.warning("重新查找 search_meat 失败")
+        
         if not gather_found:
-            self.logger.warning(f"{max_attempts} 次尝试后仍未找到 gather")
+            self.logger.warning(f"3秒内未找到 gather")
             self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
 
