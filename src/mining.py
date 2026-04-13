@@ -233,8 +233,8 @@ class SingleWindowMiner:
             return None
         
         try:
-            # 转换为灰度图
-            gray = cv2.cvtColor(region, cv2.COLOR_RGB2GRAY)
+            # 转换为灰度图（OpenCV 返回 BGR，所以用 COLOR_BGR2GRAY）
+            gray = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
             
             # OCR 识别
             results = self.ocr_reader.readtext(gray)
