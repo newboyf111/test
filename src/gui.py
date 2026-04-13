@@ -558,12 +558,8 @@ class WujindongriGUI:
             if self.active_windows_label:
                 self._update_active_windows_label([])
             
-    def start_mining(self, auto_mode: bool = False):
-        """开始挖矿（支持多窗口队列模式）
-        
-        Args:
-            auto_mode: 是否为自动模式（定时挖矿），自动模式下未选择窗口时使用所有窗口
-        """
+    def start_mining(self):
+        """开始挖矿（支持多窗口队列模式）"""
         selected_indices = self.window_listbox.curselection()
         selected_hwnds = []
         selected_titles = []
