@@ -558,16 +558,28 @@ class WujindongriGUI:
             if self.active_windows_label:
                 self._update_active_windows_label([])
             
-    def start_mining(self):
-        """开始挖矿（支持多窗口队列模式）"""
+    def start_mining(self, auto_mode: bool = False):
+        """开始挖矿（支持多窗口队列模式）
+        
+        Args:
+            auto_mode: 是否为自动模式（定时挖矿），自动模式下未选择窗口时使用所有窗口
+        """
         selected_indices = self.window_listbox.curselection()
         selected_hwnds = []
         selected_titles = []
         
         if not selected_indices:
-            self.log("未选择窗口，无法开始挖矿")
-            messagebox.showinfo("提示", "请先选择要挖矿的窗口")
-            return
+            if auto_mode:
+                # 自动模式下，使用所有可用窗口
+                self.log("未选择窗口，自动模式使用所有可用窗口")
+                window_list = self.window_manager.get_window_list()
+                for hwnd, title in window_list:
+                    selected_hwnds.append(hwnd)
+                    selected_titles.append(title)
+            else:
+                self.log("未选择窗口，无法开始挖矿")
+                messagebox.showinfo("提示", "请先选择要挖矿的窗口")
+                return
         else:
             # 使用映射获取选中的窗口
             for index in selected_indices:
@@ -854,7 +866,7 @@ class WujindongriGUI:
         """自动开始挖矿"""
         if not self.mining_manager.get_mining_status():
             self.timer_status.config(text="正在启动...")
-            self.start_mining()
+            self.start_mining(auto_mode=True)
             self.timer_status.config(text="已启动")
             self.log("定时挖矿已自动启动")
         
