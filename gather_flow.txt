@@ -1,54 +1,75 @@
+# Gather 查找流程图
+
 ```mermaid
 flowchart TD
-    A[开始寻找 gather] --> B{3秒超时?}
-    B -->|是| Z1[3秒内未找到 gather<br/>切换到下一个资源]
-    B -->|否| C[尝试寻找 gather]
+    Start([开始查找 gather]) --> CheckTimeout{3秒内?}
     
-    C --> D{找到 gather?}
-    D -->|是| E[点击 gather 成功<br/>gather_found = True<br/>退出循环]
-    D -->|否| F[未找到 gather]
+    CheckTimeout -->|是| TryFind[尝试查找并点击 gather]
+    CheckTimeout -->|否| Timeout[超时，未找到 gather]
     
-    F --> G{用户手动停止?}
-    G -->|是| Z2[退出挖矿流程]
-    G -->|否| H[等待1-2秒]
+    TryFind --> ClickGather[点击 gather]
+    ClickGather --> FindSuccess{查找成功?}
     
-    H --> I[获取窗口尺寸]
-    I --> J{获取成功?}
-    J -->|是| K[计算缩放比例和拖动距离]
-    J -->|否| L[使用默认拖动距离30像素]
+    FindSuccess -->|是| ClickSuccess[点击 gather 成功]
+    ClickSuccess --> CheckGatherExist{gather 仍然存在?}
     
-    K --> M[向左拖动]
-    L --> M
+    CheckGatherExist -->|是| ClickFailed[点击失败，停止挖矿]
+    ClickFailed --> StopMining[设置 is_mining=False, mined=True]
+    StopMining --> NotifyStop[通知挖矿停止]
+    NotifyStop --> End([结束])
     
-    M --> N{用户手动停止?}
-    N -->|是| Z2
-    N -->|否| O[等待1-2秒]
+    CheckGatherExist -->|否| CheckTeam{找到 team?}
+    CheckTeam -->|是| QueueFull[队列已满，停止挖矿]
+    QueueFull --> StopMining2[设置 is_mining=False, mined=True]
+    StopMining2 --> NotifyStop2[通知挖矿停止]
+    NotifyStop2 --> End2([结束])
     
-    O --> P[重新点击 search_meat]
-    P --> Q{点击成功?}
-    Q -->|是| R[等待1-2秒]
-    Q -->|否| S[记录失败日志]
+    CheckTeam -->|否| ContinueMining[继续挖矿流程]
+    ContinueMining --> End3([结束])
     
-    R --> B
-    S --> B
+    FindSuccess -->|否| FindFailed[未找到 gather]
+    FindFailed --> ExecuteFallback[执行备选方案]
     
-    E --> T[等待1-2秒]
-    T --> U{用户手动停止?}
-    U -->|是| Z2
-    U -->|否| V[再次检查 gather]
+    ExecuteFallback --> Sleep1[等待 1-2 秒]
+    Sleep1 --> GetWindowSize[获取窗口尺寸]
+    GetWindowSize --> CalcDrag[计算拖动距离]
+    CalcDrag --> DragLeft[向左拖动]
+    DragLeft --> Sleep2[等待 1-2 秒]
+    Sleep2 --> ClickSearch[点击 search_meat]
+    ClickSearch --> ClickSearchSuccess{点击成功?}
     
-    V --> W{gather 仍然存在?}
-    W -->|是| X[点击失败<br/>停止挖矿]
-    W -->|否| Y[检查 team]
+    ClickSearchSuccess -->|是| Sleep3[等待 1-2 秒]
+    Sleep3 --> RetryFind[重新查找 gather]
+    RetryFind --> CheckTimeout
     
-    Y --> Z{找到 team?}
-    Z -->|是| AA[队列已满<br/>停止挖矿]
-    Z -->|否| AB[继续挖矿流程]
+    ClickSearchSuccess -->|否| LogWarning[记录警告日志]
+    LogWarning --> RetryFind
     
-    style Z1 fill:#ffebee
-    style Z2 fill:#ffebee
-    style X fill:#ffebee
-    style AA fill:#ffebee
-    style E fill:#e8f5e9
-    style AB fill:#e8f5e9
+    Timeout --> SetResourceIndex[更新资源索引]
+    SetResourceIndex --> Return([返回])
 ```
+
+# 流程说明
+
+## 主要逻辑
+1. **3秒超时机制**：在3秒内不断尝试查找并点击 gather
+2. **查找成功**：点击 gather，然后检查 gather 是否仍然存在
+3. **点击失败**：如果 gather 仍然存在，说明点击失败，停止挖矿
+4. **查找失败**：执行备选方案（向左移动并重新点击 search_meat）
+5. **备选方案**：
+   - 等待 1-2 秒
+   - 获取窗口尺寸，计算拖动距离
+   - 向左拖动
+   - 等待 1-2 秒
+   - 点击 search_meat
+   - 重新查找 gather
+6. **超时处理**：3秒内未找到 gather，更新资源索引并返回
+
+## 关键判断点
+- **gather 仍然存在**：说明点击失败，停止挖矿
+- **找到 team**：说明队列已满，停止挖矿
+- **点击成功**：继续挖矿流程
+
+## 次要逻辑
+- 用户手动停止：随时检查 `_user_stopped` 标志
+- 窗口尺寸自适应：根据窗口宽度计算拖动距离（基准30像素）
