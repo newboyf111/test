@@ -617,9 +617,7 @@ class WujindongriGUI:
             self.stop_mining()
         else:
             self.start_mining()
-            # 开始挖矿后重置绿色标签
-            if self.active_windows_label_activated:
-                self._update_active_windows_label_activated([])
+            # 开始挖矿后重置记录标签
             if self.active_windows_label_recording:
                 self._update_active_windows_label_recording([])
             
