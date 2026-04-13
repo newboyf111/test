@@ -254,6 +254,11 @@ class SingleWindowMiner:
     def start_mining(self) -> bool:
         """开始挖矿"""
         if not self.is_mining:
+            # 如果已经挖矿完成，不再启动
+            if self.mined:
+                self.logger.info("挖矿已完成，跳过启动")
+                return False
+            
             # 清除缓存
             self._screenshot_cache.clear_all()
             self._screenshot_time = 0
