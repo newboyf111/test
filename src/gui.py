@@ -1456,16 +1456,8 @@ class WujindongriGUI:
         """挖矿停止回调"""
         if self.current_mining_hwnd == hwnd:
             self.current_mining_hwnd = None
-        # 检查是否还有其他窗口在挖矿
-        has_mining = False
-        if self.mining_manager:
-            for miner in self.mining_manager.miners.values():
-                if miner.is_mining:
-                    has_mining = True
-                    break
-        # 只有当没有其他窗口在挖矿时才清空蓝色标签
-        if not has_mining:
-            self._update_active_windows_label_mining([])
+        # 不立即清空蓝色标签，等待调度器启动新窗口后再更新
+        # 这样可以避免在挖矿队列切换窗口时蓝色标签被清空
         self.log(f"挖矿停止: {window_name} (hwnd={hwnd})")
     
     def _pre_init_ocr(self):
