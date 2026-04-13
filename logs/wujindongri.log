@@ -49883,3 +49883,1280 @@ AttributeError: module 'time' has no attribute 'uniform'
 2026-04-09 22:01:13,253 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
 2026-04-09 22:01:14,812 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
 2026-04-09 22:01:15,496 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-13 08:58:40,805 - src.main - INFO - 无尽冬日程序启动
+2026-04-13 08:58:40,805 - src.main - INFO - 版本: 1.0.0
+2026-04-13 08:58:44,602 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 08:58:51,310 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-13 08:58:52,300 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 08:58:52,300 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 08:58:52,301 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25444) (hwnd=330470)
+2026-04-13 08:58:52,302 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 08:58:52,303 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 08:58:52,303 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 08:58:52,303 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 08:58:52,303 - MultiWindowManager - INFO - 激活窗口: 330470 (MuMu安卓设备 (25444))
+2026-04-13 08:58:52,306 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 08:58:52,404 - mining_330470 - INFO - ==================================================
+2026-04-13 08:58:52,404 - mining_330470 - INFO - 挖矿开始
+2026-04-13 08:58:52,405 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 08:58:52,405 - mining_330470 - INFO - ==================================================
+2026-04-13 08:58:52,406 - mining_330470 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-13 08:58:52,406 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25444) 挖矿完成...
+2026-04-13 08:58:52,407 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 08:58:54,378 - mining_330470 - INFO - OCR 初始化成功
+2026-04-13 08:58:54,378 - mining_330470 - INFO - 开始执行挖矿初始化流程...
+2026-04-13 08:58:54,378 - mining_330470 - INFO - 执行挖矿初始化流程...
+2026-04-13 08:58:54,428 - mining_330470 - DEBUG - 加载模板: town.png 60x56
+2026-04-13 08:58:54,442 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 08:58:54,443 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 08:58:54,443 - mining_330470 - INFO - 找到 town，开始挖矿流程
+2026-04-13 08:58:54,443 - mining_330470 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-13 08:58:54,513 - mining_330470 - INFO - OCR 识别结果: '2/5' (置信度: 0.91)
+2026-04-13 08:58:54,513 - mining_330470 - INFO - OCR 识别到文本: 2/5
+2026-04-13 08:58:54,514 - mining_330470 - INFO - 解析结果: 当前 2, 总数 5, 剩余 3
+2026-04-13 08:58:54,514 - mining_330470 - INFO - 设置还需要循环的次数为: 3
+2026-04-13 08:58:54,563 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 08:58:54,565 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 08:58:54,607 - mining_330470 - DEBUG - 加载模板: wild.png 60x52
+2026-04-13 08:58:54,622 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-13 08:58:54,889 - mining_330470 - DEBUG - 未找到: wild.png
+2026-04-13 08:58:54,935 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 08:58:54,935 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 08:58:54,935 - mining_330470 - INFO - 找到 town
+2026-04-13 08:58:56,864 - mining_330470 - DEBUG - 加载模板: search.png 40x37
+2026-04-13 08:58:56,877 - mining_330470 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.936
+2026-04-13 08:58:56,985 - mining_330470 - INFO - 点击 search: (485, 783) [scale=1.000]
+2026-04-13 08:58:56,985 - mining_330470 - INFO - 点击 search 成功
+2026-04-13 08:58:58,550 - mining_330470 - DEBUG - 加载模板: meat.png 106x81
+2026-04-13 08:58:58,565 - mining_330470 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.892
+2026-04-13 08:58:58,666 - mining_330470 - INFO - 点击 meat: (609, 809) [scale=1.000]
+2026-04-13 08:58:58,666 - mining_330470 - INFO - 点击资源成功: meat
+2026-04-13 08:59:00,223 - mining_330470 - DEBUG - 加载模板: add.png 20x31
+2026-04-13 08:59:00,234 - mining_330470 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-13 08:59:00,336 - mining_330470 - INFO - 点击 add: (786, 916) [scale=1.000]
+2026-04-13 08:59:00,336 - mining_330470 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-13 08:59:00,336 - mining_330470 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-13 08:59:00,337 - mining_330470 - INFO - add 坐标在容差范围内，继续流程
+2026-04-13 08:59:00,337 - mining_330470 - INFO - 点击 add 成功且坐标校准完成
+2026-04-13 08:59:02,327 - mining_330470 - DEBUG - 加载模板: search_meat.png 78x34
+2026-04-13 08:59:02,341 - mining_330470 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-13 08:59:02,447 - mining_330470 - INFO - 点击 search_meat: (732, 1044) [scale=1.000]
+2026-04-13 08:59:02,447 - mining_330470 - INFO - 点击 search_meat 成功
+2026-04-13 08:59:04,415 - mining_330470 - INFO - 尝试寻找 gather (1/7)
+2026-04-13 08:59:04,458 - mining_330470 - DEBUG - 加载模板: gather.png 63x36
+2026-04-13 08:59:04,470 - mining_330470 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-13 08:59:04,572 - mining_330470 - INFO - 点击 gather: (726, 591) [scale=1.000]
+2026-04-13 08:59:04,572 - mining_330470 - INFO - 点击 gather 成功
+2026-04-13 08:59:06,578 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-13 08:59:06,951 - mining_330470 - DEBUG - 未找到: gather.png
+2026-04-13 08:59:06,988 - mining_330470 - DEBUG - 加载模板: team.png 139x43
+2026-04-13 08:59:07,002 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-13 08:59:07,249 - mining_330470 - DEBUG - 未找到: team.png
+2026-04-13 08:59:07,285 - mining_330470 - DEBUG - 加载模板: battle.png 81x37
+2026-04-13 08:59:07,300 - mining_330470 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-13 08:59:07,402 - mining_330470 - INFO - 点击 battle: (879, 1040) [scale=1.000]
+2026-04-13 08:59:07,402 - mining_330470 - INFO - 点击 battle 成功，完成一轮
+2026-04-13 08:59:07,402 - mining_330470 - INFO - 已完成 1 轮，还需要循环 2 轮
+2026-04-13 08:59:07,641 - mining_330470 - INFO - OCR 识别结果: 'ZVE' (置信度: 0.07)
+2026-04-13 08:59:07,641 - mining_330470 - INFO - OCR 识别到文本: ZVE
+2026-04-13 08:59:07,696 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 08:59:07,697 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 08:59:07,749 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-13 08:59:08,023 - mining_330470 - DEBUG - 未找到: wild.png
+2026-04-13 08:59:08,072 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 08:59:08,073 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 08:59:08,074 - mining_330470 - INFO - 找到 town
+2026-04-13 08:59:09,302 - mining_330470 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.921
+2026-04-13 08:59:09,404 - mining_330470 - INFO - 点击 search: (485, 783) [scale=1.000]
+2026-04-13 08:59:09,404 - mining_330470 - INFO - 点击 search 成功
+2026-04-13 08:59:11,239 - mining_330470 - DEBUG - 加载模板: wood.png 96x57
+2026-04-13 08:59:11,255 - mining_330470 - DEBUG - [比例匹配] wood.png scale=1.000 conf=0.924
+2026-04-13 08:59:11,357 - mining_330470 - INFO - 点击 wood: (849, 827) [scale=1.000]
+2026-04-13 08:59:11,357 - mining_330470 - INFO - 点击资源成功: wood
+2026-04-13 08:59:13,303 - mining_330470 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-13 08:59:13,406 - mining_330470 - INFO - 点击 add: (786, 916) [scale=1.000]
+2026-04-13 08:59:13,406 - mining_330470 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-13 08:59:13,406 - mining_330470 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-13 08:59:13,406 - mining_330470 - INFO - add 坐标在容差范围内，继续流程
+2026-04-13 08:59:13,407 - mining_330470 - INFO - 点击 add 成功且坐标校准完成
+2026-04-13 08:59:15,189 - mining_330470 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-13 08:59:15,292 - mining_330470 - INFO - 点击 search_meat: (732, 1044) [scale=1.000]
+2026-04-13 08:59:15,293 - mining_330470 - INFO - 点击 search_meat 成功
+2026-04-13 08:59:16,797 - mining_330470 - INFO - 尝试寻找 gather (1/7)
+2026-04-13 08:59:16,851 - mining_330470 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-13 08:59:16,953 - mining_330470 - INFO - 点击 gather: (726, 591) [scale=1.000]
+2026-04-13 08:59:16,954 - mining_330470 - INFO - 点击 gather 成功
+2026-04-13 08:59:18,387 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-13 08:59:18,741 - mining_330470 - DEBUG - 未找到: gather.png
+2026-04-13 08:59:18,793 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-13 08:59:19,041 - mining_330470 - DEBUG - 未找到: team.png
+2026-04-13 08:59:19,089 - mining_330470 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-13 08:59:19,196 - mining_330470 - INFO - 点击 battle: (879, 1040) [scale=1.000]
+2026-04-13 08:59:19,197 - mining_330470 - INFO - 点击 battle 成功，完成一轮
+2026-04-13 08:59:19,197 - mining_330470 - INFO - 已完成 2 轮，还需要循环 1 轮
+2026-04-13 08:59:19,434 - mining_330470 - INFO - OCR 识别结果: 'L' (置信度: 0.01)
+2026-04-13 08:59:19,434 - mining_330470 - INFO - OCR 识别到文本: L
+2026-04-13 08:59:19,488 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 08:59:19,489 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 08:59:19,538 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-13 08:59:19,817 - mining_330470 - DEBUG - 未找到: wild.png
+2026-04-13 08:59:19,863 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 08:59:19,864 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 08:59:19,864 - mining_330470 - INFO - 找到 town
+2026-04-13 08:59:21,308 - mining_330470 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.933
+2026-04-13 08:59:21,410 - mining_330470 - INFO - 点击 search: (484, 783) [scale=1.000]
+2026-04-13 08:59:21,410 - mining_330470 - INFO - 点击 search 成功
+2026-04-13 08:59:22,448 - mining_330470 - DEBUG - 加载模板: coal mine.png 68x51
+2026-04-13 08:59:22,462 - mining_330470 - DEBUG - [比例匹配] coal mine.png scale=1.000 conf=0.946
+2026-04-13 08:59:22,564 - mining_330470 - INFO - 点击 coal: (848, 830) [scale=1.000]
+2026-04-13 08:59:22,564 - mining_330470 - INFO - 点击资源成功: coal
+2026-04-13 08:59:24,283 - mining_330470 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-13 08:59:24,384 - mining_330470 - INFO - 点击 add: (786, 916) [scale=1.000]
+2026-04-13 08:59:24,384 - mining_330470 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-13 08:59:24,385 - mining_330470 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-13 08:59:24,385 - mining_330470 - INFO - add 坐标在容差范围内，继续流程
+2026-04-13 08:59:24,385 - mining_330470 - INFO - 点击 add 成功且坐标校准完成
+2026-04-13 08:59:26,155 - mining_330470 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-13 08:59:26,257 - mining_330470 - INFO - 点击 search_meat: (732, 1044) [scale=1.000]
+2026-04-13 08:59:26,257 - mining_330470 - INFO - 点击 search_meat 成功
+2026-04-13 08:59:27,288 - mining_330470 - INFO - 尝试寻找 gather (1/7)
+2026-04-13 08:59:27,343 - mining_330470 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-13 08:59:27,444 - mining_330470 - INFO - 点击 gather: (726, 591) [scale=1.000]
+2026-04-13 08:59:27,445 - mining_330470 - INFO - 点击 gather 成功
+2026-04-13 08:59:28,744 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-13 08:59:29,099 - mining_330470 - DEBUG - 未找到: gather.png
+2026-04-13 08:59:29,147 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-13 08:59:29,394 - mining_330470 - DEBUG - 未找到: team.png
+2026-04-13 08:59:29,445 - mining_330470 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-13 08:59:29,546 - mining_330470 - INFO - 点击 battle: (879, 1040) [scale=1.000]
+2026-04-13 08:59:29,546 - mining_330470 - INFO - 点击 battle 成功，完成一轮
+2026-04-13 08:59:29,547 - mining_330470 - INFO - 已完成 3 轮，还需要循环 0 轮
+2026-04-13 08:59:29,547 - mining_330470 - INFO - 已完成所有循环次数，停止挖矿
+2026-04-13 08:59:29,547 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 08:59:29,942 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 08:59:29,942 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 08:59:29,943 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 08:59:29,943 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 08:59:29,943 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 08:59:29,972 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿完成或停止
+2026-04-13 08:59:29,972 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-13 08:59:29,972 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 08:59:29,973 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿状态设置为 2（挖矿结束）
+2026-04-13 08:59:29,991 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 08:59:31,722 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 08:59:33,653 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 08:59:35,133 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 09:00:23,352 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-13 09:01:35,039 - src.main - INFO - 无尽冬日程序启动
+2026-04-13 09:01:35,039 - src.main - INFO - 版本: 1.0.0
+2026-04-13 09:01:38,744 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 09:01:46,103 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-13 09:01:47,492 - daily_task_330470 - INFO - ==================================================
+2026-04-13 09:01:47,492 - daily_task_330470 - INFO - 每日任务流程已在后台启动
+2026-04-13 09:01:47,492 - daily_task_330470 - INFO - 开始每日任务流程
+2026-04-13 09:01:47,492 - daily_task_330470 - INFO - ==================================================
+2026-04-13 09:01:47,492 - daily_task_330470 - INFO - 加载每日任务入口配置...
+2026-04-13 09:01:47,493 - daily_task_330470 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-13 09:01:47,493 - daily_task_330470 - ERROR - 加载配置失败: [Errno 2] No such file or directory: 'g:\\yang\\fish\\wujindongri\\src\\frame_data.json'
+2026-04-13 09:01:47,493 - daily_task_330470 - ERROR - 无法加载每日任务入口配置
+2026-04-13 09:08:57,037 - daily_task_330470 - INFO - ==================================================
+2026-04-13 09:08:57,037 - daily_task_330470 - INFO - 每日任务流程已在后台启动
+2026-04-13 09:08:57,037 - daily_task_330470 - INFO - 开始每日任务流程
+2026-04-13 09:08:57,038 - daily_task_330470 - INFO - ==================================================
+2026-04-13 09:08:57,039 - daily_task_330470 - INFO - 加载每日任务入口配置...
+2026-04-13 09:08:57,039 - daily_task_330470 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-13 09:08:57,039 - daily_task_330470 - INFO - 配置文件加载成功，键名: ['每日任务', '雪域兵器联赛']
+2026-04-13 09:08:57,039 - daily_task_330470 - INFO - 找到每日任务入口配置
+2026-04-13 09:08:57,040 - daily_task_330470 - INFO - 挖矿状态: 0 (0:未开始, 1:挖矿中, 2:挖矿结束)
+2026-04-13 09:08:57,040 - daily_task_330470 - INFO - 挖矿未开始
+2026-04-13 09:08:57,040 - daily_task_330470 - INFO - 尝试匹配 town...
+2026-04-13 09:08:57,088 - daily_task_330470 - DEBUG - 加载模板: town.png 60x56
+2026-04-13 09:08:57,102 - daily_task_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 09:08:57,103 - daily_task_330470 - INFO - 匹配 town.png 成功，置信度: 0.871
+2026-04-13 09:08:57,103 - daily_task_330470 - INFO - town 匹配成功
+2026-04-13 09:08:57,103 - daily_task_330470 - INFO - 检查红点...
+2026-04-13 09:08:57,147 - daily_task_330470 - INFO - 在区域 [9, 813, 59, 61] 检测到红点
+2026-04-13 09:08:57,148 - daily_task_330470 - INFO - 检测到红点，准备点击...
+2026-04-13 09:08:57,148 - daily_task_330470 - INFO - 点击区域中心...
+2026-04-13 09:08:57,390 - daily_task_330470 - INFO - 点击 区域中心 @ (477, 910)
+2026-04-13 09:08:57,390 - daily_task_330470 - INFO - 结束每日任务流程
+2026-04-13 09:22:42,515 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 09:22:42,516 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 09:22:42,517 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25444) (hwnd=330470)
+2026-04-13 09:22:42,518 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 09:22:42,519 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 09:22:42,519 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 09:22:42,519 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 09:22:42,520 - MultiWindowManager - INFO - 激活窗口: 330470 (MuMu安卓设备 (25444))
+2026-04-13 09:22:42,522 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 09:22:42,621 - mining_330470 - INFO - ==================================================
+2026-04-13 09:22:42,621 - mining_330470 - INFO - 挖矿开始
+2026-04-13 09:22:42,621 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 09:22:42,622 - mining_330470 - INFO - ==================================================
+2026-04-13 09:22:42,622 - mining_330470 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-13 09:22:42,623 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25444) 挖矿完成...
+2026-04-13 09:22:42,623 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 09:22:44,638 - mining_330470 - INFO - OCR 初始化成功
+2026-04-13 09:22:44,638 - mining_330470 - INFO - 开始执行挖矿初始化流程...
+2026-04-13 09:22:44,638 - mining_330470 - INFO - 执行挖矿初始化流程...
+2026-04-13 09:22:44,679 - mining_330470 - DEBUG - 加载模板: town.png 60x56
+2026-04-13 09:22:44,694 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.878
+2026-04-13 09:22:44,695 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 09:22:44,695 - mining_330470 - INFO - 找到 town，开始挖矿流程
+2026-04-13 09:22:44,695 - mining_330470 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-13 09:22:44,766 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 09:22:44,766 - mining_330470 - INFO - OCR 识别到文本: 5/5
+2026-04-13 09:22:44,767 - mining_330470 - INFO - 解析结果: 当前 5, 总数 5, 剩余 0
+2026-04-13 09:22:44,767 - mining_330470 - INFO - 剩余次数为0，跳过挖矿流程
+2026-04-13 09:22:44,767 - mining_330470 - INFO - 开启保护性外壳自动化脚本
+2026-04-13 09:22:44,767 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 09:22:45,124 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿完成或停止
+2026-04-13 09:22:45,124 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-13 09:22:45,125 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 09:22:45,125 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿状态设置为 2（挖矿结束）
+2026-04-13 09:22:45,582 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 09:22:45,583 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 09:22:45,583 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 09:22:45,583 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 09:22:45,583 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 09:22:45,635 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 09:22:47,748 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 09:22:49,058 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-13 10:07:04,416 - src.main - INFO - 无尽冬日程序启动
+2026-04-13 10:07:04,416 - src.main - INFO - 版本: 1.0.0
+2026-04-13 10:07:08,450 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 10:07:16,429 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-13 10:07:19,004 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 10:07:19,004 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 10:07:19,006 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25444) (hwnd=330470)
+2026-04-13 10:07:19,007 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 10:07:19,007 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 10:07:19,008 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 10:07:19,008 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 10:07:19,008 - MultiWindowManager - INFO - 激活窗口: 330470 (MuMu安卓设备 (25444))
+2026-04-13 10:07:19,012 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 10:07:19,109 - mining_330470 - INFO - ==================================================
+2026-04-13 10:07:19,109 - mining_330470 - INFO - 挖矿开始
+2026-04-13 10:07:19,109 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 10:07:19,110 - mining_330470 - INFO - ==================================================
+2026-04-13 10:07:19,110 - mining_330470 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-13 10:07:19,111 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25444) 挖矿完成...
+2026-04-13 10:07:19,112 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 10:07:21,121 - mining_330470 - INFO - OCR 初始化成功
+2026-04-13 10:07:21,121 - mining_330470 - INFO - 开始执行挖矿初始化流程...
+2026-04-13 10:07:21,122 - mining_330470 - INFO - 执行挖矿初始化流程...
+2026-04-13 10:07:21,192 - mining_330470 - DEBUG - 加载模板: town.png 60x56
+2026-04-13 10:07:21,206 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.878
+2026-04-13 10:07:21,206 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 10:07:21,206 - mining_330470 - INFO - 找到 town，开始挖矿流程
+2026-04-13 10:07:21,206 - mining_330470 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-13 10:07:21,278 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 10:07:21,278 - mining_330470 - INFO - OCR 识别到文本: 5/5
+2026-04-13 10:07:21,278 - mining_330470 - INFO - 解析结果: 当前 5, 总数 5, 剩余 0
+2026-04-13 10:07:21,278 - mining_330470 - INFO - 剩余次数为0，跳过挖矿流程
+2026-04-13 10:07:21,279 - mining_330470 - INFO - 开启保护性外壳自动化脚本
+2026-04-13 10:07:21,279 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 10:07:21,611 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 10:07:21,611 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 10:07:21,612 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 10:07:21,612 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 10:07:21,612 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 10:07:21,642 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿完成或停止
+2026-04-13 10:07:21,642 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-13 10:07:21,642 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 10:07:21,642 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿状态设置为 2（挖矿结束）
+2026-04-13 10:07:21,664 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:23,934 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:26,191 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:28,395 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:30,520 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:32,121 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:34,310 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:36,283 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:38,117 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:39,938 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:41,578 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:43,330 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:45,534 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:47,390 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:49,055 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:50,482 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:51,837 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:53,364 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:55,600 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:57,436 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:07:59,672 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:01,699 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:03,249 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:05,317 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:07,002 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:09,227 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:10,817 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:12,407 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:13,959 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:16,205 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:17,546 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:19,006 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:21,279 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:08:21,694 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 10:08:21,695 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 10:08:21,696 - MultiWindowManager - WARNING - 窗口 330470 已存在
+2026-04-13 10:08:21,697 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 10:08:21,697 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 10:08:21,697 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 10:08:21,698 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 10:08:21,698 - mining_330470 - INFO - ==================================================
+2026-04-13 10:08:21,698 - mining_330470 - INFO - 挖矿开始
+2026-04-13 10:08:21,698 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 10:08:21,699 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 10:08:21,699 - mining_330470 - INFO - ==================================================
+2026-04-13 10:08:21,699 - mining_330470 - INFO - 开始执行 OCR 检查...
+2026-04-13 10:08:21,797 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 10:08:21,797 - mining_330470 - INFO - OCR 识别结果: 5/5 (剩余: 0)
+2026-04-13 10:08:21,798 - mining_330470 - INFO - 挖矿次数已用完，跳过挖矿流程
+2026-04-13 10:08:21,798 - mining_330470 - INFO - OCR 检查未通过，跳过挖矿流程
+2026-04-13 10:08:21,798 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 10:08:21,798 - MultiWindowManager - ERROR - 启动窗口 MuMu安卓设备 (25444) 挖矿失败
+2026-04-13 10:08:22,686 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 10:08:22,687 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 10:08:22,687 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 10:08:22,687 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 10:08:22,687 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 10:08:22,688 - ProtectiveCasing - INFO - 检测到挖矿进行中，等待挖矿结束...
+2026-04-13 10:09:35,525 - mining_330470 - INFO - 挖矿结束，标记窗口为已挖矿
+2026-04-13 10:09:35,525 - MultiWindowManager - INFO - 停止挖矿队列
+2026-04-13 10:09:35,545 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-13 10:16:56,053 - src.main - INFO - 无尽冬日程序启动
+2026-04-13 10:16:56,054 - src.main - INFO - 版本: 1.0.0
+2026-04-13 10:16:59,720 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 10:17:10,052 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 10:17:10,052 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 10:17:10,054 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25444) (hwnd=330470)
+2026-04-13 10:17:10,055 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 10:17:10,055 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 10:17:10,055 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 10:17:10,055 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 10:17:10,056 - MultiWindowManager - INFO - 激活窗口: 330470 (MuMu安卓设备 (25444))
+2026-04-13 10:17:10,062 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 10:17:10,156 - mining_330470 - INFO - ==================================================
+2026-04-13 10:17:10,156 - mining_330470 - INFO - 挖矿开始
+2026-04-13 10:17:10,157 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 10:17:10,157 - mining_330470 - INFO - ==================================================
+2026-04-13 10:17:10,158 - mining_330470 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-13 10:17:10,158 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25444) 挖矿完成...
+2026-04-13 10:17:10,159 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 10:17:12,177 - mining_330470 - INFO - OCR 初始化成功
+2026-04-13 10:17:12,177 - mining_330470 - INFO - 开始执行挖矿初始化流程...
+2026-04-13 10:17:12,177 - mining_330470 - INFO - 执行挖矿初始化流程...
+2026-04-13 10:17:12,232 - mining_330470 - DEBUG - 加载模板: town.png 60x56
+2026-04-13 10:17:12,247 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.878
+2026-04-13 10:17:12,248 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 10:17:12,248 - mining_330470 - INFO - 找到 town，开始挖矿流程
+2026-04-13 10:17:12,248 - mining_330470 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-13 10:17:12,323 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 10:17:12,323 - mining_330470 - INFO - OCR 识别到文本: 5/5
+2026-04-13 10:17:12,324 - mining_330470 - INFO - 解析结果: 当前 5, 总数 5, 剩余 0
+2026-04-13 10:17:12,324 - mining_330470 - INFO - 剩余次数为0，跳过挖矿流程
+2026-04-13 10:17:12,324 - mining_330470 - INFO - 开启保护性外壳自动化脚本
+2026-04-13 10:17:12,324 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 10:17:12,661 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿完成或停止
+2026-04-13 10:17:12,661 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-13 10:17:12,661 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 10:17:12,661 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿状态设置为 2（挖矿结束）
+2026-04-13 10:17:12,788 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 10:17:12,789 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 10:17:12,789 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 10:17:12,789 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 10:17:12,789 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 10:17:12,790 - ProtectiveCasing - INFO - 等待所有窗口挖矿状态完全更新...
+2026-04-13 10:17:12,790 - ProtectiveCasing - INFO - 所有窗口挖矿状态已更新为结束: {330470: 2}
+2026-04-13 10:17:12,842 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:14,822 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:16,193 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:17,652 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:19,250 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:20,875 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:22,601 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:24,280 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:26,081 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:27,911 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:29,471 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:31,266 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:33,379 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:35,667 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:37,513 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:39,631 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:41,627 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:43,312 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:44,691 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:46,341 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:48,496 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:50,008 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:51,372 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:52,823 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:54,829 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:56,793 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:17:58,546 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:18:00,661 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:18:02,159 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:18:03,503 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:18:05,747 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:18:07,456 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:18:09,624 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:18:11,438 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 10:18:12,890 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 10:18:12,891 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 10:18:12,892 - MultiWindowManager - WARNING - 窗口 330470 已存在
+2026-04-13 10:18:12,893 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 10:18:12,893 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 10:18:12,893 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 10:18:12,893 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 10:18:12,893 - mining_330470 - INFO - ==================================================
+2026-04-13 10:18:12,893 - mining_330470 - INFO - 挖矿开始
+2026-04-13 10:18:12,894 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 10:18:12,894 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 10:18:12,894 - mining_330470 - INFO - ==================================================
+2026-04-13 10:18:12,894 - mining_330470 - INFO - 开始执行 OCR 检查...
+2026-04-13 10:18:12,991 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 10:18:12,991 - mining_330470 - INFO - OCR 识别结果: 5/5 (剩余: 0)
+2026-04-13 10:18:12,991 - mining_330470 - INFO - 挖矿次数已用完，跳过挖矿流程
+2026-04-13 10:18:12,991 - mining_330470 - INFO - OCR 检查未通过，跳过挖矿流程
+2026-04-13 10:18:12,991 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 10:18:12,992 - MultiWindowManager - ERROR - 启动窗口 MuMu安卓设备 (25444) 挖矿失败
+2026-04-13 10:18:13,832 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 10:18:13,833 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 10:18:13,833 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 10:18:13,833 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 10:18:13,834 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 10:18:13,834 - ProtectiveCasing - INFO - 检测到挖矿进行中，等待挖矿结束...
+2026-04-13 10:18:46,190 - mining_330470 - INFO - 挖矿结束，标记窗口为已挖矿
+2026-04-13 10:18:46,190 - MultiWindowManager - INFO - 停止挖矿队列
+2026-04-13 10:18:46,212 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-13 11:50:22,435 - src.main - INFO - 无尽冬日程序启动
+2026-04-13 11:50:22,435 - src.main - INFO - 版本: 1.0.0
+2026-04-13 11:50:26,147 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 11:50:33,771 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-13 11:50:41,870 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 11:50:41,871 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 11:50:41,872 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25444) (hwnd=330470)
+2026-04-13 11:50:41,874 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 11:50:41,875 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 11:50:41,875 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 11:50:41,875 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 11:50:41,875 - MultiWindowManager - INFO - 激活窗口: 330470 (MuMu安卓设备 (25444))
+2026-04-13 11:50:41,878 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 11:50:41,976 - mining_330470 - INFO - ==================================================
+2026-04-13 11:50:41,976 - mining_330470 - INFO - 挖矿开始
+2026-04-13 11:50:41,976 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 11:50:41,976 - mining_330470 - INFO - ==================================================
+2026-04-13 11:50:41,977 - mining_330470 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-13 11:50:41,977 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25444) 挖矿完成...
+2026-04-13 11:50:41,978 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 11:50:43,972 - mining_330470 - INFO - OCR 初始化成功
+2026-04-13 11:50:43,972 - mining_330470 - INFO - 开始执行挖矿初始化流程...
+2026-04-13 11:50:43,973 - mining_330470 - INFO - 执行挖矿初始化流程...
+2026-04-13 11:50:44,039 - mining_330470 - DEBUG - 加载模板: town.png 60x56
+2026-04-13 11:50:44,054 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.878
+2026-04-13 11:50:44,054 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 11:50:44,054 - mining_330470 - INFO - 找到 town，开始挖矿流程
+2026-04-13 11:50:44,055 - mining_330470 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-13 11:50:44,125 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 11:50:44,125 - mining_330470 - INFO - OCR 识别到文本: 5/5
+2026-04-13 11:50:44,125 - mining_330470 - INFO - 解析结果: 当前 5, 总数 5, 剩余 0
+2026-04-13 11:50:44,126 - mining_330470 - INFO - 剩余次数为0，跳过挖矿流程
+2026-04-13 11:50:44,126 - mining_330470 - INFO - 开启保护性外壳自动化脚本
+2026-04-13 11:50:44,126 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 11:50:44,269 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 11:50:44,269 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 11:50:44,270 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 11:50:44,270 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 11:50:44,270 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 11:50:44,270 - ProtectiveCasing - INFO - 等待所有窗口挖矿状态完全更新...
+2026-04-13 11:50:44,525 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿完成或停止
+2026-04-13 11:50:44,525 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-13 11:50:44,526 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 11:50:44,526 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿状态设置为 2（挖矿结束）
+2026-04-13 11:50:45,271 - ProtectiveCasing - INFO - 所有窗口挖矿状态已更新为结束: {330470: 2}
+2026-04-13 11:50:45,328 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:50:47,470 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:50:49,413 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:50:51,221 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:50:53,120 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:50:55,214 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:50:56,543 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:50:57,853 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:50:59,473 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:01,488 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:03,403 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:05,229 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:06,950 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:08,572 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:10,827 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:12,273 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:13,612 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:14,931 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:16,895 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:18,650 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:20,175 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:22,451 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:23,867 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:26,134 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:27,990 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:29,660 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:31,396 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:32,917 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:34,955 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:36,980 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:38,508 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:40,582 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:42,477 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:44,216 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:51:44,347 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 11:51:44,348 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 11:51:44,349 - MultiWindowManager - WARNING - 窗口 330470 已存在
+2026-04-13 11:51:44,350 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 11:51:44,350 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 11:51:44,351 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 11:51:44,351 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 11:51:44,351 - mining_330470 - INFO - ==================================================
+2026-04-13 11:51:44,352 - mining_330470 - INFO - 挖矿开始
+2026-04-13 11:51:44,352 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 11:51:44,352 - mining_330470 - INFO - ==================================================
+2026-04-13 11:51:44,352 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 11:51:44,352 - mining_330470 - INFO - 开始执行 OCR 检查...
+2026-04-13 11:51:44,468 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 11:51:44,468 - mining_330470 - INFO - OCR 识别结果: 5/5 (剩余: 0)
+2026-04-13 11:51:44,468 - mining_330470 - INFO - 挖矿次数已用完，跳过挖矿流程
+2026-04-13 11:51:44,468 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 11:51:44,468 - mining_330470 - INFO - OCR 检查未通过，跳过挖矿流程
+2026-04-13 11:51:44,469 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 11:51:44,469 - MultiWindowManager - ERROR - 启动窗口 MuMu安卓设备 (25444) 挖矿失败
+2026-04-13 11:51:45,320 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 11:51:45,321 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 11:51:45,321 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 11:51:45,321 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 11:51:45,322 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 11:51:45,322 - ProtectiveCasing - INFO - 检测到挖矿进行中，等待挖矿结束...
+2026-04-13 11:52:59,554 - mining_330470 - INFO - 挖矿结束，标记窗口为已挖矿
+2026-04-13 11:52:59,554 - MultiWindowManager - INFO - 停止挖矿队列
+2026-04-13 11:52:59,573 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-13 11:58:18,528 - src.main - INFO - 无尽冬日程序启动
+2026-04-13 11:58:18,528 - src.main - INFO - 版本: 1.0.0
+2026-04-13 11:58:22,160 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 11:58:27,833 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-13 11:58:32,207 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 11:58:32,207 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 11:58:32,209 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25444) (hwnd=330470)
+2026-04-13 11:58:32,210 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 11:58:32,211 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 11:58:32,211 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 11:58:32,211 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 11:58:32,211 - MultiWindowManager - INFO - 激活窗口: 330470 (MuMu安卓设备 (25444))
+2026-04-13 11:58:32,214 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 11:58:32,312 - mining_330470 - INFO - ==================================================
+2026-04-13 11:58:32,312 - mining_330470 - INFO - 挖矿开始
+2026-04-13 11:58:32,312 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 11:58:32,313 - mining_330470 - INFO - ==================================================
+2026-04-13 11:58:32,313 - mining_330470 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-13 11:58:32,314 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25444) 挖矿完成...
+2026-04-13 11:58:32,314 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 11:58:34,337 - mining_330470 - INFO - OCR 初始化成功
+2026-04-13 11:58:34,337 - mining_330470 - INFO - 开始执行挖矿初始化流程...
+2026-04-13 11:58:34,338 - mining_330470 - INFO - 执行挖矿初始化流程...
+2026-04-13 11:58:34,386 - mining_330470 - DEBUG - 加载模板: town.png 60x56
+2026-04-13 11:58:34,399 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.878
+2026-04-13 11:58:34,400 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 11:58:34,400 - mining_330470 - INFO - 找到 town，开始挖矿流程
+2026-04-13 11:58:34,400 - mining_330470 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-13 11:58:34,473 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 11:58:34,473 - mining_330470 - INFO - OCR 识别到文本: 5/5
+2026-04-13 11:58:34,473 - mining_330470 - INFO - 解析结果: 当前 5, 总数 5, 剩余 0
+2026-04-13 11:58:34,473 - mining_330470 - INFO - 剩余次数为0，跳过挖矿流程
+2026-04-13 11:58:34,474 - mining_330470 - INFO - 开启保护性外壳自动化脚本
+2026-04-13 11:58:34,474 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 11:58:34,817 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿完成或停止
+2026-04-13 11:58:34,817 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-13 11:58:34,817 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 11:58:34,817 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿状态设置为 2（挖矿结束）
+2026-04-13 11:58:35,219 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 11:58:35,220 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 11:58:35,220 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 11:58:35,220 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 11:58:35,221 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 11:58:35,221 - ProtectiveCasing - INFO - 等待所有窗口挖矿状态完全更新...
+2026-04-13 11:58:35,221 - ProtectiveCasing - INFO - 所有窗口挖矿状态已更新为结束: {330470: 2}
+2026-04-13 11:58:35,271 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:36,646 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:38,494 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:40,182 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:42,235 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:43,975 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:46,195 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:47,916 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:49,888 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:51,419 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:53,264 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:54,754 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:56,318 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:57,683 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:58:59,091 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:01,327 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:03,484 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:05,458 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:06,854 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:08,301 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:09,855 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:11,888 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:14,059 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:15,385 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:17,311 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:18,862 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:20,453 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:22,321 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:24,086 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:25,976 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:27,658 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:29,731 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:31,152 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:32,505 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:34,048 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 11:59:35,312 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 11:59:35,312 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 11:59:35,313 - MultiWindowManager - WARNING - 窗口 330470 已存在
+2026-04-13 11:59:35,314 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 11:59:35,315 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 11:59:35,315 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 11:59:35,315 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 11:59:35,316 - mining_330470 - INFO - ==================================================
+2026-04-13 11:59:35,316 - mining_330470 - INFO - 挖矿开始
+2026-04-13 11:59:35,316 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 11:59:35,317 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 11:59:35,317 - mining_330470 - INFO - ==================================================
+2026-04-13 11:59:35,317 - mining_330470 - INFO - 开始执行 OCR 检查...
+2026-04-13 11:59:35,418 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 11:59:35,418 - mining_330470 - INFO - OCR 识别结果: 5/5 (剩余: 0)
+2026-04-13 11:59:35,418 - mining_330470 - INFO - 挖矿次数已用完，跳过挖矿流程
+2026-04-13 11:59:35,419 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 11:59:35,419 - mining_330470 - INFO - OCR 检查未通过，跳过挖矿流程
+2026-04-13 11:59:35,419 - MultiWindowManager - ERROR - 启动窗口 MuMu安卓设备 (25444) 挖矿失败
+2026-04-13 11:59:36,307 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 11:59:36,307 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 11:59:36,308 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 11:59:36,308 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 11:59:36,308 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 11:59:36,308 - ProtectiveCasing - INFO - 检测到挖矿进行中，等待挖矿结束...
+2026-04-13 11:59:46,429 - mining_330470 - INFO - 挖矿结束，标记窗口为已挖矿
+2026-04-13 11:59:46,429 - MultiWindowManager - INFO - 停止挖矿队列
+2026-04-13 11:59:46,449 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-13 12:06:22,175 - src.main - INFO - 无尽冬日程序启动
+2026-04-13 12:06:22,175 - src.main - INFO - 版本: 1.0.0
+2026-04-13 12:06:25,803 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 12:06:35,011 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-13 12:06:39,782 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 12:06:39,783 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 12:06:39,784 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25444) (hwnd=330470)
+2026-04-13 12:06:39,786 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 12:06:39,786 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 12:06:39,786 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 12:06:39,786 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 12:06:39,786 - MultiWindowManager - INFO - 激活窗口: 330470 (MuMu安卓设备 (25444))
+2026-04-13 12:06:39,790 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 12:06:39,887 - mining_330470 - INFO - ==================================================
+2026-04-13 12:06:39,887 - mining_330470 - INFO - 挖矿开始
+2026-04-13 12:06:39,888 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 12:06:39,888 - mining_330470 - INFO - ==================================================
+2026-04-13 12:06:39,888 - mining_330470 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-13 12:06:39,889 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25444) 挖矿完成...
+2026-04-13 12:06:39,889 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 12:06:41,899 - mining_330470 - INFO - OCR 初始化成功
+2026-04-13 12:06:41,899 - mining_330470 - INFO - 开始执行挖矿初始化流程...
+2026-04-13 12:06:41,900 - mining_330470 - INFO - 执行挖矿初始化流程...
+2026-04-13 12:06:41,953 - mining_330470 - DEBUG - 加载模板: town.png 60x56
+2026-04-13 12:06:41,968 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 12:06:41,968 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 12:06:41,968 - mining_330470 - INFO - 找到 town，开始挖矿流程
+2026-04-13 12:06:41,969 - mining_330470 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-13 12:06:42,041 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 12:06:42,041 - mining_330470 - INFO - OCR 识别到文本: 5/5
+2026-04-13 12:06:42,041 - mining_330470 - INFO - 解析结果: 当前 5, 总数 5, 剩余 0
+2026-04-13 12:06:42,042 - mining_330470 - INFO - 剩余次数为0，跳过挖矿流程
+2026-04-13 12:06:42,042 - mining_330470 - INFO - 开启保护性外壳自动化脚本
+2026-04-13 12:06:42,042 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 12:06:42,392 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿完成或停止
+2026-04-13 12:06:42,392 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-13 12:06:42,392 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 12:06:42,392 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿状态设置为 2（挖矿结束）
+2026-04-13 12:06:42,856 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 12:06:42,857 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:06:42,857 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 12:06:42,857 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 12:06:42,857 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:06:42,858 - ProtectiveCasing - INFO - 等待所有窗口挖矿状态完全更新...
+2026-04-13 12:06:42,858 - ProtectiveCasing - INFO - 所有窗口挖矿状态已更新为结束: {330470: 2}
+2026-04-13 12:06:42,914 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:06:44,695 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:06:46,726 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:06:48,121 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:06:49,588 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:06:51,521 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:06:52,917 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:06:55,134 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:06:57,259 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:06:59,215 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:01,384 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:03,604 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:05,192 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:06,951 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:08,854 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:11,125 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:13,389 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:15,111 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:16,923 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:19,175 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:20,777 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:22,103 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:24,034 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:26,232 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:28,429 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:30,148 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:32,137 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:34,347 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:36,469 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:37,823 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:39,878 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:41,308 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:07:42,956 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 12:07:42,957 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 12:07:42,957 - MultiWindowManager - WARNING - 窗口 330470 已存在
+2026-04-13 12:07:42,959 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 12:07:42,959 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 12:07:42,959 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 12:07:42,960 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 12:07:42,960 - mining_330470 - INFO - ==================================================
+2026-04-13 12:07:42,960 - mining_330470 - INFO - 挖矿开始
+2026-04-13 12:07:42,961 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 12:07:42,961 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 12:07:42,961 - mining_330470 - INFO - ==================================================
+2026-04-13 12:07:42,961 - mining_330470 - INFO - 开始执行 OCR 检查...
+2026-04-13 12:07:43,055 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 12:07:43,055 - mining_330470 - INFO - OCR 识别结果: 5/5 (剩余: 0)
+2026-04-13 12:07:43,056 - mining_330470 - INFO - 挖矿次数已用完，跳过挖矿流程
+2026-04-13 12:07:43,056 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 12:07:43,056 - mining_330470 - INFO - OCR 检查未通过，跳过挖矿流程
+2026-04-13 12:07:43,056 - MultiWindowManager - ERROR - 启动窗口 MuMu安卓设备 (25444) 挖矿失败
+2026-04-13 12:07:43,912 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 12:07:43,912 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:07:43,912 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 12:07:43,913 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 12:07:43,913 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:07:43,913 - ProtectiveCasing - INFO - 检测到挖矿进行中，等待挖矿结束...
+2026-04-13 12:13:13,638 - mining_330470 - INFO - 挖矿结束，标记窗口为已挖矿
+2026-04-13 12:13:13,639 - MultiWindowManager - INFO - 停止挖矿队列
+2026-04-13 12:13:13,660 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-13 12:13:17,123 - src.main - INFO - 无尽冬日程序启动
+2026-04-13 12:13:17,123 - src.main - INFO - 版本: 1.0.0
+2026-04-13 12:13:20,832 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 12:13:44,729 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-13 12:13:49,306 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 12:13:49,306 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 12:13:49,308 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (25444) (hwnd=330470)
+2026-04-13 12:13:49,309 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 12:13:49,310 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 12:13:49,310 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 12:13:49,310 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 12:13:49,310 - MultiWindowManager - INFO - 激活窗口: 330470 (MuMu安卓设备 (25444))
+2026-04-13 12:13:49,313 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 12:13:49,411 - mining_330470 - INFO - ==================================================
+2026-04-13 12:13:49,411 - mining_330470 - INFO - 挖矿开始
+2026-04-13 12:13:49,412 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 12:13:49,412 - mining_330470 - INFO - ==================================================
+2026-04-13 12:13:49,412 - mining_330470 - INFO - OCR 未启用，跳过 OCR 检查
+2026-04-13 12:13:49,412 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25444) 挖矿完成...
+2026-04-13 12:13:49,413 - easyocr.easyocr - WARNING - Using CPU. Note: This module is much faster with a GPU.
+2026-04-13 12:13:51,436 - mining_330470 - INFO - OCR 初始化成功
+2026-04-13 12:13:51,437 - mining_330470 - INFO - 开始执行挖矿初始化流程...
+2026-04-13 12:13:51,437 - mining_330470 - INFO - 执行挖矿初始化流程...
+2026-04-13 12:13:51,490 - mining_330470 - DEBUG - 加载模板: town.png 60x56
+2026-04-13 12:13:51,504 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 12:13:51,504 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 12:13:51,505 - mining_330470 - INFO - 找到 town，开始挖矿流程
+2026-04-13 12:13:51,505 - mining_330470 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-13 12:13:51,574 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 12:13:51,574 - mining_330470 - INFO - OCR 识别到文本: 5/5
+2026-04-13 12:13:51,575 - mining_330470 - INFO - 解析结果: 当前 5, 总数 5, 剩余 0
+2026-04-13 12:13:51,575 - mining_330470 - INFO - 剩余次数为0，跳过挖矿流程
+2026-04-13 12:13:51,575 - mining_330470 - INFO - 开启保护性外壳自动化脚本
+2026-04-13 12:13:51,575 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 12:13:51,892 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 12:13:51,892 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:13:51,892 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 12:13:51,893 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 12:13:51,893 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:13:51,893 - ProtectiveCasing - INFO - 等待所有窗口挖矿状态完全更新...
+2026-04-13 12:13:51,893 - ProtectiveCasing - INFO - 所有窗口挖矿状态已更新为结束: {330470: 2}
+2026-04-13 12:13:51,925 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿完成或停止
+2026-04-13 12:13:51,925 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-13 12:13:51,925 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 12:13:51,947 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:13:54,255 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:13:56,206 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:13:58,204 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:00,142 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:02,050 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:04,250 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:06,343 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:08,096 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:09,941 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:11,894 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:13,501 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:15,629 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:16,962 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:18,927 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:20,327 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:22,553 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:23,857 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:25,174 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:26,666 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:28,249 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:30,016 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:31,404 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:33,485 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:35,413 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:37,627 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:39,185 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:40,510 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:42,614 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:44,271 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:46,075 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:47,746 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:49,081 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:51,283 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:51,971 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 12:14:51,972 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 12:14:51,972 - MultiWindowManager - WARNING - 窗口 330470 已存在
+2026-04-13 12:14:51,974 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 12:14:51,974 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 12:14:51,974 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 12:14:51,974 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 12:14:51,974 - mining_330470 - INFO - ==================================================
+2026-04-13 12:14:51,975 - mining_330470 - INFO - 挖矿开始
+2026-04-13 12:14:51,975 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 12:14:51,975 - mining_330470 - INFO - ==================================================
+2026-04-13 12:14:51,975 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 12:14:51,975 - mining_330470 - INFO - 开始执行 OCR 检查...
+2026-04-13 12:14:52,072 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 12:14:52,073 - mining_330470 - INFO - OCR 识别结果: 5/5 (剩余: 0)
+2026-04-13 12:14:52,073 - mining_330470 - INFO - 挖矿次数已用完，跳过挖矿流程
+2026-04-13 12:14:52,073 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 12:14:52,073 - mining_330470 - INFO - OCR 检查未通过，跳过挖矿流程
+2026-04-13 12:14:52,073 - MultiWindowManager - ERROR - 启动窗口 MuMu安卓设备 (25444) 挖矿失败
+2026-04-13 12:14:52,950 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 12:14:52,951 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:14:52,951 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 12:14:52,951 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 12:14:52,951 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:14:52,951 - ProtectiveCasing - INFO - 等待所有窗口挖矿状态完全更新...
+2026-04-13 12:14:52,952 - ProtectiveCasing - INFO - 所有窗口挖矿状态已更新为结束: {330470: 2}
+2026-04-13 12:14:53,000 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:54,855 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:56,270 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:58,108 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:14:59,530 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:01,094 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:02,827 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:04,495 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:06,802 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:08,135 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:09,720 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:11,845 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:13,407 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:14,890 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:16,676 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:18,553 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:19,952 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:22,059 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:23,512 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:25,498 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:27,230 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:29,220 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:31,139 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:32,582 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:33,898 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:36,148 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:37,880 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:39,590 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:41,584 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:43,015 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:44,794 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:46,828 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:48,975 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:50,311 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:51,655 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:53,027 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 12:15:53,027 - MultiWindowManager - INFO - 已停止调度器
+2026-04-13 12:15:53,027 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 12:15:53,029 - MultiWindowManager - WARNING - 窗口 330470 已存在
+2026-04-13 12:15:53,030 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 12:15:53,031 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 12:15:53,031 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 12:15:53,031 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 12:15:53,031 - mining_330470 - INFO - ==================================================
+2026-04-13 12:15:53,032 - mining_330470 - INFO - 挖矿开始
+2026-04-13 12:15:53,032 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 12:15:53,032 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 12:15:53,032 - mining_330470 - INFO - ==================================================
+2026-04-13 12:15:53,033 - mining_330470 - INFO - 开始执行 OCR 检查...
+2026-04-13 12:15:53,129 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 12:15:53,130 - mining_330470 - INFO - OCR 识别结果: 5/5 (剩余: 0)
+2026-04-13 12:15:53,131 - mining_330470 - INFO - 挖矿次数已用完，跳过挖矿流程
+2026-04-13 12:15:53,131 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 12:15:53,131 - mining_330470 - INFO - OCR 检查未通过，跳过挖矿流程
+2026-04-13 12:15:53,131 - MultiWindowManager - ERROR - 启动窗口 MuMu安卓设备 (25444) 挖矿失败
+2026-04-13 12:15:53,999 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 12:15:53,999 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:15:53,999 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 12:15:54,000 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 12:15:54,000 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:15:54,000 - ProtectiveCasing - INFO - 等待所有窗口挖矿状态完全更新...
+2026-04-13 12:15:54,000 - ProtectiveCasing - INFO - 所有窗口挖矿状态已更新为结束: {330470: 2}
+2026-04-13 12:15:54,053 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:56,310 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:15:58,517 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:00,341 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:01,743 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:03,895 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:05,961 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:08,238 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:09,963 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:12,026 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:14,314 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:15,933 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:17,359 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:18,928 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:20,298 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:22,216 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:24,476 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:26,532 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:28,810 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:30,181 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:31,642 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:33,560 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:34,986 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:36,660 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:38,832 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:40,350 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:42,593 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:44,271 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:45,749 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:47,780 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:49,825 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:51,560 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:53,127 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:54,109 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 12:16:54,109 - MultiWindowManager - INFO - 已停止调度器
+2026-04-13 12:16:54,109 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 12:16:54,111 - MultiWindowManager - WARNING - 窗口 330470 已存在
+2026-04-13 12:16:54,111 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 12:16:54,112 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 12:16:54,112 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 12:16:54,112 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 12:16:54,113 - mining_330470 - INFO - ==================================================
+2026-04-13 12:16:54,113 - mining_330470 - INFO - 挖矿开始
+2026-04-13 12:16:54,113 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 12:16:54,114 - mining_330470 - INFO - ==================================================
+2026-04-13 12:16:54,114 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 12:16:54,114 - mining_330470 - INFO - 开始执行 OCR 检查...
+2026-04-13 12:16:54,211 - mining_330470 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-13 12:16:54,211 - mining_330470 - INFO - OCR 识别结果: 5/5 (剩余: 0)
+2026-04-13 12:16:54,212 - mining_330470 - INFO - 挖矿次数已用完，跳过挖矿流程
+2026-04-13 12:16:54,212 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 12:16:54,212 - mining_330470 - INFO - OCR 检查未通过，跳过挖矿流程
+2026-04-13 12:16:54,212 - MultiWindowManager - ERROR - 启动窗口 MuMu安卓设备 (25444) 挖矿失败
+2026-04-13 12:16:55,047 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 12:16:55,048 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:16:55,048 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 12:16:55,048 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 12:16:55,048 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:16:55,048 - ProtectiveCasing - INFO - 等待所有窗口挖矿状态完全更新...
+2026-04-13 12:16:55,048 - ProtectiveCasing - INFO - 所有窗口挖矿状态已更新为结束: {330470: 2}
+2026-04-13 12:16:55,100 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:57,377 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:16:59,154 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:00,473 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:02,738 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:04,579 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:06,251 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:07,701 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:09,690 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:11,087 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:12,746 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:15,001 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:16,524 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:17,863 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:19,433 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:21,545 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:23,829 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:25,998 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:27,321 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:28,945 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:31,070 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:33,193 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:34,661 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:36,001 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:37,620 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:39,318 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:41,605 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:43,155 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:44,646 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:46,679 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:48,056 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:49,695 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:51,786 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:53,322 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:17:55,145 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 12:17:55,145 - MultiWindowManager - INFO - 已停止调度器
+2026-04-13 12:17:55,145 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 12:17:55,146 - MultiWindowManager - WARNING - 窗口 330470 已存在
+2026-04-13 12:17:55,147 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 12:17:55,147 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 12:17:55,147 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 12:17:55,147 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 12:17:55,148 - mining_330470 - INFO - ==================================================
+2026-04-13 12:17:55,148 - mining_330470 - INFO - 挖矿开始
+2026-04-13 12:17:55,149 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 12:17:55,149 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 12:17:55,149 - mining_330470 - INFO - ==================================================
+2026-04-13 12:17:55,150 - mining_330470 - INFO - 开始执行 OCR 检查...
+2026-04-13 12:17:55,245 - mining_330470 - INFO - OCR 识别结果: '3/5' (置信度: 0.98)
+2026-04-13 12:17:55,246 - mining_330470 - INFO - OCR 识别结果: 3/5 (剩余: 2)
+2026-04-13 12:17:55,246 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25444) 挖矿完成...
+2026-04-13 12:17:55,246 - mining_330470 - INFO - 开始执行挖矿初始化流程...
+2026-04-13 12:17:55,247 - mining_330470 - INFO - 执行挖矿初始化流程...
+2026-04-13 12:17:55,301 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 12:17:55,301 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 12:17:55,301 - mining_330470 - INFO - 找到 town，开始挖矿流程
+2026-04-13 12:17:55,302 - mining_330470 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-13 12:17:55,365 - mining_330470 - INFO - OCR 识别结果: '3/5' (置信度: 0.98)
+2026-04-13 12:17:55,366 - mining_330470 - INFO - OCR 识别到文本: 3/5
+2026-04-13 12:17:55,366 - mining_330470 - INFO - 解析结果: 当前 3, 总数 5, 剩余 2
+2026-04-13 12:17:55,367 - mining_330470 - INFO - 设置还需要循环的次数为: 2
+2026-04-13 12:17:55,425 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 12:17:55,425 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 12:17:55,467 - mining_330470 - DEBUG - 加载模板: wild.png 60x52
+2026-04-13 12:17:55,482 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-13 12:17:55,757 - mining_330470 - DEBUG - 未找到: wild.png
+2026-04-13 12:17:55,810 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 12:17:55,810 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 12:17:55,810 - mining_330470 - INFO - 找到 town
+2026-04-13 12:17:56,974 - mining_330470 - DEBUG - 加载模板: search.png 40x37
+2026-04-13 12:17:56,985 - mining_330470 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.934
+2026-04-13 12:17:57,092 - mining_330470 - INFO - 点击 search: (477, 778) [scale=1.000]
+2026-04-13 12:17:57,093 - mining_330470 - INFO - 点击 search 成功
+2026-04-13 12:17:58,679 - mining_330470 - DEBUG - 加载模板: meat.png 106x81
+2026-04-13 12:17:58,693 - mining_330470 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.889
+2026-04-13 12:17:58,795 - mining_330470 - INFO - 点击 meat: (565, 804) [scale=1.000]
+2026-04-13 12:17:58,795 - mining_330470 - INFO - 点击资源成功: meat
+2026-04-13 12:17:59,911 - mining_330470 - DEBUG - 加载模板: add.png 20x31
+2026-04-13 12:17:59,923 - mining_330470 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-13 12:18:00,024 - mining_330470 - INFO - 点击 add: (778, 911) [scale=1.000]
+2026-04-13 12:18:00,025 - mining_330470 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-13 12:18:00,025 - mining_330470 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-13 12:18:00,025 - mining_330470 - INFO - add 坐标在容差范围内，继续流程
+2026-04-13 12:18:00,026 - mining_330470 - INFO - 点击 add 成功且坐标校准完成
+2026-04-13 12:18:01,765 - mining_330470 - DEBUG - 加载模板: search_meat.png 78x34
+2026-04-13 12:18:01,779 - mining_330470 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-13 12:18:01,880 - mining_330470 - INFO - 点击 search_meat: (724, 1039) [scale=1.000]
+2026-04-13 12:18:01,881 - mining_330470 - INFO - 点击 search_meat 成功
+2026-04-13 12:18:02,891 - mining_330470 - INFO - 尝试寻找 gather (1/7)
+2026-04-13 12:18:02,928 - mining_330470 - DEBUG - 加载模板: gather.png 63x36
+2026-04-13 12:18:02,940 - mining_330470 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-13 12:18:03,042 - mining_330470 - INFO - 点击 gather: (718, 586) [scale=1.000]
+2026-04-13 12:18:03,042 - mining_330470 - INFO - 点击 gather 成功
+2026-04-13 12:18:04,368 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-13 12:18:04,734 - mining_330470 - DEBUG - 未找到: gather.png
+2026-04-13 12:18:04,778 - mining_330470 - DEBUG - 加载模板: team.png 139x43
+2026-04-13 12:18:04,791 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-13 12:18:05,084 - mining_330470 - DEBUG - 未找到: team.png
+2026-04-13 12:18:05,129 - mining_330470 - DEBUG - 加载模板: battle.png 81x37
+2026-04-13 12:18:05,144 - mining_330470 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-13 12:18:05,245 - mining_330470 - INFO - 点击 battle: (871, 1035) [scale=1.000]
+2026-04-13 12:18:05,245 - mining_330470 - INFO - 点击 battle 成功，完成一轮
+2026-04-13 12:18:05,246 - mining_330470 - INFO - 已完成 1 轮，还需要循环 1 轮
+2026-04-13 12:18:05,484 - mining_330470 - INFO - OCR 识别结果: 'CVE' (置信度: 0.07)
+2026-04-13 12:18:05,484 - mining_330470 - INFO - OCR 识别到文本: CVE
+2026-04-13 12:18:05,538 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 12:18:05,539 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 12:18:05,589 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-13 12:18:05,868 - mining_330470 - DEBUG - 未找到: wild.png
+2026-04-13 12:18:05,923 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 12:18:05,923 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 12:18:05,923 - mining_330470 - INFO - 找到 town
+2026-04-13 12:18:07,819 - mining_330470 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.941
+2026-04-13 12:18:07,920 - mining_330470 - INFO - 点击 search: (477, 778) [scale=1.000]
+2026-04-13 12:18:07,920 - mining_330470 - INFO - 点击 search 成功
+2026-04-13 12:18:09,706 - mining_330470 - DEBUG - 加载模板: wood.png 96x57
+2026-04-13 12:18:09,720 - mining_330470 - DEBUG - [比例匹配] wood.png scale=1.000 conf=0.924
+2026-04-13 12:18:09,822 - mining_330470 - INFO - 点击 wood: (841, 822) [scale=1.000]
+2026-04-13 12:18:09,822 - mining_330470 - INFO - 点击资源成功: wood
+2026-04-13 12:18:11,599 - mining_330470 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-13 12:18:11,701 - mining_330470 - INFO - 点击 add: (778, 911) [scale=1.000]
+2026-04-13 12:18:11,701 - mining_330470 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-13 12:18:11,701 - mining_330470 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-13 12:18:11,702 - mining_330470 - INFO - add 坐标在容差范围内，继续流程
+2026-04-13 12:18:11,703 - mining_330470 - INFO - 点击 add 成功且坐标校准完成
+2026-04-13 12:18:13,683 - mining_330470 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-13 12:18:13,784 - mining_330470 - INFO - 点击 search_meat: (724, 1039) [scale=1.000]
+2026-04-13 12:18:13,784 - mining_330470 - INFO - 点击 search_meat 成功
+2026-04-13 12:18:15,167 - mining_330470 - INFO - 尝试寻找 gather (1/7)
+2026-04-13 12:18:15,216 - mining_330470 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-13 12:18:15,317 - mining_330470 - INFO - 点击 gather: (718, 586) [scale=1.000]
+2026-04-13 12:18:15,317 - mining_330470 - INFO - 点击 gather 成功
+2026-04-13 12:18:16,665 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-13 12:18:17,028 - mining_330470 - DEBUG - 未找到: gather.png
+2026-04-13 12:18:17,079 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-13 12:18:17,339 - mining_330470 - DEBUG - 未找到: team.png
+2026-04-13 12:18:17,393 - mining_330470 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-13 12:18:17,495 - mining_330470 - INFO - 点击 battle: (871, 1035) [scale=1.000]
+2026-04-13 12:18:17,495 - mining_330470 - INFO - 点击 battle 成功，完成一轮
+2026-04-13 12:18:17,495 - mining_330470 - INFO - 已完成 2 轮，还需要循环 0 轮
+2026-04-13 12:18:17,496 - mining_330470 - INFO - 已完成所有循环次数，停止挖矿
+2026-04-13 12:18:17,496 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 12:18:17,807 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿完成或停止
+2026-04-13 12:18:17,807 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-13 12:18:17,808 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 12:18:17,808 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿状态设置为 2（挖矿结束）
+2026-04-13 12:18:17,821 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 12:18:18,122 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 12:18:18,123 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:18:18,123 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 12:18:18,123 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 12:18:18,123 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:18:18,124 - ProtectiveCasing - INFO - 等待所有窗口挖矿状态完全更新...
+2026-04-13 12:18:18,124 - ProtectiveCasing - INFO - 所有窗口挖矿状态已更新为结束: {330470: 2}
+2026-04-13 12:18:18,174 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:18,307 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 12:18:18,308 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 12:18:19,665 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:21,414 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:22,958 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:24,617 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:26,259 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:27,606 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:29,353 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:31,553 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:33,235 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:35,318 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:36,646 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:38,064 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:40,234 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:42,214 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:44,129 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:45,914 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:47,642 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:49,542 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:51,806 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:53,986 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:55,432 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:57,693 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:18:59,700 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:01,320 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:03,047 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:04,388 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:06,479 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:08,348 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:09,734 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:11,432 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:13,403 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:15,319 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:17,349 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:18,217 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-13 12:19:18,217 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-13 12:19:18,218 - MultiWindowManager - WARNING - 窗口 330470 已存在
+2026-04-13 12:19:18,219 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (25444)
+2026-04-13 12:19:18,219 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-13 12:19:18,220 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-13 12:19:18,220 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (25444) 挖矿
+2026-04-13 12:19:18,221 - mining_330470 - INFO - ==================================================
+2026-04-13 12:19:18,221 - mining_330470 - INFO - 挖矿开始
+2026-04-13 12:19:18,221 - mining_330470 - INFO - 基准尺寸: 558x1021
+2026-04-13 12:19:18,221 - mining_330470 - INFO - ==================================================
+2026-04-13 12:19:18,222 - mining_330470 - INFO - 开始执行 OCR 检查...
+2026-04-13 12:19:18,222 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-13 12:19:18,319 - mining_330470 - INFO - OCR 识别结果: '4/5' (置信度: 0.85)
+2026-04-13 12:19:18,319 - mining_330470 - INFO - OCR 识别结果: 4/5 (剩余: 1)
+2026-04-13 12:19:18,320 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (25444) 挖矿完成...
+2026-04-13 12:19:18,320 - mining_330470 - INFO - 开始执行挖矿初始化流程...
+2026-04-13 12:19:18,321 - mining_330470 - INFO - 执行挖矿初始化流程...
+2026-04-13 12:19:18,381 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 12:19:18,381 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 12:19:18,381 - mining_330470 - INFO - 找到 town，开始挖矿流程
+2026-04-13 12:19:18,381 - mining_330470 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-13 12:19:18,450 - mining_330470 - INFO - OCR 识别结果: '4/5' (置信度: 0.85)
+2026-04-13 12:19:18,450 - mining_330470 - INFO - OCR 识别到文本: 4/5
+2026-04-13 12:19:18,450 - mining_330470 - INFO - 解析结果: 当前 4, 总数 5, 剩余 1
+2026-04-13 12:19:18,451 - mining_330470 - INFO - 设置还需要循环的次数为: 1
+2026-04-13 12:19:18,512 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 12:19:18,512 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 12:19:18,565 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-13 12:19:18,837 - mining_330470 - DEBUG - 未找到: wild.png
+2026-04-13 12:19:18,891 - mining_330470 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-13 12:19:18,892 - mining_330470 - DEBUG - 找到 town [scale=1.000]
+2026-04-13 12:19:18,892 - mining_330470 - INFO - 找到 town
+2026-04-13 12:19:20,608 - mining_330470 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.941
+2026-04-13 12:19:20,712 - mining_330470 - INFO - 点击 search: (477, 778) [scale=1.000]
+2026-04-13 12:19:20,712 - mining_330470 - INFO - 点击 search 成功
+2026-04-13 12:19:22,321 - mining_330470 - DEBUG - [比例匹配] wood.png scale=1.000 conf=0.877
+2026-04-13 12:19:22,428 - mining_330470 - INFO - 点击 wood: (724, 822) [scale=1.000]
+2026-04-13 12:19:22,428 - mining_330470 - INFO - 点击资源成功: wood
+2026-04-13 12:19:23,755 - mining_330470 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-13 12:19:23,857 - mining_330470 - INFO - 点击 add: (778, 911) [scale=1.000]
+2026-04-13 12:19:23,858 - mining_330470 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-13 12:19:23,858 - mining_330470 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-13 12:19:23,858 - mining_330470 - INFO - add 坐标在容差范围内，继续流程
+2026-04-13 12:19:23,859 - mining_330470 - INFO - 点击 add 成功且坐标校准完成
+2026-04-13 12:19:25,310 - mining_330470 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-13 12:19:25,411 - mining_330470 - INFO - 点击 search_meat: (724, 1039) [scale=1.000]
+2026-04-13 12:19:25,411 - mining_330470 - INFO - 点击 search_meat 成功
+2026-04-13 12:19:27,247 - mining_330470 - INFO - 尝试寻找 gather (1/7)
+2026-04-13 12:19:27,298 - mining_330470 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-13 12:19:27,400 - mining_330470 - INFO - 点击 gather: (718, 586) [scale=1.000]
+2026-04-13 12:19:27,400 - mining_330470 - INFO - 点击 gather 成功
+2026-04-13 12:19:29,366 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-13 12:19:29,729 - mining_330470 - DEBUG - 未找到: gather.png
+2026-04-13 12:19:29,781 - mining_330470 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-13 12:19:30,036 - mining_330470 - DEBUG - 未找到: team.png
+2026-04-13 12:19:30,091 - mining_330470 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-13 12:19:30,193 - mining_330470 - INFO - 点击 battle: (871, 1035) [scale=1.000]
+2026-04-13 12:19:30,193 - mining_330470 - INFO - 点击 battle 成功，完成一轮
+2026-04-13 12:19:30,193 - mining_330470 - INFO - 已完成 1 轮，还需要循环 0 轮
+2026-04-13 12:19:30,194 - mining_330470 - INFO - 已完成所有循环次数，停止挖矿
+2026-04-13 12:19:30,194 - MultiWindowManager - INFO - 窗口 330470 挖矿停止
+2026-04-13 12:19:30,348 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿完成或停止
+2026-04-13 12:19:30,348 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-13 12:19:30,349 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-13 12:19:30,349 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (25444) 挖矿状态设置为 2（挖矿结束）
+2026-04-13 12:19:31,165 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-13 12:19:31,166 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:19:31,166 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-13 12:19:31,166 - ProtectiveCasing - INFO - 检测目标: war.png
+2026-04-13 12:19:31,166 - ProtectiveCasing - INFO - ==================================================
+2026-04-13 12:19:31,166 - ProtectiveCasing - INFO - 等待所有窗口挖矿状态完全更新...
+2026-04-13 12:19:31,166 - ProtectiveCasing - INFO - 所有窗口挖矿状态已更新为结束: {330470: 2}
+2026-04-13 12:19:31,219 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:33,347 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:35,427 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:37,573 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:39,826 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:41,991 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:44,277 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:46,557 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:48,673 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:50,385 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:52,589 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:54,075 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:56,081 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:57,882 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:19:59,368 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:20:00,846 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:20:02,826 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-13 12:20:03,891 - src.main - INFO - 无尽冬日程序正常退出

@@ -1,0 +1,44 @@
+[
+  {
+    "timestamp": "2026-03-19 22:10:05",
+    "window": "MuMu安卓设备 (MuMuNxDevice.exe)",
+    "coordinates": [
+      {
+        "window_title": "MuMuNxDevice",
+        "relative_x": 437,
+        "relative_y": 1088,
+        "absolute_x": 585,
+        "absolute_y": 1146,
+        "name": "竞技世界"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-24 10:05:03",
+    "window": "MuMu安卓设备 (3712)",
+    "coordinates": [
+      {
+        "window_title": "MuMu安卓设备",
+        "relative_x": 39,
+        "relative_y": 709,
+        "absolute_x": 408,
+        "absolute_y": 797,
+        "name": "搜索"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-07 09:50:03",
+    "window": "未知",
+    "coordinates": [
+      {
+        "window_title": "MuMu安卓设备",
+        "relative_x": 337,
+        "relative_y": 844,
+        "absolute_x": 1763,
+        "absolute_y": 1033,
+        "name": "8级"
+      }
+    ]
+  }
+]
