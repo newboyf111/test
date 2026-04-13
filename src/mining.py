@@ -334,6 +334,10 @@ class SingleWindowMiner:
                     
                     if remaining <= 0:
                         self.logger.info("挖矿次数已用完，跳过挖矿流程")
+                        self.mined = True
+                        self.mining_state = 2
+                        if self.mining_manager is not None:
+                            self.mining_manager._on_window_mining_stopped(self.hwnd)
                         return False
         except (ValueError, IndexError) as e:
             self.logger.warning(f"解析 OCR 结果失败: {e}")
