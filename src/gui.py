@@ -1418,7 +1418,7 @@ class WujindongriGUI:
         if not titles:
             self.active_windows_label_mining.config(state="normal")
             self.active_windows_label_mining.delete("1.0", "end")
-            self.active_windows_label_mining.insert("end", "当前正在挖矿的窗口: 无", "blue")
+            self.active_windows_label_mining.insert("end", "当前活动窗口: 无", "blue")
             self.active_windows_label_mining.config(state="disabled")
             return
         
