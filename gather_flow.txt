@@ -1,0 +1,54 @@
+```mermaid
+flowchart TD
+    A[开始寻找 gather] --> B{3秒超时?}
+    B -->|是| Z1[3秒内未找到 gather<br/>切换到下一个资源]
+    B -->|否| C[尝试寻找 gather]
+    
+    C --> D{找到 gather?}
+    D -->|是| E[点击 gather 成功<br/>gather_found = True<br/>退出循环]
+    D -->|否| F[未找到 gather]
+    
+    F --> G{用户手动停止?}
+    G -->|是| Z2[退出挖矿流程]
+    G -->|否| H[等待1-2秒]
+    
+    H --> I[获取窗口尺寸]
+    I --> J{获取成功?}
+    J -->|是| K[计算缩放比例和拖动距离]
+    J -->|否| L[使用默认拖动距离30像素]
+    
+    K --> M[向左拖动]
+    L --> M
+    
+    M --> N{用户手动停止?}
+    N -->|是| Z2
+    N -->|否| O[等待1-2秒]
+    
+    O --> P[重新点击 search_meat]
+    P --> Q{点击成功?}
+    Q -->|是| R[等待1-2秒]
+    Q -->|否| S[记录失败日志]
+    
+    R --> B
+    S --> B
+    
+    E --> T[等待1-2秒]
+    T --> U{用户手动停止?}
+    U -->|是| Z2
+    U -->|否| V[再次检查 gather]
+    
+    V --> W{gather 仍然存在?}
+    W -->|是| X[点击失败<br/>停止挖矿]
+    W -->|否| Y[检查 team]
+    
+    Y --> Z{找到 team?}
+    Z -->|是| AA[队列已满<br/>停止挖矿]
+    Z -->|否| AB[继续挖矿流程]
+    
+    style Z1 fill:#ffebee
+    style Z2 fill:#ffebee
+    style X fill:#ffebee
+    style AA fill:#ffebee
+    style E fill:#e8f5e9
+    style AB fill:#e8f5e9
+```
