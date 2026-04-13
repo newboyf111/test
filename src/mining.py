@@ -364,6 +364,9 @@ class SingleWindowMiner:
                 self.mined = True
                 self.logger.info(f"挖矿结束，标记窗口为已挖矿")
             self.mining_state = 2  # 设置为挖矿结束
+            # 通知 GUI 当前窗口挖矿停止
+            if self.on_mining_stopped_callback:
+                self.on_mining_stopped_callback(self.hwnd, self.window_name)
             return True
         return False
 
