@@ -53,8 +53,15 @@ class WujindongriGUI:
         self.timer_minutes = 0
         self.countdown_running = False
         self.active_windows_label = None
+        self.active_windows_label_activated = None
+        self.active_windows_label_mining = None
+        self.active_windows_label_recording = None
+        self.active_windows_label_shield = None
+        self.active_windows_label_snowfield = None
+        self.active_windows_label_daily_task = None
         self.window_listbox_hwnd_map = {}  # 列表框索引到 hwnd 的映射
         self.ocr_loaded = False  # OCR 是否加载完成
+        self.current_mining_hwnd = None  # 当前挖矿窗口句柄
         
         # 创建启动进度条界面
         self._create_loading_screen()
@@ -126,18 +133,30 @@ class WujindongriGUI:
         resize_button.pack(side="left", padx=5)
         
         # 当前被激活的窗口信息区域（绿色）- 放在按钮下方
-        self.active_windows_label = tk.Text(
+        self.active_windows_label_activated = tk.Text(
             window_frame,
-            height=5,
+            height=3,
             width=80,
             font=("Microsoft YaHei", 9),
-            bg="#f0f0f0",
+            bg="#e8f5e9",
             relief="flat",
             state="disabled"
         )
-        self.active_windows_label.pack(side="top", fill="x", pady=5)
-        # 设置绿色文本标签
-        self.active_windows_label.tag_config("green", foreground="green")
+        self.active_windows_label_activated.pack(side="top", fill="x", pady=2)
+        self.active_windows_label_activated.tag_config("green", foreground="green")
+        
+        # 当前挖矿窗口信息区域（蓝色）
+        self.active_windows_label_mining = tk.Text(
+            window_frame,
+            height=3,
+            width=80,
+            font=("Microsoft YaHei", 9),
+            bg="#e3f2fd",
+            relief="flat",
+            state="disabled"
+        )
+        self.active_windows_label_mining.pack(side="top", fill="x", pady=2)
+        self.active_windows_label_mining.tag_config("blue", foreground="blue")
         
         # 功能区域
         function_frame = ttk.LabelFrame(self.root, text="挂机功能", padding=10)
@@ -328,6 +347,12 @@ class WujindongriGUI:
         # 初始化窗口列表
         self.refresh_window_list()
         
+        # 设置挖矿回调
+        self.mining_manager.set_mining_callbacks(
+            self._on_mining_started,
+            self._on_mining_stopped
+        )
+        
     def refresh_window_list(self):
         """刷新窗口列表"""
         self.log("=== 刷新窗口列表 ===")
@@ -350,8 +375,10 @@ class WujindongriGUI:
             self.log(f"#{i}: {title} (hwnd={hwnd})")
         
         # 刷新窗口列表后重置绿色标签
-        if self.active_windows_label:
-            self._update_active_windows_label([])
+        if self.active_windows_label_activated:
+            self._update_active_windows_label_activated([])
+        if self.active_windows_label_mining:
+            self._update_active_windows_label_mining([])
     
     def on_window_select(self, event):
         """窗口选择事件"""
@@ -368,8 +395,10 @@ class WujindongriGUI:
                 window_text = self.window_listbox.get(index)
                 self.log(f"#{i}: {window_text}")
             # 窗口选择后重置绿色标签
-            if self.active_windows_label:
-                self._update_active_windows_label([])
+            if self.active_windows_label_activated:
+                self._update_active_windows_label_activated([])
+            if self.active_windows_label_mining:
+                self._update_active_windows_label_mining([])
         else:
             self.log(f"=== 窗口选择事件 ===")
             self.log(f"没有选中任何窗口")
@@ -437,7 +466,10 @@ class WujindongriGUI:
         self.log(f"批量激活完成: {success_count}/{len(selected_hwnds)} 个窗口成功")
         
         # 更新绿色标签显示当前被激活的窗口（每个窗口一行）
-        self._update_active_windows_label(activated_titles)
+        if self.active_windows_label_activated:
+            self._update_active_windows_label_activated(activated_titles)
+        if self.active_windows_label_mining:
+            self._update_active_windows_label_mining([])
     
     def resize_selected_window(self):
         """调整所有选中窗口尺寸为558x1021"""
@@ -499,8 +531,10 @@ class WujindongriGUI:
         self.log(f"批量调整完成: {success_count}/{len(selected_hwnds)} 个窗口成功")
         
         # 调整窗口尺寸后重置绿色标签
-        if self.active_windows_label:
-            self._update_active_windows_label([])
+        if self.active_windows_label_activated:
+            self._update_active_windows_label_activated([])
+        if self.active_windows_label_mining:
+            self._update_active_windows_label_mining([])
     
     def toggle_recording(self):
         """切换记录状态"""
@@ -509,8 +543,12 @@ class WujindongriGUI:
         else:
             self.start_recording()
             # 开始记录后重置绿色标签
-            if self.active_windows_label:
-                self._update_active_windows_label([])
+            if self.active_windows_label_activated:
+                self._update_active_windows_label_activated([])
+            if self.active_windows_label_mining:
+                self._update_active_windows_label_mining([])
+            if self.active_windows_label_recording:
+                self._update_active_windows_label_recording([])
             
     def start_recording(self):
         """开始记录"""
@@ -536,8 +574,12 @@ class WujindongriGUI:
             self.record_status.config(text="记录中")
             self.log(f"开始记录坐标，请点击游戏窗口内需要记录的位置 (共 {len(selected_hwnds)} 个窗口)")
             # 开始记录后重置绿色标签
-            if self.active_windows_label:
-                self._update_active_windows_label([])
+            if self.active_windows_label_activated:
+                self._update_active_windows_label_activated([])
+            if self.active_windows_label_mining:
+                self._update_active_windows_label_mining([])
+            if self.active_windows_label_recording:
+                self._update_active_windows_label_recording([])
         
     def stop_recording(self):
         """停止记录"""
@@ -545,8 +587,12 @@ class WujindongriGUI:
             self.record_button.config(text="开始记录")
             self.record_status.config(text="未开始")
             # 停止记录后重置绿色标签
-            if self.active_windows_label:
-                self._update_active_windows_label([])
+            if self.active_windows_label_activated:
+                self._update_active_windows_label_activated([])
+            if self.active_windows_label_mining:
+                self._update_active_windows_label_mining([])
+            if self.active_windows_label_recording:
+                self._update_active_windows_label_recording([])
     
     def toggle_mining(self):
         """切换挖矿状态"""
@@ -555,8 +601,12 @@ class WujindongriGUI:
         else:
             self.start_mining()
             # 开始挖矿后重置绿色标签
-            if self.active_windows_label:
-                self._update_active_windows_label([])
+            if self.active_windows_label_activated:
+                self._update_active_windows_label_activated([])
+            if self.active_windows_label_mining:
+                self._update_active_windows_label_mining([])
+            if self.active_windows_label_recording:
+                self._update_active_windows_label_recording([])
             
     def start_mining(self):
         """开始挖矿（支持多窗口队列模式）"""
@@ -1339,20 +1389,50 @@ class WujindongriGUI:
         except (IOError, OSError) as e:
             self.log(f"✗ 保存画框信息失败: {e}")
     
-    def _update_active_windows_label(self, titles):
+    def _update_active_windows_label_activated(self, titles):
         """更新被激活窗口的绿色标签（每个窗口一行）"""
         if not titles:
-            self.active_windows_label.config(state="normal")
-            self.active_windows_label.delete("1.0", "end")
-            self.active_windows_label.insert("end", "当前被激活的窗口: 无", "green")
-            self.active_windows_label.config(state="disabled")
+            self.active_windows_label_activated.config(state="normal")
+            self.active_windows_label_activated.delete("1.0", "end")
+            self.active_windows_label_activated.insert("end", "当前被激活的窗口: 无", "green")
+            self.active_windows_label_activated.config(state="disabled")
             return
         
-        self.active_windows_label.config(state="normal")
-        self.active_windows_label.delete("1.0", "end")
+        self.active_windows_label_activated.config(state="normal")
+        self.active_windows_label_activated.delete("1.0", "end")
         for title in titles:
-            self.active_windows_label.insert("end", f"• {title}\n", "green")
-        self.active_windows_label.config(state="disabled")
+            self.active_windows_label_activated.insert("end", f"• {title}\n", "green")
+        self.active_windows_label_activated.config(state="disabled")
+    
+    def _update_active_windows_label_mining(self, titles):
+        """更新正在挖矿窗口的蓝色标签（每个窗口一行）"""
+        if not titles:
+            self.active_windows_label_mining.config(state="normal")
+            self.active_windows_label_mining.delete("1.0", "end")
+            self.active_windows_label_mining.insert("end", "当前正在挖矿的窗口: 无", "blue")
+            self.active_windows_label_mining.config(state="disabled")
+            return
+        
+        self.active_windows_label_mining.config(state="normal")
+        self.active_windows_label_mining.delete("1.0", "end")
+        for title in titles:
+            self.active_windows_label_mining.insert("end", f"• {title}\n", "blue")
+        self.active_windows_label_mining.config(state="disabled")
+    
+    def _on_mining_started(self, hwnd, window_name):
+        """挖矿开始回调"""
+        self.current_mining_hwnd = hwnd
+        # 更新挖矿窗口标签
+        self._update_active_windows_label_mining([window_name])
+        self.log(f"挖矿开始: {window_name} (hwnd={hwnd})")
+    
+    def _on_mining_stopped(self, hwnd, window_name):
+        """挖矿停止回调"""
+        if self.current_mining_hwnd == hwnd:
+            self.current_mining_hwnd = None
+        # 更新挖矿窗口标签
+        self._update_active_windows_label_mining([])
+        self.log(f"挖矿停止: {window_name} (hwnd={hwnd})")
     
     def _pre_init_ocr(self):
         """提前初始化OCR（在GUI启动时）"""

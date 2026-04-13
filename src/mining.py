@@ -52,6 +52,8 @@ class SingleWindowMiner:
         self.is_mining = False
         self.mining_thread = None
         self.logger = self._setup_logger()
+        self.on_mining_started_callback = None  # 挖矿开始回调
+        self.on_mining_stopped_callback = None  # 挖矿停止回调
         self.matcher = AdaptiveMatcher(confidence=0.65, logger=self.logger)
 
         self.image_paths = {
@@ -272,6 +274,10 @@ class SingleWindowMiner:
             self.logger.info(f"基准尺寸: {AdaptiveMatcher.BASE_WIDTH}x{AdaptiveMatcher.BASE_HEIGHT}")
             self.logger.info("=" * 50)
             
+            # 通知 GUI 当前窗口开始挖矿
+            if self.on_mining_started_callback:
+                self.on_mining_started_callback(self.hwnd, self.window_name)
+            
             # 优先执行 OCR 检查
             if not self._check_ocr_before_mining():
                 self.logger.info("OCR 检查未通过，跳过挖矿流程")
@@ -451,6 +457,9 @@ class SingleWindowMiner:
                     self.logger.error(f"连续失败 {consecutive_failures} 次，停止挖矿")
                     self.is_mining = False
                     self.mined = True
+                    # 通知 GUI 当前窗口挖矿停止
+                    if self.on_mining_stopped_callback:
+                        self.on_mining_stopped_callback(self.hwnd, self.window_name)
                     # 通知管理器
                     if self.mining_manager is not None:
                         self.mining_manager._on_window_mining_stopped(self.hwnd)
@@ -572,6 +581,9 @@ class SingleWindowMiner:
             self.logger.warning("窗口已关闭")
             self.is_mining = False
             self.mined = True
+            # 通知 GUI 当前窗口挖矿停止
+            if self.on_mining_stopped_callback:
+                self.on_mining_stopped_callback(self.hwnd, self.window_name)
             if self.mining_manager is not None:
                 self.mining_manager._on_window_mining_stopped(self.hwnd)
             return
@@ -639,6 +651,9 @@ class SingleWindowMiner:
                                         self.is_mining = False
                                         self.mined = True
                                         self.mining_state = 2
+                                        # 通知 GUI 当前窗口挖矿停止
+                                        if self.on_mining_stopped_callback:
+                                            self.on_mining_stopped_callback(self.hwnd, self.window_name)
                                         self.mining_manager._on_window_mining_stopped(self.hwnd)
                                     return
                                 # 设置还需要循环的次数
@@ -846,6 +861,9 @@ class SingleWindowMiner:
             self.logger.info("gather 仍然存在，点击失败，停止挖矿")
             self.is_mining = False
             self.mined = True
+            # 通知 GUI 当前窗口挖矿停止
+            if self.on_mining_stopped_callback:
+                self.on_mining_stopped_callback(self.hwnd, self.window_name)
             if self.mining_manager is not None:
                 self.mining_manager._on_window_mining_stopped(self.hwnd)
             return
@@ -858,6 +876,9 @@ class SingleWindowMiner:
                 self.logger.info("点击 close 成功")
             self.is_mining = False
             self.mined = True
+            # 通知 GUI 当前窗口挖矿停止
+            if self.on_mining_stopped_callback:
+                self.on_mining_stopped_callback(self.hwnd, self.window_name)
             if self.mining_manager is not None:
                 self.mining_manager._on_window_mining_stopped(self.hwnd)
             return
@@ -871,6 +892,9 @@ class SingleWindowMiner:
                 self.logger.info("已完成所有循环次数，停止挖矿")
                 self.is_mining = False
                 self.mined = True
+                # 通知 GUI 当前窗口挖矿停止
+                if self.on_mining_stopped_callback:
+                    self.on_mining_stopped_callback(self.hwnd, self.window_name)
                 if self.mining_manager is not None:
                     self.mining_manager._on_window_mining_stopped(self.hwnd)
             else:
@@ -885,6 +909,9 @@ class SingleWindowMiner:
                     self.logger.info("点击 close 成功")
                 self.is_mining = False
                 self.mined = True
+                # 通知 GUI 当前窗口挖矿停止
+                if self.on_mining_stopped_callback:
+                    self.on_mining_stopped_callback(self.hwnd, self.window_name)
                 if self.mining_manager is not None:
                     self.mining_manager._on_window_mining_stopped(self.hwnd)
 
@@ -1378,8 +1405,21 @@ class MultiWindowMiningManager:
         with self._lock:
             for miner in self.miners.values():
                 if miner.mining_state == 1:
-                    miner.mining_state = 2
-                    self.logger.info(f"窗口 {miner.window_name} 挖矿状态设置为 2（挖矿结束）")
+                        miner.mining_state = 2
+                        self.logger.info(f"窗口 {miner.window_name} 挖矿状态设置为 2（挖矿结束）")
+    
+    def set_mining_callbacks(self, on_started, on_stopped):
+        """设置挖矿回调函数
+        
+        Args:
+            on_started: 挖矿开始回调函数，参数为 (hwnd, window_name)
+            on_stopped: 挖矿停止回调函数，参数为 (hwnd, window_name)
+        """
+        with self._lock:
+            for miner in self.miners.values():
+                miner.on_mining_started_callback = on_started
+                miner.on_mining_stopped_callback = on_stopped
+            self.logger.info("已设置挖矿回调函数")
     
     def start_mining_queue(self) -> bool:
         """
