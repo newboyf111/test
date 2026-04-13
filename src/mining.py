@@ -638,6 +638,7 @@ class SingleWindowMiner:
                                         self.logger.info("开启保护性外壳自动化脚本")
                                         self.is_mining = False
                                         self.mined = True
+                                        self.mining_state = 2
                                         self.mining_manager._on_window_mining_stopped(self.hwnd)
                                     return
                                 # 设置还需要循环的次数
