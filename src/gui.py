@@ -158,6 +158,19 @@ class WujindongriGUI:
         self.active_windows_label_mining.pack(side="top", fill="x", pady=2)
         self.active_windows_label_mining.tag_config("blue", foreground="blue")
         
+        # 当前记录窗口信息区域（橙色）
+        self.active_windows_label_recording = tk.Text(
+            window_frame,
+            height=3,
+            width=80,
+            font=("Microsoft YaHei", 9),
+            bg="#fff3e0",
+            relief="flat",
+            state="disabled"
+        )
+        self.active_windows_label_recording.pack(side="top", fill="x", pady=2)
+        self.active_windows_label_recording.tag_config("orange", foreground="orange")
+        
         # 功能区域
         function_frame = ttk.LabelFrame(self.root, text="挂机功能", padding=10)
         function_frame.pack(fill="x", padx=20, pady=10)
@@ -379,6 +392,8 @@ class WujindongriGUI:
             self._update_active_windows_label_activated([])
         if self.active_windows_label_mining:
             self._update_active_windows_label_mining([])
+        if self.active_windows_label_recording:
+            self._update_active_windows_label_recording([])
     
     def on_window_select(self, event):
         """窗口选择事件"""
@@ -399,6 +414,8 @@ class WujindongriGUI:
                 self._update_active_windows_label_activated([])
             if self.active_windows_label_mining:
                 self._update_active_windows_label_mining([])
+            if self.active_windows_label_recording:
+                self._update_active_windows_label_recording([])
         else:
             self.log(f"=== 窗口选择事件 ===")
             self.log(f"没有选中任何窗口")
@@ -603,8 +620,6 @@ class WujindongriGUI:
             # 开始挖矿后重置绿色标签
             if self.active_windows_label_activated:
                 self._update_active_windows_label_activated([])
-            if self.active_windows_label_mining:
-                self._update_active_windows_label_mining([])
             if self.active_windows_label_recording:
                 self._update_active_windows_label_recording([])
             
@@ -1418,6 +1433,23 @@ class WujindongriGUI:
         for title in titles:
             self.active_windows_label_mining.insert("end", f"• {title}\n", "blue")
         self.active_windows_label_mining.config(state="disabled")
+    
+    def _update_active_windows_label_recording(self, titles):
+        """更新正在记录窗口的橙色标签（每个窗口一行）"""
+        if not titles:
+            if self.active_windows_label_recording:
+                self.active_windows_label_recording.config(state="normal")
+                self.active_windows_label_recording.delete("1.0", "end")
+                self.active_windows_label_recording.insert("end", "当前正在记录的窗口: 无", "orange")
+                self.active_windows_label_recording.config(state="disabled")
+            return
+        
+        if self.active_windows_label_recording:
+            self.active_windows_label_recording.config(state="normal")
+            self.active_windows_label_recording.delete("1.0", "end")
+            for title in titles:
+                self.active_windows_label_recording.insert("end", f"• {title}\n", "orange")
+            self.active_windows_label_recording.config(state="disabled")
     
     def _on_mining_started(self, hwnd, window_name):
         """挖矿开始回调"""
