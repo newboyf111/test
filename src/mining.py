@@ -254,11 +254,6 @@ class SingleWindowMiner:
     def start_mining(self) -> bool:
         """开始挖矿"""
         if not self.is_mining:
-            # 如果已经挖矿完成，不再启动
-            if self.mined:
-                self.logger.info("挖矿已完成，跳过启动")
-                return False
-            
             # 清除缓存
             self._screenshot_cache.clear_all()
             self._screenshot_time = 0
@@ -280,10 +275,7 @@ class SingleWindowMiner:
             # 优先执行 OCR 检查
             if not self._check_ocr_before_mining():
                 self.logger.info("OCR 检查未通过，跳过挖矿流程")
-                self.mined = True
-                self.mining_state = 2  # 设置为挖矿结束
-                if self.mining_manager is not None:
-                    self.mining_manager._on_window_mining_stopped(self.hwnd)
+                # 注意：_check_ocr_before_mining 已经设置了 mined=True, mining_state=2, 并调用了 _on_window_mining_stopped
                 return False
             
             self.mining_thread = threading.Thread(target=self._mining_loop, daemon=True)
