@@ -628,25 +628,21 @@ class WujindongriGUI:
         selected_titles = []
         
         if not selected_indices:
-            # 自动挖矿时，使用所有可用窗口
-            self.log("未选择窗口，使用所有可用窗口")
-            window_list = self.window_manager.get_window_list()
-            for hwnd, title in window_list:
+            messagebox.showinfo("提示", "请先选择至少一个窗口")
+            return
+        
+        # 使用映射获取选中的窗口
+        for index in selected_indices:
+            if index in self.window_listbox_hwnd_map:
+                hwnd = self.window_listbox_hwnd_map[index]
+                window_text = self.window_listbox.get(index)
+                if "(" in window_text and ")" in window_text:
+                    start = window_text.rfind("(")
+                    title = window_text[:start].strip()
+                else:
+                    title = window_text
                 selected_hwnds.append(hwnd)
                 selected_titles.append(title)
-        else:
-            # 使用映射获取选中的窗口
-            for index in selected_indices:
-                if index in self.window_listbox_hwnd_map:
-                    hwnd = self.window_listbox_hwnd_map[index]
-                    window_text = self.window_listbox.get(index)
-                    if "(" in window_text and ")" in window_text:
-                        start = window_text.rfind("(")
-                        title = window_text[:start].strip()
-                    else:
-                        title = window_text
-                    selected_hwnds.append(hwnd)
-                    selected_titles.append(title)
         
         # 检查是否有窗口
         if not selected_hwnds:
