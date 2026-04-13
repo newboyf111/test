@@ -377,6 +377,22 @@ class ProtectiveCasing:
                 time.sleep(1)
             self.logger.info("挖矿结束，开始保护性外壳自动化")
         
+        # 等待所有窗口的 is_mining 标志完全更新为 False
+        if self.mining_manager:
+            self.logger.info("等待所有窗口挖矿状态完全更新...")
+            max_wait_time = 10  # 最多等待 10 秒
+            wait_time = 0
+            while self.running and wait_time < max_wait_time:
+                states = self.mining_manager.get_all_mining_states()
+                if all(state == 2 for state in states.values()):
+                    self.logger.info(f"所有窗口挖矿状态已更新为结束: {states}")
+                    break
+                time.sleep(1)
+                wait_time += 1
+            else:
+                if self.running:
+                    self.logger.warning(f"等待挖矿状态更新超时，继续执行（状态: {states}）")
+        
         while self.running:
             try:
                 for hwnd, window_name in self.target_windows:
