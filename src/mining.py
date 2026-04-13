@@ -420,6 +420,11 @@ class SingleWindowMiner:
                 self.logger.info(f"倒计时进度: {self.timer_remaining}秒")
         if self.timer_remaining <= 0:
             self.logger.info("倒计时归零，自动开始挖矿")
+            # 重置挖矿状态
+            self.mined = False
+            self.mining_state = 0
+            self.completed_cycles = 0
+            self.max_cycles = 0
             if not self.is_mining:
                 self.start_mining()
         self.logger.info("倒计时循环结束")
