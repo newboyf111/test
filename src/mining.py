@@ -115,8 +115,8 @@ class SingleWindowMiner:
         self._user_stopped = False
         
         # OCR 识别区域（相对于游戏窗口的基准坐标）
-        # 区域: (152, 188) -> (192, 219) 大小: 40x31
-        self.ocr_region_base = (152, 188, 192, 219)
+        # 区域: (156, 184) -> (194, 220) 大小: 38x36
+        self.ocr_region_base = (156, 184, 194, 220)
         self.ocr_enabled = False
         self.ocr_reader = None
 
