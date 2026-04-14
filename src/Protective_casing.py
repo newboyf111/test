@@ -43,6 +43,10 @@ class ProtectiveCasing:
     DEPLOY_RELATIVE_Y = 94
     BUY_2_RELATIVE_X = 451
     BUY_2_RELATIVE_Y = 423
+    SIX_SEARCH_X1 = 149
+    SIX_SEARCH_Y1 = 222
+    SIX_SEARCH_X2 = 195
+    SIX_SEARCH_Y2 = 563
 
     def __init__(self, window_list: List[Tuple[int, str]] = None, mining_manager=None):
         self.logger = logging.getLogger("ProtectiveCasing")
@@ -178,27 +182,37 @@ class ProtectiveCasing:
         if six_template is None:
             return []
         
-        best_match = self.matcher.match_multi_scale(screenshot, six_template, scale_min=0.8, scale_max=1.2, steps=10)
+        scale = win_w / self.BASE_WIDTH
+        region_x1 = int(self.SIX_SEARCH_X1 * scale)
+        region_y1 = int(self.SIX_SEARCH_Y1 * scale)
+        region_x2 = int(self.SIX_SEARCH_X2 * scale)
+        region_y2 = int(self.SIX_SEARCH_Y2 * scale)
+        
+        search_region = screenshot[region_y1:region_y2, region_x1:region_x2]
+        
+        best_match = self.matcher.match_multi_scale(search_region, six_template, scale_min=0.8, scale_max=1.2, steps=10)
         if not best_match:
             self.logger.info(f"[{window_name}] 未找到 six 模板（多尺度匹配失败）")
             return []
         
         w, h = best_match["size"]
-        gray_screen = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
+        gray_region = cv2.cvtColor(search_region, cv2.COLOR_BGR2GRAY)
         scaled_tmpl = self.matcher.scale_template(six_template, best_match.get("scale", 1.0))
         gray_scaled = cv2.cvtColor(scaled_tmpl, cv2.COLOR_BGR2GRAY)
         
-        result_map = cv2.matchTemplate(gray_screen, gray_scaled, cv2.TM_CCOEFF_NORMED)
+        result_map = cv2.matchTemplate(gray_region, gray_scaled, cv2.TM_CCOEFF_NORMED)
         locations = np.where(result_map >= 0.85)
         
         six_positions = []
         for pt in zip(*locations[::-1]):
             x, y = pt
+            abs_x = x + region_x1
+            abs_y = y + region_y1
             six_positions.append({
-                "x": x, "y": y,
+                "x": abs_x, "y": abs_y,
                 "w": w, "h": h,
-                "center_x": x + w // 2,
-                "center_y": y + h // 2,
+                "center_x": abs_x + w // 2,
+                "center_y": abs_y + h // 2,
                 "score": result_map[y, x]
             })
         
