@@ -146,13 +146,8 @@ class SingleWindowMiner:
             warnings.filterwarnings("ignore", message="Neither CUDA nor MPS are available - defaulting to CPU")
             
             import easyocr
-            # 禁用 GPU 检查，直接使用 CPU，添加识别参数提高准确率
-            self.ocr_reader = easyocr.Reader(
-                ['ch_sim', 'en'], 
-                gpu=False,
-                detector=False,  # 不使用文本检测，直接识别整个区域
-                verbose=False
-            )
+            # 禁用 GPU 检查，直接使用 CPU
+            self.ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False, verbose=False)
             self.ocr_enabled = True
             self.logger.info("OCR 初始化成功")
         except ImportError as e:
@@ -249,8 +244,14 @@ class SingleWindowMiner:
             # 转换为灰度图
             gray = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
             
-            # OCR 识别
-            results = self.ocr_reader.readtext(gray)
+            # OCR 识别，降低文本阈值提高检测灵敏度
+            results = self.ocr_reader.readtext(
+                gray,
+                text_threshold=0.3,
+                low_text=0.1,
+                link_threshold=0.1,
+                width_ths=0.5
+            )
             
             if results:
                 best_text = None
