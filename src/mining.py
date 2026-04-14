@@ -235,7 +235,15 @@ class SingleWindowMiner:
             self.logger.debug(f"OCR 区域截图已保存: {debug_path}")
             
             # RapidOCR 识别
-            result, _, _ = self.ocr_reader(region)
+            ocr_result = self.ocr_reader(region)
+            
+            # 处理不同版本的返回格式
+            if hasattr(ocr_result, 'result'):
+                result = ocr_result.result
+            elif isinstance(ocr_result, (list, tuple)):
+                result = ocr_result[0] if ocr_result[0] is not None else ocr_result
+            else:
+                result = ocr_result
             
             if result is not None and len(result) > 0:
                 best_text = None
