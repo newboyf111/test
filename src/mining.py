@@ -241,18 +241,36 @@ class SingleWindowMiner:
             cv2.imwrite(debug_path, region)
             self.logger.debug(f"OCR 区域截图已保存: {debug_path}")
             
-            # 转换为灰度图（OpenCV 返回 BGR，所以用 COLOR_BGR2GRAY）
+            # 图像预处理提高识别准确率
             gray = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
             
-            # OCR 识别
-            results = self.ocr_reader.readtext(gray)
+            # 自适应阈值二值化，增强文字对比度
+            binary = cv2.adaptiveThreshold(
+                gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
+                cv2.THRESH_BINARY, 11, 2
+            )
+            
+            # 形态学操作去除噪点
+            kernel = np.ones((1, 1), np.uint8)
+            binary = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)
+            
+            # 增强对比度
+            alpha = 1.5  # 对比度增益
+            beta = 0     # 亮度增益
+            enhanced = cv2.convertScaleAbs(binary, alpha=alpha, beta=beta)
+            
+            # OCR 识别（使用增强后的图像）
+            results = self.ocr_reader.readtext(enhanced, detail=0)
             
             if results:
-                # 提取识别文本
-                text = results[0][1]
-                confidence = results[0][2]
-                self.logger.info(f"OCR 识别结果: '{text}' (置信度: {confidence:.2f})")
-                return text
+                # 提取识别文本，取第一个结果
+                text = results[0].strip()
+                
+                # 清理识别结果，只保留数字和斜杠
+                cleaned = ''.join(c for c in text if c.isdigit() or c == '/')
+                
+                self.logger.info(f"OCR 识别结果: '{cleaned}' (原始: '{text}')")
+                return cleaned if cleaned else text
             
             return None
         except (RuntimeError, ValueError) as e:
