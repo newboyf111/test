@@ -1109,6 +1109,9 @@ class MultiWindowMiningManager:
         self._mining_scheduler_thread: threading.Thread = None  # 挖矿调度线程
         self._scheduler_running: bool = False  # 调度器是否运行中
         self._scheduler_lock = threading.Lock()  # 调度器锁
+        
+        # 所有窗口挖矿完成时的回调
+        self._all_completed_callback = None
 
     def add_window(self, hwnd: int, window_name: str = "") -> bool:
         """添加窗口"""
@@ -1405,6 +1408,23 @@ class MultiWindowMiningManager:
                 if miner.mining_state == 1:
                     miner.mining_state = 2
                     self.logger.info(f"窗口 {miner.window_name} 挖矿状态设置为 2（挖矿结束）")
+        
+        # 通知所有窗口挖矿完成（用于启动保护性外壳检测）
+        self._on_all_mining_completed()
+    
+    def _on_all_mining_completed(self):
+        """
+        所有窗口挖矿完成时的回调
+        可被外部设置以执行额外操作（如启动保护性外壳检测）
+        """
+        self.logger.info("所有窗口挖矿完成")
+        
+        # 如果有外部回调，则调用
+        if hasattr(self, '_all_completed_callback') and self._all_completed_callback:
+            try:
+                self._all_completed_callback()
+            except Exception as e:
+                self.logger.error(f"执行完成回调时出错: {e}")
     
     def start_mining_queue(self) -> bool:
         """

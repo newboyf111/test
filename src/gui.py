@@ -44,6 +44,8 @@ class WujindongriGUI:
         
         # 初始化模块
         self.mining_manager = MultiWindowMiningManager()
+        # 设置所有窗口挖矿完成时的回调
+        self.mining_manager._all_completed_callback = self._on_all_mining_completed
         self.window_manager = WindowManager()
         self.recording_module = RecordingModule(self)
         self.protective_casing = ProtectiveCasing(mining_manager=self.mining_manager)
@@ -764,52 +766,8 @@ class WujindongriGUI:
                 # 停止倒计时
                 self.countdown_running = False
                 
-                # 检查是否有窗口是用户手动停止的
-                user_stopped_windows = []
-                auto_stopped_windows = []
-                for miner in self.mining_manager.miners.values():
-                    if miner.is_user_stopped():
-                        user_stopped_windows.append(miner.window_name)
-                    else:
-                        auto_stopped_windows.append(miner.window_name)
-                
-                # 只有在所有窗口都是自动停止（自然完成）时才启动保护性外壳
-                if user_stopped_windows:
-                    self.log(f"检测到用户手动停止了 {len(user_stopped_windows)} 个窗口，不启动保护性外壳检测")
-                elif auto_stopped_windows:
-                    self.log(f"检测到 {len(auto_stopped_windows)} 个窗口自动挖矿完成，准备启动保护性外壳检测")
-                    
-                    # 挖矿结束后，启动保护性外壳检测
-                    if hasattr(self, 'protective_casing') and self.protective_casing:
-                        # 检查是否已经在运行
-                        if not self.protective_casing.running:
-                            # 获取当前选中的窗口列表（使用映射获取正确的窗口）
-                            selected_indices = self.window_listbox.curselection()
-                            selected_windows = []
-                            
-                            if not selected_indices:
-                                self.log("未选择窗口，无法启动保护性外壳检测")
-                                return
-                            else:
-                                # 使用映射获取选中的窗口
-                                for index in selected_indices:
-                                    if index in self.window_listbox_hwnd_map:
-                                        hwnd = self.window_listbox_hwnd_map[index]
-                                        window_text = self.window_listbox.get(index)
-                                        if "(" in window_text and ")" in window_text:
-                                            start = window_text.rfind("(")
-                                            title = window_text[:start].strip()
-                                        else:
-                                            title = window_text
-                                        selected_windows.append((hwnd, title))
-                            
-                            if selected_windows:
-                                self.protective_casing.set_windows(selected_windows)
-                                # 启动保护性外壳检测
-                                threading.Thread(target=self.protective_casing.start, daemon=True).start()
-                                self.log(f"已启动保护性外壳检测，监控 {len(selected_windows)} 个窗口")
-                            else:
-                                self.log("无窗口可监控，保护性外壳检测未启动")
+                # 调用回调函数处理保护性外壳检测
+                self._on_all_mining_completed()
                 
                 # 如果设置了定时，启动倒计时
                 timer_minutes = int(self.timer_slider.get())
@@ -1507,6 +1465,66 @@ class WujindongriGUI:
         
         # 启动状态检查
         self._check_mining_status()
+    
+    def _on_all_mining_completed(self):
+        """所有窗口挖矿完成时的回调 - 启动保护性外壳检测"""
+        self.log("所有窗口挖矿完成，准备启动保护性外壳检测")
+        
+        # 检查是否有窗口是用户手动停止的
+        user_stopped_windows = []
+        auto_stopped_windows = []
+        for miner in self.mining_manager.miners.values():
+            if miner.is_user_stopped():
+                user_stopped_windows.append(miner.window_name)
+            else:
+                auto_stopped_windows.append(miner.window_name)
+        
+        # 只有在所有窗口都是自动停止（自然完成）时才启动保护性外壳
+        if user_stopped_windows:
+            self.log(f"检测到用户手动停止了 {len(user_stopped_windows)} 个窗口，不启动保护性外壳检测")
+            return
+        
+        if not auto_stopped_windows:
+            self.log("没有窗口需要挖矿")
+            return
+        
+        self.log(f"检测到 {len(auto_stopped_windows)} 个窗口自动挖矿完成，准备启动保护性外壳检测")
+        
+        # 挖矿结束后，启动保护性外壳检测
+        if hasattr(self, 'protective_casing') and self.protective_casing:
+            # 检查是否已经在运行
+            if not self.protective_casing.running:
+                # 获取当前选中的窗口列表
+                selected_indices = self.window_listbox.curselection()
+                selected_windows = []
+                
+                if not selected_indices:
+                    self.log("未选择窗口，无法启动保护性外壳检测")
+                    return
+                
+                # 使用映射获取选中的窗口
+                for index in selected_indices:
+                    if index in self.window_listbox_hwnd_map:
+                        hwnd = self.window_listbox_hwnd_map[index]
+                        window_text = self.window_listbox.get(index)
+                        if "(" in window_text and ")" in window_text:
+                            start = window_text.rfind("(")
+                            title = window_text[:start].strip()
+                        else:
+                            title = window_text
+                        selected_windows.append((hwnd, title))
+                
+                if selected_windows:
+                    self.protective_casing.set_windows(selected_windows)
+                    # 启动保护性外壳检测
+                    threading.Thread(target=self.protective_casing.start, daemon=True).start()
+                    self.log(f"已启动保护性外壳检测，监控 {len(selected_windows)} 个窗口")
+                else:
+                    self.log("无窗口可监控，保护性外壳检测未启动")
+            else:
+                self.log("保护性外壳检测已在运行中")
+        else:
+            self.log("保护性外壳模块未初始化")
     
     def run(self):
         """运行 GUI"""
