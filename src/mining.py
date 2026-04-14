@@ -248,15 +248,31 @@ class SingleWindowMiner:
             results = self.ocr_reader.readtext(gray)
             
             if results:
-                # 提取识别文本
-                text = results[0][1]
-                confidence = results[0][2]
+                best_text = None
+                best_confidence = 0
                 
-                # 清理识别结果，只保留数字和斜杠
-                cleaned = ''.join(c for c in text if c.isdigit() or c == '/')
+                # 遍历所有识别结果，找包含斜杠的结果
+                for result in results:
+                    text = result[1]
+                    confidence = result[2]
+                    
+                    # 清理识别结果，只保留数字和斜杠
+                    cleaned = ''.join(c for c in text if c.isdigit() or c == '/')
+                    
+                    # 如果包含斜杠，优先选择
+                    if '/' in cleaned and confidence > best_confidence:
+                        best_text = cleaned
+                        best_confidence = confidence
                 
-                self.logger.info(f"OCR 识别结果: '{cleaned}' (原始: '{text}', 置信度: {confidence:.2f})")
-                return cleaned if cleaned else text
+                # 如果没有找到包含斜杠的结果，取第一个结果
+                if best_text is None:
+                    text = results[0][1]
+                    confidence = results[0][2]
+                    best_text = ''.join(c for c in text if c.isdigit() or c == '/')
+                    best_confidence = confidence
+                
+                self.logger.info(f"OCR 识别结果: '{best_text}' (置信度: {best_confidence:.2f})")
+                return best_text if best_text else None
             
             return None
         except (RuntimeError, ValueError) as e:
