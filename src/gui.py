@@ -1358,15 +1358,11 @@ class WujindongriGUI:
         """提前初始化OCR（在GUI启动时）"""
         self.log("正在提前初始化OCR...")
         try:
-            import warnings
-            warnings.filterwarnings("ignore", message="'pin_memory' argument is set as true but no accelerator is found")
-            warnings.filterwarnings("ignore", message="Neither CUDA nor MPS are available - defaulting to CPU")
-            
-            import easyocr
-            ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False)
+            from rapidocr import RapidOCR
+            ocr_reader = RapidOCR()
             self.log("✓ OCR 提前初始化完成")
         except ImportError:
-            self.log("⚠ easyocr 未安装，跳过 OCR 初始化")
+            self.log("⚠ RapidOCR 未安装，跳过 OCR 初始化")
         except (RuntimeError, OSError) as e:
             self.log(f"⚠ OCR 初始化失败: {e}")
     
@@ -1439,12 +1435,8 @@ class WujindongriGUI:
         animation_thread.start()
         
         try:
-            import warnings
-            warnings.filterwarnings("ignore", message="'pin_memory' argument is set as true but no accelerator is found")
-            warnings.filterwarnings("ignore", message="Neither CUDA nor MPS are available - defaulting to CPU")
-            
-            import easyocr
-            ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False)
+            from rapidocr import RapidOCR
+            ocr_reader = RapidOCR()
             
             # OCR 加载完成，更新进度为 100%
             self.root.after(0, lambda: self.update_loading_progress(100, "OCR 加载完成"))
@@ -1452,7 +1444,7 @@ class WujindongriGUI:
             # OCR 加载完成，更新界面
             self.root.after(0, self._on_ocr_loaded)
         except ImportError:
-            self.root.after(0, lambda: self.update_loading_progress(100, "easyocr 未安装"))
+            self.root.after(0, lambda: self.update_loading_progress(100, "RapidOCR 未安装"))
             self.root.after(0, self._on_ocr_loaded)
         except (RuntimeError, OSError) as e:
             self.root.after(0, lambda: self.update_loading_progress(100, f"OCR 加载失败: {e}"))
