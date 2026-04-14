@@ -147,7 +147,7 @@ class SingleWindowMiner:
             
             import easyocr
             # 禁用 GPU 检查，直接使用 CPU
-            self.ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False, verbose=False)
+            self.ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False)
             self.ocr_enabled = True
             self.logger.info("OCR 初始化成功")
         except ImportError as e:
@@ -244,14 +244,8 @@ class SingleWindowMiner:
             # 转换为灰度图
             gray = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
             
-            # OCR 识别，降低文本阈值提高检测灵敏度
-            results = self.ocr_reader.readtext(
-                gray,
-                text_threshold=0.3,
-                low_text=0.1,
-                link_threshold=0.1,
-                width_ths=0.5
-            )
+            # OCR 识别
+            results = self.ocr_reader.readtext(gray)
             
             if results:
                 best_text = None
