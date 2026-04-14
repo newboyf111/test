@@ -139,20 +139,13 @@ class SingleWindowMiner:
             return
         
         try:
-            # 忽略 PyTorch DataLoader 的 pin_memory 警告
-            import warnings
-            warnings.filterwarnings("ignore", message="'pin_memory' argument is set as true but no accelerator is found")
-            # 忽略 easyocr 的 GPU 检查警告
-            warnings.filterwarnings("ignore", message="Neither CUDA nor MPS are available - defaulting to CPU")
-            
-            import easyocr
-            # 禁用 GPU 检查，直接使用 CPU
-            self.ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False)
+            from rapidocr import RapidOCR
+            self.ocr_reader = RapidOCR()
             self.ocr_enabled = True
-            self.logger.info("OCR 初始化成功")
+            self.logger.info("RapidOCR 初始化成功")
         except ImportError as e:
             self.ocr_enabled = False
-            self.logger.warning(f"easyocr 未安装，跳过 OCR 识别: {e}")
+            self.logger.warning(f"RapidOCR 未安装，跳过 OCR 识别: {e}")
         except Exception as e:
             self.ocr_enabled = False
             self.logger.warning(f"OCR 初始化失败: {type(e).__name__}: {e}")
@@ -241,20 +234,17 @@ class SingleWindowMiner:
             cv2.imwrite(debug_path, region)
             self.logger.debug(f"OCR 区域截图已保存: {debug_path}")
             
-            # 转换为灰度图
-            gray = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
+            # RapidOCR 识别
+            result, _, _ = self.ocr_reader(region)
             
-            # OCR 识别
-            results = self.ocr_reader.readtext(gray)
-            
-            if results:
+            if result is not None and len(result) > 0:
                 best_text = None
                 best_confidence = 0
                 
                 # 遍历所有识别结果，找包含斜杠的结果
-                for result in results:
-                    text = result[1]
-                    confidence = result[2]
+                for item in result:
+                    text = item[1]
+                    confidence = item[2]
                     
                     # 清理识别结果，只保留数字和斜杠
                     cleaned = ''.join(c for c in text if c.isdigit() or c == '/')
@@ -266,8 +256,8 @@ class SingleWindowMiner:
                 
                 # 如果没有找到包含斜杠的结果，取第一个结果
                 if best_text is None:
-                    text = results[0][1]
-                    confidence = results[0][2]
+                    text = result[0][1]
+                    confidence = result[0][2]
                     best_text = ''.join(c for c in text if c.isdigit() or c == '/')
                     best_confidence = confidence
                 
