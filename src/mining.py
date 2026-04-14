@@ -244,8 +244,13 @@ class SingleWindowMiner:
             # 转换为灰度图
             gray = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
             
-            # OCR 识别
-            results = self.ocr_reader.readtext(gray)
+            # OCR 识别，添加 batch_size 和详细输出
+            results = self.ocr_reader.readtext(
+                gray, 
+                batch_size=1,
+                workers=1,
+                detail=1
+            )
             
             if results:
                 best_text = None
