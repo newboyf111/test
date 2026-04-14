@@ -483,7 +483,7 @@ class SingleWindowMiner:
                 self.logger.info("用户手动停止，退出挖矿流程")
                 return False
             time.sleep(random.uniform(0.5, 1))
-            if self._click("wild"):
+            if self._click("wild")[0]:
                 self.logger.info("点击 wild 成功，等待2-3秒后开始挖矿流程")
                 if self._user_stopped:
                     self.logger.info("用户手动停止，退出挖矿流程")
@@ -501,7 +501,7 @@ class SingleWindowMiner:
                 self.logger.info("用户手动停止，退出挖矿流程")
                 return False
             time.sleep(random.uniform(0.5, 1))
-            if self._click("close"):
+            if self._click("close")[0]:
                 self.logger.info("点击 close 成功，开始挖矿流程")
                 if self._user_stopped:
                     self.logger.info("用户手动停止，退出挖矿流程")
@@ -518,7 +518,7 @@ class SingleWindowMiner:
                 self.logger.info("用户手动停止，退出挖矿流程")
                 return False
             time.sleep(random.uniform(0.5, 1))
-            if self._click("back"):
+            if self._click("back")[0]:
                 self.logger.info("点击 back 成功")
                 if self._user_stopped:
                     self.logger.info("用户手动停止，退出挖矿流程")
@@ -532,7 +532,7 @@ class SingleWindowMiner:
                         self.logger.info("用户手动停止，退出挖矿流程")
                         return False
                     time.sleep(random.uniform(0.5, 1))
-                    if self._click("back1"):
+                    if self._click("back1")[0]:
                         self.logger.info("点击 back1 成功，开始挖矿流程")
                         if self._user_stopped:
                             self.logger.info("用户手动停止，退出挖矿流程")
@@ -553,7 +553,7 @@ class SingleWindowMiner:
                 self.logger.info("用户手动停止，退出挖矿流程")
                 return False
             time.sleep(random.uniform(0.5, 1))
-            if self._click("back1"):
+            if self._click("back1")[0]:
                 self.logger.info("点击 back1 成功，开始挖矿流程")
                 if self._user_stopped:
                     self.logger.info("用户手动停止，退出挖矿流程")
@@ -730,7 +730,7 @@ class SingleWindowMiner:
             if self._user_stopped:
                 self.logger.info("用户手动停止，退出挖矿流程")
                 return
-            if self._click(resource_key):
+            if self._click(resource_key)[0]:
                 self.logger.info(f"点击资源成功: {resource_key}")
                 resource_found = True
                 break
@@ -787,7 +787,7 @@ class SingleWindowMiner:
                 return
             self.logger.info("尝试寻找 gather...")
             
-            if self._click("gather"):
+            if self._click("gather")[0]:
                 self.logger.info("点击 gather 成功")
                 gather_found = True
                 break
@@ -819,7 +819,7 @@ class SingleWindowMiner:
             time.sleep(random.uniform(1, 2))
             
             # 重新点击 search_meat
-            if self._click("search_meat"):
+            if self._click("search_meat")[0]:
                 self.logger.info("重新点击 search_meat 成功")
                 if self._user_stopped:
                     self.logger.info("用户手动停止，退出挖矿流程")
@@ -853,7 +853,7 @@ class SingleWindowMiner:
         if self._find("team"):
             self.logger.info("找到 team，队列已满，停止挖矿")
             time.sleep(random.uniform(1, 2))
-            if self._click("close"):
+            if self._click("close")[0]:
                 self.logger.info("点击 close 成功")
             self.is_mining = False
             self.mined = True
@@ -861,7 +861,7 @@ class SingleWindowMiner:
                 self.mining_manager._on_window_mining_stopped(self.hwnd)
             return
 
-        if self._click("battle"):
+        if self._click("battle")[0]:
             self.logger.info("点击 battle 成功，完成一轮")
             self.completed_cycles += 1
             self.max_cycles -= 1  # 减少还需要循环的次数
@@ -880,7 +880,7 @@ class SingleWindowMiner:
             if self._find("team"):
                 self.logger.info("找到 team，停止挖矿")
                 time.sleep(random.uniform(1, 2))
-                if self._click("close"):
+                if self._click("close")[0]:
                     self.logger.info("点击 close 成功")
                 self.is_mining = False
                 self.mined = True
