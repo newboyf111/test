@@ -57,6 +57,7 @@ class WujindongriGUI:
         self.active_windows_label = None
         self.window_listbox_hwnd_map = {}  # 列表框索引到 hwnd 的映射
         self.ocr_loaded = False  # OCR 是否加载完成
+        self._log_enabled = True  # 日志输出开关，用于初始化时禁用
         
         # 创建启动进度条界面
         self._create_loading_screen()
@@ -359,17 +360,12 @@ class WujindongriGUI:
         """窗口选择事件"""
         selection = self.window_listbox.curselection()
         if selection:
-            self.selected_window = selection[0]  # 保存第一个选中的窗口索引
+            self.selected_window = selection[0]
             selected_titles = []
             for index in selection:
                 window_text = self.window_listbox.get(index)
                 selected_titles.append(window_text)
-            self.log(f"=== 窗口选择事件 ===")
-            self.log(f"选中窗口数量: {len(selection)}")
-            for i, index in enumerate(selection):
-                window_text = self.window_listbox.get(index)
-                self.log(f"#{i}: {window_text}")
-            # 窗口选择后重置绿色标签
+            self.log(f"选中窗口: {', '.join(selected_titles)}")
             if self.active_windows_label:
                 self._update_active_windows_label([])
         else:
@@ -749,6 +745,8 @@ class WujindongriGUI:
         
     def log(self, message):
         """添加日志"""
+        if not self._log_enabled:
+            return
         self.log_text.config(state="normal")
         self.log_text.insert("end", f"[{time.strftime('%H:%M:%S')}] {message}\n")
         self.log_text.see("end")
@@ -1439,6 +1437,9 @@ class WujindongriGUI:
         
         # 创建主界面
         self.create_widgets()
+        
+        # 启用日志输出
+        self._log_enabled = True
         
         # 初始化记录模块的窗口列表框
         self.recording_module.set_window_listbox(self.window_listbox)
