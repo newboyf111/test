@@ -244,9 +244,14 @@ class SingleWindowMiner:
             # 转换为灰度图
             gray = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
             
+            # 图像预处理：增强对比度让文字和斜杠更清晰
+            # 转换为灰度后进行对比度增强
+            clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(4, 4))
+            enhanced = clahe.apply(gray)
+            
             # OCR 识别，添加 batch_size 和详细输出
             results = self.ocr_reader.readtext(
-                gray, 
+                enhanced, 
                 batch_size=1,
                 workers=1,
                 detail=1
