@@ -794,8 +794,8 @@ class SingleWindowMiner:
             
             self.logger.warning("未找到 gather")
             
-            # 执行备选方案：向左移动并重新点击 search_meat
-            self.logger.info("执行备选方案：向左移动并重新点击 search_meat")
+            # 执行备选方案：点击 add，向左移动，重新点击 search_meat
+            self.logger.info("执行备选方案：点击 add，向左移动，重新点击 search_meat")
             if self._user_stopped:
                 self.logger.info("用户手动停止，退出挖矿流程")
                 return
@@ -842,9 +842,39 @@ class SingleWindowMiner:
             # 备选方案执行完毕，继续循环尝试找 gather
         
         if not gather_found:
-            self.logger.warning(f"3秒内未找到 gather")
-            self.resource_index = (self.resource_index + 1) % len(self.resource_order)
-            return
+            self.logger.warning(f"3秒内未找到 gather，尝试点击 add")
+            # 不返回，继续尝试点击 add
+            if self._user_stopped:
+                self.logger.info("用户手动停止，退出挖矿流程")
+                return
+            
+            success, add_pos = self._click("add")
+            if success and add_pos:
+                self.logger.info(f"点击 add 成功，位置: {add_pos}")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
+                time.sleep(random.uniform(0.5, 1))
+                
+                # 向左移动（自适应窗口大小，基准30像素）
+                window_size = self._get_window_size()
+                if window_size:
+                    win_w, _ = window_size
+                    scale = win_w / 558
+                    drag_distance = int(30 * scale)
+                    self.logger.info(f"窗口宽度: {win_w}, 缩放比例: {scale:.3f}, 拖动距离: {drag_distance} 像素")
+                else:
+                    drag_distance = 30
+                    self.logger.warning("无法获取窗口尺寸，使用原始拖动距离 30 像素")
+                
+                self._drag(-drag_distance, 0, 0.05)
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
+            else:
+                self.logger.warning("未找到 add，切换资源")
+                self.resource_index = (self.resource_index + 1) % len(self.resource_order)
+                return
 
         time.sleep(random.uniform(1, 2))
 
