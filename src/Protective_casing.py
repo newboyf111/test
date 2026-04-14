@@ -466,3 +466,12 @@ class ProtectiveCasing:
         except (AttributeError, RuntimeError) as e:
             self.logger.error(f"检查挖矿状态失败: {e}")
             return False
+
+    def process_six_with_red_check(self, hwnd: int, window_name: str, six_positions: List[dict]):
+        """处理 six 的完整流程（GUI调用）"""
+        detector = DashedLineDetector()
+        self.process_six(hwnd, window_name, six_positions, detector)
+
+    def start_deploy_flow(self, hwnd: int, window_name: str):
+        """启动 deploy 流程（GUI调用）"""
+        self.process_shield_flow(hwnd, window_name)
