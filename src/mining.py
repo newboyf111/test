@@ -867,16 +867,20 @@ class SingleWindowMiner:
         if self._click("battle")[0]:
             self.logger.info("点击 battle 成功，完成一轮")
             self.completed_cycles += 1
-            self.max_cycles -= 1  # 减少还需要循环的次数
-            self.logger.info(f"已完成 {self.completed_cycles} 轮，还需要循环 {self.max_cycles} 轮")
-            if self.max_cycles <= 0:
-                self.logger.info("已完成所有循环次数，停止挖矿")
+            self.logger.info(f"已完成 {self.completed_cycles} 轮")
+            
+            # battle 成功后必须执行 OCR 检查
+            time.sleep(random.uniform(1, 2))
+            if not self._check_ocr_before_mining():
+                self.logger.info("OCR 检查未通过，停止挖矿")
                 self.is_mining = False
                 self.mined = True
                 if self.mining_manager is not None:
                     self.mining_manager._on_window_mining_stopped(self.hwnd)
-            else:
-                self.resource_index = (self.resource_index + 1) % len(self.resource_order)
+                return
+            
+            # 切换资源
+            self.resource_index = (self.resource_index + 1) % len(self.resource_order)
         else:
             self.logger.warning("未找到 battle")
             # 再次检查 team
