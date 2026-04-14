@@ -150,12 +150,12 @@ class SingleWindowMiner:
             self.ocr_reader = easyocr.Reader(['ch_sim', 'en'], gpu=False)
             self.ocr_enabled = True
             self.logger.info("OCR 初始化成功")
-        except ImportError:
+        except ImportError as e:
             self.ocr_enabled = False
-            self.logger.warning("easyocr 未安装，跳过 OCR 识别")
-        except (RuntimeError, OSError) as e:
+            self.logger.warning(f"easyocr 未安装，跳过 OCR 识别: {e}")
+        except Exception as e:
             self.ocr_enabled = False
-            self.logger.warning(f"OCR 初始化失败: {e}")
+            self.logger.warning(f"OCR 初始化失败: {type(e).__name__}: {e}")
 
     def _get_screenshot(self) -> Tuple[Optional[np.ndarray], int, int]:
         """获取截图（带缓存）"""
