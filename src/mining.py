@@ -801,21 +801,33 @@ class SingleWindowMiner:
                 return
             time.sleep(random.uniform(1, 2))
             
-            # 向左移动（自适应窗口大小，基准30像素）
-            window_size = self._get_window_size()
-            if window_size:
-                win_w, _ = window_size
-                scale = win_w / 558
-                drag_distance = int(30 * scale)
-                self.logger.info(f"窗口宽度: {win_w}, 缩放比例: {scale:.3f}, 拖动距离: {drag_distance} 像素")
+            # 先点击 add，然后向左移动
+            success, add_pos = self._click("add")
+            if success and add_pos:
+                self.logger.info(f"点击 add 成功，位置: {add_pos}")
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
+                time.sleep(random.uniform(0.5, 1))
+                
+                # 向左移动（自适应窗口大小，基准30像素）
+                window_size = self._get_window_size()
+                if window_size:
+                    win_w, _ = window_size
+                    scale = win_w / 558
+                    drag_distance = int(30 * scale)
+                    self.logger.info(f"窗口宽度: {win_w}, 缩放比例: {scale:.3f}, 拖动距离: {drag_distance} 像素")
+                else:
+                    drag_distance = 30
+                    self.logger.warning("无法获取窗口尺寸，使用原始拖动距离 30 像素")
+                
+                self._drag(-drag_distance, 0, 0.05)
+                if self._user_stopped:
+                    self.logger.info("用户手动停止，退出挖矿流程")
+                    return
             else:
-                drag_distance = 30
-                self.logger.warning("无法获取窗口尺寸，使用原始拖动距离 30 像素")
+                self.logger.warning("未找到 add")
             
-            self._drag(-drag_distance, 0, 0.05)
-            if self._user_stopped:
-                self.logger.info("用户手动停止，退出挖矿流程")
-                return
             time.sleep(random.uniform(1, 2))
             
             # 重新点击 search_meat
