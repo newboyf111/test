@@ -237,40 +237,36 @@ class SingleWindowMiner:
             # RapidOCR 识别
             ocr_result = self.ocr_reader(region)
             
-            # 处理不同版本的返回格式
-            if hasattr(ocr_result, 'result'):
-                result = ocr_result.result
-            elif isinstance(ocr_result, (list, tuple)):
-                result = ocr_result[0] if ocr_result[0] is not None else ocr_result
-            else:
-                result = ocr_result
-            
-            if result is not None and len(result) > 0:
-                best_text = None
-                best_confidence = 0
+            # 处理 RapidOCROutput 返回格式
+            if hasattr(ocr_result, 'txts') and hasattr(ocr_result, 'scores'):
+                # 新版本格式：RapidOCROutput 对象
+                txts = ocr_result.txts
+                scores = ocr_result.scores
                 
-                # 遍历所有识别结果，找包含斜杠的结果
-                for item in result:
-                    text = item[1]
-                    confidence = item[2]
+                if txts and scores and len(txts) > 0:
+                    best_text = None
+                    best_confidence = 0
                     
-                    # 清理识别结果，只保留数字和斜杠
-                    cleaned = ''.join(c for c in text if c.isdigit() or c == '/')
+                    # 遍历所有识别结果，找包含斜杠的结果
+                    for text, confidence in zip(txts, scores):
+                        # 清理识别结果，只保留数字和斜杠
+                        cleaned = ''.join(c for c in text if c.isdigit() or c == '/')
+                        
+                        # 如果包含斜杠，优先选择
+                        if '/' in cleaned and confidence > best_confidence:
+                            best_text = cleaned
+                            best_confidence = confidence
                     
-                    # 如果包含斜杠，优先选择
-                    if '/' in cleaned and confidence > best_confidence:
-                        best_text = cleaned
+                    # 如果没有找到包含斜杠的结果，取第一个结果
+                    if best_text is None and len(txts) > 0:
+                        text = txts[0]
+                        confidence = scores[0]
+                        best_text = ''.join(c for c in text if c.isdigit() or c == '/')
                         best_confidence = confidence
-                
-                # 如果没有找到包含斜杠的结果，取第一个结果
-                if best_text is None:
-                    text = result[0][1]
-                    confidence = result[0][2]
-                    best_text = ''.join(c for c in text if c.isdigit() or c == '/')
-                    best_confidence = confidence
-                
-                self.logger.info(f"OCR 识别结果: '{best_text}' (置信度: {best_confidence:.2f})")
-                return best_text if best_text else None
+                    
+                    if best_text:
+                        self.logger.info(f"OCR 识别结果: '{best_text}' (置信度: {best_confidence:.2f})")
+                        return best_text
             
             return None
         except (RuntimeError, ValueError) as e:
