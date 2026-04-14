@@ -226,14 +226,6 @@ class SingleWindowMiner:
             return None
         
         try:
-            # 保存 OCR 区域截图用于调试
-            debug_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'test_output', 'ocr_debug')
-            os.makedirs(debug_dir, exist_ok=True)
-            timestamp = time.strftime("%Y%m%d_%H%M%S")
-            debug_path = os.path.join(debug_dir, f"ocr_{timestamp}.png")
-            cv2.imwrite(debug_path, region)
-            self.logger.debug(f"OCR 区域截图已保存: {debug_path}")
-            
             # RapidOCR 识别
             ocr_result = self.ocr_reader(region)
             
