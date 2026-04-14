@@ -30,6 +30,7 @@ from src.utils.adaptive_matcher import AdaptiveMatcher
 from src.utils.window_utils import set_dpi_aware, capture_window
 from src.utils.resource_path import get_pic_path
 from src.utils import ScreenshotCache
+from src.dashed_line_detector import DashedLineDetector
 
 
 set_dpi_aware()
