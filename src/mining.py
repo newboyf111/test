@@ -836,9 +836,10 @@ class SingleWindowMiner:
                 if self._user_stopped:
                     self.logger.info("用户手动停止，退出挖矿流程")
                     return
-                time.sleep(random.uniform(1, 2))
+                # 不等待，立即回到找 gather 流程
             else:
                 self.logger.warning("重新查找 search_meat 失败")
+            # 备选方案执行完毕，继续循环尝试找 gather
         
         if not gather_found:
             self.logger.warning(f"3秒内未找到 gather")
