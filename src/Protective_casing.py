@@ -4,12 +4,10 @@
 Protective_casing - 自动化脚本模块
 用于循环查看多个游戏窗口检测 war.png，并自动点击 deploy 按钮
 
-修复版：
-1. 抽取公共方法，减少冗余代码
-2. 修复 deploy 点击逻辑（先点击 deploy，再处理 six）
-3. 移除窗口激活检查
-4. 修复内部 import
-5. 增加截图缓存 TTL
+流程：
+1. 循环检测所有目标窗口
+2. 检测 war.png，发现后执行完整流程
+3. 包括 town/six 检测和 Shield 流程
 """
 
 import time
@@ -62,8 +60,8 @@ class ProtectiveCasing:
         self.check_interval = 5
         self.target_windows: List[Tuple[int, str]] = window_list or []
         self.mining_manager = mining_manager
-        # 使用统一的缓存管理器，TTL 调整为 0.5 秒以保持一致性
         self._screenshot_cache = ScreenshotCache(ttl=0.5, logger=self.logger)
+        self.last_screenshot: Dict[int, np.ndarray] = {}
 
     def set_windows(self, window_list: List[Tuple[int, str]]):
         self.target_windows = window_list
@@ -82,8 +80,6 @@ class ProtectiveCasing:
                 return False
         return False
 
-    # ==================== 公共方法（减少冗余）====================
-
     def _get_window_geometry(self, hwnd: int) -> Optional[dict]:
         """获取窗口几何信息"""
         if not win32gui.IsWindow(hwnd):
@@ -96,13 +92,13 @@ class ProtectiveCasing:
             'height': bottom - top
         }
 
-    def _ensure_window_active(self, hwnd: int):
-        """确保窗口激活"""
+    def _activate_window(self, hwnd: int):
+        """激活窗口为前台"""
         if not win32gui.IsWindow(hwnd):
             return
         try:
             win32gui.SetForegroundWindow(hwnd)
-            time.sleep(0.1)
+            time.sleep(0.3)
         except (win32gui.error, OSError) as e:
             self.logger.warning(f"激活窗口失败: {e}")
 
@@ -112,8 +108,7 @@ class ProtectiveCasing:
         if not geom:
             return False
         
-        self._ensure_window_active(hwnd)
-        # 激活后重新获取窗口坐标
+        self._activate_window(hwnd)
         geom = self._get_window_geometry(hwnd)
         if not geom:
             return False
@@ -134,14 +129,21 @@ class ProtectiveCasing:
         
         return self._screenshot_cache.get(hwnd, capture_func)
 
+    def _get_window_screenshot(self, hwnd: int) -> Optional[np.ndarray]:
+        """获取窗口截图（保存到内存）"""
+        result = capture_window(hwnd)
+        if result:
+            screenshot, _, _ = result
+            self.last_screenshot[hwnd] = screenshot
+            return screenshot
+        return None
+
     def _invalidate_screenshot(self, hwnd: int):
         """清除截图缓存"""
         self._screenshot_cache.invalidate(hwnd)
 
-    # ==================== 业务方法 ====================
-
     def check_war_in_window(self, hwnd: int, window_name: str) -> bool:
-        """检查窗口中是否存在 war.png"""
+        """检测窗口中是否存在 war.png"""
         result = self._get_screenshot(hwnd)
         if result is None:
             return False
@@ -162,37 +164,27 @@ class ProtectiveCasing:
         
         screenshot, win_w, win_h = result
         
-        # 检测 town
         town_result = self.matcher.match(screenshot, self.town_image_name, win_w, win_h)
         if not town_result:
             self.logger.info(f"[{window_name}] 未找到 town，跳过 six 检测")
             return []
         
-        # 检测 six
         six_result = self.matcher.match(screenshot, self.six_image_name, win_w, win_h)
         if not six_result:
             self.logger.info(f"[{window_name}] 未找到 six 模板")
             return []
         
-        # 找到所有 six 位置
         six_template = self.matcher.load_template(self.six_image_name)
         if six_template is None:
             return []
         
-        # 使用 matcher.match_multi_scale 找到最佳匹配位置和缩放比例
         best_match = self.matcher.match_multi_scale(screenshot, six_template, scale_min=0.8, scale_max=1.2, steps=10)
         if not best_match:
             self.logger.info(f"[{window_name}] 未找到 six 模板（多尺度匹配失败）")
             return []
         
-        # 使用最佳匹配结果的尺寸
         w, h = best_match["size"]
-        
-        # 使用 cv2.matchTemplate 在最佳缩放模板下进行全图扫描，获取所有匹配位置
         gray_screen = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
-        gray_tmpl = cv2.cvtColor(six_template, cv2.COLOR_BGR2GRAY)
-        
-        # 缩放模板用于全图匹配
         scaled_tmpl = self.matcher.scale_template(six_template, best_match.get("scale", 1.0))
         gray_scaled = cv2.cvtColor(scaled_tmpl, cv2.COLOR_BGR2GRAY)
         
@@ -210,12 +202,10 @@ class ProtectiveCasing:
                 "score": result_map[y, x]
             })
         
-        # NMS 过滤
         if six_positions:
             original_count = len(six_positions)
             six_positions = self._apply_nms(six_positions, threshold=0.6)
-            filtered_count = len(six_positions)
-            self.logger.info(f"[{window_name}] NMS 过滤: {original_count} -> {filtered_count} 个 six")
+            self.logger.info(f"[{window_name}] NMS 过滤: {original_count} -> {len(six_positions)} 个 six")
         
         self.logger.info(f"[{window_name}] 检测到 {len(six_positions)} 个 six")
         return six_positions
@@ -260,9 +250,7 @@ class ProtectiveCasing:
         rel_y = int(self.DEPLOY_RELATIVE_Y * scale)
         
         if self._click_at(hwnd, rel_x, rel_y, "deploy"):
-            abs_x = geom['left'] + rel_x
-            abs_y = geom['top'] + rel_y
-            self.logger.info(f"[{window_name}] 点击 deploy @ ({abs_x}, {abs_y})")
+            self.logger.info(f"[{window_name}] 点击 deploy")
 
     def click_buy_2(self, hwnd: int, window_name: str):
         """点击 buy_2 按钮"""
@@ -275,13 +263,11 @@ class ProtectiveCasing:
         rel_y = int(self.BUY_2_RELATIVE_Y * scale)
         
         if self._click_at(hwnd, rel_x, rel_y, "buy_2"):
-            abs_x = geom['left'] + rel_x
-            abs_y = geom['top'] + rel_y
-            self.logger.info(f"[{window_name}] 点击 buy_2 @ ({abs_x}, {abs_y})")
+            self.logger.info(f"[{window_name}] 点击 buy_2")
 
-    def find_and_click(self, hwnd: int, image_path: str, action_name: str, max_attempts: int = 5) -> bool:
+    def find_and_click(self, hwnd: int, image_name: str, action_name: str, max_attempts: int = 5) -> bool:
         """通用的查找并点击方法"""
-        for _ in range(max_attempts):
+        for attempt in range(max_attempts):
             if not self.running:
                 return False
             
@@ -291,7 +277,7 @@ class ProtectiveCasing:
                 continue
             
             screenshot, win_w, win_h = result
-            match_result = self.matcher.match(screenshot, image_path, win_w, win_h)
+            match_result = self.matcher.match(screenshot, image_name, win_w, win_h)
             
             if match_result:
                 x, y = match_result["location"]
@@ -300,193 +286,136 @@ class ProtectiveCasing:
                 center_y = y + h // 2
                 
                 if self._click_at(hwnd, center_x, center_y, action_name):
-                    self.logger.info(f"[{hwnd}] 点击 {action_name} @ ({center_x}, {center_y})")
+                    self.logger.info(f"[{hwnd}] 点击 {action_name}")
                     return True
             
             self._wait(0.5, 0.5)
         
         return False
 
-    def process_six_with_red_check(self, hwnd: int, window_name: str, six_positions: List[dict]) -> bool:
-        """处理 six 的完整流程"""
-        detector = DashedLineDetector()
+    def find_and_click_sure(self, hwnd: int, window_name: str) -> bool:
+        """查找并点击 sure.png"""
+        return self.find_and_click(hwnd, self.sure_image_name, "sure", max_attempts=3)
+
+    def find_and_click_shield(self, hwnd: int, window_name: str) -> bool:
+        """查找并点击 Shield"""
+        return self.find_and_click(hwnd, self.shield_image_name, "Shield", max_attempts=5)
+
+    def process_six(self, hwnd: int, window_name: str, six_positions: List[dict], detector: DashedLineDetector):
+        """处理单个 six"""
+        geom = self._get_window_geometry(hwnd)
+        if not geom:
+            return
         
-        self.logger.info(f"[{window_name}] 开始处理 {len(six_positions)} 个 six...")
+        scale = geom['width'] / self.BASE_WIDTH
+        offset_x = int(100 * scale)
         
         for i, six_pos in enumerate(six_positions):
             if not self.running:
-                return False
+                return
             
-            # 计算缩放比例
-            geom = self._get_window_geometry(hwnd)
-            if not geom:
-                continue
-            scale = geom['width'] / self.BASE_WIDTH
-            offset_x = int(100 * scale)
-            
-            # 第一次点击 (x-offset_x, y)
             click_x = six_pos["x"] - offset_x
             click_y = six_pos["center_y"]
             
             self._click_at(hwnd, click_x, click_y, f"six #{i+1}")
             self._wait(1.0, 2.0)
             
-            # 检测红点
-            self._invalidate_screenshot(hwnd)
-            screenshot_result = self._get_screenshot(hwnd)
+            screenshot = self._get_window_screenshot(hwnd)
             
-            if screenshot_result:
+            if screenshot is not None:
                 tmp_path = None
                 try:
                     with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:
                         tmp_path = tmp.name
                     
-                    cv2.imwrite(tmp_path, screenshot_result[0])
+                    cv2.imwrite(tmp_path, screenshot)
                     has_red = detector.has_red_at_center(tmp_path)
                     
                     if has_red:
-                        # 有红心，等待1-2秒后点击 six 原始坐标
                         self._wait(1.0, 2.0)
                         self._click_at(hwnd, six_pos["x"], six_pos["center_y"], f"six #{i+1} 原始")
-                        # 等待 sure 出现并点击
-                        self.find_and_click(hwnd, self.sure_image_name, "sure")
+                        self.find_and_click_sure(hwnd, window_name)
                     else:
-                        # 没有红心，等待2-3秒后点击 six 原始坐标
-                        self._wait(2.0, 3.0)
-                        self._click_at(hwnd, six_pos["x"], six_pos["center_y"], f"six #{i+1} 原始")
-                        # 等待 sure 出现并点击
-                        self.find_and_click(hwnd, self.sure_image_name, "sure")
+                        self.logger.info(f"[{window_name}] six #{i+1} 未检测到红点，跳过")
                 finally:
                     if tmp_path and os.path.exists(tmp_path):
                         os.unlink(tmp_path)
+
+    def process_shield_flow(self, hwnd: int, window_name: str):
+        """执行 Shield 流程"""
+        self.logger.info(f"[{window_name}] 开始 Shield 流程")
         
-        return True
+        self._wait(1.0, 2.0)
+        self.click_deploy(hwnd, window_name)
+        
+        self._wait(2.0, 3.0)
+        self.find_and_click_shield(hwnd, window_name)
+        
+        self._wait(1.0, 2.0)
+        self.click_buy_2(hwnd, window_name)
+        
+        self._wait(2.0, 3.0)
+        self.find_and_click(hwnd, self.buy_image_name, "buy")
+        
+        self._wait(2.0, 3.0)
+        self.find_and_click(hwnd, self.buy_image_name, "buy")
+        
+        self._wait(3.0, 4.0)
 
     def start(self):
-        """启动自动化脚本"""
+        """启动自动化脚本 - 主流程"""
         self.logger.info("=" * 50)
         self.logger.info("启动保护性外壳自动化脚本")
-        self.logger.info(f"检测目标: {self.war_image_name}")
         self.logger.info("=" * 50)
         
         self.running = True
-        
-        # 如果挖矿正在进行，等待挖矿结束
-        if self.mining_manager and self.mining_manager.get_mining_status():
-            self.logger.info("检测到挖矿进行中，等待挖矿结束...")
-            while self.running and self.mining_manager.get_mining_status():
-                time.sleep(1)
-            self.logger.info("挖矿结束，开始保护性外壳自动化")
-        
-        # 等待所有窗口的 is_mining 标志完全更新为 False
-        if self.mining_manager:
-            self.logger.info("等待所有窗口挖矿状态完全更新...")
-            max_wait_time = 10  # 最多等待 10 秒
-            wait_time = 0
-            while self.running and wait_time < max_wait_time:
-                states = self.mining_manager.get_all_mining_states()
-                if all(state == 2 for state in states.values()):
-                    self.logger.info(f"所有窗口挖矿状态已更新为结束: {states}")
-                    break
-                time.sleep(1)
-                wait_time += 1
-            else:
-                if self.running:
-                    self.logger.warning(f"等待挖矿状态更新超时，继续执行（状态: {states}）")
+        detector = DashedLineDetector()
         
         while self.running:
-            try:
-                for hwnd, window_name in self.target_windows:
-                    if not self.running:
-                        break
-                    
-                    # 移除窗口激活检查，允许后台运行
-                    
-                    # 检查挖矿状态
-                    if self.is_mining_active():
-                        self.logger.debug(f"[{window_name}] 挖矿进行中")
-                        continue
-                    
-                    self._invalidate_screenshot(hwnd)
-                    
-                    # 检测 war
-                    if not self.check_war_in_window(hwnd, window_name):
-                        continue
-                    
-                    self.logger.info(f"[{window_name}] 检测到 war，开始处理")
-                    
-                    # ⚠️ 修复：先点击 deploy，不依赖后续 war 状态
-                    self.click_deploy(hwnd, window_name)
-                    self._wait()
-                    
-                    self.find_and_click(hwnd, self.shield_image_name, "Shield")
-                    self._wait()
-                    
-                    self.click_buy_2(hwnd, window_name)
-                    self._wait()
-                    
-                    self.find_and_click(hwnd, self.buy_image_name, "buy")
-                    self._wait()
-                    
-                    # 再处理 six
-                    six_positions = self.check_town_and_six(hwnd, window_name)
-                    if six_positions:
-                        self.logger.info(f"[{window_name}] 检测到 {len(six_positions)} 个 six")
-                        self.process_six_with_red_check(hwnd, window_name, six_positions)
-                    
-                    self._wait(self.check_interval, self.check_interval)
+            war_windows = []
+            
+            if self.is_mining_active():
+                self.logger.debug("挖矿进行中，暂停 war 检测")
+                self._wait(1, 1)
+                continue
+            
+            for hwnd, window_name in self.target_windows:
+                if not self.running:
+                    break
                 
-                self._wait(1)
+                self._activate_window(hwnd)
+                self._invalidate_screenshot(hwnd)
                 
-            except KeyboardInterrupt:
-                self.running = False
-            except (OSError, RuntimeError) as e:
-                self.logger.error(f"运行错误: {e}", exc_info=True)
-                self._wait(5)
+                if not self.check_war_in_window(hwnd, window_name):
+                    continue
+                
+                war_windows.append((hwnd, window_name))
+                
+                six_positions = self.check_town_and_six(hwnd, window_name)
+                
+                if six_positions:
+                    self.process_six(hwnd, window_name, six_positions, detector)
+                
+                self._invalidate_screenshot(hwnd)
+                
+                if self.check_war_in_window(hwnd, window_name):
+                    self.process_shield_flow(hwnd, window_name)
+            
+            if war_windows:
+                self.logger.info(f"本轮发现 war 的窗口: {[w[1] for w in war_windows]}")
+            else:
+                self.logger.info("所有窗口未发现 war")
+            
+            wait_count = 0
+            while wait_count < self.check_interval and self.running:
+                if self.is_mining_active():
+                    self.logger.info("挖矿启动，结束等待")
+                    break
+                time.sleep(1)
+                wait_count += 1
+        
+        self.logger.info("保护性外壳自动化脚本结束")
 
-    def start_deploy_flow(self, hwnd: int, window_name: str):
-        """启动 deploy 流程"""
-        self.logger.info(f"[{window_name}] 开始 deploy 流程")
-        
-        # 等待 1-2 秒
-        self._wait(1.0, 2.0)
-        self.logger.info(f"[{window_name}] 等待后点击 deploy...")
-        
-        # 点击 deploy 坐标
-        self.click_deploy(hwnd, window_name)
-        
-        # 等待 1-2 秒
-        self._wait(1.0, 2.0)
-        self.logger.info(f"[{window_name}] 等待后等待 Shield 出现...")
-        
-        # 等待 Shield 出现后点击
-        self.find_and_click(hwnd, self.shield_image_name, "Shield")
-        
-        # 等待 1-2 秒
-        self._wait(1.0, 2.0)
-        self.logger.info(f"[{window_name}] 等待后点击 buy_2...")
-        
-        # 点击 buy_2
-        self.click_buy_2(hwnd, window_name)
-        
-        # 等待 1-2 秒
-        self._wait(1.0, 2.0)
-        self.logger.info(f"[{window_name}] 等待后等待 buy 出现...")
-        
-        # 等待 buy 出现后点击
-        self.find_and_click(hwnd, self.buy_image_name, "buy")
-        
-        # 等待 1-2 秒
-        self._wait(1.0, 2.0)
-        self.logger.info(f"[{window_name}] 等待后等待 buy1 出现...")
-        
-        # 点击 buy1
-        self.find_and_click(hwnd, self.buy1_image_path, "buy1")
-        
-        # 等待 1-2 秒
-        self._wait(1.0, 2.0)
-        self.logger.info(f"[{window_name}] 完成 deploy 流程")
-    
     def is_protecting(self) -> bool:
         """检查是否正在保护中"""
         return self.running
@@ -507,30 +436,19 @@ class ProtectiveCasing:
             self.logger.info("启动保护性外壳自动化脚本")
     
     def should_start_after_mining(self) -> bool:
-        """检查是否应该在挖矿结束后启动
-        
-        Returns:
-            bool: 是否应该在挖矿结束后启动
-        """
-        # 如果挖矿管理器不可用，返回 False
+        """检查是否应该在挖矿结束后启动"""
         if not self.mining_manager:
             return False
         
         try:
-            # 检查是否有窗口正在挖矿
             if self.mining_manager.get_mining_status():
                 return False
             
-            # 检查所有窗口的挖矿状态
             states = self.mining_manager.get_all_mining_states()
-            
-            # 如果没有任何窗口，或者所有窗口都已完成挖矿，返回 True
             if not states:
                 return False
             
-            # 检查是否所有窗口都已完成挖矿
-            all_mined = all(state == 2 for state in states.values())
-            return all_mined
+            return all(state == 2 for state in states.values())
         except (AttributeError, RuntimeError) as e:
             self.logger.error(f"检查挖矿状态失败: {e}")
             return False
