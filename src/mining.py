@@ -233,6 +233,14 @@ class SingleWindowMiner:
             return None
         
         try:
+            # 保存 OCR 区域截图用于调试
+            debug_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'test_output', 'ocr_debug')
+            os.makedirs(debug_dir, exist_ok=True)
+            timestamp = time.strftime("%Y%m%d_%H%M%S")
+            debug_path = os.path.join(debug_dir, f"ocr_{timestamp}.png")
+            cv2.imwrite(debug_path, region)
+            self.logger.debug(f"OCR 区域截图已保存: {debug_path}")
+            
             # 转换为灰度图（OpenCV 返回 BGR，所以用 COLOR_BGR2GRAY）
             gray = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
             
