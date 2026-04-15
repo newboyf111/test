@@ -14,6 +14,7 @@ import queue
 import json
 import os
 import time
+import atexit
 
 
 # 定义Windows API函数和常量
@@ -84,6 +85,9 @@ class RecordingModule:
         self.click_queue = None
         self.hook_thread = None
         self.input_dialog = None
+        
+        # 注册退出时清理资源
+        atexit.register(self._cleanup_resources)
     
     def __del__(self) -> None:
         """析构函数，确保资源被清理"""
@@ -248,11 +252,11 @@ class RecordingModule:
             if mouse_hook:
                 result = user32.UnhookWindowsHookEx(mouse_hook)
                 if result:
-                    mouse_hook = None
                     self.gui.log("全局鼠标钩子已移除")
                 else:
                     error_code = ctypes.get_last_error()
                     self.gui.log(f"移除鼠标钩子失败，错误代码: {error_code}")
+                mouse_hook = None
         except (OSError, RuntimeError) as e:
             self.gui.log(f"移除鼠标钩子异常: {e}")
     

@@ -816,6 +816,9 @@ class WujindongriGUI:
         if self.recording_module.get_recording_status():
             self.stop_recording()
         
+        # 确保鼠标钩子被清理
+        self.recording_module.remove_mouse_hook()
+        
         if self.mining_manager.get_mining_status():
             if messagebox.askokcancel("退出", "挖矿正在进行中，确定要退出吗？"):
                 self.mining_manager.stop_mining_queue()

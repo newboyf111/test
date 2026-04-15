@@ -1150,19 +1150,17 @@ class MultiWindowMiningManager:
         """
         确保指定窗口处于激活状态
         统一管理窗口激活，避免多个窗口来回切换
-        注意：此方法不获取锁，调用者需要确保线程安全
         """
-        if self._current_active_hwnd != hwnd:
-            # 需要切换窗口
-            if self._current_active_hwnd is not None:
-                self.logger.info(f"切换窗口: 从 {self._current_active_hwnd} 到 {hwnd} ({window_name})")
-            else:
-                self.logger.info(f"激活窗口: {hwnd} ({window_name})")
-            
-            win32gui.SetForegroundWindow(hwnd)
-            time.sleep(0.1)  # 减少等待时间
-            self._current_active_hwnd = hwnd
-        # 如果窗口已经是激活状态，不做任何操作
+        with self._lock:
+            if self._current_active_hwnd != hwnd:
+                if self._current_active_hwnd is not None:
+                    self.logger.info(f"切换窗口: 从 {self._current_active_hwnd} 到 {hwnd} ({window_name})")
+                else:
+                    self.logger.info(f"激活窗口: {hwnd} ({window_name})")
+                
+                win32gui.SetForegroundWindow(hwnd)
+                time.sleep(0.1)
+                self._current_active_hwnd = hwnd
 
     def start_mining(self, hwnd: int) -> bool:
         """开始指定窗口的挖矿"""

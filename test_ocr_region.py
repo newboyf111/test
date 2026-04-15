@@ -97,7 +97,7 @@ def main():
     
     print(f"窗口尺寸: {win_w}x{win_h}")
     
-    ocr_region_base = (152, 188, 192, 219)
+    ocr_region_base = (156, 184, 194, 220)
     result = get_ocr_region(screenshot, win_w, win_h, ocr_region_base)
     
     if result is None:
