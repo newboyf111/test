@@ -361,16 +361,8 @@ class WujindongriGUI:
         selection = self.window_listbox.curselection()
         if selection:
             self.selected_window = selection[0]
-            selected_titles = []
-            for index in selection:
-                window_text = self.window_listbox.get(index)
-                selected_titles.append(window_text)
-            self.log(f"选中窗口: {', '.join(selected_titles)}")
-            if self.active_windows_label:
-                self._update_active_windows_label([])
-        else:
-            self.log(f"=== 窗口选择事件 ===")
-            self.log(f"没有选中任何窗口")
+        if self.active_windows_label:
+            self._update_active_windows_label([])
     
     def activate_selected_window(self):
         """激活所有选中窗口"""
@@ -1297,17 +1289,13 @@ class WujindongriGUI:
     
     def _update_active_windows_label(self, titles):
         """更新被激活窗口的绿色标签（每个窗口一行）"""
-        if not titles:
-            self.active_windows_label.config(state="normal")
-            self.active_windows_label.delete("1.0", "end")
-            self.active_windows_label.insert("end", "当前被激活的窗口: 无", "green")
-            self.active_windows_label.config(state="disabled")
-            return
-        
         self.active_windows_label.config(state="normal")
         self.active_windows_label.delete("1.0", "end")
-        for title in titles:
-            self.active_windows_label.insert("end", f"• {title}\n", "green")
+        if not titles:
+            self.active_windows_label.insert("end", "当前被激活的窗口: 无", "green")
+        else:
+            for title in titles:
+                self.active_windows_label.insert("end", f"• {title}\n", "green")
         self.active_windows_label.config(state="disabled")
     
     def _pre_init_ocr(self):
