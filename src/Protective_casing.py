@@ -17,16 +17,13 @@ import numpy as np
 import pyautogui
 import win32gui
 import threading
-import ctypes
 import random
 import tempfile
 import os
-from pathlib import Path
 from typing import Optional, List, Tuple, Dict
 
 from src.utils.adaptive_matcher import AdaptiveMatcher
 from src.utils.window_utils import set_dpi_aware, capture_window
-from src.utils.resource_path import get_pic_path
 from src.utils import ScreenshotCache
 from src.dashed_line_detector import DashedLineDetector
 
@@ -88,13 +85,17 @@ class ProtectiveCasing:
         """获取窗口几何信息"""
         if not win32gui.IsWindow(hwnd):
             return None
-        left, top, right, bottom = win32gui.GetWindowRect(hwnd)
-        return {
-            'left': left, 'top': top,
-            'right': right, 'bottom': bottom,
-            'width': right - left,
-            'height': bottom - top
-        }
+        try:
+            left, top, right, bottom = win32gui.GetWindowRect(hwnd)
+            return {
+                'left': left, 'top': top,
+                'right': right, 'bottom': bottom,
+                'width': right - left,
+                'height': bottom - top
+            }
+        except (win32gui.error, OSError) as e:
+            self.logger.warning(f"获取窗口几何信息失败: {e}")
+            return None
 
     def _activate_window(self, hwnd: int):
         """激活窗口为前台"""

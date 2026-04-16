@@ -10,7 +10,6 @@ import logging
 import json
 import os
 import threading
-import cv2
 import numpy as np
 import pyautogui
 import win32gui
@@ -18,9 +17,8 @@ import traceback
 from typing import Optional, Dict, Any, Tuple
 
 from src.utils.adaptive_matcher import AdaptiveMatcher
-from src.utils.window_utils import set_dpi_aware, capture_window, get_window_size, get_window_rect
-from src.utils.resource_path import get_pic_path
-from src.utils.red_dot_detector import detect_red_dots, detect_red_dot_presence, get_red_dot_positions_with_offset
+from src.utils.window_utils import set_dpi_aware, capture_window
+from src.utils.red_dot_detector import detect_red_dot_presence, get_red_dot_positions_with_offset
 
 
 set_dpi_aware()
@@ -125,9 +123,10 @@ class SnowfieldWeaponLeague:
             if screenshot is None:
                 return None
             
-            win_w, win_h = self._get_window_size()
-            if win_w is None or win_h is None:
+            window_size = self._get_window_size()
+            if window_size is None:
                 return None
+            win_w, win_h = window_size
             
             # 如果窗口大小改变，清除匹配器缓存
             if self.last_window_size != (win_w, win_h):
@@ -268,9 +267,10 @@ class SnowfieldWeaponLeague:
             if screenshot is None:
                 return False
             
-            win_w, win_h = self._get_window_size()
-            if win_w is None or win_h is None:
+            window_size = self._get_window_size()
+            if window_size is None:
                 return False
+            win_w, win_h = window_size
             
             if self.last_window_size != (win_w, win_h):
                 self.matcher.clear_cache()
@@ -308,8 +308,8 @@ class SnowfieldWeaponLeague:
             red_dot_found = self._detect_red_dot_in_region(region_screenshot)
             
             if red_dot_found:
-                click_x = abs_x + int(width / 2)
-                click_y = abs_y + int(height / 2)
+                click_x = abs_x + int(abs_width / 2)
+                click_y = abs_y + int(abs_height / 2)
                 window_pos = self._get_window_position()
                 if window_pos is not None:
                     screen_x = window_pos[0] + click_x
@@ -345,9 +345,10 @@ class SnowfieldWeaponLeague:
             if screenshot is None:
                 return False
             
-            win_w, win_h = self._get_window_size()
-            if win_w is None or win_h is None:
+            window_size = self._get_window_size()
+            if window_size is None:
                 return False
+            win_w, win_h = window_size
             
             if self.last_window_size != (win_w, win_h):
                 self.matcher.clear_cache()
@@ -409,9 +410,10 @@ class SnowfieldWeaponLeague:
             if screenshot is None:
                 return False
             
-            win_w, win_h = self._get_window_size()
-            if win_w is None or win_h is None:
+            window_size = self._get_window_size()
+            if window_size is None:
                 return False
+            win_w, win_h = window_size
             
             if self.last_window_size != (win_w, win_h):
                 self.matcher.clear_cache()

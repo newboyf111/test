@@ -7,11 +7,10 @@
 import win32gui
 import win32con
 import win32process
-import win32api
 import psutil
 import time
 import logging
-from typing import List, Tuple, Optional, Dict, Any
+from typing import List, Tuple, Dict, Any
 
 from src.utils.window_utils import set_dpi_aware
 
@@ -208,8 +207,8 @@ class WindowManager:
                 return hwnd
         return None
 
-    def get_activated_windows(self) -> List[str]:
-        """获取当前被激活的窗口标题列表"""
+    def get_visible_window_titles(self) -> List[str]:
+        """获取所有可见窗口的标题列表"""
         windows = self._get_visible_windows()
         return [title for _, title in windows]
 
@@ -217,18 +216,21 @@ class WindowManager:
         """获取窗口详细信息（用于调试）"""
         info: Dict[str, Any] = {}
 
-        info["title"] = win32gui.GetWindowText(hwnd)
+        try:
+            info["title"] = win32gui.GetWindowText(hwnd)
 
-        left, top, right, bottom = win32gui.GetWindowRect(hwnd)
-        info["window_rect"] = {
-            "left": left, "top": top, "right": right, "bottom": bottom,
-            "width": right - left, "height": bottom - top
-        }
+            left, top, right, bottom = win32gui.GetWindowRect(hwnd)
+            info["window_rect"] = {
+                "left": left, "top": top, "right": right, "bottom": bottom,
+                "width": right - left, "height": bottom - top
+            }
 
-        cl, ct, cr, cb = win32gui.GetClientRect(hwnd)
-        info["client_rect"] = {
-            "width": cr - cl, "height": cb - ct
-        }
+            cl, ct, cr, cb = win32gui.GetClientRect(hwnd)
+            info["client_rect"] = {
+                "width": cr - cl, "height": cb - ct
+            }
+        except (win32gui.error, OSError) as e:
+            info["error"] = f"获取窗口信息失败: {e}"
 
         try:
             _, process_id = win32process.GetWindowThreadProcessId(hwnd)

@@ -19,20 +19,14 @@ import threading
 import time
 import random
 import logging
-import cv2
 import numpy as np
 import pyautogui
-import os
-import ctypes
 import win32gui
-import win32con
-from pathlib import Path
 from typing import Optional, Tuple, Dict, List
-from collections import defaultdict, deque
+from collections import deque
 
 from src.utils.adaptive_matcher import AdaptiveMatcher
 from src.utils.window_utils import set_dpi_aware, capture_window
-from src.utils.resource_path import get_pic_path
 from src.utils import ScreenshotCache
 
 
@@ -83,6 +77,7 @@ class SingleWindowMiner:
 
         # 使用统一的缓存管理器，TTL 保持 0.5 秒
         self._screenshot_cache = ScreenshotCache(ttl=0.5, logger=self.logger)
+        self._screenshot_time = 0  # 截图时间戳
 
         self.image_confidence = {
             "back":  0.85,
@@ -114,6 +109,12 @@ class SingleWindowMiner:
         # 用户手动停止标志
         self._user_stopped = False
         
+        # 倒计时相关属性
+        self.timer_running = False
+        self.timer_minutes = 0
+        self.timer_remaining = 0
+        self.timer_thread = None
+        
         # OCR 识别区域（相对于游戏窗口的基准坐标）
         # 区域: (156, 184) -> (194, 220) 大小: 38x36
         self.ocr_region_base = (156, 184, 194, 220)
@@ -131,6 +132,7 @@ class SingleWindowMiner:
             handler.setFormatter(formatter)
             logger.addHandler(handler)
             logger.setLevel(logging.DEBUG)
+            logger.propagate = False  # 防止日志传播到父 logger 导致重复
         return logger
 
     def _init_ocr(self):
@@ -321,10 +323,11 @@ class SingleWindowMiner:
             self.logger.warning("获取截图失败，跳过 OCR 检查")
             return True
         
-        win_w, win_h = self._get_window_size()
-        if win_w is None or win_h is None:
+        window_size = self._get_window_size()
+        if window_size is None:
             self.logger.warning("获取窗口尺寸失败，跳过 OCR 检查")
             return True
+        win_w, win_h = window_size
         
         # 截取 OCR 区域
         ocr_region = self._capture_ocr_region(screenshot, win_w, win_h)
@@ -405,13 +408,6 @@ class SingleWindowMiner:
     
     def start_timer(self):
         """启动倒计时"""
-        if not hasattr(self, 'timer_running'):
-            self.timer_running = False
-        if not hasattr(self, 'timer_minutes'):
-            self.timer_minutes = 0
-        if not hasattr(self, 'timer_remaining'):
-            self.timer_remaining = 0
-        
         if self.timer_minutes > 0 and not self.timer_running:
             self.timer_running = True
             self.timer_thread = threading.Thread(target=self._timer_loop, daemon=True)
@@ -420,7 +416,7 @@ class SingleWindowMiner:
     
     def stop_timer(self):
         """停止倒计时"""
-        if hasattr(self, 'timer_running') and self.timer_running:
+        if self.timer_running:
             self.timer_running = False
             self.logger.info("倒计时停止")
     
@@ -678,7 +674,7 @@ class SingleWindowMiner:
                     self.logger.info("用户手动停止，退出挖矿流程")
                     return
                 time.sleep(random.uniform(1, 2))
-                if not self._click("back"):
+                if not self._click("back")[0]:
                     return
                 self.logger.info("点击 back 成功")
                 if self._user_stopped:
@@ -692,7 +688,7 @@ class SingleWindowMiner:
                     self.logger.info("用户手动停止，退出挖矿流程")
                     return
                 time.sleep(random.uniform(1, 2))
-                if not self._click("back1"):
+                if not self._click("back1")[0]:
                     return
                 self.logger.info("点击 back1 成功")
                 if self._user_stopped:
@@ -714,7 +710,7 @@ class SingleWindowMiner:
                 self.logger.info("用户手动停止，退出挖矿流程")
                 return
             time.sleep(random.uniform(1, 2))
-            if not self._click("search"):
+            if not self._click("search")[0]:
                 self.logger.warning("未找到 search，执行挖矿初始化流程")
                 if not self._init_mining_flow():
                     return
@@ -730,7 +726,7 @@ class SingleWindowMiner:
                 self.logger.info("用户手动停止，退出挖矿流程")
                 return
             time.sleep(1)
-            if not self._click("wild"):
+            if not self._click("wild")[0]:
                 self.logger.debug("未找到 wild")
                 return
             self.logger.info("点击 wild 成功")
@@ -780,7 +776,7 @@ class SingleWindowMiner:
             return
         time.sleep(random.uniform(1, 2))
 
-        if not self._click("search_meat"):
+        if not self._click("search_meat")[0]:
             self.logger.warning("未找到 search_meat")
             self.resource_index = (self.resource_index + 1) % len(self.resource_order)
             return
@@ -797,8 +793,11 @@ class SingleWindowMiner:
 
         # 循环尝试寻找并点击 gather
         gather_found = False
+        max_retries = 30  # 最多尝试30次
+        retry_count = 0
         
-        while True:
+        while retry_count < max_retries:
+            retry_count += 1
             if self._user_stopped:
                 self.logger.info("用户手动停止，退出挖矿流程")
                 return
@@ -854,7 +853,11 @@ class SingleWindowMiner:
             else:
                 self.logger.warning("未找到 search_meat")
             # 继续循环尝试找 gather
-
+        
+        # 检查是否达到最大重试次数
+        if not gather_found:
+            self.logger.warning(f"达到最大重试次数 ({max_retries})，未能找到 gather")
+        
         time.sleep(random.uniform(1, 2))
 
         # 用户手动停止时立即退出
@@ -971,7 +974,12 @@ class SingleWindowMiner:
         if center is None:
             return False, None
 
-        left, top, _, _ = win32gui.GetWindowRect(self.hwnd)
+        try:
+            left, top, _, _ = win32gui.GetWindowRect(self.hwnd)
+        except Exception as e:
+            self.logger.error(f"获取窗口位置失败: {e}")
+            return False, None
+        
         client_x = center[0]
         client_y = center[1]
         screen_x = left + client_x
@@ -1017,6 +1025,7 @@ class SingleWindowMiner:
             target_y = int(target_y_base * scale)
             self.logger.info(f"窗口宽度: {win_w}, 缩放比例: {scale:.3f}, 目标坐标缩放: ({target_x_base}, {target_y_base}) -> ({target_x}, {target_y})")
         else:
+            scale = 1.0  # 默认缩放比例
             target_x, target_y = target_x_base, target_y_base
             self.logger.warning("无法获取窗口尺寸，使用原始目标坐标")
         
@@ -1064,6 +1073,7 @@ class SingleWindowMiner:
                 dx_scaled = int(dx * scale)
                 dy_scaled = int(dy * scale)
             else:
+                scale = 1.0  # 默认缩放比例
                 dx_scaled = dx
                 dy_scaled = dy
                 self.logger.debug("无法获取窗口尺寸，使用原始拖动距离")
@@ -1280,8 +1290,7 @@ class MultiWindowMiningManager:
             for hwnd, miner in self.miners.items():
                 if hwnd != except_hwnd and miner.is_mining:
                     self.logger.info(f"停止窗口 {miner.window_name} 的挖矿线程")
-                    miner.is_mining = False
-                    # 不要在这里设置 mined=True，让正常流程来设置
+                    miner.stop_mining(user_stopped=False)  # 使用统一方法，让正常流程设置 mined=True
 
     def _try_start_next_window(self):
         """

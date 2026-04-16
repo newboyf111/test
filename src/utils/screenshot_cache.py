@@ -7,7 +7,7 @@ import logging
 class ScreenshotCache:
     """统一的截图缓存管理器"""
     
-    def __init__(self, ttl: float = 0.5, enable_stats: bool = False, logger: logging.Logger = None):
+    def __init__(self, ttl: float = 0.5, enable_stats: bool = False, logger: logging.Logger = None, max_entries: int = 10):
         """
         初始化缓存管理器
         
@@ -15,9 +15,11 @@ class ScreenshotCache:
             ttl: 缓存过期时间（秒），默认 0.5 秒
             enable_stats: 是否启用缓存统计
             logger: 日志记录器
+            max_entries: 最大缓存条目数，默认 10
         """
         self._ttl = ttl
         self._cache: Dict[int, Tuple[np.ndarray, int, int, float]] = {}
+        self._max_entries = max_entries
         self._enable_stats = enable_stats
         self._logger = logger or logging.getLogger(__name__)
         
@@ -60,7 +62,18 @@ class ScreenshotCache:
         if result is None:
             return None
         
+        # 验证返回值格式
+        if not isinstance(result, tuple) or len(result) != 3:
+            return None
+        
         screenshot, win_w, win_h = result
+        
+        # 如果缓存已满，删除最早的条目
+        if len(self._cache) >= self._max_entries:
+            oldest_key = min(self._cache.keys(), key=lambda k: self._cache[k][3])
+            del self._cache[oldest_key]
+            self._logger.debug(f"缓存已满，删除最早的条目: hwnd={oldest_key}")
+        
         self._cache[hwnd] = (screenshot, win_w, win_h, current_time)
         
         if self._enable_stats:

@@ -56,8 +56,8 @@ def capture_window(hwnd: int) -> Tuple[Optional[np.ndarray], int, int]:
 
         return img_bgr, logic_width, logic_height
 
-    except (OSError, ValueError) as e:
-        logging.getLogger(__name__).error(f"截图失败: {e}")
+    except Exception as e:
+        logging.getLogger(__name__).error(f"截图失败: {e}", exc_info=True)
         return None, 0, 0
 
 

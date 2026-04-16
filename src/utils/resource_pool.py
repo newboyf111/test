@@ -5,6 +5,7 @@
 """
 
 import cv2
+import logging
 import numpy as np
 from typing import Dict, Optional
 from .resource_path import get_pic_path
@@ -39,7 +40,8 @@ class ResourcePool:
                 # 缓存图像
                 self.image_cache[image_name] = image
                 return image
-        except Exception:
+        except Exception as e:
+            logging.getLogger(__name__).warning(f"加载图像失败 {image_name}: {e}")
             pass
         
         return None

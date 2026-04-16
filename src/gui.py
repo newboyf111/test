@@ -9,7 +9,6 @@ from tkinter import ttk, messagebox
 import win32gui
 import threading
 import time
-import random
 from src.mining import MultiWindowMiningManager
 from src.window_manager import WindowManager
 from src.recording import RecordingModule
@@ -480,7 +479,7 @@ class WujindongriGUI:
             except (AttributeError, TypeError):
                 full_title = selected_titles[i]
             
-            if self.window_manager.resize_window_by_script(hwnd, 558, 1021):
+            if self.window_manager.resize_window(hwnd, 558, 1021):
                 self.log(f"成功调整窗口尺寸: {full_title} -> 558x1021")
                 success_count += 1
             else:
@@ -610,13 +609,20 @@ class WujindongriGUI:
         
         # 更新绿色标签显示当前被激活的窗口
         if self.active_windows_label:
-            current_activated = self.window_manager.get_activated_windows()
+            current_activated = self.window_manager.get_visible_window_titles()
             self._update_active_windows_label(current_activated)
         
     def stop_mining(self):
-        """停止挖矿（支持多窗口队列模式）"""
-        # 停止挖矿队列（用户手动停止）
+        """停止挖矿（支持多窗口队列模式和非队列模式）"""
+        # 先尝试停止队列模式
         stopped = self.mining_manager.stop_mining_queue(user_stopped=True)
+        if not stopped:
+            # 如果队列模式未运行，停止所有窗口的挖矿
+            count = self.mining_manager.stop_all_mining()
+            if count > 0:
+                stopped = True
+                self.log(f"已停止 {count} 个窗口的挖矿")
+        
         if stopped:
             self.mine_button.config(text="开始挖矿")
             self.mining_status.config(text="未开始")
@@ -661,26 +667,28 @@ class WujindongriGUI:
         self.protective_casing.set_windows(selected_windows)
         
         # 启动保护性外壳检测（单次扫描模式）
+        shield_scan_running = True  # 开盾流程专用的运行标志，避免与 protective_casing.running 混淆
+
         def run_shield_scan():
+            nonlocal shield_scan_running
             self.log("开始开盾流程...")
-            self.protective_casing.running = True
-            
+
             try:
                 for hwnd, window_name in selected_windows:
-                    if not self.protective_casing.running:
+                    if not shield_scan_running:
                         break
-                    
+
                     if not win32gui.IsWindow(hwnd):
                         self.log(f"窗口无效: {window_name} ({hwnd})")
                         continue
-                    
+
                     # 清除截图缓存
                     self.protective_casing._invalidate_screenshot(hwnd)
-                    
+
                     # 检测 war
                     if self.protective_casing.check_war_in_window(hwnd, window_name):
                         self.log(f"[{window_name}] 检测到 war，开始处理流程")
-                        
+
                         # 检测 town 和 six
                         self.log(f"[{window_name}] 开始检测 town 和 six...")
                         six_positions = self.protective_casing.check_town_and_six(hwnd, window_name)
@@ -690,7 +698,7 @@ class WujindongriGUI:
                             self.protective_casing.process_six_with_red_check(hwnd, window_name, six_positions)
                         else:
                             self.log(f"[{window_name}] 未检测到 six，跳过处理")
-                        
+
                         # 检查 war 是否仍然存在
                         if self.protective_casing.check_war_in_window(hwnd, window_name):
                             self.log(f"[{window_name}] war 仍然存在，开始 deploy 流程")
@@ -699,15 +707,15 @@ class WujindongriGUI:
                             self.log(f"[{window_name}] war 已消失")
                     else:
                         self.log(f"[{window_name}] 未检测到 war")
-                
+
                 self.log("开盾流程完成")
             except (RuntimeError, OSError) as e:
                 self.log(f"开盾流程错误: {e}")
             finally:
-                self.protective_casing.running = False
+                shield_scan_running = False
                 # 开盾流程结束后，启动保护性外壳检测
                 if hasattr(self, 'protective_casing') and self.protective_casing:
-                    threading.Thread(target=self.protective_casing.start, daemon=True).start()
+                    self.protective_casing.start_protection()
                     self.log("开盾流程结束，已启动保护性外壳检测")
         
         # 在新线程中运行
@@ -715,7 +723,7 @@ class WujindongriGUI:
         
         # 更新绿色标签
         if self.active_windows_label:
-            current_activated = self.window_manager.get_activated_windows()
+            current_activated = self.window_manager.get_visible_window_titles()
             self._update_active_windows_label(current_activated)
     
     def stop_auto_mining(self):
@@ -736,13 +744,22 @@ class WujindongriGUI:
         self.log("自动挖矿已停止")
         
     def log(self, message):
-        """添加日志"""
+        """添加日志（线程安全，使用 root.after 调度到主线程）"""
         if not self._log_enabled:
             return
-        self.log_text.config(state="normal")
-        self.log_text.insert("end", f"[{time.strftime('%H:%M:%S')}] {message}\n")
-        self.log_text.see("end")
-        self.log_text.config(state="disabled")
+        # 使用 root.after 调度到主线程执行 GUI 操作
+        self.root.after(0, self._add_log_message, message)
+
+    def _add_log_message(self, message):
+        """实际添加日志消息的方法（在主线程执行）"""
+        try:
+            if self.log_text:
+                self.log_text.config(state="normal")
+                self.log_text.insert("end", f"[{time.strftime('%H:%M:%S')}] {message}\n")
+                self.log_text.see("end")
+                self.log_text.config(state="disabled")
+        except:
+            pass  # 忽略可能的异常（如窗口已关闭）
         
     def _check_mining_status(self):
         """定时检查挖矿状态，更新按钮"""
@@ -788,7 +805,8 @@ class WujindongriGUI:
                 timer_minutes = int(self.timer_slider.get())
                 if timer_minutes > 0:
                     self.root.after(0, self._auto_start_mining)
-                self.mining_countdown.config(text="")
+                # 使用 root.after 在主线程更新 GUI
+                self.root.after(0, lambda: self.mining_countdown.config(text=""))
         
         threading.Thread(target=countdown_loop, daemon=True).start()
     
@@ -815,10 +833,17 @@ class WujindongriGUI:
         """窗口关闭事件"""
         if self.recording_module.get_recording_status():
             self.stop_recording()
-        
+
         # 确保鼠标钩子被清理
         self.recording_module.remove_mouse_hook()
-        
+
+        # 停止倒计时线程
+        self.countdown_running = False
+
+        # 停止保护外壳检测线程
+        if hasattr(self, 'protective_casing') and self.protective_casing:
+            self.protective_casing.stop()
+
         if self.mining_manager.get_mining_status():
             if messagebox.askokcancel("退出", "挖矿正在进行中，确定要退出吗？"):
                 self.mining_manager.stop_mining_queue()
@@ -868,12 +893,18 @@ class WujindongriGUI:
     def _resume_systems(self, status: dict):
         """恢复之前暂停的系统"""
         if status['mining']:
-            self.log("恢复挖矿系统...")
-            self.mining_manager.start_mining_queue()
+            if self.mining_manager:
+                self.log("恢复挖矿系统...")
+                self.mining_manager.start_mining_queue()
+            else:
+                self.log("警告：挖矿管理器未初始化，无法恢复")
         
         if status['protective']:
-            self.log("恢复外壳保护系统...")
-            self.protective_casing.start_protection()
+            if self.protective_casing:
+                self.log("恢复外壳保护系统...")
+                self.protective_casing.start_protection()
+            else:
+                self.log("警告：外壳保护系统未初始化，无法恢复")
         
         if status['recording']:
             self.log("恢复录制系统...")

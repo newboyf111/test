@@ -85,9 +85,12 @@ class RecordingModule:
         self.click_queue = None
         self.hook_thread = None
         self.input_dialog = None
+        self._atexit_registered = False
         
-        # 注册退出时清理资源
-        atexit.register(self._cleanup_resources)
+        # 注册退出时清理资源（防止重复注册）
+        if not self._atexit_registered:
+            atexit.register(self._cleanup_resources)
+            self._atexit_registered = True
     
     def __del__(self) -> None:
         """析构函数，确保资源被清理"""
@@ -217,18 +220,24 @@ class RecordingModule:
             self.gui.log(f"异常堆栈: {traceback.format_exc()}")
     
     def process_clicks(self):
-        """处理点击事件队列"""
+        """处理点击事件队列（定时调度模式）"""
+        if not self.is_recording:
+            return
+        
         try:
-            while self.is_recording:
+            # 处理队列中所有待处理的事件
+            while True:
                 try:
                     x, y = self.click_queue.get_nowait()
                     self.on_global_mouse_click(x, y)
                 except queue.Empty:
-                    pass
-                self.gui.root.after(10, self.process_clicks)
-                break
+                    break  # 队列为空，退出循环
         except (OSError, RuntimeError) as e:
             self.gui.log(f"处理点击事件异常: {e}")
+        
+        # 如果仍在录制，安排下一次处理
+        if self.is_recording:
+            self.gui.root.after(10, self.process_clicks)
     
     def hook_message_loop(self):
         """钩子消息循环"""
@@ -419,13 +428,18 @@ class RecordingModule:
         # 检查坐标数据格式
         try:
             for coord in self.recorded_coordinates:
-                if not isinstance(coord, (list, tuple)) or len(coord) != 2:
-                    self.gui.log("保存失败：坐标数据格式错误")
+                if not isinstance(coord, dict):
+                    self.gui.log("保存失败：坐标数据格式错误（应为字典）")
                     return
-                x, y = coord
-                if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
-                    self.gui.log("保存失败：坐标值类型错误")
-                    return
+                required_keys = ['window_title', 'relative_x', 'relative_y', 'absolute_x', 'absolute_y', 'name']
+                for key in required_keys:
+                    if key not in coord:
+                        self.gui.log(f"保存失败：坐标数据缺少必要字段 '{key}'")
+                        return
+                    if key not in ['window_title', 'name']:
+                        if not isinstance(coord[key], (int, float)):
+                            self.gui.log(f"保存失败：字段 '{key}' 的值类型错误（应为数字）")
+                            return
         except Exception as e:
             self.gui.log(f"保存失败：坐标数据验证错误: {e}")
             return
