@@ -13,7 +13,6 @@ from src.mining import MultiWindowMiningManager
 from src.window_manager import WindowManager
 from src.recording import RecordingModule
 from src.Protective_casing import ProtectiveCasing
-from src.snowfield_weapon_league import SnowfieldWeaponLeague
 from src.daily_task import DailyTaskModule
 
 try:
@@ -48,11 +47,12 @@ class WujindongriGUI:
         self.window_manager = WindowManager()
         self.recording_module = RecordingModule(self)
         self.protective_casing = ProtectiveCasing(mining_manager=self.mining_manager)
-        self.snowfield_league = None  # 雪域兵器联赛模块
         self.daily_task_module = None  # 每日任务模块
         self.selected_window = None
         self.timer_minutes = 0
         self.countdown_running = False
+        self._countdown_event = threading.Event()  # 用于立即退出倒计时线程
+        self._mining_status_check_running = True  # _check_mining_status 的停止标志
         self.active_windows_label = None
         self.window_listbox_hwnd_map = {}  # 列表框索引到 hwnd 的映射
         self.ocr_loaded = False  # OCR 是否加载完成
@@ -63,7 +63,99 @@ class WujindongriGUI:
         
         # 在后台线程中初始化 OCR
         threading.Thread(target=self._init_ocr_in_background, daemon=True).start()
+    
+    # ==================== 辅助方法 ====================
+    
+    def _extract_selected_windows(self):
+        """从列表框提取选中窗口的 (hwnd, title) 列表
         
+        每次调用都重新获取窗口标题，防止 hwnd_map 过时导致数据不一致。
+        同时验证 hwnd 有效性，失效窗口自动跳过。
+        """
+        selected_indices = self.window_listbox.curselection()
+        selected_windows = []
+        for index in selected_indices:
+            if index in self.window_listbox_hwnd_map:
+                hwnd = self.window_listbox_hwnd_map[index]
+                # 验证 hwnd 是否仍然有效
+                if not win32gui.IsWindow(hwnd):
+                    self.log(f"窗口句柄已失效: {hwnd}")
+                    continue
+                # 重新获取窗口标题，防止映射过时
+                try:
+                    title = win32gui.GetWindowText(hwnd)
+                    process_id = self.window_manager.get_process_id(hwnd)
+                    if process_id:
+                        display_title = f"{title} ({process_id})"
+                    else:
+                        display_title = title
+                except (AttributeError, TypeError, win32gui.error):
+                    display_title = f"Window_{hwnd}"
+                selected_windows.append((hwnd, display_title))
+        return selected_windows
+
+    def _run_single_window_workflow(self, module_name, module_class,
+                                     module_init_args=None, extra_checks=None,
+                                     on_module_init=None):
+        """通用单窗口模块启动工作流
+
+        用于：每日任务等只需要单个窗口的模块。
+
+        Args:
+            module_name: 模块名称（用于日志）
+            module_class: 模块类（如 DailyTaskModule）
+            module_init_args: 模块构造函数的关键字参数字典
+            extra_checks: 额外检查函数 (hwnd, window_info) -> bool，返回 False 则中断
+            on_module_init: 模块实例化后的回调 (module_instance)
+        """
+        selected_windows = self._extract_selected_windows()
+        if not selected_windows:
+            messagebox.showwarning("警告", "请先选择一个窗口")
+            return
+
+        # 取第一个选中窗口（单窗口工作流）
+        hwnd, _ = selected_windows[0]
+        window_info = self.window_manager.get_window_info(hwnd)
+        if not window_info:
+            messagebox.showwarning("警告", "无法获取窗口信息")
+            return
+
+        window_title = window_info["title"]
+        self.log(f"选择窗口: {window_title}")
+
+        # 额外检查
+        if extra_checks is not None and not extra_checks(hwnd, window_info):
+            return
+
+        # 激活窗口
+        win32gui.ShowWindow(hwnd, 5)
+        win32gui.SetForegroundWindow(hwnd)
+        time.sleep(0.5)
+
+        # 暂停其他系统
+        system_status = self._pause_other_systems()
+
+        # 初始化模块
+        self.log(f"开始初始化{module_name}模块...")
+        try:
+            init_args = module_init_args or {}
+            module_instance = module_class(hwnd=hwnd, **init_args)
+            self.log(f"{'\u2713'} {module_name}模块初始化成功")
+
+            if on_module_init is not None:
+                on_module_init(module_instance)
+
+        except (RuntimeError, OSError) as e:
+            self.log(f"{'\u2717'} {module_name}初始化失败: {e}")
+            import traceback
+            self.log(f"详细错误: {traceback.format_exc()}")
+            self._resume_systems(system_status)
+
+    def _clear_active_windows_label(self):
+        """重置激活窗口绿色标签为默认状态"""
+        if self.active_windows_label:
+            self._update_active_windows_label([])
+
     def create_widgets(self):
         """创建界面组件"""
         # 主标题
@@ -265,15 +357,6 @@ class WujindongriGUI:
         )
         self.draw_frame_button.pack(side="left", padx=5)
         
-        # 雪域兵器联赛按钮
-        self.snowfield_button = ttk.Button(
-            other_frame,
-            text="雪域兵器联赛",
-            command=self.start_snowfield_league,
-            width=15
-        )
-        self.snowfield_button.pack(side="left", padx=5)
-        
         # 每日任务按钮
         self.daily_task_button = ttk.Button(
             other_frame,
@@ -365,55 +448,26 @@ class WujindongriGUI:
     
     def activate_selected_window(self):
         """激活所有选中窗口"""
-        selected_indices = self.window_listbox.curselection()
-        if not selected_indices:
+        selected_windows = self._extract_selected_windows()
+        if not selected_windows:
             messagebox.showinfo("提示", "请先选择至少一个窗口")
             return
         
         self.log(f"=== 选中窗口信息 ===")
-        self.log(f"选中窗口索引: {selected_indices}")
-        
-        # 直接从列表框获取选中的窗口信息
-        selected_hwnds = []
-        selected_titles = []
-        
-        self.log(f"=== 从列表框获取选中窗口 ===")
-        for index in selected_indices:
-            window_text = self.window_listbox.get(index)
-            self.log(f"索引 {index}: {window_text}")
-            
-            # 从映射中获取 hwnd
-            if index in self.window_listbox_hwnd_map:
-                hwnd = self.window_listbox_hwnd_map[index]
-                # 从窗口文本中提取标题
-                if "(" in window_text and ")" in window_text:
-                    start = window_text.rfind("(")
-                    title = window_text[:start].strip()
-                else:
-                    title = window_text
-                selected_hwnds.append(hwnd)
-                selected_titles.append(title)
-                self.log(f"索引 {index} -> {title} (hwnd={hwnd})")
-            else:
-                self.log(f"索引不在映射中: {index}")
-        
-        self.log(f"=== 待激活窗口列表 ===")
-        self.log(f"待激活窗口数量: {len(selected_hwnds)}")
-        for i, (hwnd, title) in enumerate(zip(selected_hwnds, selected_titles)):
-            self.log(f"#{i}: {title} (hwnd={hwnd})")
+        self.log(f"选中窗口数量: {len(selected_windows)}")
         
         # 激活所有选中的窗口
         success_count = 0
         activated_titles = []
-        for i, hwnd in enumerate(selected_hwnds):
+        for hwnd, title in selected_windows:
             try:
                 process_id = self.window_manager.get_process_id(hwnd)
                 if process_id:
-                    full_title = f"{selected_titles[i]} ({process_id})"
+                    full_title = f"{title} ({process_id})"
                 else:
-                    full_title = selected_titles[i]
+                    full_title = title
             except (AttributeError, TypeError):
-                full_title = selected_titles[i]
+                full_title = title
             
             if self.window_manager.activate_window(hwnd):
                 self.log(f"✓ 成功激活窗口: {full_title}")
@@ -423,61 +477,32 @@ class WujindongriGUI:
                 self.log(f"✗ 激活窗口失败: {full_title}")
         
         self.log(f"=== 激活完成 ===")
-        self.log(f"批量激活完成: {success_count}/{len(selected_hwnds)} 个窗口成功")
+        self.log(f"批量激活完成: {success_count}/{len(selected_windows)} 个窗口成功")
         
         # 更新绿色标签显示当前被激活的窗口（每个窗口一行）
         self._update_active_windows_label(activated_titles)
     
     def resize_selected_window(self):
         """调整所有选中窗口尺寸为558x1021"""
-        selected_indices = self.window_listbox.curselection()
-        if not selected_indices:
+        selected_windows = self._extract_selected_windows()
+        if not selected_windows:
             messagebox.showinfo("提示", "请先选择至少一个窗口")
             return
         
-        self.log(f"=== 选中窗口信息 ===")
-        self.log(f"选中窗口索引: {selected_indices}")
-        
-        # 直接从列表框获取选中的窗口信息
-        selected_hwnds = []
-        selected_titles = []
-        
-        self.log(f"=== 从列表框获取选中窗口 ===")
-        for index in selected_indices:
-            window_text = self.window_listbox.get(index)
-            self.log(f"索引 {index}: {window_text}")
-            
-            # 从映射中获取 hwnd
-            if index in self.window_listbox_hwnd_map:
-                hwnd = self.window_listbox_hwnd_map[index]
-                # 从窗口文本中提取标题
-                if "(" in window_text and ")" in window_text:
-                    start = window_text.rfind("(")
-                    title = window_text[:start].strip()
-                else:
-                    title = window_text
-                selected_hwnds.append(hwnd)
-                selected_titles.append(title)
-                self.log(f"索引 {index} -> {title} (hwnd={hwnd})")
-            else:
-                self.log(f"索引不在映射中: {index}")
-        
         self.log(f"=== 待调整窗口列表 ===")
-        self.log(f"待调整窗口数量: {len(selected_hwnds)}")
-        for i, (hwnd, title) in enumerate(zip(selected_hwnds, selected_titles)):
-            self.log(f"#{i}: {title} (hwnd={hwnd})")
+        self.log(f"待调整窗口数量: {len(selected_windows)}")
         
         # 调整所有选中窗口的尺寸
         success_count = 0
-        for i, hwnd in enumerate(selected_hwnds):
+        for hwnd, title in selected_windows:
             try:
                 process_id = self.window_manager.get_process_id(hwnd)
                 if process_id:
-                    full_title = f"{selected_titles[i]} ({process_id})"
+                    full_title = f"{title} ({process_id})"
                 else:
-                    full_title = selected_titles[i]
+                    full_title = title
             except (AttributeError, TypeError):
-                full_title = selected_titles[i]
+                full_title = title
             
             if self.window_manager.resize_window(hwnd, 558, 1021):
                 self.log(f"成功调整窗口尺寸: {full_title} -> 558x1021")
@@ -485,11 +510,10 @@ class WujindongriGUI:
             else:
                 self.log(f"调整窗口尺寸失败: {full_title}")
         
-        self.log(f"批量调整完成: {success_count}/{len(selected_hwnds)} 个窗口成功")
+        self.log(f"批量调整完成: {success_count}/{len(selected_windows)} 个窗口成功")
         
         # 调整窗口尺寸后重置绿色标签
-        if self.active_windows_label:
-            self._update_active_windows_label([])
+        self._clear_active_windows_label()
     
     def toggle_recording(self):
         """切换记录状态"""
@@ -497,23 +521,16 @@ class WujindongriGUI:
             self.stop_recording()
         else:
             self.start_recording()
-            # 开始记录后重置绿色标签
-            if self.active_windows_label:
-                self._update_active_windows_label([])
+            self._clear_active_windows_label()
             
     def start_recording(self):
         """开始记录"""
-        selected_indices = self.window_listbox.curselection()
-        if not selected_indices:
+        selected_windows = self._extract_selected_windows()
+        if not selected_windows:
             messagebox.showinfo("提示", "请先选择至少一个游戏窗口")
             return
         
-        selected_hwnds = []
-        
-        for index in selected_indices:
-            if index in self.window_listbox_hwnd_map:
-                hwnd = self.window_listbox_hwnd_map[index]
-                selected_hwnds.append(hwnd)
+        selected_hwnds = [hwnd for hwnd, title in selected_windows]
         
         # 清空之前的窗口列表并设置新的选中窗口
         self.recording_module.clear_selected_windows()
@@ -524,18 +541,14 @@ class WujindongriGUI:
             self.record_button.config(text="停止记录")
             self.record_status.config(text="记录中")
             self.log(f"开始记录坐标，请点击游戏窗口内需要记录的位置 (共 {len(selected_hwnds)} 个窗口)")
-            # 开始记录后重置绿色标签
-            if self.active_windows_label:
-                self._update_active_windows_label([])
+            self._clear_active_windows_label()
         
     def stop_recording(self):
         """停止记录"""
         if self.recording_module.stop_recording():
             self.record_button.config(text="开始记录")
             self.record_status.config(text="未开始")
-            # 停止记录后重置绿色标签
-            if self.active_windows_label:
-                self._update_active_windows_label([])
+            self._clear_active_windows_label()
     
     def toggle_mining(self):
         """切换挖矿状态"""
@@ -543,33 +556,18 @@ class WujindongriGUI:
             self.stop_mining()
         else:
             self.start_mining()
-            # 开始挖矿后重置绿色标签
-            if self.active_windows_label:
-                self._update_active_windows_label([])
+            self._clear_active_windows_label()
             
     def start_mining(self):
         """开始挖矿（支持多窗口队列模式）"""
-        selected_indices = self.window_listbox.curselection()
-        selected_hwnds = []
-        selected_titles = []
+        selected_windows = self._extract_selected_windows()
+        selected_hwnds = [hwnd for hwnd, title in selected_windows]
+        selected_titles = [title for hwnd, title in selected_windows]
         
-        if not selected_indices:
+        if not selected_windows:
             self.log("未选择窗口，无法开始挖矿")
             messagebox.showinfo("提示", "请先选择要挖矿的窗口")
             return
-        else:
-            # 使用映射获取选中的窗口
-            for index in selected_indices:
-                if index in self.window_listbox_hwnd_map:
-                    hwnd = self.window_listbox_hwnd_map[index]
-                    window_text = self.window_listbox.get(index)
-                    if "(" in window_text and ")" in window_text:
-                        start = window_text.rfind("(")
-                        title = window_text[:start].strip()
-                    else:
-                        title = window_text
-                    selected_hwnds.append(hwnd)
-                    selected_titles.append(title)
         
         # 检查是否有窗口
         if not selected_hwnds:
@@ -608,9 +606,7 @@ class WujindongriGUI:
                 self.log("已暂停保护性外壳检测")
         
         # 更新绿色标签显示当前被激活的窗口
-        if self.active_windows_label:
-            current_activated = self.window_manager.get_visible_window_titles()
-            self._update_active_windows_label(current_activated)
+        self._update_active_windows_label(self.window_manager.get_visible_window_titles())
         
     def stop_mining(self):
         """停止挖矿（支持多窗口队列模式和非队列模式）"""
@@ -627,37 +623,20 @@ class WujindongriGUI:
             self.mine_button.config(text="开始挖矿")
             self.mining_status.config(text="未开始")
             self.log("挖矿结束")
-        # 挖矿结束后重置绿色标签
-        if self.active_windows_label:
-            self._update_active_windows_label([])
+        # 停止挖矿状态检查循环
+        self._mining_status_check_running = False
+        self._clear_active_windows_label()
     
     def start_shield_process(self):
         """开始开盾流程（直接检测 war 并处理）"""
-        # 获取当前选中的窗口列表（使用映射获取正确的窗口）
-        selected_indices = self.window_listbox.curselection()
-        selected_windows = []
+        selected_windows = self._extract_selected_windows()
         
-        if not selected_indices:
+        if not selected_windows:
             self.log("未选择窗口，无法开始开盾流程")
             messagebox.showinfo("提示", "请先选择要开盾的窗口")
             return
-        else:
-            # 使用映射获取选中的窗口
-            for index in selected_indices:
-                if index in self.window_listbox_hwnd_map:
-                    hwnd = self.window_listbox_hwnd_map[index]
-                    window_text = self.window_listbox.get(index)
-                    if "(" in window_text and ")" in window_text:
-                        start = window_text.rfind("(")
-                        title = window_text[:start].strip()
-                    else:
-                        title = window_text
-                    selected_windows.append((hwnd, title))
-            self.log(f"选择 {len(selected_windows)} 个窗口进行开盾流程")
         
-        if not selected_windows:
-            messagebox.showinfo("提示", "没有可用的游戏窗口")
-            return
+        self.log(f"选择 {len(selected_windows)} 个窗口进行开盾流程")
         
         # 暂停挖矿（如果正在挖矿）
         if self.mining_manager.get_mining_status():
@@ -721,10 +700,7 @@ class WujindongriGUI:
         # 在新线程中运行
         threading.Thread(target=run_shield_scan, daemon=True).start()
         
-        # 更新绿色标签
-        if self.active_windows_label:
-            current_activated = self.window_manager.get_visible_window_titles()
-            self._update_active_windows_label(current_activated)
+        self._update_active_windows_label(self.window_manager.get_visible_window_titles())
     
     def stop_auto_mining(self):
         """停止自动挖矿"""
@@ -732,8 +708,9 @@ class WujindongriGUI:
         self.timer_slider.set(0)
         self.timer_label.config(text="0 分钟")
         
-        # 停止倒计时
+        # 停止倒计时（用 Event 让线程立即退出）
         self.countdown_running = False
+        self._countdown_event.set()
         self.mining_countdown.config(text="")
         self.timer_status.config(text="")
         
@@ -758,11 +735,17 @@ class WujindongriGUI:
                 self.log_text.insert("end", f"[{time.strftime('%H:%M:%S')}] {message}\n")
                 self.log_text.see("end")
                 self.log_text.config(state="disabled")
-        except:
+        except Exception:
             pass  # 忽略可能的异常（如窗口已关闭）
         
     def _check_mining_status(self):
         """定时检查挖矿状态，更新按钮"""
+        # 检查是否已停止且窗口仍然存在
+        if not self._mining_status_check_running:
+            return
+        if not self.root.winfo_exists():
+            return
+            
         if self.mining_manager.are_all_windows_mined():
             if self.mine_button.cget("text") == "停止挖矿":
                 self.mine_button.config(text="开始挖矿")
@@ -786,6 +769,7 @@ class WujindongriGUI:
     def _start_countdown(self, minutes):
         """启动倒计时"""
         self.countdown_running = True
+        self._countdown_event.clear()  # 重置事件，防止之前的 stop 导致立即退出
         remaining = minutes * 60
         
         def countdown_loop():
@@ -797,7 +781,8 @@ class WujindongriGUI:
                 secs = remaining % 60
                 self.root.after(0, lambda m=mins, s=secs: 
                     self.mining_countdown.config(text=f"{m:02d}分{s:02d}秒"))
-                time.sleep(1)
+                # 使用 Event.wait 替代 time.sleep，让 stop_auto_mining 能立即中断
+                self._countdown_event.wait(timeout=1)
                 remaining -= 1
             
             if remaining <= 0 and self.countdown_running:
@@ -818,9 +803,12 @@ class WujindongriGUI:
     
     def _auto_start_mining(self):
         """自动开始挖矿"""
+        if not self.root.winfo_exists():
+            return
         if not self.mining_manager.get_mining_status():
-            selected_indices = self.window_listbox.curselection()
-            if not selected_indices:
+            # 使用 _extract_selected_windows 重新验证窗口有效性
+            selected_windows = self._extract_selected_windows()
+            if not selected_windows:
                 self.log("未选择窗口，自动挖矿无法启动")
                 messagebox.showinfo("提示", "请先选择要挖矿的窗口")
                 return
@@ -837,24 +825,25 @@ class WujindongriGUI:
         # 确保鼠标钩子被清理
         self.recording_module.remove_mouse_hook()
 
-        # 停止倒计时线程
+        # 停止倒计时线程（用 Event 立即中断）
         self.countdown_running = False
+        self._countdown_event.set()
+        
+        # 停止挖矿状态检查循环
+        self._mining_status_check_running = False
 
         # 停止保护外壳检测线程
         if hasattr(self, 'protective_casing') and self.protective_casing:
             self.protective_casing.stop()
 
+        self._clear_active_windows_label()
+
         if self.mining_manager.get_mining_status():
             if messagebox.askokcancel("退出", "挖矿正在进行中，确定要退出吗？"):
-                self.mining_manager.stop_mining_queue()
-                # 关闭前重置绿色标签
-                if self.active_windows_label:
-                    self._update_active_windows_label([])
+                # 使用 stop_mining() 统一停止，内部已处理队列模式和单窗口模式
+                self.stop_mining()
                 self.root.destroy()
         else:
-            # 关闭前重置绿色标签
-            if self.active_windows_label:
-                self._update_active_windows_label([])
             self.root.destroy()
     
     def _pause_other_systems(self):
@@ -913,152 +902,60 @@ class WujindongriGUI:
         if status['daily_task']:
             self.log("每日任务系统已在后台运行，无需恢复")
     
-    def start_snowfield_league(self):
-        """启动雪域兵器联赛模块"""
-        selected_indices = self.window_listbox.curselection()
-        if not selected_indices:
-            messagebox.showwarning("警告", "请先选择一个窗口")
-            return
-        
-        index = selected_indices[0]
-        if index not in self.window_listbox_hwnd_map:
-            messagebox.showwarning("警告", "无法获取窗口信息")
-            return
-        
-        hwnd = self.window_listbox_hwnd_map[index]
-        
-        # 获取窗口信息
-        window_info = self.window_manager.get_window_info(hwnd)
-        if not window_info:
-            messagebox.showwarning("警告", "无法获取窗口信息")
-            return
-        
-        window_title = window_info['title']
-        self.log(f"选择窗口: {window_title}")
-        
-        # 激活窗口
-        win32gui.ShowWindow(hwnd, 5)
-        win32gui.SetForegroundWindow(hwnd)
-        time.sleep(0.5)
-        
-        # 暂停其他系统
-        system_status = self._pause_other_systems()
-        
-        # 初始化雪域兵器联赛模块
-        self.log(f"开始初始化雪域兵器联赛模块...")
-        
-        try:
-            self.snowfield_league = SnowfieldWeaponLeague(hwnd=hwnd)
-            self.log(f"✓ 雪域兵器联赛模块初始化成功")
-            
-            # 运行雪域联赛流程(异步,不阻塞GUI)
-            self.log(f"开始执行雪域兵器联赛完整流程...")
-            
-            def on_league_complete(success):
-                """流程完成后的回调"""
-                if success:
-                    self.log(f"✓ 雪域兵器联赛流程执行完成")
-                else:
-                    self.log(f"✗ 雪域兵器联赛流程执行失败")
-                
-                self._resume_systems(system_status)
-            
-            self.snowfield_league.run_full_cycle_async(callback=on_league_complete)
-
-        except (RuntimeError, OSError) as e:
-            self.log(f"✗ 雪域兵器联赛初始化失败: {e}")
-            import traceback
-            self.log(f"详细错误: {traceback.format_exc()}")
-            
-            self._resume_systems(system_status)
-    
     def start_daily_task(self):
         """启动每日任务模块"""
-        selected_indices = self.window_listbox.curselection()
-        if not selected_indices:
-            messagebox.showwarning("警告", "请先选择一个窗口")
-            return
+        def extra_check(hwnd, window_info):
+            """检查挖矿状态"""
+            if self.mining_manager:
+                try:
+                    mining_states = self.mining_manager.get_all_mining_states()
+                    if mining_states:
+                        first_state = list(mining_states.values())[0]
+                        if first_state == 1:
+                            messagebox.showwarning("警告", "挖矿正在进行中，请等待挖矿彻底结束后再执行每日任务")
+                            self.log("✗ 挖矿进行中，拒绝启动每日任务")
+                            return False
+                except (AttributeError, RuntimeError) as e:
+                    self.log(f"检查挖矿状态失败: {e}")
+            return True
         
-        index = selected_indices[0]
-        if index not in self.window_listbox_hwnd_map:
-            messagebox.showwarning("警告", "无法获取窗口信息")
-            return
+        self._run_single_window_workflow(
+            module_name="每日任务",
+            module_class=DailyTaskModule,
+            module_init_args={
+                "mining_manager": self.mining_manager,
+                "protective_casing": self.protective_casing,
+            },
+            extra_checks=extra_check,
+            on_module_init=lambda module: (
+                self.log("开始执行每日任务流程..."),
+                self._run_daily_task_with_resume(module, self._pause_other_systems)
+            )
+        )
+    
+    def _run_daily_task_with_resume(self, module, get_system_status):
+        """运行每日任务流程并恢复系统状态"""
+        system_status = get_system_status()
+        self.log(f"开始执行每日任务流程...")
         
-        hwnd = self.window_listbox_hwnd_map[index]
-        
-        # 获取窗口信息
-        window_info = self.window_manager.get_window_info(hwnd)
-        if not window_info:
-            messagebox.showwarning("警告", "无法获取窗口信息")
-            return
-        
-        window_title = window_info['title']
-        self.log(f"选择窗口: {window_title}")
-        
-        # 检查挖矿状态
-        if self.mining_manager:
-            try:
-                mining_states = self.mining_manager.get_all_mining_states()
-                if mining_states:
-                    first_state = list(mining_states.values())[0]
-                    if first_state == 1:
-                        messagebox.showwarning("警告", "挖矿正在进行中，请等待挖矿彻底结束后再执行每日任务")
-                        self.log("✗ 挖矿进行中，拒绝启动每日任务")
-                        return
-            except (AttributeError, RuntimeError) as e:
-                self.log(f"检查挖矿状态失败: {e}")
-        
-        # 激活窗口
-        win32gui.ShowWindow(hwnd, 5)
-        win32gui.SetForegroundWindow(hwnd)
-        time.sleep(0.5)
-        
-        # 暂停其他系统
-        system_status = self._pause_other_systems()
-        
-        # 初始化每日任务模块
-        self.log(f"开始初始化每日任务模块...")
-        
-        try:
-            self.daily_task_module = DailyTaskModule(hwnd=hwnd, mining_manager=self.mining_manager, protective_casing=self.protective_casing)
-            self.log(f"✓ 每日任务模块初始化成功")
-            
-            # 运行每日任务流程(异步,不阻塞GUI)
-            self.log(f"开始执行每日任务流程...")
-            
-            def on_task_complete(success):
-                """流程完成后的回调"""
-                if success:
-                    self.log(f"✓ 每日任务流程执行完成")
-                else:
-                    self.log(f"✗ 每日任务流程执行失败")
-                
-                self._resume_systems(system_status)
-            
-            self.daily_task_module.run_daily_task_async(callback=on_task_complete)
-
-        except (RuntimeError, OSError) as e:
-            self.log(f"✗ 每日任务模块初始化失败: {e}")
-            import traceback
-            self.log(f"详细错误: {traceback.format_exc()}")
-            
+        def on_task_complete(success):
+            """流程完成后的回调"""
+            if success:
+                self.log("✓ 每日任务流程执行完成")
+            else:
+                self.log("✗ 每日任务流程执行失败")
             self._resume_systems(system_status)
+        
+        module.run_daily_task_async(callback=on_task_complete)
     
     def draw_frame(self):
         """画框功能：让用户在激活的窗口中框选区域，并显示相对位置"""
-        # 获取选中的窗口
-        selected_indices = self.window_listbox.curselection()
-        if not selected_indices:
+        selected_windows = self._extract_selected_windows()
+        if not selected_windows:
             messagebox.showwarning("警告", "请先选择一个窗口")
             return
         
-        # 获取第一个选中的窗口
-        index = selected_indices[0]
-        if index not in self.window_listbox_hwnd_map:
-            messagebox.showwarning("警告", "无法获取窗口信息")
-            return
-        
-        hwnd = self.window_listbox_hwnd_map[index]
+        hwnd, window_title = selected_windows[0]
         
         # 获取窗口信息
         window_info = self.window_manager.get_window_info(hwnd)
@@ -1066,7 +963,6 @@ class WujindongriGUI:
             messagebox.showwarning("警告", "无法获取窗口信息")
             return
         
-        window_title = window_info['title']
         window_rect = window_info['window_rect']
         window_width = window_rect['width']
         window_height = window_rect['height']
@@ -1517,33 +1413,16 @@ class WujindongriGUI:
         if hasattr(self, 'protective_casing') and self.protective_casing:
             # 检查是否已经在运行
             if not self.protective_casing.running:
-                # 获取当前选中的窗口列表
-                selected_indices = self.window_listbox.curselection()
-                selected_windows = []
+                selected_windows = self._extract_selected_windows()
                 
-                if not selected_indices:
+                if not selected_windows:
                     self.log("未选择窗口，无法启动保护性外壳检测")
                     return
                 
-                # 使用映射获取选中的窗口
-                for index in selected_indices:
-                    if index in self.window_listbox_hwnd_map:
-                        hwnd = self.window_listbox_hwnd_map[index]
-                        window_text = self.window_listbox.get(index)
-                        if "(" in window_text and ")" in window_text:
-                            start = window_text.rfind("(")
-                            title = window_text[:start].strip()
-                        else:
-                            title = window_text
-                        selected_windows.append((hwnd, title))
-                
-                if selected_windows:
-                    self.protective_casing.set_windows(selected_windows)
-                    # 启动保护性外壳检测
-                    threading.Thread(target=self.protective_casing.start, daemon=True).start()
-                    self.log(f"已启动保护性外壳检测，监控 {len(selected_windows)} 个窗口")
-                else:
-                    self.log("无窗口可监控，保护性外壳检测未启动")
+                self.protective_casing.set_windows(selected_windows)
+                # 启动保护性外壳检测
+                threading.Thread(target=self.protective_casing.start, daemon=True).start()
+                self.log(f"已启动保护性外壳检测，监控 {len(selected_windows)} 个窗口")
             else:
                 self.log("保护性外壳检测已在运行中")
         else:
