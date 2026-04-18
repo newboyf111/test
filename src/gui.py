@@ -140,13 +140,13 @@ class WujindongriGUI:
         try:
             init_args = module_init_args or {}
             module_instance = module_class(hwnd=hwnd, **init_args)
-            self.log(f"{'\u2713'} {module_name}模块初始化成功")
+            self.log(f"\u2713 {module_name}模块初始化成功")
 
             if on_module_init is not None:
                 on_module_init(module_instance)
 
-        except (RuntimeError, OSError) as e:
-            self.log(f"{'\u2717'} {module_name}初始化失败: {e}")
+        except Exception as e:
+            self.log(f"\u2717 {module_name}初始化失败: {e}")
             import traceback
             self.log(f"详细错误: {traceback.format_exc()}")
             self._resume_systems(system_status)
@@ -646,15 +646,15 @@ class WujindongriGUI:
         self.protective_casing.set_windows(selected_windows)
         
         # 启动保护性外壳检测（单次扫描模式）
-        shield_scan_running = True  # 开盾流程专用的运行标志，避免与 protective_casing.running 混淆
+        # 使用实例变量而非局部变量，这样 stop_auto_mining 可以直接修改它
+        self._shield_scan_running = True
 
         def run_shield_scan():
-            nonlocal shield_scan_running
             self.log("开始开盾流程...")
 
             try:
                 for hwnd, window_name in selected_windows:
-                    if not shield_scan_running:
+                    if not self._shield_scan_running:
                         break
 
                     if not win32gui.IsWindow(hwnd):
@@ -691,7 +691,7 @@ class WujindongriGUI:
             except (RuntimeError, OSError) as e:
                 self.log(f"开盾流程错误: {e}")
             finally:
-                shield_scan_running = False
+                self._shield_scan_running = False
                 # 开盾流程结束后，启动保护性外壳检测
                 if hasattr(self, 'protective_casing') and self.protective_casing:
                     self.protective_casing.start_protection()
@@ -713,6 +713,11 @@ class WujindongriGUI:
         self._countdown_event.set()
         self.mining_countdown.config(text="")
         self.timer_status.config(text="")
+        
+        # 停止开盾流程（如果正在运行）
+        if hasattr(self, '_shield_scan_running'):
+            self._shield_scan_running = False
+            self.log("已发送开盾流程停止信号")
         
         # 停止挖矿（如果正在挖矿）
         if self.mining_manager.get_mining_status():
@@ -797,9 +802,13 @@ class WujindongriGUI:
     
     def _on_timer_slider_change(self, value):
         """滑动条值变化时更新标签"""
-        if hasattr(self, 'timer_label'):
+        if not hasattr(self, 'timer_label'):
+            return
+        try:
             minutes = int(float(value))
-            self.timer_label.config(text=f"{minutes} 分钟")
+        except (ValueError, TypeError):
+            return
+        self.timer_label.config(text=f"{minutes} 分钟")
     
     def _auto_start_mining(self):
         """自动开始挖矿"""
@@ -979,6 +988,11 @@ class WujindongriGUI:
         
     def _create_draw_window(self, hwnd, window_width, window_height, window_rect):
         """创建画框覆盖窗口"""
+        # 检查 PIL 是否可用
+        if ImageTk is None:
+            messagebox.showwarning("警告", "请先安装 Pillow: pip install Pillow")
+            return
+        
         try:
             import pyautogui
         except ImportError:
@@ -1008,12 +1022,6 @@ class WujindongriGUI:
         # 创建画布
         canvas = tk.Canvas(draw_window, width=window_width, height=window_height, highlightthickness=0)
         canvas.pack(fill="both", expand=True)
-        
-        # 检查 PIL 是否可用
-        if ImageTk is None:
-            messagebox.showwarning("警告", "请先安装 Pillow: pip install Pillow")
-            draw_window.destroy()
-            return
         
         # 将截图转换为 PhotoImage 并显示
         try:

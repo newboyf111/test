@@ -63,6 +63,9 @@ class ProtectiveCasing:
         self.mining_manager = mining_manager
         self._screenshot_cache = ScreenshotCache(ttl=0.5, logger=self.logger)
         self.last_screenshot: Dict[int, np.ndarray] = {}
+        
+        # 缓存 six 模板，避免重复加载（Issue #11）
+        self._six_template = None
 
     def set_windows(self, window_list: List[Tuple[int, str]]):
         self.target_windows = window_list
@@ -177,9 +180,17 @@ class ProtectiveCasing:
         six_result = self.matcher.match(screenshot, self.six_image_name, win_w, win_h)
         if not six_result:
             self.logger.info(f"[{window_name}] 未找到 six 模板")
+            # 清除缓存（模板可能已失效）
+            self._six_template = None
             return []
         
-        six_template = self.matcher.load_template(self.six_image_name)
+        # 使用缓存的 six 模板，避免重复加载（Issue #11）
+        if self._six_template is None:
+            self._six_template = self.matcher.load_template(self.six_image_name)
+            if self._six_template is not None:
+                self.logger.debug("已缓存 six 模板")
+            # 如果模板未找到，_six_template 保持为 None，后续会跳过
+        six_template = self._six_template
         if six_template is None:
             return []
         

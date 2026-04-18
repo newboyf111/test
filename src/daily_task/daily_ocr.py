@@ -88,7 +88,7 @@ class OCRFullScreenTester:
             max_y = max(y_coords)
             
             return (int((min_x + max_x) / 2), int((min_y + max_y) / 2))
-        except:
+        except Exception:
             return None
     
     def swipe_up_from_center(self, hwnd: int, pixels: int = 100):
@@ -104,7 +104,7 @@ class OCRFullScreenTester:
             try:
                 win32gui.ShowWindow(hwnd, 5)
                 win32gui.SetForegroundWindow(hwnd)
-            except:
+            except Exception:
                 import ctypes
                 ctypes.windll.user32.SetForegroundWindow(hwnd)
             
@@ -172,7 +172,7 @@ class OCRFullScreenTester:
         try:
             win32gui.ShowWindow(hwnd, 5)
             win32gui.SetForegroundWindow(hwnd)
-        except:
+        except Exception:
             import ctypes
             ctypes.windll.user32.SetForegroundWindow(hwnd)
         
@@ -252,7 +252,7 @@ class OCRFullScreenTester:
                             try:
                                 if len(bbox) >= 4:
                                     first_char_pos = self.get_first_char_position(bbox)
-                            except:
+                            except Exception:
                                 pass
                         
                         texts.append({
