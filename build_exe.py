@@ -67,8 +67,8 @@ def build_exe():
     print(f"开始打包exe...")
     print(f"命令: {' '.join(cmd)}")
     
-    # 执行打包
-    result = subprocess.run(cmd, cwd=str(project_root), shell=True)
+    # 执行打包 (移除 shell=True，命令已是列表格式)
+    result = subprocess.run(cmd, cwd=str(project_root))
     
     if result.returncode == 0:
         print(f"\n打包成功!")

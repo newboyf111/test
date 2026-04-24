@@ -43,7 +43,3 @@ Thumbs.db
 # pic/  # 已移除，允许上传 pic 文件夹
 *.spec
 
-# Build outputs
-dist/
-build/
-*.spec

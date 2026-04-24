@@ -2,8 +2,6 @@
 无尽冬日 (Wujindongri) - 配置文件
 """
 
-from typing import Any, Dict, Optional
-
 
 VERSION = "1.0.0"
 
@@ -21,3 +19,4 @@ class Settings:
 
 
 settings = Settings()
+

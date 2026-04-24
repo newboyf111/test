@@ -254,10 +254,15 @@ class ProtectiveCasing:
                 
                 if x_right > x_left and y_bottom > y_top:
                     inter = (x_right - x_left) * (y_bottom - y_top)
-                    iou = inter / min(pos["w"] * pos["h"], k["w"] * k["h"])
-                    if iou > threshold:
-                        overlap = True
-                        break
+                    area_pos = pos["w"] * pos["h"]
+                    area_k = k["w"] * k["h"]
+                    min_area = min(area_pos, area_k)
+                    # 防止除零：面积为 0 时跳过 NMS
+                    if min_area > 0:
+                        iou = inter / min_area
+                        if iou > threshold:
+                            overlap = True
+                            break
             
             if not overlap:
                 kept.append(pos)

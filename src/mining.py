@@ -32,6 +32,10 @@ from src.utils import ScreenshotCache
 
 set_dpi_aware()
 
+# 设置 pyautogui 安全配置
+pyautogui.FAILSAFE = True  # 鼠标移到屏幕角落时抛出异常
+pyautogui.PAUSE = 0.1  # 每次操作后暂停
+
 
 # ─────────────────────────────────────────────
 # 单窗口挖矿模块
@@ -68,6 +72,14 @@ class SingleWindowMiner:
         }
 
         self.resource_order = ["meat", "wood", "coal", "iron"]
+
+        self.queue_templates = {
+            "meat": "meatlist.png",
+            "wood": "woodlist.png",
+            "coal": "coallist.png",
+            "iron": "ironlist.png",
+        }
+
         self.resource_index = 0
         self.last_window_size = None
         self.retry_times = 3
@@ -179,6 +191,58 @@ class SingleWindowMiner:
             return (right - left, bottom - top)
         except (win32gui.error, AttributeError):
             return None
+
+    def _check_resource_queues(self) -> Dict[str, bool]:
+        """检测哪些资源队列存在
+        
+        Returns:
+            dict: {"meat": True/False, "wood": True/False, ...}
+        """
+        screenshot, win_w, win_h = self._get_screenshot()
+        if screenshot is None:
+            self.logger.warning("获取截图失败，无法检测资源队列")
+            return {}
+
+        original_confidence = self.matcher.confidence
+        self.matcher.confidence = 0.9
+
+        queue_status = {}
+        for resource_key, template_name in self.queue_templates.items():
+            result = self.matcher.match(screenshot, template_name, win_w, win_h)
+            queue_status[resource_key] = result is not None
+            if result:
+                self.logger.info(f"检测到 {resource_key} 队列存在")
+            else:
+                self.logger.debug(f"未检测到 {resource_key} 队列")
+
+        self.matcher.confidence = original_confidence
+
+        return queue_status
+
+    def _select_resource(self, queue_status: Dict[str, bool]) -> Optional[str]:
+        """根据队列状态选择资源
+        
+        Args:
+            queue_status: 资源队列状态 {"meat": True/False, ...}
+        
+        Returns:
+            str: 选择的资源key，如果没有可用资源返回None
+        """
+        has_any_queue = any(queue_status.values())
+        available_resources = [r for r in self.resource_order if not queue_status.get(r, False)]
+
+        if not has_any_queue:
+            selected = random.choice(available_resources)
+            self.logger.info(f"没有资源队列存在，随机选择: {selected}")
+            return selected
+        elif available_resources:
+            selected = random.choice(available_resources)
+            self.logger.info(f"选择资源: {selected} (可用队列: {available_resources})")
+            return selected
+        else:
+            selected = random.choice(self.resource_order)
+            self.logger.warning(f"所有资源队列已满，随机选择: {selected}")
+            return selected
 
     def _capture_ocr_region(self, screenshot: np.ndarray, win_w: int, win_h: int) -> Optional[np.ndarray]:
         """截取 OCR 识别区域
@@ -389,8 +453,7 @@ class SingleWindowMiner:
     
     def _check_user_stop(self) -> bool:
         """检查用户是否手动停止，如果是则返回 True（调用方应 return 或 break）"""
-        if self._check_user_stop():
-
+        if self._user_stopped:
             return True
         return False
 
@@ -661,7 +724,8 @@ class SingleWindowMiner:
                                         self.is_mining = False
                                         self.mined = True
                                         self.mining_state = 2
-                                        self.mining_manager._on_window_mining_stopped(self.hwnd)
+                                        if self.mining_manager is not None:
+                                            self.mining_manager._on_window_mining_stopped(self.hwnd)
                                     return
                                 # 设置还需要循环的次数
                                 self.max_cycles = remaining
@@ -727,6 +791,25 @@ class SingleWindowMiner:
 
                     return
                 time.sleep(random.uniform(1, 2))
+                
+                meat_pos = self._find_position("meat")
+                if meat_pos:
+                    self.logger.info(f"找到 meat 位置: {meat_pos}，向左滑动 200 像素")
+                    try:
+                        left, top, _, _ = win32gui.GetWindowRect(self.hwnd)
+                        screen_x = left + meat_pos[0]
+                        screen_y = top + meat_pos[1]
+                        
+                        pyautogui.mouseDown(screen_x, screen_y)
+                        time.sleep(0.1)
+                        pyautogui.moveTo(screen_x - 200, screen_y, duration=0.3)
+                        time.sleep(0.1)
+                        pyautogui.mouseUp()
+                        self.logger.info("向左滑动完成")
+                        self._invalidate_screenshot()
+                        time.sleep(random.uniform(0.5, 1))
+                    except Exception as e:
+                        self.logger.warning(f"滑动失败: {e}")
         else:
             self.logger.debug("未找到 town，尝试 wild")
             if self._check_user_stop():
@@ -746,7 +829,17 @@ class SingleWindowMiner:
                 return
             self.logger.info("找到 town")
 
-        resource_key = self.resource_order[self.resource_index]
+        self.logger.info("检测资源队列状态...")
+        queue_status = self._check_resource_queues()
+        if not queue_status:
+            self.logger.warning("获取队列状态失败，使用默认资源选择")
+            resource_key = self.resource_order[self.resource_index]
+        else:
+            self.logger.info(f"队列状态: {queue_status}")
+            resource_key = self._select_resource(queue_status)
+            if resource_key is None:
+                resource_key = self.resource_order[self.resource_index]
+
         resource_found = False
         for i in range(self.retry_times):
             if self._check_user_stop():
@@ -926,17 +1019,24 @@ class SingleWindowMiner:
 
     def _find(self, image_key: str) -> bool:
         """只查找图片（每次查找前清除缓存，确保使用最新截图）"""
+        return self._find_position(image_key) is not None
+
+    def _find_position(self, image_key: str) -> Optional[Tuple[int, int]]:
+        """查找图片并返回中心位置
+        
+        Returns:
+            Tuple[int, int]: 中心坐标 (x, y) 或 None
+        """
         image_path = self.image_paths.get(image_key)
         if not image_path:
             self.logger.error(f"未知图片key: {image_key}")
-            return False
+            return None
 
-        # 清除截图缓存，确保使用最新截图
         self._invalidate_screenshot()
         
         screenshot, win_w, win_h = self._get_screenshot()
         if screenshot is None:
-            return False
+            return None
 
         original_confidence = self.matcher.confidence
         if image_key in self.image_confidence:
@@ -946,9 +1046,10 @@ class SingleWindowMiner:
         self.matcher.confidence = original_confidence
 
         if result:
+            center = self.matcher.get_center(result)
             self.logger.debug(f"找到 {image_key} [scale={result.get('scale', 1):.3f}]")
-            return True
-        return False
+            return center
+        return None
 
     def _click(self, image_key: str) -> Tuple[bool, Optional[Tuple[int, int]]]:
         """查找并点击图片（使用 win32gui.PostMessage 发送鼠标点击消息）
@@ -1125,7 +1226,7 @@ class MultiWindowMiningManager:
         # 队列管理窗口挖矿
         self._mining_queue: deque = deque()  # 待挖矿窗口队列
         self._mining_scheduler_thread: threading.Thread = None  # 挖矿调度线程
-        self._scheduler_running: bool = False  # 调度器是否运行中
+        self._scheduler_running = threading.Event()  # 调度器是否运行中（使用 Event 替代 bool）
         self._scheduler_lock = threading.Lock()  # 调度器锁
         
         # 所有窗口挖矿完成时的回调
@@ -1265,8 +1366,8 @@ class MultiWindowMiningManager:
         
         # 停止调度器（如果正在运行）
         with self._scheduler_lock:
-            if self._scheduler_running:
-                self._scheduler_running = False
+            if self._scheduler_running.is_set():
+                self._scheduler_running.clear()
                 self.logger.info("已停止调度器")
             
             # 清空队列
@@ -1282,7 +1383,7 @@ class MultiWindowMiningManager:
         
         # 如果调度器正在运行，不自动启动下一个窗口（由调度器处理）
         with self._scheduler_lock:
-            if not self._scheduler_running:
+            if not self._scheduler_running.is_set():
                 # 尝试启动下一个未标记的窗口（非队列模式）
                 self._try_start_next_window()
 
@@ -1309,7 +1410,7 @@ class MultiWindowMiningManager:
         """
         # 检查是否使用队列模式
         with self._scheduler_lock:
-            if self._scheduler_running:
+            if self._scheduler_running.is_set():
                 self.logger.info("队列模式运行中，跳过 _try_start_next_window")
                 return
         
@@ -1352,7 +1453,7 @@ class MultiWindowMiningManager:
         """
         self.logger.info("挖矿调度器启动")
         
-        while self._scheduler_running:
+        while self._scheduler_running.is_set():
             try:
                 # 从队列中取出一个窗口
                 hwnd = None
@@ -1398,7 +1499,7 @@ class MultiWindowMiningManager:
                 
                 # 等待挖矿完成
                 self.logger.info(f"等待窗口 {miner.window_name} 挖矿完成...")
-                while miner.is_mining and self._scheduler_running:
+                while miner.is_mining and self._scheduler_running.is_set():
                     time.sleep(0.5)
                 
                 self.logger.info(f"窗口 {miner.window_name} 挖矿完成或停止")
@@ -1415,7 +1516,7 @@ class MultiWindowMiningManager:
                 time.sleep(1)
         
         self.logger.info("挖矿调度器停止")
-        self._scheduler_running = False
+        self._scheduler_running.clear()
         
         # 将所有窗口的挖矿状态设置为 2（挖矿结束）
         with self._lock:
@@ -1449,9 +1550,9 @@ class MultiWindowMiningManager:
         """
         with self._scheduler_lock:
             # 停止当前运行的调度器（如果有）
-            if self._scheduler_running:
+            if self._scheduler_running.is_set():
                 self.logger.info("停止当前运行的调度器")
-                self._scheduler_running = False
+                self._scheduler_running.clear()
                 # 等待调度器线程结束（最多等待2秒）
                 if hasattr(self, '_mining_scheduler_thread') and self._mining_scheduler_thread.is_alive():
                     self.logger.info("等待调度器线程结束...")
@@ -1475,7 +1576,7 @@ class MultiWindowMiningManager:
                 return False
             
             # 启动调度器线程
-            self._scheduler_running = True
+            self._scheduler_running.set()
             self._mining_scheduler_thread = threading.Thread(
                 target=self._mining_scheduler,
                 daemon=True
@@ -1491,10 +1592,10 @@ class MultiWindowMiningManager:
             user_stopped: 是否是用户手动停止
         """
         with self._scheduler_lock:
-            if not self._scheduler_running:
+            if not self._scheduler_running.is_set():
                 return False
             
-            self._scheduler_running = False
+            self._scheduler_running.clear()
             
             # 停止当前挖矿的窗口
             with self._lock:

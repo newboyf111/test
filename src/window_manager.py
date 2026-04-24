@@ -68,10 +68,8 @@ class WindowManager:
             是否调整成功
         """
         try:
-            if self.logger.isEnabledFor(logging.DEBUG):
-                self.logger.debug(f"[resize_window] 开始调整窗口 (hwnd={hwnd})")
-            if self.logger.isEnabledFor(logging.DEBUG):
-                self.logger.debug(f"[resize_window] 目标窗口尺寸: {client_width}x{client_height}")
+            self.logger.debug(f"[resize_window] 开始调整窗口 (hwnd={hwnd})")
+            self.logger.debug(f"[resize_window] 目标窗口尺寸: {client_width}x{client_height}")
 
             if not win32gui.IsWindow(hwnd):
                 self.logger.error(f"[resize_window] 调整窗口尺寸失败: 窗口句柄无效")
@@ -79,16 +77,13 @@ class WindowManager:
 
             # 激活并恢复窗口
             if self.logger.isEnabledFor(logging.DEBUG):
-                if self.logger.isEnabledFor(logging.DEBUG):
-                    self.logger.debug(f"[resize_window] 激活并恢复窗口")
+                self.logger.debug(f"[resize_window] 激活并恢复窗口")
             show_result = win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
-            if self.logger.isEnabledFor(logging.DEBUG):
-                self.logger.debug(f"[resize_window] ShowWindow 返回: {show_result}")
+            self.logger.debug(f"[resize_window] ShowWindow 返回: {show_result}")
             
             try:
                 fg_result = win32gui.SetForegroundWindow(hwnd)
-                if self.logger.isEnabledFor(logging.DEBUG):
-                    self.logger.debug(f"[resize_window] SetForegroundWindow 返回: {fg_result}")
+                self.logger.debug(f"[resize_window] SetForegroundWindow 返回: {fg_result}")
             except (win32gui.error, OSError) as fg_e:
                 self.logger.warning(f"[resize_window] SetForegroundWindow 失败: {fg_e}")
             
@@ -98,10 +93,8 @@ class WindowManager:
             left, top, right, bottom = win32gui.GetWindowRect(hwnd)
             current_width = right - left
             current_height = bottom - top
-            if self.logger.isEnabledFor(logging.DEBUG):
-                self.logger.debug(f"[resize_window] 当前窗口尺寸: {current_width}x{current_height}")
-            if self.logger.isEnabledFor(logging.DEBUG):
-                self.logger.debug(f"[resize_window] 窗口位置: ({left}, {top}, {right}, {bottom})")
+            self.logger.debug(f"[resize_window] 当前窗口尺寸: {current_width}x{current_height}")
+            self.logger.debug(f"[resize_window] 窗口位置: ({left}, {top}, {right}, {bottom})")
 
             # 如果尺寸已匹配，无需调整
             if current_width == client_width and current_height == client_height:
@@ -109,21 +102,15 @@ class WindowManager:
                 return True
 
             # 检查 win32con 常量值
-            if self.logger.isEnabledFor(logging.DEBUG):
-                self.logger.debug(f"[resize_window] SWP_NOMOVE: {win32con.SWP_NOMOVE}")
-            if self.logger.isEnabledFor(logging.DEBUG):
-                self.logger.debug(f"[resize_window] SWP_NOZORDER: {win32con.SWP_NOZORDER}")
-            if self.logger.isEnabledFor(logging.DEBUG):
-                self.logger.debug(f"[resize_window] SWP_FRAMECHANGED: {win32con.SWP_FRAMECHANGED}")
+            self.logger.debug(f"[resize_window] SWP_NOMOVE: {win32con.SWP_NOMOVE}")
+            self.logger.debug(f"[resize_window] SWP_NOZORDER: {win32con.SWP_NOZORDER}")
+            self.logger.debug(f"[resize_window] SWP_FRAMECHANGED: {win32con.SWP_FRAMECHANGED}")
             flags = win32con.SWP_NOMOVE | win32con.SWP_NOZORDER | win32con.SWP_FRAMECHANGED
-            if self.logger.isEnabledFor(logging.DEBUG):
-                self.logger.debug(f"[resize_window] 组合标志: {flags}")
+            self.logger.debug(f"[resize_window] 组合标志: {flags}")
 
             # 使用 SetWindowPos 直接设置窗口尺寸
-            if self.logger.isEnabledFor(logging.DEBUG):
-                self.logger.debug(f"[resize_window] 调用 SetWindowPos")
-            if self.logger.isEnabledFor(logging.DEBUG):
-                self.logger.debug(f"[resize_window] 参数: hwnd={hwnd}, hWndInsertAfter=0, x=0, y=0, cx={client_width}, cy={client_height}, uFlags={flags}")
+            self.logger.debug(f"[resize_window] 调用 SetWindowPos")
+            self.logger.debug(f"[resize_window] 参数: hwnd={hwnd}, hWndInsertAfter=0, x=0, y=0, cx={client_width}, cy={client_height}, uFlags={flags}")
             
             # 尝试不同的 SetWindowPos 调用方式
             try:
@@ -135,10 +122,8 @@ class WindowManager:
                     client_width, client_height,
                     flags
                 )
-                if self.logger.isEnabledFor(logging.DEBUG):
-                    self.logger.debug(f"[resize_window] SetWindowPos 返回: {result}")
-                if self.logger.isEnabledFor(logging.DEBUG):
-                    self.logger.debug(f"[resize_window] SetWindowPos 返回类型: {type(result)}")
+                self.logger.debug(f"[resize_window] SetWindowPos 返回: {result}")
+                self.logger.debug(f"[resize_window] SetWindowPos 返回类型: {type(result)}")
                 
                 # 注意：SetWindowPos 在某些情况下可能返回 None，但窗口调整仍然成功
                 # 所以我们不依赖返回值，而是通过后续的尺寸验证来判断
@@ -156,10 +141,8 @@ class WindowManager:
                 left2, top2, right2, bottom2 = win32gui.GetWindowRect(hwnd)
                 new_width = right2 - left2
                 new_height = bottom2 - top2
-                if self.logger.isEnabledFor(logging.DEBUG):
-                    self.logger.debug(f"[resize_window] 调整后窗口尺寸: {new_width}x{new_height}")
-                if self.logger.isEnabledFor(logging.DEBUG):
-                    self.logger.debug(f"[resize_window] 调整后窗口位置: ({left2}, {top2}, {right2}, {bottom2})")
+                self.logger.debug(f"[resize_window] 调整后窗口尺寸: {new_width}x{new_height}")
+                self.logger.debug(f"[resize_window] 调整后窗口位置: ({left2}, {top2}, {right2}, {bottom2})")
             except (win32gui.error, OSError) as rect_e:
                 self.logger.warning(f"[resize_window] GetWindowRect 异常: {rect_e}")
                 new_width, new_height = 0, 0

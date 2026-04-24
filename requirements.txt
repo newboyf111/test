@@ -2,6 +2,7 @@
 
 # 基础依赖
 pywin32
+psutil
 
 # 图像处理依赖
 opencv-python
@@ -10,3 +11,9 @@ numpy
 
 # GUI自动化依赖
 pyautogui
+
+# OCR 文字识别
+rapidocr-onnxruntime
+
+# 打包工具 (可选，仅构建时需要)
+# pyinstaller

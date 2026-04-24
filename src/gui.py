@@ -9,11 +9,27 @@ from tkinter import ttk, messagebox
 import win32gui
 import threading
 import time
+import subprocess
+import sys
+import os
 from src.mining import MultiWindowMiningManager
 from src.window_manager import WindowManager
 from src.recording import RecordingModule
 from src.Protective_casing import ProtectiveCasing
-from src.daily_task import DailyTaskModule
+from pathlib import Path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
+import importlib.util
+spec = importlib.util.spec_from_file_location("daily_task_module", str(project_root / "src" / "daily_task.py"))
+daily_task_module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(daily_task_module)
+DailyTaskModule = daily_task_module.DailyTaskModule
+
+spec2 = importlib.util.spec_from_file_location("soldier_module", str(project_root / "src" / "daily_task" / "soldier.py"))
+soldier_module = importlib.util.module_from_spec(spec2)
+spec2.loader.exec_module(soldier_module)
+SoldierOCR = soldier_module.SoldierOCR
 
 try:
     from PIL import ImageTk
@@ -53,10 +69,20 @@ class WujindongriGUI:
         self.countdown_running = False
         self._countdown_event = threading.Event()  # 用于立即退出倒计时线程
         self._mining_status_check_running = True  # _check_mining_status 的停止标志
+        self._loading_animation_stopped = False  # 加载动画的停止标志
         self.active_windows_label = None
         self.window_listbox_hwnd_map = {}  # 列表框索引到 hwnd 的映射
         self.ocr_loaded = False  # OCR 是否加载完成
+        self.ocr_reader = None  # OCR 读取器实例
         self._log_enabled = True  # 日志输出开关，用于初始化时禁用
+        
+        # 资源队列监控相关
+        self.soldier_ocr = None  # SoldierOCR 实例
+        self.queue_monitor_running = False  # 队列监控是否运行
+        self.queue_timers = {}  # 队列倒计时数据
+        self.queue_recheck_timers = {}  # 队列重新检测定时器
+        self.activated_hwnd = None  # 当前激活窗口的句柄
+        self._queue_checking = False  # 队列检测锁，防止重复检测
         
         # 创建启动进度条界面
         self._create_loading_screen()
@@ -286,9 +312,28 @@ class WujindongriGUI:
         )
         self.shield_button.pack(side="left", padx=5)
         
-        # 定时自动挖矿
+        # 资源队列监控按钮
+        self.queue_monitor_button = ttk.Button(
+            mining_frame,
+            text="监控队列",
+            command=self.toggle_queue_monitor,
+            width=12
+        )
+        self.queue_monitor_button.pack(side="left", padx=5)
+        
+        # 资源队列倒计时显示
+        self.queue_countdown = ttk.Label(
+            mining_frame,
+            text="",
+            font=("Microsoft YaHei", 9),
+            width=25
+        )
+        self.queue_countdown.pack(side="left", padx=10)
+        
+        # 定时自动挖矿（暂时隐藏）
         timer_frame = ttk.Frame(function_frame)
         timer_frame.pack(fill="x", pady=5)
+        timer_frame.pack_forget()
         
         timer_label = ttk.Label(timer_frame, text="定时挖矿:", width=10, font=("Microsoft YaHei", 10))
         timer_label.pack(side="left")
@@ -478,6 +523,10 @@ class WujindongriGUI:
         
         self.log(f"=== 激活完成 ===")
         self.log(f"批量激活完成: {success_count}/{len(selected_windows)} 个窗口成功")
+        
+        # 保存第一个激活的窗口句柄
+        if success_count > 0:
+            self.activated_hwnd = selected_windows[0][0]
         
         # 更新绿色标签显示当前被激活的窗口（每个窗口一行）
         self._update_active_windows_label(activated_titles)
@@ -724,11 +773,285 @@ class WujindongriGUI:
             self.stop_mining()
         
         self.log("自动挖矿已停止")
+
+    def toggle_queue_monitor(self):
+        """切换资源队列监控状态"""
+        if self.queue_monitor_running:
+            self.stop_queue_monitor()
+        else:
+            self.start_queue_monitor()
+
+    def start_queue_monitor(self):
+        """检测资源队列并显示预计完成时间"""
+        if not self.activated_hwnd:
+            self.log("请先激活窗口")
+            messagebox.showwarning("警告", "请先激活窗口")
+            return
+
+        hwnd = self.activated_hwnd
+        self.log(f"激活窗口: {hwnd}")
+
+        self.soldier_ocr = SoldierOCR(ocr_reader=self.ocr_reader, log_callback=self.log)
+        self.log("SoldierOCR 已创建")
+
+        if not self.soldier_ocr.init_ocr():
+            self.log("OCR 初始化失败")
+            return
+
+        self.log("OCR 初始化成功")
+        self.log("正在检测资源队列...")
+
+        # 在后台线程中执行检测，避免阻塞 GUI
+        def check_queue_result():
+            try:
+                screenshot, win_w, win_h = self.soldier_ocr.get_window_screenshot(hwnd)
+                if screenshot is None:
+                    self.log("✗ 无法获取窗口截图")
+                    return
+
+                queue_status = self.soldier_ocr._check_all_queues_with_timer(screenshot, win_w, win_h)
+            except Exception as e:
+                import traceback
+                self.log(f"检测异常: {e}")
+                self.log(traceback.format_exc())
+                return
+
+            # 不显示原始字典格式，只显示格式化后的结果
+
+            if not queue_status:
+                self.log("未检测到资源队列")
+                self.root.after(0, lambda: self.queue_countdown.config(text="未检测到资源队列"))
+                return
+
+            # 回到主线程显示结果
+            self.root.after(0, self._display_queue_result, queue_status)
+
+        threading.Thread(target=check_queue_result, daemon=True).start()
+
+    def _display_queue_result(self, queue_status: dict):
+        """显示资源队列检测结果（一次性）"""
+        from datetime import datetime, timedelta
+
+        display_texts = []
+        current_time = datetime.now()
+        item_index = 0
+
+        for resource_name, matches in queue_status.items():
+            if not matches:
+                continue
+
+            for match in matches:
+                timer_text = match.get("timer")
+                seconds = match.get("seconds", -1)
+                position = match.get("position", (0, 0))
+                full_text = match.get("full_text", "")
+
+                if timer_text and seconds is not None and seconds > 0:
+                    item_index += 1
+                    hours = seconds // 3600
+                    mins = (seconds % 3600) // 60
+                    secs = seconds % 60
+                    # 计算预计完成时间
+                    finish_time = current_time + timedelta(seconds=seconds)
+                    finish_str = finish_time.strftime("%H:%M:%S")
+
+                    # 为每个资源队列记录设置独立的定时器
+                    queue_key = f"{resource_name}_{position[0]}_{position[1]}"
+                    delay_secs = self._get_recheck_delay(finish_str)
+                    self._schedule_queue_recheck(finish_str, queue_key)
+
+                    # 显示结果（含定时器信息）
+                    display_texts.append(f"{item_index} {resource_name} '{full_text}' 设置定时器 [{queue_key}]：{delay_secs}秒后重新检测资源队列")
+                    self.log(f"  {item_index} {resource_name}: 倒计时 {timer_text}，预计 {finish_str} 完成 设置定时器 [{queue_key}]：延迟 {delay_secs} 秒，完成时间 {finish_str}")
+                elif seconds == 0:
+                    self.log(f"  ⚠ {resource_name} 倒计时已结束，等待重新检测...")
+
+        if display_texts:
+            self.queue_countdown.config(text="\n".join(display_texts))
+        else:
+            self.queue_countdown.config(text="未检测到有效倒计时")
+
+    def _get_recheck_delay(self, finish_time_str: str) -> int:
+        """获取重新检测的延迟秒数（不设置定时器）"""
+        from datetime import datetime
         
+        finish_time = datetime.strptime(finish_time_str, "%H:%M:%S")
+        now = datetime.now()
+        today_finish = finish_time.replace(year=now.year, month=now.month, day=now.day)
+        
+        if today_finish <= now:
+            return 0
+
+        delay_secs = int((today_finish - now).total_seconds())
+        delay_secs = min(delay_secs, 24 * 60 * 60)
+        return delay_secs
+
+    def _schedule_queue_recheck(self, finish_time_str: str, queue_key: str):
+        """为每个资源队列记录设置独立的定时器"""
+        # 取消之前可能存在的定时器
+        if queue_key in self.queue_recheck_timers:
+            self.root.after_cancel(self.queue_recheck_timers[queue_key])
+            del self.queue_recheck_timers[queue_key]
+
+        delay_secs = self._get_recheck_delay(finish_time_str)
+        
+        if delay_secs == 0:
+            # 如果已经到达或超过完成时间，立即重新检测
+            timer_id = self.root.after(0, self._on_queue_recheck, queue_key)
+            self.queue_recheck_timers[queue_key] = timer_id
+            return
+
+        timer_id = self.root.after(delay_secs * 1000, self._on_queue_recheck, queue_key)
+        self.queue_recheck_timers[queue_key] = timer_id
+
+    def _on_queue_recheck(self, queue_key: str):
+        """定时器到期回调，重新检测资源队列"""
+        # 从定时器记录中移除
+        if queue_key in self.queue_recheck_timers:
+            del self.queue_recheck_timers[queue_key]
+        
+        # 如果正在检测中，等待当前检测完成后再执行
+        if self._queue_checking:
+            self.log(f"检测正在进行中 [{queue_key}]，等待后重试")
+            self.root.after(500, self._on_queue_recheck, queue_key)
+            return
+        
+        self._queue_checking = True
+        self.log(f"定时器触发 [{queue_key}]，重新检测资源队列")
+        # 重新检测
+        try:
+            self.start_queue_monitor()
+        except Exception as e:
+            self.log(f"重新检测异常: {e}")
+        finally:
+            self._queue_checking = False
+
+    def _queue_monitor_loop(self, hwnd: int):
+        """资源队列监控循环"""
+        import time
+        from datetime import datetime, timedelta
+
+        while self.queue_monitor_running:
+            screenshot, win_w, win_h = self.soldier_ocr.get_window_screenshot(hwnd)
+            if screenshot is None:
+                time.sleep(30)
+                continue
+
+            queue_status = self.soldier_ocr._check_all_queues_with_timer(screenshot, win_w, win_h)
+
+            self.log(f"监控循环 - queue_status: {queue_status}")
+
+            if queue_status:
+                current_time = datetime.now()
+                display_texts = []
+
+                for resource_name, queue_list in queue_status.items():
+                    for queue_info in queue_list:
+                        timer_text = queue_info.get("timer")
+                        seconds = queue_info.get("seconds", -1)
+                        position = queue_info.get("position")
+
+                        queue_key = f"{resource_name}_{position[0]}_{position[1]}"
+
+                        if timer_text and seconds is not None and seconds > 0:
+                            if queue_key not in self.queue_timers:
+                                self.queue_timers[queue_key] = {
+                                    "resource_name": resource_name,
+                                    "start_time": current_time,
+                                    "initial_seconds": seconds
+                                }
+
+                            elapsed = int((current_time - self.queue_timers[queue_key]["start_time"]).total_seconds())
+                            remaining = self.queue_timers[queue_key]["initial_seconds"] - elapsed
+
+                            if remaining > 0:
+                                hours = remaining // 3600
+                                mins = (remaining % 3600) // 60
+                                secs = remaining % 60
+                                # 计算预计完成时间
+                                finish_time = current_time + timedelta(seconds=remaining)
+                                finish_str = finish_time.strftime("%H:%M:%S")
+                                display_texts.append(f"{resource_name}: {hours:02d}:{mins:02d}:{secs:02d} (约{finish_str}完成)")
+                            else:
+                                resource = self.queue_timers[queue_key].get("resource_name", resource_name)
+                                self.log(f"⚠ {resource} 挖矿完成!")
+                                del self.queue_timers[queue_key]
+                                self.root.after(0, self._check_mining_remaining, hwnd)
+                        else:
+                            if queue_key in self.queue_timers:
+                                del self.queue_timers[queue_key]
+
+                if display_texts:
+                    self.root.after(0, self._update_queue_display, display_texts)
+                else:
+                    self.queue_timers = {}
+                    self.root.after(0, self.queue_countdown.config, {"text": ""})
+            else:
+                self.queue_timers = {}
+                self.root.after(0, self.queue_countdown.config, {"text": ""})
+
+            time.sleep(30)
+
+    def _read_soldier_output(self):
+        """读取 soldier.py 的输出"""
+        if not hasattr(self, 'queue_monitor_process'):
+            return
+        
+        process = self.queue_monitor_process
+        try:
+            while True:
+                line = process.stdout.readline()
+                if not line and process.poll() is not None:
+                    break
+                if line:
+                    self.log(line.strip())
+        except Exception as e:
+            self.log(f"读取输出异常: {e}")
+        finally:
+            self.queue_monitor_running = False
+            self.root.after(0, self._on_soldier_finished)
+
+    def _on_soldier_finished(self):
+        """soldier.py 进程结束后的回调"""
+        self.queue_monitor_button.config(text="监控队列")
+        self.queue_monitor_running = False
+        self.log("资源队列监控已停止")
+
+    def _on_queue_monitor_stop(self):
+        """监控停止后的回调"""
+        self.queue_monitor_button.config(text="监控队列")
+        self.queue_countdown.config(text="")
+        if self.queue_monitor_running:
+            self.queue_monitor_running = False
+            self.log("资源队列监控已停止")
+
+    def stop_queue_monitor(self):
+        """停止资源队列监控"""
+        self.queue_monitor_running = False
+        self.queue_timers = {}
+        self.queue_monitor_button.config(text="监控队列")
+        self.queue_countdown.config(text="")
+        self.log("资源队列监控已停止")
+
+    def _update_queue_display(self, display_texts: list):
+        """更新队列显示"""
+        self.queue_countdown.config(text=" | ".join(display_texts))
+
+    def _check_mining_remaining(self, hwnd: int):
+        """检查剩余挖矿次数"""
+        if self.soldier_ocr:
+            result = self.soldier_ocr.check_mining_remaining(hwnd)
+            if result:
+                remaining = result.get("remaining", "N/A")
+                self.log(f"挖矿剩余次数: {remaining}")
+    
     def log(self, message):
         """添加日志（线程安全，使用 root.after 调度到主线程）"""
         if not self._log_enabled:
             return
+        # 同时输出到终端（使用 sys.__stdout__ 确保不受 sys.stdout 重定向影响）
+        sys.__stdout__.write(f"{message}\n")
+        sys.__stdout__.flush()
         # 使用 root.after 调度到主线程执行 GUI 操作
         self.root.after(0, self._add_log_message, message)
 
@@ -936,10 +1259,7 @@ class WujindongriGUI:
                 "protective_casing": self.protective_casing,
             },
             extra_checks=extra_check,
-            on_module_init=lambda module: (
-                self.log("开始执行每日任务流程..."),
-                self._run_daily_task_with_resume(module, self._pause_other_systems)
-            )
+            on_module_init=lambda module: self._run_daily_task_with_resume(module, self._pause_other_systems)
         )
     
     def _run_daily_task_with_resume(self, module, get_system_status):
@@ -1312,18 +1632,14 @@ class WujindongriGUI:
     
     def _init_ocr_in_background(self):
         """后台初始化 OCR"""
-        # 启动进度条动画线程
         animation_thread = threading.Thread(target=self._animate_loading_progress, daemon=True)
         animation_thread.start()
         
         try:
             from rapidocr import RapidOCR
-            ocr_reader = RapidOCR()
+            self.ocr_reader = RapidOCR()
             
-            # OCR 加载完成，更新进度为 100%
             self.root.after(0, lambda: self.update_loading_progress(100, "OCR 加载完成"))
-            
-            # OCR 加载完成，更新界面
             self.root.after(0, self._on_ocr_loaded)
         except ImportError:
             self.root.after(0, lambda: self.update_loading_progress(100, "RapidOCR 未安装"))
@@ -1335,6 +1651,8 @@ class WujindongriGUI:
     def _animate_loading_progress(self):
         """动画线程：模拟加载进度到 95%"""
         for i in range(1, 96):
+            if self._loading_animation_stopped:
+                break
             time.sleep(0.03)  # 模拟加载时间
             self.root.after(0, lambda value=i: self.update_loading_progress(value, "正在加载 OCR 模型..."))
     
@@ -1345,21 +1663,35 @@ class WujindongriGUI:
             value: 进度值 (0-100)
             text: 进度文本
         """
-        if hasattr(self, 'loading_progress'):
-            self.loading_progress['value'] = value
-        if hasattr(self, 'loading_text_label'):
-            self.loading_text_label.config(text=f"{value}%")
-        if hasattr(self, 'loading_status'):
-            self.loading_status.config(text=text)
+        try:
+            if hasattr(self, 'loading_progress'):
+                self.loading_progress['value'] = value
+            if hasattr(self, 'loading_text_label'):
+                self.loading_text_label.config(text=f"{value}%")
+            if hasattr(self, 'loading_status'):
+                self.loading_status.config(text=text)
+        except (tk.TclError, RuntimeError):
+            # 组件已被销毁，忽略异常
+            pass
     
     def _on_ocr_loaded(self):
         """OCR 加载完成后的回调"""
+        # 先停止加载动画线程
+        self._loading_animation_stopped = True
+        
         # 更新进度为 100%
         self.update_loading_progress(100, "OCR 加载完成")
         
         # 更新状态
         if hasattr(self, 'loading_status'):
             self.loading_status.config(text="初始化完成，正在加载主界面...")
+        
+        # 先销毁加载界面所有元素，避免与主界面共存导致闪烁
+        loading_widgets = []
+        for child in self.root.winfo_children():
+            loading_widgets.append(child)
+        for widget in loading_widgets:
+            widget.destroy()
         
         # 创建主界面
         self.create_widgets()
@@ -1376,19 +1708,6 @@ class WujindongriGUI:
         
         # 标记 OCR 已加载
         self.ocr_loaded = True
-        
-        # 隐藏加载进度条和标题
-        if hasattr(self, 'loading_progress'):
-            self.loading_progress.pack_forget()
-        if hasattr(self, 'loading_text_label'):
-            self.loading_text_label.pack_forget()
-        if hasattr(self, 'loading_status'):
-            self.loading_status.pack_forget()
-        if hasattr(self, 'subtitle_label'):
-            self.subtitle_label.pack_forget()
-        if hasattr(self, 'title_label') and self.title_label.cget("text") == "无尽冬日挂机系统":
-            # 这是加载界面的标题，需要隐藏
-            self.title_label.pack_forget()
         
         # 启动状态检查
         self._check_mining_status()

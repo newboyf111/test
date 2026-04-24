@@ -1,0 +1,291 @@
+{
+  "window_name": "MuMu安卓设备",
+  "hwnd": 393302,
+  "screenshot_size": {
+    "width": 558,
+    "height": 1021
+  },
+  "timestamp": "2026-04-17 09:40:34",
+  "每日任务": [
+    {
+      "text": "联盟互助20次（10/20）",
+      "confidence": 0.97421,
+      "first_char_pos": [
+        161,
+        427
+      ],
+      "task": {
+        "target": 20,
+        "current": 10,
+        "remaining": 10,
+        "completed": false
+      }
+    },
+    {
+      "text": "完成联盟捐献5次（0/5）",
+      "confidence": 0.98442,
+      "first_char_pos": [
+        166,
+        554
+      ],
+      "task": {
+        "target": 5,
+        "current": 0,
+        "remaining": 5,
+        "completed": false
+      }
+    },
+    {
+      "text": "完成1次英雄招募(0/1)",
+      "confidence": 0.93793,
+      "first_char_pos": [
+        162,
+        682
+      ],
+      "task": {
+        "target": 1,
+        "current": 0,
+        "remaining": 1,
+        "completed": false
+      }
+    },
+    {
+      "text": "训练10个盾兵（0/10）",
+      "confidence": 0.97083,
+      "first_char_pos": [
+        154,
+        809
+      ],
+      "task": {
+        "target": 10,
+        "current": 0,
+        "remaining": 10,
+        "completed": false
+      }
+    },
+    {
+      "text": "训练10个矛兵（0/10）",
+      "confidence": 0.97389,
+      "first_char_pos": [
+        154,
+        671
+      ],
+      "task": {
+        "target": 10,
+        "current": 0,
+        "remaining": 10,
+        "completed": false
+      }
+    },
+    {
+      "text": "训练10个射手（0/10）",
+      "confidence": 0.98932,
+      "first_char_pos": [
+        152,
+        798
+      ],
+      "task": {
+        "target": 10,
+        "current": 0,
+        "remaining": 10,
+        "completed": false
+      }
+    },
+    {
+      "text": "在仓库领取1次补给（0/1）",
+      "confidence": 0.94613,
+      "first_char_pos": [
+        172,
+        787
+      ],
+      "task": {
+        "target": 1,
+        "current": 0,
+        "remaining": 1,
+        "completed": false
+      }
+    },
+    {
+      "text": "治疗10个伤兵（0/10）",
+      "confidence": 0.98823,
+      "first_char_pos": [
+        154,
+        650
+      ],
+      "task": {
+        "target": 10,
+        "current": 0,
+        "remaining": 10,
+        "completed": false
+      }
+    },
+    {
+      "text": "采集50,000单位生肉（0/50000）",
+      "confidence": 0.95635,
+      "first_char_pos": [
+        209,
+        778
+      ],
+      "task": {
+        "target": 50000,
+        "current": 0,
+        "remaining": 50000,
+        "completed": false
+      }
+    },
+    {
+      "text": "采集50,000单位木材（0/50000）",
+      "confidence": 0.95396,
+      "first_char_pos": [
+        209,
+        639
+      ],
+      "task": {
+        "target": 50000,
+        "current": 0,
+        "remaining": 50000,
+        "completed": false
+      }
+    },
+    {
+      "text": "采集10,000单位煤炭（0/10000）",
+      "confidence": 0.97543,
+      "first_char_pos": [
+        205,
+        766
+      ],
+      "task": {
+        "target": 10000,
+        "current": 0,
+        "remaining": 10000,
+        "completed": false
+      }
+    },
+    {
+      "text": "采集3000单位铁（0/3000）",
+      "confidence": 0.98629,
+      "first_char_pos": [
+        186,
+        628
+      ],
+      "task": {
+        "target": 3000,
+        "current": 0,
+        "remaining": 3000,
+        "completed": false
+      }
+    },
+    {
+      "text": "升级1次建筑 （0/1)",
+      "confidence": 0.88256,
+      "first_char_pos": [
+        141,
+        756
+      ],
+      "task": {
+        "target": 1,
+        "current": 0,
+        "remaining": 1,
+        "completed": false
+      }
+    },
+    {
+      "text": "研究1次科技 (0/1)",
+      "confidence": 0.95486,
+      "first_char_pos": [
+        140,
+        618
+      ],
+      "task": {
+        "target": 1,
+        "current": 0,
+        "remaining": 1,
+        "completed": false
+      }
+    },
+    {
+      "text": "击败冰原巨兽1次（0/1）",
+      "confidence": 0.96451,
+      "first_char_pos": [
+        162,
+        608
+      ],
+      "task": {
+        "target": 1,
+        "current": 0,
+        "remaining": 1,
+        "completed": false
+      }
+    },
+    {
+      "text": "进行1次竞技场挑战 （0/1)",
+      "confidence": 0.9087,
+      "first_char_pos": [
+        172,
+        735
+      ],
+      "task": {
+        "target": 1,
+        "current": 0,
+        "remaining": 1,
+        "completed": false
+      }
+    },
+    {
+      "text": "成功分享1次传说英雄/满级宠物/执政官（0/1）",
+      "confidence": 0.96743,
+      "first_char_pos": [
+        264,
+        597
+      ],
+      "task": {
+        "target": 1,
+        "current": 0,
+        "remaining": 1,
+        "completed": false
+      }
+    },
+    {
+      "text": "进行1次地心探险挑战（0/1）",
+      "confidence": 0.97872,
+      "first_char_pos": [
+        182,
+        725
+      ],
+      "task": {
+        "target": 1,
+        "current": 0,
+        "remaining": 1,
+        "completed": false
+      }
+    },
+    {
+      "text": "派遣宠物寻宝1次（0/1）",
+      "confidence": 0.97677,
+      "first_char_pos": [
+        162,
+        851
+      ],
+      "task": {
+        "target": 1,
+        "current": 0,
+        "remaining": 1,
+        "completed": false
+      }
+    },
+    {
+      "text": "每日登录（1/1）",
+      "confidence": 0.9206,
+      "first_char_pos": [
+        124,
+        761
+      ],
+      "task": {
+        "target": 1,
+        "current": 1,
+        "remaining": 0,
+        "completed": true
+      }
+    }
+  ]
+}

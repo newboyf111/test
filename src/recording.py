@@ -260,14 +260,16 @@ class RecordingModule:
         try:
             if mouse_hook:
                 result = user32.UnhookWindowsHookEx(mouse_hook)
-                if result:
-                    self.gui.log("全局鼠标钩子已移除")
-                else:
+                if not result:
                     error_code = ctypes.get_last_error()
                     self.gui.log(f"移除鼠标钩子失败，错误代码: {error_code}")
-                mouse_hook = None
+                else:
+                    self.gui.log("全局鼠标钩子已移除")
         except (OSError, RuntimeError) as e:
             self.gui.log(f"移除鼠标钩子异常: {e}")
+        finally:
+            # 确保即使异常也清理全局变量
+            mouse_hook = None
     
     def on_global_mouse_click(self, x, y):
         """全局鼠标点击事件"""

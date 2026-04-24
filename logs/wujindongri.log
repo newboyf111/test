@@ -61877,3 +61877,2571 @@ AttributeError: module 'time' has no attribute 'uniform'
 2026-04-15 16:28:43,146 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
 2026-04-15 16:28:43,468 - ProtectiveCasing - INFO - 所有窗口未发现 war
 2026-04-15 16:28:46,431 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-15 18:16:28,110 - src.main - INFO - 无尽冬日程序启动
+2026-04-15 18:16:28,110 - src.main - INFO - 版本: 1.0.0
+2026-04-15 18:16:35,809 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-15 19:21:45,780 - src.main - INFO - 无尽冬日程序启动
+2026-04-15 19:21:45,780 - src.main - INFO - 版本: 1.0.0
+2026-04-15 19:21:53,381 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-15 19:21:54,935 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-15 19:21:54,935 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-15 19:21:54,945 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (14148) (hwnd=6621864)
+2026-04-15 19:21:54,946 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (14148)
+2026-04-15 19:21:54,946 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-15 19:21:54,946 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-15 19:21:54,946 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (14148) 挖矿
+2026-04-15 19:21:54,946 - MultiWindowManager - INFO - 激活窗口: 6621864 (MuMu安卓设备 (14148))
+2026-04-15 19:21:54,951 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-15 19:21:55,048 - mining_6621864 - INFO - ==================================================
+2026-04-15 19:21:55,048 - mining_6621864 - INFO - 挖矿开始
+2026-04-15 19:21:55,048 - mining_6621864 - INFO - 基准尺寸: 558x1021
+2026-04-15 19:21:55,049 - mining_6621864 - INFO - ==================================================
+2026-04-15 19:21:55,616 - mining_6621864 - INFO - RapidOCR 初始化成功
+2026-04-15 19:21:55,616 - mining_6621864 - INFO - 开始执行 OCR 检查...
+2026-04-15 19:21:55,962 - mining_6621864 - INFO - OCR 识别失败，视为需要挖矿
+2026-04-15 19:21:55,979 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (14148) 挖矿完成...
+2026-04-15 19:21:55,980 - mining_6621864 - INFO - 开始执行挖矿初始化流程...
+2026-04-15 19:21:55,981 - mining_6621864 - INFO - 执行挖矿初始化流程...
+2026-04-15 19:21:56,026 - mining_6621864 - DEBUG - 加载模板: town.png 60x56
+2026-04-15 19:21:56,039 - mining_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:21:56,039 - mining_6621864 - DEBUG - 找到 town [scale=1.000]
+2026-04-15 19:21:56,039 - mining_6621864 - INFO - 找到 town，开始挖矿流程
+2026-04-15 19:21:56,039 - mining_6621864 - INFO - 挖矿初始化完成，开始正常挖矿流程
+2026-04-15 19:21:56,293 - mining_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:21:56,293 - mining_6621864 - DEBUG - 找到 town [scale=1.000]
+2026-04-15 19:21:56,334 - mining_6621864 - DEBUG - 加载模板: wild.png 60x52
+2026-04-15 19:21:56,346 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-15 19:21:56,604 - mining_6621864 - DEBUG - 未找到: wild.png
+2026-04-15 19:21:56,652 - mining_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:21:56,652 - mining_6621864 - DEBUG - 找到 town [scale=1.000]
+2026-04-15 19:21:56,652 - mining_6621864 - INFO - 找到 town
+2026-04-15 19:21:57,930 - mining_6621864 - DEBUG - 加载模板: search.png 40x37
+2026-04-15 19:21:57,942 - mining_6621864 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.928
+2026-04-15 19:21:58,046 - mining_6621864 - INFO - 点击 search: (631, 793) [scale=1.000]
+2026-04-15 19:21:58,046 - mining_6621864 - INFO - 点击 search 成功
+2026-04-15 19:21:59,370 - mining_6621864 - DEBUG - 加载模板: meat.png 106x81
+2026-04-15 19:21:59,386 - mining_6621864 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.888
+2026-04-15 19:21:59,488 - mining_6621864 - INFO - 点击 meat: (1025, 819) [scale=1.000]
+2026-04-15 19:21:59,488 - mining_6621864 - INFO - 点击资源成功: meat
+2026-04-15 19:22:00,877 - mining_6621864 - DEBUG - 加载模板: add.png 20x31
+2026-04-15 19:22:00,888 - mining_6621864 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-15 19:22:00,989 - mining_6621864 - INFO - 点击 add: (932, 926) [scale=1.000]
+2026-04-15 19:22:00,990 - mining_6621864 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-15 19:22:00,990 - mining_6621864 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-15 19:22:00,990 - mining_6621864 - INFO - add 坐标在容差范围内，继续流程
+2026-04-15 19:22:00,991 - mining_6621864 - INFO - 点击 add 成功且坐标校准完成
+2026-04-15 19:22:02,547 - mining_6621864 - DEBUG - 加载模板: search_meat.png 78x34
+2026-04-15 19:22:02,561 - mining_6621864 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-15 19:22:02,663 - mining_6621864 - INFO - 点击 search_meat: (878, 1054) [scale=1.000]
+2026-04-15 19:22:02,663 - mining_6621864 - INFO - 点击 search_meat 成功
+2026-04-15 19:22:04,593 - mining_6621864 - INFO - 尝试寻找 gather...
+2026-04-15 19:22:04,633 - mining_6621864 - DEBUG - 加载模板: gather.png 63x36
+2026-04-15 19:22:04,644 - mining_6621864 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-15 19:22:04,746 - mining_6621864 - INFO - 点击 gather: (872, 601) [scale=1.000]
+2026-04-15 19:22:04,747 - mining_6621864 - INFO - 点击 gather 成功
+2026-04-15 19:22:06,704 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-15 19:22:07,061 - mining_6621864 - DEBUG - 未找到: gather.png
+2026-04-15 19:22:07,101 - mining_6621864 - DEBUG - 加载模板: team.png 139x43
+2026-04-15 19:22:07,116 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-15 19:22:07,366 - mining_6621864 - DEBUG - 未找到: team.png
+2026-04-15 19:22:07,402 - mining_6621864 - DEBUG - 加载模板: battle.png 81x37
+2026-04-15 19:22:07,416 - mining_6621864 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-15 19:22:07,521 - mining_6621864 - INFO - 点击 battle: (1025, 1050) [scale=1.000]
+2026-04-15 19:22:07,522 - mining_6621864 - INFO - 点击 battle 成功，完成一轮
+2026-04-15 19:22:07,523 - mining_6621864 - INFO - 已完成 1 轮
+2026-04-15 19:22:08,865 - mining_6621864 - INFO - 开始执行 OCR 检查...
+2026-04-15 19:22:09,100 - mining_6621864 - INFO - OCR 识别结果: '1/5' (置信度: 0.99)
+2026-04-15 19:22:09,101 - mining_6621864 - INFO - OCR 识别结果: 1/5 (剩余: 4)
+2026-04-15 19:22:09,343 - mining_6621864 - INFO - OCR 识别结果: '1/5' (置信度: 0.99)
+2026-04-15 19:22:09,379 - mining_6621864 - INFO - OCR 识别到文本: 1/5
+2026-04-15 19:22:09,392 - mining_6621864 - INFO - 解析结果: 当前 1, 总数 5, 剩余 4
+2026-04-15 19:22:09,399 - mining_6621864 - INFO - 设置还需要循环的次数为: 4
+2026-04-15 19:22:09,452 - mining_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:22:09,452 - mining_6621864 - DEBUG - 找到 town [scale=1.000]
+2026-04-15 19:22:09,498 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-15 19:22:09,745 - mining_6621864 - DEBUG - 未找到: wild.png
+2026-04-15 19:22:09,798 - mining_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:22:09,799 - mining_6621864 - DEBUG - 找到 town [scale=1.000]
+2026-04-15 19:22:09,799 - mining_6621864 - INFO - 找到 town
+2026-04-15 19:22:10,961 - mining_6621864 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.939
+2026-04-15 19:22:11,062 - mining_6621864 - INFO - 点击 search: (631, 793) [scale=1.000]
+2026-04-15 19:22:11,062 - mining_6621864 - INFO - 点击 search 成功
+2026-04-15 19:22:12,745 - mining_6621864 - DEBUG - 加载模板: wood.png 96x57
+2026-04-15 19:22:12,759 - mining_6621864 - DEBUG - [比例匹配] wood.png scale=1.000 conf=0.924
+2026-04-15 19:22:12,860 - mining_6621864 - INFO - 点击 wood: (995, 837) [scale=1.000]
+2026-04-15 19:22:12,860 - mining_6621864 - INFO - 点击资源成功: wood
+2026-04-15 19:22:14,446 - mining_6621864 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-15 19:22:14,548 - mining_6621864 - INFO - 点击 add: (932, 926) [scale=1.000]
+2026-04-15 19:22:14,548 - mining_6621864 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-15 19:22:14,549 - mining_6621864 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-15 19:22:14,549 - mining_6621864 - INFO - add 坐标在容差范围内，继续流程
+2026-04-15 19:22:14,549 - mining_6621864 - INFO - 点击 add 成功且坐标校准完成
+2026-04-15 19:22:16,048 - mining_6621864 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-15 19:22:16,154 - mining_6621864 - INFO - 点击 search_meat: (878, 1054) [scale=1.000]
+2026-04-15 19:22:16,154 - mining_6621864 - INFO - 点击 search_meat 成功
+2026-04-15 19:22:17,167 - mining_6621864 - INFO - 尝试寻找 gather...
+2026-04-15 19:22:17,218 - mining_6621864 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-15 19:22:17,320 - mining_6621864 - INFO - 点击 gather: (872, 601) [scale=1.000]
+2026-04-15 19:22:17,321 - mining_6621864 - INFO - 点击 gather 成功
+2026-04-15 19:22:19,345 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-15 19:22:19,704 - mining_6621864 - DEBUG - 未找到: gather.png
+2026-04-15 19:22:19,758 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-15 19:22:20,012 - mining_6621864 - DEBUG - 未找到: team.png
+2026-04-15 19:22:20,063 - mining_6621864 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-15 19:22:20,165 - mining_6621864 - INFO - 点击 battle: (1025, 1050) [scale=1.000]
+2026-04-15 19:22:20,165 - mining_6621864 - INFO - 点击 battle 成功，完成一轮
+2026-04-15 19:22:20,166 - mining_6621864 - INFO - 已完成 2 轮
+2026-04-15 19:22:21,984 - mining_6621864 - INFO - 开始执行 OCR 检查...
+2026-04-15 19:22:22,208 - mining_6621864 - INFO - OCR 识别结果: '2/5' (置信度: 1.00)
+2026-04-15 19:22:22,209 - mining_6621864 - INFO - OCR 识别结果: 2/5 (剩余: 3)
+2026-04-15 19:22:22,473 - mining_6621864 - INFO - OCR 识别结果: '2/5' (置信度: 1.00)
+2026-04-15 19:22:22,506 - mining_6621864 - INFO - OCR 识别到文本: 2/5
+2026-04-15 19:22:22,518 - mining_6621864 - INFO - 解析结果: 当前 2, 总数 5, 剩余 3
+2026-04-15 19:22:22,519 - mining_6621864 - INFO - 设置还需要循环的次数为: 3
+2026-04-15 19:22:22,572 - mining_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:22:22,572 - mining_6621864 - DEBUG - 找到 town [scale=1.000]
+2026-04-15 19:22:22,624 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-15 19:22:22,873 - mining_6621864 - DEBUG - 未找到: wild.png
+2026-04-15 19:22:22,922 - mining_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:22:22,923 - mining_6621864 - DEBUG - 找到 town [scale=1.000]
+2026-04-15 19:22:22,923 - mining_6621864 - INFO - 找到 town
+2026-04-15 19:22:24,592 - mining_6621864 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.930
+2026-04-15 19:22:24,696 - mining_6621864 - INFO - 点击 search: (631, 793) [scale=1.000]
+2026-04-15 19:22:24,696 - mining_6621864 - INFO - 点击 search 成功
+2026-04-15 19:22:26,584 - mining_6621864 - DEBUG - 加载模板: coal mine.png 68x51
+2026-04-15 19:22:26,599 - mining_6621864 - DEBUG - [比例匹配] coal mine.png scale=1.000 conf=0.946
+2026-04-15 19:22:26,703 - mining_6621864 - INFO - 点击 coal: (994, 840) [scale=1.000]
+2026-04-15 19:22:26,703 - mining_6621864 - INFO - 点击资源成功: coal
+2026-04-15 19:22:28,245 - mining_6621864 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-15 19:22:28,347 - mining_6621864 - INFO - 点击 add: (932, 926) [scale=1.000]
+2026-04-15 19:22:28,347 - mining_6621864 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-15 19:22:28,348 - mining_6621864 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-15 19:22:28,348 - mining_6621864 - INFO - add 坐标在容差范围内，继续流程
+2026-04-15 19:22:28,348 - mining_6621864 - INFO - 点击 add 成功且坐标校准完成
+2026-04-15 19:22:29,689 - mining_6621864 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-15 19:22:29,791 - mining_6621864 - INFO - 点击 search_meat: (878, 1054) [scale=1.000]
+2026-04-15 19:22:29,791 - mining_6621864 - INFO - 点击 search_meat 成功
+2026-04-15 19:22:31,260 - mining_6621864 - INFO - 尝试寻找 gather...
+2026-04-15 19:22:31,309 - mining_6621864 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-15 19:22:31,411 - mining_6621864 - INFO - 点击 gather: (872, 601) [scale=1.000]
+2026-04-15 19:22:31,411 - mining_6621864 - INFO - 点击 gather 成功
+2026-04-15 19:22:32,760 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-15 19:22:33,116 - mining_6621864 - DEBUG - 未找到: gather.png
+2026-04-15 19:22:33,168 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-15 19:22:33,421 - mining_6621864 - DEBUG - 未找到: team.png
+2026-04-15 19:22:33,472 - mining_6621864 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-15 19:22:33,574 - mining_6621864 - INFO - 点击 battle: (1025, 1050) [scale=1.000]
+2026-04-15 19:22:33,575 - mining_6621864 - INFO - 点击 battle 成功，完成一轮
+2026-04-15 19:22:33,575 - mining_6621864 - INFO - 已完成 3 轮
+2026-04-15 19:22:35,014 - mining_6621864 - INFO - 开始执行 OCR 检查...
+2026-04-15 19:22:35,217 - mining_6621864 - INFO - OCR 识别结果: '3/5' (置信度: 0.99)
+2026-04-15 19:22:35,236 - mining_6621864 - INFO - OCR 识别结果: 3/5 (剩余: 2)
+2026-04-15 19:22:35,483 - mining_6621864 - INFO - OCR 识别结果: '3/5' (置信度: 0.99)
+2026-04-15 19:22:35,508 - mining_6621864 - INFO - OCR 识别到文本: 3/5
+2026-04-15 19:22:35,527 - mining_6621864 - INFO - 解析结果: 当前 3, 总数 5, 剩余 2
+2026-04-15 19:22:35,528 - mining_6621864 - INFO - 设置还需要循环的次数为: 2
+2026-04-15 19:22:35,583 - mining_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:22:35,583 - mining_6621864 - DEBUG - 找到 town [scale=1.000]
+2026-04-15 19:22:35,634 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-15 19:22:35,888 - mining_6621864 - DEBUG - 未找到: wild.png
+2026-04-15 19:22:35,940 - mining_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:22:35,940 - mining_6621864 - DEBUG - 找到 town [scale=1.000]
+2026-04-15 19:22:35,940 - mining_6621864 - INFO - 找到 town
+2026-04-15 19:22:37,095 - mining_6621864 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.939
+2026-04-15 19:22:37,197 - mining_6621864 - INFO - 点击 search: (631, 793) [scale=1.000]
+2026-04-15 19:22:37,198 - mining_6621864 - INFO - 点击 search 成功
+2026-04-15 19:22:38,958 - mining_6621864 - DEBUG - 加载模板: iron.png 83x81
+2026-04-15 19:22:38,973 - mining_6621864 - DEBUG - [比例匹配] iron.png scale=1.000 conf=0.888
+2026-04-15 19:22:39,075 - mining_6621864 - INFO - 点击 iron: (1076, 822) [scale=1.000]
+2026-04-15 19:22:39,075 - mining_6621864 - INFO - 点击资源成功: iron
+2026-04-15 19:22:40,387 - mining_6621864 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-15 19:22:40,489 - mining_6621864 - INFO - 点击 add: (932, 926) [scale=1.000]
+2026-04-15 19:22:40,489 - mining_6621864 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-15 19:22:40,490 - mining_6621864 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-15 19:22:40,490 - mining_6621864 - INFO - add 坐标在容差范围内，继续流程
+2026-04-15 19:22:40,490 - mining_6621864 - INFO - 点击 add 成功且坐标校准完成
+2026-04-15 19:22:41,726 - mining_6621864 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-15 19:22:41,827 - mining_6621864 - INFO - 点击 search_meat: (878, 1054) [scale=1.000]
+2026-04-15 19:22:41,827 - mining_6621864 - INFO - 点击 search_meat 成功
+2026-04-15 19:22:42,973 - mining_6621864 - INFO - 尝试寻找 gather...
+2026-04-15 19:22:43,025 - mining_6621864 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-15 19:22:43,133 - mining_6621864 - INFO - 点击 gather: (872, 601) [scale=1.000]
+2026-04-15 19:22:43,133 - mining_6621864 - INFO - 点击 gather 成功
+2026-04-15 19:22:44,801 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-15 19:22:45,159 - mining_6621864 - DEBUG - 未找到: gather.png
+2026-04-15 19:22:45,209 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-15 19:22:45,454 - mining_6621864 - DEBUG - 未找到: team.png
+2026-04-15 19:22:45,508 - mining_6621864 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-15 19:22:45,610 - mining_6621864 - INFO - 点击 battle: (1025, 1050) [scale=1.000]
+2026-04-15 19:22:45,610 - mining_6621864 - INFO - 点击 battle 成功，完成一轮
+2026-04-15 19:22:45,610 - mining_6621864 - INFO - 已完成 4 轮
+2026-04-15 19:22:46,695 - mining_6621864 - INFO - 开始执行 OCR 检查...
+2026-04-15 19:22:46,888 - mining_6621864 - INFO - OCR 识别结果: '4/5' (置信度: 0.99)
+2026-04-15 19:22:46,918 - mining_6621864 - INFO - OCR 识别结果: 4/5 (剩余: 1)
+2026-04-15 19:22:47,222 - mining_6621864 - INFO - OCR 识别结果: '4/5' (置信度: 0.99)
+2026-04-15 19:22:47,224 - mining_6621864 - INFO - OCR 识别到文本: 4/5
+2026-04-15 19:22:47,224 - mining_6621864 - INFO - 解析结果: 当前 4, 总数 5, 剩余 1
+2026-04-15 19:22:47,225 - mining_6621864 - INFO - 设置还需要循环的次数为: 1
+2026-04-15 19:22:47,279 - mining_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:22:47,279 - mining_6621864 - DEBUG - 找到 town [scale=1.000]
+2026-04-15 19:22:47,329 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: wild.png
+2026-04-15 19:22:47,583 - mining_6621864 - DEBUG - 未找到: wild.png
+2026-04-15 19:22:47,636 - mining_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:22:47,636 - mining_6621864 - DEBUG - 找到 town [scale=1.000]
+2026-04-15 19:22:47,636 - mining_6621864 - INFO - 找到 town
+2026-04-15 19:22:49,118 - mining_6621864 - DEBUG - [比例匹配] search.png scale=1.000 conf=0.939
+2026-04-15 19:22:49,225 - mining_6621864 - INFO - 点击 search: (631, 793) [scale=1.000]
+2026-04-15 19:22:49,225 - mining_6621864 - INFO - 点击 search 成功
+2026-04-15 19:22:50,333 - mining_6621864 - DEBUG - [比例匹配] meat.png scale=1.000 conf=0.889
+2026-04-15 19:22:50,437 - mining_6621864 - INFO - 点击 meat: (719, 819) [scale=1.000]
+2026-04-15 19:22:50,438 - mining_6621864 - INFO - 点击资源成功: meat
+2026-04-15 19:22:51,808 - mining_6621864 - DEBUG - [比例匹配] add.png scale=1.000 conf=0.958
+2026-04-15 19:22:51,910 - mining_6621864 - INFO - 点击 add: (932, 926) [scale=1.000]
+2026-04-15 19:22:51,910 - mining_6621864 - INFO - 窗口宽度: 558, 缩放比例: 1.000, 目标坐标缩放: (339, 844) -> (339, 844)
+2026-04-15 19:22:51,910 - mining_6621864 - INFO - add 当前坐标: (339, 844), 目标坐标: (339, 844)
+2026-04-15 19:22:51,910 - mining_6621864 - INFO - add 坐标在容差范围内，继续流程
+2026-04-15 19:22:51,911 - mining_6621864 - INFO - 点击 add 成功且坐标校准完成
+2026-04-15 19:22:53,090 - mining_6621864 - DEBUG - [比例匹配] search_meat.png scale=1.000 conf=0.837
+2026-04-15 19:22:53,193 - mining_6621864 - INFO - 点击 search_meat: (878, 1054) [scale=1.000]
+2026-04-15 19:22:53,193 - mining_6621864 - INFO - 点击 search_meat 成功
+2026-04-15 19:22:54,297 - mining_6621864 - INFO - 尝试寻找 gather...
+2026-04-15 19:22:54,344 - mining_6621864 - DEBUG - [比例匹配] gather.png scale=1.000 conf=0.869
+2026-04-15 19:22:54,446 - mining_6621864 - INFO - 点击 gather: (872, 601) [scale=1.000]
+2026-04-15 19:22:54,446 - mining_6621864 - INFO - 点击 gather 成功
+2026-04-15 19:22:55,573 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: gather.png
+2026-04-15 19:22:55,932 - mining_6621864 - DEBUG - 未找到: gather.png
+2026-04-15 19:22:55,981 - mining_6621864 - INFO - 比例匹配失败，启用备选搜索: team.png
+2026-04-15 19:22:56,226 - mining_6621864 - DEBUG - 未找到: team.png
+2026-04-15 19:22:56,280 - mining_6621864 - DEBUG - [比例匹配] battle.png scale=1.000 conf=0.824
+2026-04-15 19:22:56,382 - mining_6621864 - INFO - 点击 battle: (1025, 1050) [scale=1.000]
+2026-04-15 19:22:56,382 - mining_6621864 - INFO - 点击 battle 成功，完成一轮
+2026-04-15 19:22:56,383 - mining_6621864 - INFO - 已完成 5 轮
+2026-04-15 19:22:57,487 - mining_6621864 - INFO - 开始执行 OCR 检查...
+2026-04-15 19:22:57,717 - mining_6621864 - INFO - OCR 识别结果: '5/5' (置信度: 1.00)
+2026-04-15 19:22:57,719 - mining_6621864 - INFO - OCR 识别结果: 5/5 (剩余: 0)
+2026-04-15 19:22:57,723 - mining_6621864 - INFO - 挖矿次数已用完，跳过挖矿流程
+2026-04-15 19:22:57,725 - MultiWindowManager - INFO - 窗口 6621864 挖矿停止
+2026-04-15 19:22:57,726 - mining_6621864 - INFO - OCR 检查未通过，停止挖矿
+2026-04-15 19:22:57,726 - MultiWindowManager - INFO - 窗口 6621864 挖矿停止
+2026-04-15 19:22:58,124 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (14148) 挖矿完成或停止
+2026-04-15 19:22:58,124 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-15 19:22:58,124 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-15 19:22:58,124 - MultiWindowManager - INFO - 所有窗口挖矿完成
+2026-04-15 19:22:58,146 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-15 19:22:58,147 - ProtectiveCasing - INFO - ==================================================
+2026-04-15 19:22:58,147 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-15 19:22:58,147 - ProtectiveCasing - INFO - ==================================================
+2026-04-15 19:22:58,497 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-15 19:22:58,739 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-15 19:23:04,093 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-15 19:23:04,334 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-15 19:23:09,688 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-15 19:23:09,933 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-15 19:23:15,473 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-15 19:23:15,626 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-15 19:23:15,724 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-15 19:23:15,724 - ProtectiveCasing - INFO - 保护性外壳自动化脚本结束
+2026-04-15 19:23:16,633 - daily_task_6621864 - INFO - ==================================================
+2026-04-15 19:23:16,633 - daily_task_6621864 - INFO - 每日任务流程已在后台启动
+2026-04-15 19:23:16,633 - daily_task_6621864 - INFO - 开始每日任务流程
+2026-04-15 19:23:16,633 - daily_task_6621864 - INFO - ==================================================
+2026-04-15 19:23:16,634 - daily_task_6621864 - INFO - 加载每日任务入口配置...
+2026-04-15 19:23:16,634 - daily_task_6621864 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-15 19:23:16,635 - daily_task_6621864 - INFO - 配置文件加载成功，键名: ['每日任务', '雪域兵器联赛', '行军']
+2026-04-15 19:23:16,636 - daily_task_6621864 - INFO - 找到每日任务入口配置
+2026-04-15 19:23:16,636 - daily_task_6621864 - INFO - 挖矿状态: 2 (0:未开始, 1:挖矿中, 2:挖矿结束)
+2026-04-15 19:23:16,636 - daily_task_6621864 - INFO - 挖矿已结束
+2026-04-15 19:23:16,636 - daily_task_6621864 - INFO - 尝试匹配 town...
+2026-04-15 19:23:16,675 - daily_task_6621864 - DEBUG - 加载模板: town.png 60x56
+2026-04-15 19:23:16,687 - daily_task_6621864 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-15 19:23:16,687 - daily_task_6621864 - INFO - 匹配 town.png 成功，置信度: 0.871
+2026-04-15 19:23:16,688 - daily_task_6621864 - INFO - town 匹配成功
+2026-04-15 19:23:16,688 - daily_task_6621864 - INFO - 检查红点...
+2026-04-15 19:23:16,732 - daily_task_6621864 - INFO - 在区域 [9, 813, 59, 61] 检测到红点
+2026-04-15 19:23:16,733 - daily_task_6621864 - INFO - 检测到红点，准备点击...
+2026-04-15 19:23:16,733 - daily_task_6621864 - INFO - 点击区域中心...
+2026-04-15 19:23:16,974 - daily_task_6621864 - INFO - 点击 区域中心 @ (631, 925)
+2026-04-15 19:23:16,974 - daily_task_6621864 - INFO - 结束每日任务流程
+2026-04-15 19:23:16,984 - ProtectiveCasing - INFO - ==================================================
+2026-04-15 19:23:16,984 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-15 19:23:16,984 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-15 19:23:16,984 - ProtectiveCasing - INFO - ==================================================
+2026-04-15 19:23:17,335 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-15 19:23:17,574 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-15 19:23:22,928 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-15 19:23:23,170 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-15 19:23:28,524 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-15 19:23:28,769 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-15 19:23:34,126 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-15 19:23:34,385 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-15 19:23:39,734 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-15 19:23:39,976 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-15 19:23:45,332 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-15 19:23:45,576 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-15 19:23:50,301 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-16 12:54:06,221 - src.main - INFO - 无尽冬日程序启动
+2026-04-16 12:54:06,221 - src.main - INFO - 版本: 1.0.0
+2026-04-16 12:55:51,566 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-16 12:55:53,848 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-16 12:55:53,849 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-16 12:55:53,849 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (24700) (hwnd=395528)
+2026-04-16 12:55:53,849 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (24700)
+2026-04-16 12:55:53,850 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-16 12:55:53,850 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-16 12:55:53,850 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (24700) 挖矿
+2026-04-16 12:55:53,850 - MultiWindowManager - INFO - 激活窗口: 395528 (MuMu安卓设备 (24700))
+2026-04-16 12:55:53,851 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-16 12:55:54,809 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (24700) 挖矿完成...
+2026-04-16 12:56:14,864 - MultiWindowManager - INFO - 用户手动停止挖矿队列
+2026-04-16 12:56:15,325 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (24700) 挖矿完成或停止
+2026-04-16 12:56:15,325 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-16 12:56:15,326 - MultiWindowManager - INFO - 所有窗口挖矿完成
+2026-04-16 12:56:22,334 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-16 12:56:22,335 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-16 12:56:22,335 - MultiWindowManager - WARNING - 窗口 395528 已存在
+2026-04-16 12:56:22,335 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (24700)
+2026-04-16 12:56:22,338 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-16 12:56:22,338 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-16 12:56:22,339 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (24700) 挖矿
+2026-04-16 12:56:22,339 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-16 12:56:22,580 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (24700) 挖矿完成...
+2026-04-16 12:57:24,093 - MultiWindowManager - INFO - 窗口 395528 挖矿停止
+2026-04-16 12:57:24,094 - MultiWindowManager - INFO - 窗口 395528 挖矿停止
+2026-04-16 12:57:24,180 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-16 12:57:24,180 - ProtectiveCasing - INFO - ==================================================
+2026-04-16 12:57:24,181 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-16 12:57:24,181 - ProtectiveCasing - INFO - ==================================================
+2026-04-16 12:57:24,239 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (24700) 挖矿完成或停止
+2026-04-16 12:57:24,239 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-16 12:57:24,239 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-16 12:57:24,239 - MultiWindowManager - INFO - 所有窗口挖矿完成
+2026-04-16 12:57:24,535 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:57:24,778 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:57:30,132 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:57:30,379 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:57:35,734 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:57:35,990 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:57:40,178 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-16 12:57:40,993 - ProtectiveCasing - INFO - 保护性外壳自动化脚本结束
+2026-04-16 12:57:41,179 - daily_task_395528 - INFO - ==================================================
+2026-04-16 12:57:41,179 - daily_task_395528 - INFO - 每日任务流程已在后台启动
+2026-04-16 12:57:41,179 - daily_task_395528 - INFO - 开始每日任务流程
+2026-04-16 12:57:41,179 - daily_task_395528 - INFO - ==================================================
+2026-04-16 12:57:41,180 - daily_task_395528 - INFO - 加载每日任务入口配置...
+2026-04-16 12:57:41,180 - daily_task_395528 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-16 12:57:41,181 - daily_task_395528 - INFO - 配置文件加载成功，键名: ['每日任务', '雪域兵器联赛', '行军']
+2026-04-16 12:57:41,181 - daily_task_395528 - INFO - 找到每日任务入口配置
+2026-04-16 12:57:41,181 - daily_task_395528 - INFO - 挖矿状态: 2 (0:未开始, 1:挖矿中, 2:挖矿结束)
+2026-04-16 12:57:41,182 - daily_task_395528 - INFO - 挖矿已结束
+2026-04-16 12:57:41,182 - daily_task_395528 - INFO - 尝试匹配 town...
+2026-04-16 12:57:41,219 - daily_task_395528 - DEBUG - 加载模板: town.png 60x56
+2026-04-16 12:57:41,231 - daily_task_395528 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-16 12:57:41,232 - daily_task_395528 - INFO - 匹配 town.png 成功，置信度: 0.871
+2026-04-16 12:57:41,232 - daily_task_395528 - INFO - town 匹配成功
+2026-04-16 12:57:41,232 - daily_task_395528 - INFO - 检查红点...
+2026-04-16 12:57:41,275 - daily_task_395528 - INFO - 在区域 [9, 813, 59, 61] 检测到红点
+2026-04-16 12:57:41,275 - daily_task_395528 - INFO - 检测到红点，准备点击...
+2026-04-16 12:57:41,276 - daily_task_395528 - INFO - 点击区域中心...
+2026-04-16 12:57:41,519 - daily_task_395528 - INFO - 点击 区域中心 @ (631, 925)
+2026-04-16 12:57:41,520 - daily_task_395528 - INFO - 结束每日任务流程
+2026-04-16 12:57:41,524 - ProtectiveCasing - INFO - ==================================================
+2026-04-16 12:57:41,524 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-16 12:57:41,524 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-16 12:57:41,524 - ProtectiveCasing - INFO - ==================================================
+2026-04-16 12:57:41,877 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:57:42,125 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:57:47,479 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:57:47,739 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:57:53,097 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:57:53,346 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:57:58,703 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:57:58,973 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:58:04,328 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:58:04,581 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:58:09,929 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:58:10,180 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:58:15,530 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:58:15,781 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:58:21,131 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:58:21,391 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:58:26,740 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:58:26,998 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:58:32,354 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:58:32,602 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:58:37,950 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:58:38,220 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:58:43,575 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:58:43,833 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:58:49,182 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:58:49,432 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:58:54,785 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:58:55,038 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:59:00,386 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:59:00,638 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:59:05,988 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:59:06,237 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:59:11,592 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:59:11,849 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:59:17,199 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:59:17,448 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:59:22,800 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:59:23,050 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:59:28,403 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:59:28,656 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:59:34,012 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:59:34,269 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:59:39,624 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:59:39,878 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:59:45,232 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:59:45,487 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:59:50,840 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:59:51,108 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 12:59:56,460 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 12:59:56,710 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:00:02,064 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:00:02,324 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:00:07,676 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:00:07,927 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:00:13,284 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:00:13,540 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:00:18,891 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:00:19,146 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:00:24,499 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:00:24,766 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:00:30,118 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:00:30,380 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:00:35,735 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:00:35,992 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:00:41,347 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:00:41,605 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:00:46,957 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:00:47,219 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:00:52,569 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:00:52,832 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:00:58,184 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:00:58,443 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:01:03,796 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:01:04,058 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:01:09,410 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:01:09,661 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:01:15,011 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:01:15,263 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:01:20,615 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:01:20,876 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:01:26,228 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:01:26,479 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:01:31,844 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:01:32,148 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:01:37,499 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:01:37,770 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:01:43,124 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:01:43,375 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:01:48,732 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:01:48,997 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:01:54,352 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:01:54,604 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:01:59,958 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:02:00,219 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:02:05,574 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:02:05,844 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:02:11,194 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:02:11,456 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:02:16,810 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:02:17,076 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:02:22,428 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:02:22,685 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:02:28,041 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:02:28,298 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:02:33,649 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:02:33,898 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:02:39,252 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:02:39,512 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:02:44,866 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:02:45,130 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:02:50,485 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:02:50,742 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:02:56,093 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:02:56,349 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:03:01,700 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:03:01,980 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:03:07,332 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:03:07,593 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:03:12,946 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:03:13,198 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:03:18,550 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:03:18,810 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:03:24,162 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:03:24,414 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:03:29,772 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:03:30,021 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:03:35,371 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:03:35,639 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:03:40,992 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:03:41,272 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:03:46,624 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:03:46,904 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:03:52,258 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:03:52,523 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:03:57,876 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:03:58,135 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:04:03,491 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:04:03,759 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:04:09,118 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:04:09,383 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:04:14,735 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:04:15,029 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:04:20,380 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:04:20,636 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:04:25,988 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:04:26,244 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:04:31,598 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:04:31,871 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:04:37,221 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:04:37,475 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:04:42,829 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:04:43,090 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:04:48,443 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:04:48,696 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:04:54,052 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:04:54,308 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:04:59,660 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:04:59,924 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:05:05,279 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:05:05,539 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:05:10,893 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:05:11,144 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:05:16,500 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:05:16,752 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:05:22,119 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:05:22,371 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:05:27,727 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:05:27,983 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:05:33,336 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:05:33,588 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:05:38,944 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:05:39,214 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:05:44,571 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:05:44,827 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:05:50,178 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:05:50,437 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:05:55,793 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:05:56,064 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:06:01,419 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:06:01,678 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:06:07,031 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:06:07,294 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:06:12,648 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:06:12,915 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:06:18,266 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:06:18,516 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:06:23,866 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:06:24,113 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:06:29,463 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:06:29,713 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:06:35,065 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:06:35,343 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:06:40,699 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:06:40,959 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:06:46,310 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:06:46,559 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:06:51,913 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:06:52,171 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:06:57,526 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:06:57,795 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:07:03,146 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:07:03,399 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:07:08,753 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:07:09,014 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:07:14,367 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:07:14,620 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:07:19,973 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:07:20,227 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:07:25,578 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:07:25,836 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:07:31,194 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:07:31,448 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:07:36,799 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:07:37,097 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:07:42,453 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:07:42,743 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:07:48,098 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:07:48,373 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:07:53,727 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:07:54,020 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:08:01,783 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:08:02,035 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:08:07,390 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:08:07,665 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:08:13,014 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:08:13,270 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:08:18,623 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:08:18,878 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:08:24,230 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:08:24,517 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:08:29,869 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:08:30,131 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:08:35,484 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:08:35,746 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:08:41,096 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:08:41,363 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:08:46,717 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:08:46,969 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:08:52,324 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:08:52,593 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:08:57,945 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:08:58,203 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:09:03,562 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:09:03,822 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:09:09,173 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:09:09,449 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:09:14,804 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:09:15,056 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:09:20,405 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:09:20,665 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:09:26,019 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:09:26,273 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:09:31,626 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:09:31,903 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:09:37,255 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:09:37,518 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:09:42,869 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:09:43,128 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:09:48,482 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:09:48,750 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:09:54,101 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:09:54,352 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:09:59,703 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:09:59,953 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:10:05,305 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:10:05,569 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:10:10,924 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:10:11,176 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:10:16,527 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:10:16,780 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:10:22,136 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:10:22,394 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:10:27,748 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:10:28,009 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:10:33,361 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:10:33,641 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:10:38,994 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:10:39,258 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:10:44,607 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:10:44,856 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:10:50,210 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:10:50,481 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:10:55,836 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:10:56,092 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:11:01,446 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:11:01,704 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:11:07,058 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:11:07,320 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:11:12,671 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:11:12,923 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:11:18,273 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:11:18,543 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:11:23,895 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:11:24,169 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:11:29,521 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:11:29,796 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:11:35,154 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:11:35,432 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:11:40,784 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:11:41,037 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:11:46,391 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:11:46,647 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:11:51,998 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:11:52,265 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:11:57,622 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:11:57,872 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:12:03,221 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:12:03,484 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:12:08,835 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:12:09,085 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:12:14,437 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:12:14,689 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:12:20,038 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:12:20,296 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:12:25,645 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:12:25,905 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:12:31,275 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:12:31,540 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:12:36,890 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:12:37,146 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:12:42,502 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:12:42,763 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:12:48,114 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:12:48,382 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:12:53,734 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:12:53,990 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:12:59,340 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:12:59,611 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:13:04,961 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:13:05,211 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:13:10,562 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:13:10,815 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:13:16,172 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:13:16,430 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:13:21,785 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:13:22,035 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:13:27,388 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:13:27,651 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:13:33,006 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:13:33,274 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:13:38,626 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:13:38,878 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:13:44,228 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:13:44,488 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:13:49,841 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:13:50,093 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:13:55,443 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:13:55,701 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:14:01,053 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:14:01,305 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:14:06,659 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:14:06,917 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:14:12,288 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:14:12,553 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:14:17,906 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:14:18,154 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:14:23,508 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:14:23,763 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:14:29,116 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:14:29,372 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:14:34,722 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:14:34,974 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:14:40,325 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:14:40,588 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:14:45,939 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:14:46,190 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:14:51,540 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:14:51,799 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:14:57,153 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:14:57,424 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:15:02,774 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:15:03,030 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:15:08,381 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:15:08,644 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:15:13,996 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:15:14,255 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:15:19,610 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:15:19,869 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:15:25,224 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:15:25,486 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:15:30,837 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:15:31,101 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:15:36,460 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:15:36,723 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:15:42,077 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:15:42,327 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:15:47,679 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:15:47,946 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:15:53,300 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:15:53,558 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:15:58,907 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:15:59,176 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:16:04,527 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:16:04,781 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:16:10,135 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:16:10,390 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:16:15,742 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:16:15,994 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:16:21,346 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:16:21,600 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:16:26,953 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:16:27,205 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:16:32,559 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:16:32,822 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:16:38,172 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:16:38,473 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:16:43,824 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:16:44,074 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:16:49,426 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:16:49,691 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:16:55,045 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:16:55,300 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:17:00,658 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:17:00,924 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:17:06,280 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:17:06,544 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:17:11,901 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:17:12,167 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:17:17,519 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:17:17,771 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:17:23,122 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:17:23,377 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:17:28,730 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:17:28,993 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:17:34,350 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:17:34,607 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:17:39,956 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:17:40,220 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:17:45,571 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:17:45,845 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:17:51,197 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:17:51,451 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:17:56,804 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:17:57,068 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:18:02,418 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:18:02,676 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:18:08,027 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:18:08,280 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:18:13,631 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:18:13,885 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:18:19,240 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:18:19,498 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:18:24,851 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:18:25,102 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:18:30,454 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:18:30,707 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:18:36,058 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:18:36,313 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:18:41,667 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:18:41,933 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:18:47,287 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:18:47,549 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:18:52,902 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:18:53,158 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:18:58,512 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:18:58,793 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:19:04,140 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:19:04,406 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:19:09,761 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:19:10,013 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:19:15,363 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:19:15,634 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:19:20,988 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:19:21,243 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:19:26,597 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:19:26,850 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:19:32,205 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:19:32,463 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:19:37,819 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:19:38,077 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:19:43,427 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:19:43,684 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:19:49,033 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:19:49,297 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:19:54,648 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:19:54,906 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:20:00,255 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:20:00,526 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:20:05,875 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:20:06,128 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:20:11,484 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:20:11,754 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:20:17,104 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:20:17,355 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:20:22,711 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:20:22,969 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:20:28,319 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:20:28,582 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:20:33,941 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:20:34,202 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:20:39,553 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:20:39,819 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:20:45,172 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:20:45,432 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:20:50,787 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:20:51,041 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:20:56,397 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:20:56,655 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:21:02,008 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:21:02,264 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:21:07,617 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:21:07,872 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:21:13,224 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:21:13,492 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:21:18,845 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:21:19,105 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:21:24,457 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:21:24,736 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:21:30,090 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:21:30,349 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:21:35,703 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:21:35,957 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:21:41,312 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:21:41,572 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:21:46,927 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:21:47,184 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:21:52,539 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:21:52,793 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:21:58,147 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:21:58,411 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:22:03,763 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:22:04,016 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:22:09,369 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:22:09,628 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:22:14,986 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:22:15,244 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:22:20,599 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:22:20,856 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:22:26,206 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:22:26,466 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:22:31,821 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:22:32,077 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:22:37,433 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:22:37,689 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:22:43,041 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:22:43,295 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:22:48,650 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:22:48,919 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:22:54,276 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:22:54,543 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:22:59,895 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:23:00,157 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:23:05,508 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:23:05,761 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:23:11,118 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:23:11,377 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:23:16,730 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:23:16,986 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:23:22,338 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:23:22,609 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:23:27,967 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:23:28,222 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:23:33,579 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:23:33,841 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:23:39,192 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:23:39,446 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:23:44,800 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:23:45,055 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:23:50,411 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:23:50,674 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:23:56,027 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:23:56,282 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:24:01,635 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:24:01,893 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:24:07,243 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:24:07,509 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:24:12,863 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:24:13,116 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:24:18,479 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:24:18,737 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:24:24,091 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:24:24,344 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:24:29,699 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:24:29,964 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:24:35,321 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:24:35,582 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:24:40,939 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:24:41,191 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:24:46,541 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:24:46,803 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:24:52,154 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:24:52,406 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:24:57,763 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:24:58,017 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:25:03,374 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:25:03,625 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:25:08,978 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:25:09,231 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:25:14,585 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:25:14,849 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:25:20,205 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:25:20,478 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:25:25,832 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:25:26,089 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:25:31,440 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:25:31,700 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:25:37,055 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:25:37,308 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:25:42,662 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:25:42,915 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:25:48,269 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:25:48,524 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:25:53,876 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:25:54,141 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:25:59,496 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:25:59,751 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:26:05,105 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:26:05,362 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:26:10,712 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:26:10,963 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:26:16,315 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:26:16,577 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:26:21,928 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:26:22,183 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:26:27,537 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:26:27,791 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:26:33,145 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:26:33,394 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:26:38,747 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:26:39,008 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:26:44,359 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:26:44,613 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:26:49,968 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:26:50,222 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:26:55,575 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:26:55,836 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:27:01,188 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:27:01,442 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:27:06,796 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:27:07,056 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:27:12,412 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:27:12,666 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:27:18,018 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:27:18,272 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:27:23,626 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:27:23,892 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:27:29,248 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:27:29,507 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:27:34,860 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:27:35,115 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:27:40,469 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:27:40,727 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:27:46,075 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:27:46,324 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:27:51,682 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:27:51,968 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:27:57,323 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:27:57,611 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:28:02,971 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:28:03,236 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:28:08,590 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:28:08,835 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:28:14,188 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:28:14,444 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:28:19,795 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:28:20,045 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:28:25,397 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:28:25,648 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:28:30,999 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:28:31,250 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:28:36,602 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:28:36,859 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:28:42,208 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:28:42,456 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:28:47,809 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:28:48,065 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:28:53,419 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:28:53,675 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:28:59,026 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:28:59,296 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:29:04,652 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:29:04,918 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:29:10,272 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:29:10,525 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:29:15,879 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:29:16,155 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:29:21,506 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:29:21,755 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:29:27,107 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:29:27,356 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:29:32,710 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:29:32,973 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:29:38,322 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:29:38,578 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:29:43,930 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:29:44,184 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:29:49,540 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:29:49,812 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:29:55,166 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:29:55,423 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:30:00,776 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:30:01,029 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:30:06,391 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:30:06,648 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:30:12,000 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:30:12,255 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:30:17,607 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:30:17,858 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:30:23,209 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:30:23,465 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:30:28,819 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:30:29,070 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:30:34,426 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:30:34,676 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:30:40,026 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:30:40,277 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:30:45,631 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:30:45,892 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:30:51,249 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:30:51,515 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:30:56,869 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:30:57,121 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:31:02,470 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:31:02,721 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:31:08,073 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:31:08,326 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:31:13,680 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:31:13,931 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:31:19,284 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:31:19,547 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:31:24,902 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:31:25,152 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:31:30,504 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:31:30,783 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:31:36,144 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:31:36,401 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:31:41,764 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:31:42,041 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:31:47,396 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:31:47,658 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:31:53,007 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:31:53,267 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:31:58,622 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:31:58,879 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:32:04,229 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:32:04,491 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:32:09,845 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:32:10,096 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:32:15,451 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:32:15,704 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:32:21,057 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:32:21,306 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:32:26,661 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:32:26,916 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:32:32,268 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:32:32,524 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:32:37,875 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:32:38,127 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:32:43,480 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:32:43,736 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:32:49,085 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:32:49,339 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:32:54,693 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:32:54,949 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:33:00,302 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:33:00,564 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:33:05,916 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:33:06,184 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:33:11,535 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:33:11,792 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:33:17,143 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:33:17,399 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:33:22,752 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:33:23,000 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:33:28,354 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:33:28,609 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:33:33,970 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:33:34,225 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:33:39,574 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:33:39,826 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:33:45,177 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:33:45,437 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:33:50,789 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:33:51,041 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:33:56,398 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:33:56,652 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:34:02,005 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:34:02,268 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:34:07,620 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:34:07,874 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:34:13,227 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:34:13,484 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:34:18,836 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:34:19,088 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:34:24,443 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:34:24,698 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:34:30,051 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:34:30,313 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:34:35,665 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:34:35,915 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:34:41,267 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:34:41,519 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:34:46,874 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:34:47,127 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:34:52,479 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:34:52,729 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:34:58,078 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:34:58,340 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:35:03,692 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:35:03,943 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:35:09,295 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:35:09,548 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:35:14,902 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:35:15,166 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:35:20,521 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:35:20,772 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:35:26,123 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:35:26,384 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:35:31,737 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:35:31,992 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:35:37,346 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:35:37,606 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:35:42,961 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:35:43,215 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:35:48,568 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:35:48,818 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:35:54,171 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:35:54,423 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:35:59,777 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:36:00,032 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:36:05,396 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:36:05,647 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:36:10,999 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:36:11,252 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:36:16,606 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:36:16,855 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:36:22,207 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:36:22,459 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:36:27,810 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:36:28,058 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:36:33,412 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:36:33,662 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:36:39,014 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:36:39,262 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:36:44,615 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:36:44,865 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:36:50,216 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:36:50,468 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:36:55,821 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:36:56,072 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:37:01,426 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:37:01,683 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:37:07,036 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:37:07,290 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:37:12,641 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:37:12,891 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:37:18,244 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:37:18,494 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:37:23,846 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:37:24,098 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:37:29,447 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:37:29,698 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:37:35,050 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:37:35,313 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:37:40,662 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:37:40,915 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:37:46,281 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:37:46,537 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:37:51,890 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:37:52,158 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:37:57,511 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:37:57,759 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:38:03,113 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:38:03,365 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:38:08,722 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:38:08,971 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:38:14,321 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:38:14,573 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:38:19,924 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:38:20,178 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:38:25,532 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:38:25,788 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:38:31,140 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:38:31,390 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:38:36,741 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:38:36,997 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:38:42,351 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:38:42,617 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:38:47,969 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:38:48,226 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:38:53,577 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:38:53,824 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:38:59,179 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:38:59,438 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:39:04,793 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:39:05,041 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:39:10,394 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:39:10,650 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:39:16,001 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:39:16,257 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:39:21,614 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:39:21,872 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:39:27,224 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:39:27,484 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:39:32,841 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:39:33,093 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:39:38,444 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:39:38,723 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:39:44,077 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:39:44,328 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:39:49,681 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:39:49,930 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:39:55,281 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:39:55,534 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:40:00,891 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:40:01,139 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:40:06,496 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:40:06,749 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:40:12,099 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:40:12,350 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:40:17,702 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:40:17,969 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:40:23,319 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:40:23,583 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:40:28,934 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:40:29,184 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:40:34,535 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:40:34,799 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:40:40,153 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:40:40,405 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:40:45,757 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:40:46,008 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:40:51,358 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:40:51,635 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:40:56,986 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:40:57,239 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:41:02,596 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:41:02,869 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:41:07,870 - ProtectiveCasing - WARNING - 激活窗口失败: (0, 'SetForegroundWindow', 'No error message is available')
+2026-04-16 13:41:07,936 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:41:08,202 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:41:13,564 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:41:13,839 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:41:19,203 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:41:19,489 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:41:24,847 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:41:25,208 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:41:30,576 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:41:30,885 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:41:36,240 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:41:36,515 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:41:41,869 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:41:42,140 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:41:47,495 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:41:47,767 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:41:53,122 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:41:53,402 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:41:58,759 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:41:59,018 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:42:04,375 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:42:04,635 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:42:09,992 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:42:10,254 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:42:15,611 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:42:15,871 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:42:21,225 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:42:21,492 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:42:26,845 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:42:27,112 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:42:32,469 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:42:32,728 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:42:38,092 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:42:38,345 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:42:43,704 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:42:43,978 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:42:49,332 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:42:49,601 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:42:54,957 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:42:55,230 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:43:00,584 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:43:00,851 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:43:06,205 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:43:06,481 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:43:11,835 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:43:12,125 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:43:17,484 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:43:17,735 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:43:23,087 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:43:23,356 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:43:28,712 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:43:28,982 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:43:34,340 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:43:34,634 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:43:39,990 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:43:40,266 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:43:45,619 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:43:45,880 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:43:51,239 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:43:51,518 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:43:56,874 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:43:57,141 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:44:02,497 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:44:02,763 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:44:08,119 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:44:08,384 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:44:13,739 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:44:13,995 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:44:19,354 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:44:19,633 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:44:24,984 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:44:25,247 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:44:30,599 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:44:30,859 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:44:36,212 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:44:36,481 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:44:41,836 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:44:42,102 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:44:47,454 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:44:47,730 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:44:53,086 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:44:53,349 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:44:58,708 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:44:58,986 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:45:04,342 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:45:04,610 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:45:09,965 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:45:10,235 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:45:15,594 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:45:15,881 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:45:21,237 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:45:21,516 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:45:26,871 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:45:27,121 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:45:32,474 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:45:32,737 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:45:38,096 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:45:38,355 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:45:43,706 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:45:43,965 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:45:49,321 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:45:49,589 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:45:54,942 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:45:55,203 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:46:00,559 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:46:00,829 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:46:06,180 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:46:06,478 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:46:11,833 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:46:12,108 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:46:14,270 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-16 13:46:14,293 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-16 13:58:24,151 - src.main - INFO - 无尽冬日程序启动
+2026-04-16 13:58:24,151 - src.main - INFO - 版本: 1.0.0
+2026-04-16 13:58:32,352 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-16 13:58:32,369 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-16 13:58:37,032 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-16 13:58:37,032 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-16 13:58:37,032 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (24700) (hwnd=395528)
+2026-04-16 13:58:37,033 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备-2 (25948) (hwnd=14616964)
+2026-04-16 13:58:37,033 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (24700)
+2026-04-16 13:58:37,033 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备-2 (25948)
+2026-04-16 13:58:37,033 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-16 13:58:37,033 - MultiWindowManager - INFO - 启动挖矿队列，共 2 个窗口
+2026-04-16 13:58:37,034 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (24700) 挖矿
+2026-04-16 13:58:37,034 - MultiWindowManager - INFO - 激活窗口: 395528 (MuMu安卓设备 (24700))
+2026-04-16 13:58:37,034 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-16 13:58:38,094 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (24700) 挖矿完成...
+2026-04-16 13:58:41,785 - MultiWindowManager - INFO - 窗口 395528 挖矿停止
+2026-04-16 13:58:42,097 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (24700) 挖矿完成或停止
+2026-04-16 13:58:42,097 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备-2 (25948) 挖矿
+2026-04-16 13:58:42,098 - MultiWindowManager - INFO - 切换窗口: 从 395528 到 14616964 (MuMu安卓设备-2 (25948))
+2026-04-16 13:58:43,100 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备-2 (25948) 挖矿完成...
+2026-04-16 13:59:25,885 - MultiWindowManager - INFO - 窗口 14616964 挖矿停止
+2026-04-16 13:59:25,885 - MultiWindowManager - INFO - 窗口 14616964 挖矿停止
+2026-04-16 13:59:26,133 - MultiWindowManager - INFO - 窗口 MuMu安卓设备-2 (25948) 挖矿完成或停止
+2026-04-16 13:59:26,133 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-16 13:59:26,133 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-16 13:59:26,133 - MultiWindowManager - INFO - 所有窗口挖矿完成
+2026-04-16 13:59:26,141 - ProtectiveCasing - INFO - 设置检测窗口列表: 2 个窗口
+2026-04-16 13:59:26,142 - ProtectiveCasing - INFO - ==================================================
+2026-04-16 13:59:26,142 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-16 13:59:26,142 - ProtectiveCasing - INFO - ==================================================
+2026-04-16 13:59:26,492 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:27,116 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:27,376 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:59:32,731 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:33,337 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:33,598 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:59:38,954 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:39,570 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:39,825 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:59:45,177 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:45,796 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:46,048 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:59:51,403 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:52,028 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:52,291 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 13:59:57,643 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:58,265 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 13:59:58,520 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-16 14:00:03,877 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-16 14:00:04,382 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-16 14:00:04,402 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-17 07:53:18,181 - src.main - INFO - 无尽冬日程序启动
+2026-04-17 07:53:18,182 - src.main - INFO - 版本: 1.0.0
+2026-04-17 07:53:27,046 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-17 07:53:28,883 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-17 07:53:28,899 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-17 14:11:39,903 - src.main - INFO - 无尽冬日程序启动
+2026-04-17 14:11:39,904 - src.main - INFO - 版本: 1.0.0
+2026-04-17 14:11:54,595 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-17 14:11:54,617 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-18 12:23:59,281 - src.main - INFO - 无尽冬日程序启动
+2026-04-18 12:23:59,281 - src.main - INFO - 版本: 1.0.0
+2026-04-18 13:37:06,724 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-18 13:37:06,740 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-18 17:00:47,587 - src.main - INFO - 无尽冬日程序启动
+2026-04-18 17:00:47,587 - src.main - INFO - 版本: 1.0.0
+2026-04-18 17:02:05,644 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-18 17:02:05,644 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-18 17:02:05,644 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (18300) (18300) (hwnd=329856)
+2026-04-18 17:02:05,644 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (18300) (18300)
+2026-04-18 17:02:05,645 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-18 17:02:05,645 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-18 17:02:05,645 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (18300) (18300) 挖矿
+2026-04-18 17:02:05,645 - MultiWindowManager - INFO - 激活窗口: 329856 (MuMu安卓设备 (18300) (18300))
+2026-04-18 17:02:05,645 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-18 17:02:06,662 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (18300) (18300) 挖矿完成...
+2026-04-18 17:04:04,227 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-18 17:04:05,279 - MultiWindowManager - INFO - 用户手动停止挖矿队列
+2026-04-18 17:04:05,300 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-18 17:04:28,437 - src.main - INFO - 无尽冬日程序启动
+2026-04-18 17:04:28,438 - src.main - INFO - 版本: 1.0.0
+2026-04-18 17:04:34,040 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-18 17:04:41,184 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-18 17:04:42,648 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-18 17:04:42,648 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-18 17:04:42,648 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (18300) (18300) (hwnd=329856)
+2026-04-18 17:04:42,648 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (18300) (18300)
+2026-04-18 17:04:42,649 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-18 17:04:42,649 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-18 17:04:42,649 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (18300) (18300) 挖矿
+2026-04-18 17:04:42,649 - MultiWindowManager - INFO - 激活窗口: 329856 (MuMu安卓设备 (18300) (18300))
+2026-04-18 17:04:42,650 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-18 17:04:43,619 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (18300) (18300) 挖矿完成...
+2026-04-18 17:05:53,129 - MultiWindowManager - INFO - 窗口 329856 挖矿停止
+2026-04-18 17:05:53,132 - MultiWindowManager - INFO - 窗口 329856 挖矿停止
+2026-04-18 17:05:53,221 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (18300) (18300) 挖矿完成或停止
+2026-04-18 17:05:53,221 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-18 17:05:53,221 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-18 17:05:53,221 - MultiWindowManager - INFO - 所有窗口挖矿完成
+2026-04-18 17:05:53,223 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-18 17:05:53,223 - ProtectiveCasing - INFO - ==================================================
+2026-04-18 17:05:53,223 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-18 17:05:53,224 - ProtectiveCasing - INFO - ==================================================
+2026-04-18 17:05:53,574 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:05:53,822 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:05:59,173 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:05:59,420 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:06:04,768 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:06:05,020 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:06:10,371 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:06:10,619 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:06:15,966 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:06:16,217 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:06:21,567 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:06:21,813 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:06:27,164 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:06:27,409 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:06:32,760 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:06:33,010 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:06:38,362 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:06:38,609 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:06:43,963 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:06:44,219 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:06:49,571 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:06:49,819 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:06:55,172 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:06:55,417 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:07:00,768 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:07:01,012 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:07:06,364 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:07:06,610 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:07:11,961 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:07:12,206 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:07:17,555 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:07:17,798 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:07:23,151 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:07:23,400 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:07:28,752 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:07:28,995 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:07:34,354 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:07:34,602 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:07:39,950 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:07:40,197 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:07:45,546 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:07:45,793 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:07:51,142 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:07:51,388 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:07:56,738 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:07:56,993 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:08:02,347 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:08:02,597 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:08:07,948 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:08:08,194 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:08:13,542 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:08:13,787 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:08:19,139 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:08:19,383 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:08:24,734 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:08:24,979 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:08:30,331 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:08:30,580 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:08:35,932 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:08:36,181 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:08:41,532 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:08:41,778 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:08:47,129 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:08:47,376 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:08:52,725 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:08:52,969 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:08:58,321 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:08:58,566 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:09:03,915 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:09:04,160 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:09:09,512 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:09:09,767 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:09:15,119 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:09:15,365 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:09:20,714 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:09:20,960 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:09:26,313 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:09:26,557 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:09:31,910 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:09:32,155 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:09:37,511 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:09:37,762 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:09:43,116 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:09:43,358 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:09:48,712 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:09:48,960 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:09:54,318 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:09:54,602 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:09:59,952 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:10:00,258 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:10:05,612 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:10:05,875 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:10:11,232 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:10:11,503 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:10:16,855 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:10:17,123 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:10:22,474 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:10:22,741 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:10:28,100 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:10:28,422 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:10:33,777 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:10:34,044 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:10:39,395 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:10:39,661 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:10:45,015 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:10:45,283 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:10:50,636 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:10:50,898 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:10:56,255 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:10:56,529 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:11:01,883 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:11:02,159 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:11:07,513 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:11:07,788 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:11:13,137 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:11:13,389 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:11:18,739 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:11:19,008 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:11:24,362 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:11:24,622 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:11:29,974 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:11:30,248 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:11:35,606 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:11:35,876 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:11:41,230 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:11:41,500 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:11:46,853 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:11:47,124 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:11:52,478 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:11:52,742 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:11:58,092 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:11:58,357 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:12:03,705 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:12:03,956 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:12:09,311 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:12:09,576 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:12:14,928 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:12:15,194 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:12:20,548 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:12:20,806 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:12:26,157 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:12:26,427 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:12:31,775 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:12:32,038 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:12:37,388 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:12:37,640 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:12:42,994 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:12:43,260 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:12:48,613 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:12:48,884 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:12:54,237 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:12:54,511 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:12:59,864 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:13:00,141 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:13:05,498 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:13:05,760 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:13:11,109 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:13:11,384 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:13:16,733 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:13:16,997 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:13:22,350 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:13:22,611 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:13:27,966 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:13:28,230 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:13:33,587 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:13:33,854 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:13:39,206 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:13:39,461 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:13:44,820 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:13:45,078 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:13:50,431 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:13:50,686 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:13:56,037 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:13:56,296 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:14:01,646 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:14:01,900 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:14:07,254 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:14:07,515 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:14:12,868 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:14:13,131 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:14:18,483 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:14:18,746 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:14:24,103 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:14:24,377 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:14:29,728 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:14:29,991 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:14:35,340 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:14:35,609 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:14:40,965 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:14:41,241 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:14:46,596 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:14:46,873 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:14:52,226 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:14:52,498 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:14:57,852 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:14:58,107 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:15:03,467 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:15:03,719 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:15:09,075 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:15:09,333 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:15:14,689 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:15:14,945 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:15:20,295 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:15:20,564 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:15:25,915 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:15:26,174 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:15:31,533 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:15:31,789 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:15:37,142 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:15:37,411 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:15:42,763 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:15:43,036 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:15:48,393 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:15:48,660 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:15:54,015 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:15:54,287 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:15:59,642 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:15:59,908 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:16:05,263 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:16:05,544 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:16:10,899 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:16:11,162 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:16:16,512 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:16:16,768 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:16:22,122 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:16:22,374 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:16:27,727 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:16:27,983 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:16:33,338 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:16:33,595 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:16:38,946 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:16:39,200 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:16:44,553 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:16:44,812 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:16:50,167 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:16:50,420 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:16:55,772 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:16:56,033 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:17:01,387 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:17:01,654 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:17:07,010 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:17:07,265 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:17:12,616 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:17:12,889 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:17:18,241 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:17:18,500 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:17:23,849 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:17:24,124 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:17:29,480 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:17:29,741 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:17:35,099 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:17:35,364 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:17:40,716 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:17:40,974 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:17:46,330 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:17:46,604 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:17:51,963 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:17:52,227 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:17:57,583 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:17:57,862 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:18:03,213 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:18:03,479 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:18:08,832 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:18:09,088 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:18:14,441 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:18:14,700 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:18:20,054 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:18:20,303 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:18:25,655 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:18:25,904 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:18:31,256 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:18:31,532 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:18:36,881 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:18:37,141 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:18:42,492 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:18:42,751 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:18:48,108 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:18:48,369 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:18:53,721 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:18:53,989 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:18:59,339 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:18:59,615 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:19:04,964 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:19:05,225 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:19:10,579 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:19:10,841 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:19:16,192 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:19:16,463 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:19:21,814 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:19:22,080 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:19:27,434 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:19:27,699 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:19:33,059 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:19:33,333 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:19:38,685 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:19:38,959 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:19:44,311 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:19:44,568 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:19:49,920 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:19:50,177 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:19:55,532 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:19:55,813 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:20:01,164 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:20:01,447 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:20:06,795 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:20:07,066 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:20:12,417 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:20:12,676 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:20:18,030 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:20:18,291 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:20:23,648 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:20:23,911 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:20:29,265 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:20:29,532 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:20:34,883 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:20:35,179 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:20:40,533 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:20:40,796 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:20:46,147 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:20:46,415 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:20:51,771 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:20:52,038 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:20:57,387 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:20:57,652 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:21:03,002 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:21:03,263 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:21:08,619 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:21:08,885 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:21:14,236 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:21:14,499 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:21:19,848 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:21:20,094 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:21:25,447 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:21:25,712 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:21:31,067 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:21:31,327 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:21:36,682 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:21:36,941 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:21:42,293 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:21:42,559 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:21:47,912 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:21:48,176 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:21:53,528 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:21:53,790 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:21:59,141 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:21:59,413 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:22:04,765 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:22:05,040 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:22:10,392 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:22:10,654 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:22:16,006 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:22:16,258 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:22:21,610 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:22:21,877 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:22:27,231 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:22:27,487 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:22:32,842 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:22:33,100 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:22:38,457 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:22:38,729 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:22:44,080 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:22:44,339 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:22:49,688 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:22:49,952 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:22:55,303 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:22:55,567 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:23:00,916 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:23:01,172 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:23:06,527 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:23:06,788 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:23:12,139 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:23:12,400 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:23:17,753 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:23:18,014 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:23:23,368 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:23:23,631 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:23:28,985 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:23:29,245 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:23:34,597 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:23:34,856 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:23:40,208 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:23:40,476 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:23:45,831 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:23:46,101 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:23:51,455 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:23:51,734 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:23:57,086 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:23:57,350 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:24:02,702 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:24:02,950 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:24:08,305 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:24:08,569 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:24:13,922 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:24:14,188 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:24:19,541 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:24:19,805 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:24:25,157 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:24:25,434 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:24:30,789 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:24:31,057 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:24:36,408 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:24:36,685 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:24:42,039 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:24:42,293 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:24:47,642 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:24:47,922 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:24:53,273 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:24:53,536 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:24:58,888 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:24:59,150 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:25:04,499 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:25:04,774 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:25:10,128 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:25:10,423 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:25:15,773 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:25:16,031 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:25:21,384 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:25:21,651 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:25:26,999 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:25:27,271 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:25:32,630 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:25:32,894 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:25:38,244 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:25:38,504 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:25:43,852 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:25:44,124 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:25:49,479 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:25:49,747 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:25:55,100 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:25:55,362 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:26:00,716 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:26:00,977 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:26:06,329 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:26:06,596 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:26:11,951 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:26:12,214 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:26:17,565 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:26:17,829 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:26:23,181 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:26:23,444 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:26:28,793 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:26:29,071 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:26:34,427 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:26:34,694 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:26:40,046 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:26:40,303 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:26:45,659 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:26:45,930 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:26:51,283 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:26:51,558 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:26:56,911 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:26:57,179 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:27:02,537 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:27:02,802 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:27:08,152 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:27:08,415 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:27:13,768 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:27:14,044 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:27:19,401 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:27:19,674 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:27:25,026 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:27:25,289 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:27:30,645 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:27:30,902 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:27:36,257 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:27:36,520 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:27:41,869 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:27:42,142 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:27:47,498 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:27:47,763 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:27:53,116 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:27:53,379 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:27:58,728 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:27:58,993 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:28:04,350 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:28:04,605 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:28:09,959 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:28:10,212 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:28:15,567 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:28:15,823 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:28:21,177 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:28:21,447 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:28:26,802 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:28:27,065 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:28:32,414 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:28:32,677 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:28:38,027 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:28:38,294 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:28:43,649 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:28:43,916 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:28:49,269 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:28:49,525 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:28:54,876 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:28:55,133 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:29:00,485 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:29:00,743 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:29:06,099 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:29:06,358 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:29:11,711 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:29:11,972 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:29:17,327 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:29:17,581 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:29:22,934 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:29:23,197 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:29:28,548 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:29:28,816 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:29:34,171 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:29:34,439 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:29:39,795 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:29:40,058 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:29:45,407 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:29:45,676 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:29:51,028 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:29:51,284 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:29:56,635 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:29:56,889 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:30:02,243 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:30:02,503 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:30:07,858 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:30:08,123 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:30:13,477 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:30:13,745 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:30:19,099 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:30:19,374 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:30:24,728 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:30:24,988 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:30:30,341 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:30:30,623 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:30:35,973 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:30:36,242 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:30:41,593 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:30:41,854 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:30:47,210 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:30:47,466 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:30:52,817 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:30:53,076 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:30:58,430 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-18 17:30:58,679 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-18 17:31:01,805 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-18 17:31:02,681 - ProtectiveCasing - INFO - 保护性外壳自动化脚本结束
+2026-04-18 17:31:02,807 - daily_task_329856 - INFO - ==================================================
+2026-04-18 17:31:02,807 - daily_task_329856 - INFO - 每日任务流程已在后台启动
+2026-04-18 17:31:02,807 - daily_task_329856 - INFO - 开始每日任务流程
+2026-04-18 17:31:02,808 - daily_task_329856 - INFO - ==================================================
+2026-04-18 17:31:02,808 - daily_task_329856 - INFO - 加载每日任务入口配置...
+2026-04-18 17:31:02,808 - daily_task_329856 - INFO - 尝试加载配置文件: g:\yang\fish\wujindongri\src\frame_data.json
+2026-04-18 17:31:02,809 - daily_task_329856 - INFO - 配置文件加载成功，键名: ['每日任务', '雪域兵器联赛', '行军']
+2026-04-18 17:31:02,809 - daily_task_329856 - INFO - 找到每日任务入口配置
+2026-04-18 17:31:02,810 - daily_task_329856 - INFO - 挖矿状态: 2 (0:未开始, 1:挖矿中, 2:挖矿结束)
+2026-04-18 17:31:02,810 - daily_task_329856 - INFO - 挖矿已结束
+2026-04-18 17:31:02,810 - daily_task_329856 - INFO - 尝试匹配 town...
+2026-04-18 17:31:02,852 - daily_task_329856 - DEBUG - 加载模板: town.png 60x56
+2026-04-18 17:31:02,867 - daily_task_329856 - DEBUG - [比例匹配] town.png scale=1.000 conf=0.871
+2026-04-18 17:31:02,868 - daily_task_329856 - INFO - 匹配 town.png 成功，置信度: 0.871
+2026-04-18 17:31:02,868 - daily_task_329856 - INFO - town 匹配成功
+2026-04-18 17:31:02,869 - daily_task_329856 - INFO - 检查红点...
+2026-04-18 17:31:02,907 - daily_task_329856 - INFO - 在区域 [9, 813, 59, 61] 检测到红点
+2026-04-18 17:31:02,908 - daily_task_329856 - INFO - 检测到红点，准备点击...
+2026-04-18 17:31:02,908 - daily_task_329856 - INFO - 点击区域中心...
+2026-04-18 17:31:03,152 - daily_task_329856 - INFO - 点击 区域中心 @ (411, 957)
+2026-04-18 17:31:03,152 - daily_task_329856 - INFO - 结束每日任务流程
+2026-04-18 17:31:07,947 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-18 17:31:07,967 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-20 07:10:32,829 - src.main - INFO - 无尽冬日程序启动
+2026-04-20 07:10:32,829 - src.main - INFO - 版本: 1.0.0
+2026-04-20 07:10:48,053 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-20 07:10:48,069 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-20 07:22:35,031 - src.main - INFO - 无尽冬日程序启动
+2026-04-20 07:22:35,031 - src.main - INFO - 版本: 1.0.0
+2026-04-20 07:22:40,328 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-20 07:22:40,407 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-20 07:22:42,086 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-20 07:22:42,102 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-21 08:07:34,342 - src.main - INFO - 无尽冬日程序启动
+2026-04-21 08:07:34,342 - src.main - INFO - 版本: 1.0.0
+2026-04-21 08:07:41,900 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-21 08:07:43,230 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-21 08:07:43,248 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-21 14:39:15,669 - src.main - INFO - 无尽冬日程序启动
+2026-04-21 14:39:15,669 - src.main - INFO - 版本: 1.0.0
+2026-04-21 14:39:22,999 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-21 14:39:24,095 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-21 14:39:24,096 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-21 14:39:24,096 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (4392) (4392) (hwnd=1050592)
+2026-04-21 14:39:24,096 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (4392) (4392)
+2026-04-21 14:39:24,097 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-21 14:39:24,097 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-21 14:39:24,097 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (4392) (4392) 挖矿
+2026-04-21 14:39:24,097 - MultiWindowManager - INFO - 激活窗口: 1050592 (MuMu安卓设备 (4392) (4392))
+2026-04-21 14:39:24,098 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-21 14:39:25,158 - MultiWindowManager - INFO - 窗口 1050592 挖矿停止
+2026-04-21 14:39:25,159 - MultiWindowManager - ERROR - 启动窗口 MuMu安卓设备 (4392) (4392) 挖矿失败
+2026-04-21 14:39:25,880 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-21 14:39:25,880 - ProtectiveCasing - INFO - ==================================================
+2026-04-21 14:39:25,880 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-21 14:39:25,880 - ProtectiveCasing - INFO - ==================================================
+2026-04-21 14:39:26,232 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-21 14:39:26,476 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-21 14:39:31,827 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-21 14:39:32,079 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-21 14:39:37,434 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-21 14:39:37,682 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-21 14:39:39,623 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-21 14:39:39,641 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-21 14:41:29,258 - src.main - INFO - 无尽冬日程序启动
+2026-04-21 14:41:29,258 - src.main - INFO - 版本: 1.0.0
+2026-04-21 14:41:33,973 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-21 14:41:34,943 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-21 14:41:34,943 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-21 14:41:34,944 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (4392) (4392) (hwnd=1050592)
+2026-04-21 14:41:34,944 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (4392) (4392)
+2026-04-21 14:41:34,944 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-21 14:41:34,945 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-21 14:41:34,945 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (4392) (4392) 挖矿
+2026-04-21 14:41:34,945 - MultiWindowManager - INFO - 激活窗口: 1050592 (MuMu安卓设备 (4392) (4392))
+2026-04-21 14:41:34,945 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-21 14:41:35,970 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (4392) (4392) 挖矿完成...
+2026-04-21 14:41:49,044 - MultiWindowManager - INFO - 窗口 1050592 挖矿停止
+2026-04-21 14:41:49,044 - MultiWindowManager - INFO - 窗口 1050592 挖矿停止
+2026-04-21 14:41:49,516 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (4392) (4392) 挖矿完成或停止
+2026-04-21 14:41:49,516 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-21 14:41:49,516 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-21 14:41:49,516 - MultiWindowManager - INFO - 所有窗口挖矿完成
+2026-04-21 14:41:49,521 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-21 14:41:49,521 - ProtectiveCasing - INFO - ==================================================
+2026-04-21 14:41:49,522 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-21 14:41:49,522 - ProtectiveCasing - INFO - ==================================================
+2026-04-21 14:41:49,875 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-21 14:41:50,119 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-21 14:41:55,473 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-21 14:41:55,720 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-21 14:42:01,074 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-21 14:42:01,319 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-21 14:42:06,670 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-21 14:42:06,916 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-21 14:42:08,179 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-21 14:42:08,195 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-21 16:02:59,588 - src.main - INFO - 无尽冬日程序启动
+2026-04-21 16:02:59,588 - src.main - INFO - 版本: 1.0.0
+2026-04-21 16:03:39,100 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-21 16:05:00,791 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-21 16:05:00,814 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 08:59:50,980 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 08:59:50,980 - src.main - INFO - 版本: 1.0.0
+2026-04-23 08:59:57,764 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 08:59:57,783 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 09:38:28,230 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 09:38:28,230 - src.main - INFO - 版本: 1.0.0
+2026-04-23 09:38:38,039 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 09:38:38,059 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 09:45:40,316 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 09:45:40,316 - src.main - INFO - 版本: 1.0.0
+2026-04-23 09:45:44,174 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 09:45:45,172 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 09:45:45,191 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 09:54:15,485 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 09:54:15,486 - src.main - INFO - 版本: 1.0.0
+2026-04-23 09:54:30,358 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 09:54:30,374 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 09:55:54,903 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 09:55:54,903 - src.main - INFO - 版本: 1.0.0
+2026-04-23 09:56:02,059 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 09:56:02,080 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 09:59:23,470 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 09:59:23,470 - src.main - INFO - 版本: 1.0.0
+2026-04-23 09:59:28,459 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 09:59:28,476 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:00:25,342 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:00:25,342 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:00:28,116 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:00:28,134 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:01:42,592 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:01:42,592 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:01:48,023 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:01:48,044 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:03:42,050 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:03:42,051 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:03:51,219 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:03:51,243 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:04:48,172 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:04:48,172 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:05:04,650 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:05:04,670 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:05:47,427 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:05:47,427 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:05:50,740 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:05:50,759 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:06:30,922 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:06:30,922 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:06:35,735 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:06:35,753 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:08:06,855 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:08:06,858 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:10:51,941 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:10:51,963 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:11:33,878 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:11:33,878 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:11:42,454 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:11:42,473 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:11:51,410 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:11:51,411 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:12:04,012 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:12:04,033 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:15:07,916 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:15:07,916 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:15:28,636 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:17:30,483 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:17:30,508 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:18:13,863 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:18:13,863 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:18:31,344 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:19:46,969 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:19:46,969 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:19:50,234 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:19:50,252 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:20:03,572 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:20:24,771 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:20:24,788 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:20:48,897 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:20:48,897 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:20:52,992 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:23:43,977 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:23:43,977 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:23:47,354 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:23:47,376 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:24:03,297 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:24:53,146 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:24:53,168 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:25:02,504 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:25:02,504 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:25:19,590 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:25:19,608 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:25:24,818 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:25:24,818 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:25:51,221 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:30:22,195 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:30:22,195 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:31:55,867 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:31:55,888 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:31:57,657 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:31:57,676 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:32:12,795 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:32:12,795 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:32:16,490 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:33:54,150 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:33:54,171 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:35:06,618 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:35:06,618 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:35:13,950 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:35:28,417 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:35:28,439 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:35:30,758 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:35:30,758 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:35:35,912 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:35:45,678 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:35:45,698 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:37:48,214 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:37:48,214 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:37:51,826 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:37:51,862 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:37:55,284 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:37:55,284 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:38:00,561 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:39:06,167 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:39:06,191 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:40:08,368 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:40:08,368 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:40:11,612 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:40:11,635 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:40:35,670 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:40:35,670 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:40:41,181 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:40:41,200 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:41:00,381 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:41:00,382 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:41:04,298 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:41:21,022 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:41:21,040 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:42:45,949 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:42:45,950 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:42:49,680 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:42:49,697 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:42:51,800 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:42:51,800 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:42:56,809 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:43:46,698 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:43:46,720 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:43:59,788 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:43:59,788 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:44:05,362 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:44:05,383 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:44:16,251 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:44:16,252 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:44:20,642 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:44:42,545 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:44:42,565 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:45:32,587 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:45:32,588 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:45:36,464 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:45:36,481 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:45:37,839 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:45:37,839 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:45:43,174 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:46:01,326 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:46:01,346 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:49:34,122 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:49:34,122 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:49:37,528 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:49:59,749 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:49:59,768 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:51:10,893 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:51:10,894 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:51:14,863 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 10:58:10,107 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:58:10,123 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:58:10,680 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:58:10,680 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:58:12,473 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:58:12,490 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:58:12,944 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:58:12,944 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:58:18,089 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:58:18,122 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:58:20,313 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:58:20,313 - src.main - INFO - 版本: 1.0.0
+2026-04-23 10:59:20,682 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 10:59:20,700 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 10:59:51,594 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 10:59:51,594 - src.main - INFO - 版本: 1.0.0
+2026-04-23 11:00:00,346 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 11:00:59,360 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 11:00:59,394 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 11:01:26,762 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 11:01:26,763 - src.main - INFO - 版本: 1.0.0
+2026-04-23 11:01:30,217 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 11:03:07,465 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 11:03:07,493 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 11:03:50,841 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 11:03:50,842 - src.main - INFO - 版本: 1.0.0
+2026-04-23 11:03:56,765 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 11:50:32,153 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 11:50:57,700 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 11:50:57,724 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 11:51:01,247 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 11:51:01,248 - src.main - INFO - 版本: 1.0.0
+2026-04-23 11:51:04,219 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 11:51:04,239 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 11:51:04,716 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 11:51:04,716 - src.main - INFO - 版本: 1.0.0
+2026-04-23 11:51:05,971 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 11:51:06,460 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 11:51:06,461 - src.main - INFO - 版本: 1.0.0
+2026-04-23 11:51:07,701 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 11:51:10,264 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 11:51:10,265 - src.main - INFO - 版本: 1.0.0
+2026-04-23 11:51:14,963 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 11:52:13,270 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 11:52:13,295 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 11:54:25,926 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 11:54:25,926 - src.main - INFO - 版本: 1.0.0
+2026-04-23 11:54:31,003 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 11:55:25,531 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 11:55:25,547 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 11:58:49,185 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 11:58:49,186 - src.main - INFO - 版本: 1.0.0
+2026-04-23 11:58:52,496 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 11:59:05,780 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 11:59:05,796 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 12:01:19,828 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 12:01:19,828 - src.main - INFO - 版本: 1.0.0
+2026-04-23 12:01:25,665 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 12:02:05,726 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 12:02:05,751 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 12:02:43,956 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 12:02:43,957 - src.main - INFO - 版本: 1.0.0
+2026-04-23 12:02:51,119 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 12:03:41,355 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 12:03:41,370 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 12:03:44,242 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 12:03:44,242 - src.main - INFO - 版本: 1.0.0
+2026-04-23 12:03:48,063 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 12:05:12,169 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 12:05:12,186 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 12:08:20,927 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 12:08:20,928 - src.main - INFO - 版本: 1.0.0
+2026-04-23 12:08:23,917 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 12:10:18,744 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 12:10:18,772 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 12:14:25,177 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 12:14:25,177 - src.main - INFO - 版本: 1.0.0
+2026-04-23 12:14:29,923 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 12:16:30,278 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 12:16:30,299 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 12:17:43,757 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 12:17:43,757 - src.main - INFO - 版本: 1.0.0
+2026-04-23 12:17:47,555 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 12:17:51,196 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 12:57:32,131 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 12:57:32,150 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 12:57:43,194 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 12:57:43,194 - src.main - INFO - 版本: 1.0.0
+2026-04-23 12:57:47,200 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 13:03:07,302 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 13:03:07,319 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 13:03:08,909 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 13:03:08,910 - src.main - INFO - 版本: 1.0.0
+2026-04-23 13:03:12,298 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 13:03:31,765 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 13:03:31,783 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 13:04:57,381 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 13:04:57,381 - src.main - INFO - 版本: 1.0.0
+2026-04-23 13:05:03,787 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 13:09:16,895 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 13:09:16,913 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 13:09:17,459 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 13:09:17,460 - src.main - INFO - 版本: 1.0.0
+2026-04-23 13:09:22,258 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 13:09:30,554 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 13:09:30,575 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 13:10:07,471 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 13:10:07,471 - src.main - INFO - 版本: 1.0.0
+2026-04-23 13:10:10,245 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 13:10:10,264 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 13:10:11,335 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 13:10:11,335 - src.main - INFO - 版本: 1.0.0
+2026-04-23 13:10:16,366 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 13:11:36,438 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 13:11:36,463 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 13:11:39,122 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 13:11:39,123 - src.main - INFO - 版本: 1.0.0
+2026-04-23 13:11:44,930 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 13:17:47,208 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 13:17:47,227 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 13:17:47,736 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 13:17:47,736 - src.main - INFO - 版本: 1.0.0
+2026-04-23 13:17:52,336 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 13:56:05,224 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 13:56:05,246 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 13:56:10,545 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 13:56:10,545 - src.main - INFO - 版本: 1.0.0
+2026-04-23 13:56:14,519 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 13:56:37,468 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 13:56:37,488 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 13:56:41,890 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 13:56:41,890 - src.main - INFO - 版本: 1.0.0
+2026-04-23 13:56:45,747 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 13:57:23,453 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 13:57:23,469 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 14:02:02,039 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 14:02:02,039 - src.main - INFO - 版本: 1.0.0
+2026-04-23 14:02:06,147 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 15:31:08,309 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 15:31:08,324 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 15:31:49,213 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 15:31:49,214 - src.main - INFO - 版本: 1.0.0
+2026-04-23 15:31:53,642 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 15:34:27,450 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 15:34:27,470 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 15:35:44,339 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 15:35:44,340 - src.main - INFO - 版本: 1.0.0
+2026-04-23 15:36:04,955 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 15:37:32,405 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 15:37:32,423 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 15:37:42,488 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 15:37:42,488 - src.main - INFO - 版本: 1.0.0
+2026-04-23 15:37:46,100 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 15:49:19,372 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 15:49:19,396 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 15:50:16,960 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 15:50:16,960 - src.main - INFO - 版本: 1.0.0
+2026-04-23 15:50:20,277 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 15:53:48,770 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 15:53:48,794 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 15:53:50,098 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 15:53:50,098 - src.main - INFO - 版本: 1.0.0
+2026-04-23 15:53:56,472 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 15:55:28,754 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 15:55:28,770 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 15:55:30,923 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 15:55:30,928 - src.main - INFO - 版本: 1.0.0
+2026-04-23 15:55:35,151 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 15:55:49,939 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-23 15:55:49,939 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-23 15:55:49,940 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (23224) (23224) (hwnd=1050548)
+2026-04-23 15:55:49,940 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (23224) (23224)
+2026-04-23 15:55:49,941 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-23 15:55:49,941 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-23 15:55:49,941 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (23224) (23224) 挖矿
+2026-04-23 15:55:49,941 - MultiWindowManager - INFO - 激活窗口: 1050548 (MuMu安卓设备 (23224) (23224))
+2026-04-23 15:55:49,941 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 15:55:51,071 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (23224) (23224) 挖矿完成...
+2026-04-23 15:56:20,338 - MultiWindowManager - INFO - 窗口 1050548 挖矿停止
+2026-04-23 15:56:20,338 - MultiWindowManager - INFO - 窗口 1050548 挖矿停止
+2026-04-23 15:56:20,597 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (23224) (23224) 挖矿完成或停止
+2026-04-23 15:56:20,597 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-23 15:56:20,597 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-23 15:56:20,597 - MultiWindowManager - INFO - 所有窗口挖矿完成
+2026-04-23 15:56:20,601 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-23 15:56:20,601 - ProtectiveCasing - INFO - ==================================================
+2026-04-23 15:56:20,601 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-23 15:56:20,601 - ProtectiveCasing - INFO - ==================================================
+2026-04-23 15:56:20,952 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-23 15:56:21,195 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-23 15:56:26,613 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-23 15:56:27,163 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-23 15:56:32,510 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-23 15:56:32,750 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-23 15:56:32,803 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 15:56:32,824 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 16:03:05,296 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 16:03:05,296 - src.main - INFO - 版本: 1.0.0
+2026-04-23 16:03:08,612 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 16:03:08,629 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 16:05:29,953 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 16:05:29,953 - src.main - INFO - 版本: 1.0.0
+2026-04-23 16:05:34,118 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 16:05:34,135 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-23 16:07:10,709 - src.main - INFO - 无尽冬日程序启动
+2026-04-23 16:07:10,710 - src.main - INFO - 版本: 1.0.0
+2026-04-23 16:07:16,575 - src.window_manager - INFO - 使用 SetWindowPos 方法激活窗口成功（保持置顶）
+2026-04-23 16:08:04,145 - MultiWindowManager - INFO - 已重置所有窗口的挖矿标记
+2026-04-23 16:08:04,145 - MultiWindowManager - INFO - 已清空挖矿队列
+2026-04-23 16:08:04,146 - MultiWindowManager - INFO - 添加窗口: MuMu安卓设备 (23224) (23224) (hwnd=1050548)
+2026-04-23 16:08:04,146 - MultiWindowManager - INFO - 加入挖矿队列: MuMu安卓设备 (23224) (23224)
+2026-04-23 16:08:04,147 - MultiWindowManager - INFO - 挖矿调度器启动
+2026-04-23 16:08:04,147 - MultiWindowManager - INFO - 启动挖矿队列，共 1 个窗口
+2026-04-23 16:08:04,147 - MultiWindowManager - INFO - 调度器启动窗口 MuMu安卓设备 (23224) (23224) 挖矿
+2026-04-23 16:08:04,147 - MultiWindowManager - INFO - 激活窗口: 1050548 (MuMu安卓设备 (23224) (23224))
+2026-04-23 16:08:04,147 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 16:08:06,002 - MultiWindowManager - INFO - 等待窗口 MuMu安卓设备 (23224) (23224) 挖矿完成...
+2026-04-23 16:08:28,732 - MultiWindowManager - INFO - 窗口 1050548 挖矿停止
+2026-04-23 16:08:28,734 - MultiWindowManager - INFO - 窗口 1050548 挖矿停止
+2026-04-23 16:08:29,024 - MultiWindowManager - INFO - 窗口 MuMu安卓设备 (23224) (23224) 挖矿完成或停止
+2026-04-23 16:08:29,024 - MultiWindowManager - INFO - 所有窗口挖矿完成，调度器结束
+2026-04-23 16:08:29,024 - MultiWindowManager - INFO - 挖矿调度器停止
+2026-04-23 16:08:29,024 - MultiWindowManager - INFO - 所有窗口挖矿完成
+2026-04-23 16:08:29,033 - ProtectiveCasing - INFO - 设置检测窗口列表: 1 个窗口
+2026-04-23 16:08:29,034 - ProtectiveCasing - INFO - ==================================================
+2026-04-23 16:08:29,034 - ProtectiveCasing - INFO - 启动保护性外壳自动化脚本
+2026-04-23 16:08:29,034 - ProtectiveCasing - INFO - ==================================================
+2026-04-23 16:08:29,389 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-23 16:08:29,646 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-23 16:08:35,000 - ProtectiveCasing - INFO - 比例匹配失败，启用备选搜索: war.png
+2026-04-23 16:08:35,247 - ProtectiveCasing - INFO - 所有窗口未发现 war
+2026-04-23 16:08:38,109 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-23 16:08:38,136 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-24 08:03:12,779 - src.main - INFO - 无尽冬日程序启动
+2026-04-24 08:03:12,780 - src.main - INFO - 版本: 1.0.0
+2026-04-24 08:04:28,481 - ProtectiveCasing - INFO - 停止保护性外壳自动化脚本
+2026-04-24 08:04:28,499 - src.main - INFO - 无尽冬日程序正常退出
+2026-04-24 08:05:04,281 - src.main - INFO - 无尽冬日程序启动
+2026-04-24 08:05:04,281 - src.main - INFO - 版本: 1.0.0
