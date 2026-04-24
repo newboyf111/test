@@ -791,25 +791,6 @@ class SingleWindowMiner:
 
                     return
                 time.sleep(random.uniform(1, 2))
-                
-                meat_pos = self._find_position("meat")
-                if meat_pos:
-                    self.logger.info(f"找到 meat 位置: {meat_pos}，向左滑动 200 像素")
-                    try:
-                        left, top, _, _ = win32gui.GetWindowRect(self.hwnd)
-                        screen_x = left + meat_pos[0]
-                        screen_y = top + meat_pos[1]
-                        
-                        pyautogui.mouseDown(screen_x, screen_y)
-                        time.sleep(0.1)
-                        pyautogui.moveTo(screen_x - 200, screen_y, duration=0.3)
-                        time.sleep(0.1)
-                        pyautogui.mouseUp()
-                        self.logger.info("向左滑动完成")
-                        self._invalidate_screenshot()
-                        time.sleep(random.uniform(0.5, 1))
-                    except Exception as e:
-                        self.logger.warning(f"滑动失败: {e}")
         else:
             self.logger.debug("未找到 town，尝试 wild")
             if self._check_user_stop():
@@ -841,20 +822,29 @@ class SingleWindowMiner:
                 resource_key = self.resource_order[self.resource_index]
 
         resource_found = False
-        for i in range(self.retry_times):
+        slide_attempts = 0
+        max_slide_attempts = 10  # 最多尝试滑动 10 次
+        
+        while slide_attempts < max_slide_attempts:
             if self._check_user_stop():
-
                 return
+            
             if self._click(resource_key)[0]:
                 self.logger.info(f"点击资源成功: {resource_key}")
                 resource_found = True
                 break
-            if i < self.retry_times - 1:
-                self.logger.info(f"资源未找到，{self.retry_delay}s 后重试 ({i+1}/{self.retry_times})")
-                if self._check_user_stop():
-
-                    return
-                time.sleep(self.retry_delay)
+            
+            # 资源未找到，尝试滑动到其他资源
+            slide_attempts += 1
+            self.logger.info(f"资源 {resource_key} 未找到，尝试滑动 (第 {slide_attempts} 次)")
+            
+            if not self._slide_to_find_resource(resource_key):
+                # 滑动失败或没有可滑动的资源，退出循环
+                self.logger.warning(f"滑动尝试 {slide_attempts} 次后仍未找到 {resource_key}")
+                break
+            
+            self.logger.info(f"滑动完成，继续尝试查找 {resource_key}")
+            time.sleep(random.uniform(0.5, 1))
 
         if not resource_found:
             self.logger.warning(f"资源 {resource_key} 多次未找到")
@@ -1200,6 +1190,59 @@ class SingleWindowMiner:
             self._invalidate_screenshot()
         except (RuntimeError, OSError) as e:
             self.logger.error(f"拖动失败: {e}")
+
+    def _slide_to_find_resource(self, target_resource: str) -> bool:
+        """尝试滑动屏幕查找目标资源
+        
+        当目标资源未找到时，尝试匹配 meat 资源，如果找到则向左滑动 200 像素
+        
+        Args:
+            target_resource: 目标资源 key（如 "wood"）
+        
+        Returns:
+            bool: 是否成功滑动
+        """
+        screenshot, win_w, win_h = self._get_screenshot()
+        if screenshot is None:
+            self.logger.warning("获取截图失败，无法滑动")
+            return False
+        
+        # 固定尝试匹配 meat 资源
+        resource_key = "meat"
+        image_path = self.image_paths.get(resource_key)
+        if not image_path:
+            self.logger.warning("未找到 meat 资源配置")
+            return False
+        
+        result = self.matcher.match(screenshot, image_path, win_w, win_h)
+        if result:
+            center = self.matcher.get_center(result)
+            if center:
+                self.logger.info(f"[比例匹配] {image_path} scale={result.get('scale', 1):.3f} conf={result.get('confidence', 0):.3f}")
+                self.logger.info(f"  找到 {resource_key} [scale={result.get('scale', 1):.3f}]")
+                self.logger.info(f"  找到 {resource_key} 位置: {center}，向左滑动 200 像素")
+                
+                # 执行滑动操作
+                try:
+                    left, top, _, _ = win32gui.GetWindowRect(self.hwnd)
+                    screen_x = left + center[0]
+                    screen_y = top + center[1]
+                    
+                    pyautogui.mouseDown(screen_x, screen_y)
+                    time.sleep(0.1)
+                    pyautogui.moveTo(screen_x - 200, screen_y, duration=0.3)
+                    time.sleep(0.1)
+                    pyautogui.mouseUp()
+                    self.logger.info("向左滑动完成")
+                    self._invalidate_screenshot()
+                    time.sleep(random.uniform(0.5, 1))
+                    return True
+                except Exception as e:
+                    self.logger.warning(f"滑动失败: {e}")
+                    return False
+        
+        self.logger.debug(f"未找到 meat 资源可滑动")
+        return False
 
 
 # ─────────────────────────────────────────────
