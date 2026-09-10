@@ -33,13 +33,31 @@ env/
 *.swp
 *.swo
 *~
+.pytest_cache/
+.augment/
 
 # OS
 .DS_Store
 Thumbs.db
 
 # Project specific
-# *.json  # 已移除，允许上传 frame_data.json
-# pic/  # 已移除，允许上传 pic 文件夹
 *.spec
+
+# 工具/个人配置（不进远程）
+.trae/
+.workbuddy/
+.gitconfig
+.ssh_config
+skills-lock.json
+
+# 资源与运行数据（仅本地保留，不进远程）
+pic/
+logs/*.log
+记录.json
+venv_packages.txt
+build_log.txt
+profile.ps1
+test_mermaid_flow.txt
+src/daily_task/*.json
+src/daily_task/alliance_skip.txt
 
