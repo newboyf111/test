@@ -61,3 +61,13 @@ test_mermaid_flow.txt
 src/daily_task/*.json
 src/daily_task/alliance_skip.txt
 
+# 与 run.py 无关联的代码（仅本地保留，不进远程）
+build_exe.py
+src/config.py
+src/modules.py
+src/snowfield_weapon_league.py
+src/daily_task/daily_ocr.py
+src/daily_task/alliance.py
+src/daily_task/recruit.py
+src/daily_task/bulid_ocr.py
+
